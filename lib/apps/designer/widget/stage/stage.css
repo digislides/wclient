@@ -1,1 +1,34 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
 
+.viewport {
+  position: relative;
+  background-color: grey;
+}
+
+.canvas {
+  position: relative;
+  background-color: white;
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+
+.handle-holder {
+  position: absolute;
+  pointer-events: none;
+}
+
+.handle-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.selected-box {
+  border: 1px solid blue;
+  position: absolute;
+}

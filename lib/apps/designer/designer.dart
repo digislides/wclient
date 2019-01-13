@@ -6,7 +6,7 @@ import 'widget/stage/stage.dart';
   selector: 'designer-app',
   styleUrls: ['designer.css'],
   templateUrl: 'designer.html',
-  directives: [StageComponent],
+  directives: [PageStageComponent],
 )
 class DesignerApp {
 }

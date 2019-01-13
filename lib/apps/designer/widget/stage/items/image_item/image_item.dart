@@ -1,7 +1,6 @@
-import 'dart:async';
-
 import 'package:angular/angular.dart';
-import 'package:angular_components/angular_components.dart';
+
+import 'package:common/models.dart';
 
 @Component(
   selector: 'image-item',
@@ -13,5 +12,52 @@ import 'package:angular_components/angular_components.dart';
   ],
 )
 class ImageItemComponent {
+  @Input()
+  ImageItem item = ImageItem(
+      id: '1',
+      name: 'Image',
+      left: 100,
+      top: 50,
+      width: 200,
+      height: 150,
+      bgColor: 'red',
+      url:
+          'http://as01.epimg.net/en/imagenes/2018/03/04/football/1520180124_449729_noticia_normal.jpg',
+      fit: Fit.cover);
+
   ImageItemComponent();
+
+  @HostBinding('style.left.px')
+  int get left => item.left;
+
+  @HostBinding('style.top.px')
+  int get top => item.top;
+
+  @HostBinding('style.width.px')
+  int get width => item.width;
+
+  @HostBinding('style.height.px')
+  int get height => item.height;
+
+  @HostBinding('style.background-color')
+  String get bgColor => item.bgColor;
+
+  @HostBinding('style.background-image')
+  String get bgImage {
+    if (item.url == null) return 'none';
+    return 'url(${item.url})';
+  }
+
+  @HostBinding('style.background-size')
+  String get bgSize {
+    if (item.fit == Fit.contain) return 'contain';
+    if (item.fit == Fit.cover) return 'cover';
+    return 'auto';
+  }
+
+  @HostBinding('style.background-repeat')
+  String get bgRepeat {
+    if (item.fit != Fit.tile) return 'no-repeat';
+    return 'repeat';
+  }
 }

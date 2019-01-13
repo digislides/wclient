@@ -1,1 +1,34 @@
-<div>Hello</div>
+<div class="viewport"
+     [style.width.px]="page.width + holderWidth"
+     [style.height.px]="page.height + holderHeight" (click)="stageClick($event)">
+    <div class="canvas"
+         [style.left.px]="holderWidth/2"
+         [style.top.px]="holderHeight/2"
+         [style.width.px]="page.width"
+         [style.height.px]="page.height">
+        <template ngFor let-item [ngForOf]="page.items">
+            <template [ngIf]="isText(item)">
+                <text-item [item]="item" (click)="onItemClick($event, item)"></text-item>
+            </template>
+            <template [ngIf]="isImage(item)">
+                <image-item [item]="item" (click)="onItemClick($event, item)"></image-item>
+            </template>
+        </template>
+    </div>
+    <div class="handle-holder"
+         [style.left.px]="holderWidth/2"
+         [style.top.px]="holderHeight/2"
+         [style.width.px]="page.width"
+         [style.height.px]="page.height">
+        <!--<div class="handle-container">-->
+            <template [ngIf]="selectedRect != null">
+                <div class="selected-box"
+                     [style.left.px]="selectedRect.left"
+                     [style.top.px]="selectedRect.top"
+                     [style.width.px]="selectedRect.width"
+                     [style.height.px]="selectedRect.height">
+                </div>
+            </template>
+        <!--</div>-->
+    </div>
+</div>
