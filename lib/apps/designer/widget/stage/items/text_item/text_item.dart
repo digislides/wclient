@@ -20,7 +20,7 @@ class TextItemComponent {
       top: 50,
       width: 200,
       height: 150,
-      bgColor: 'red',
+      color: 'red',
       text: 'Hello!',
       font: FontProperties(
           size: 25, color: 'blue', align: Align.center, bold: true));
@@ -38,9 +38,9 @@ class TextItemComponent {
   int get height => item.height;
 
   @HostBinding('style.background-color')
-  String get bgColor => item.bgColor;
+  String get bgColor => item.color;
 
-  @HostBinding('style.font-size')
+  @HostBinding('style.font-size.px')
   int get fontSize => item.font.size;
 
   @HostBinding('style.text-align')
@@ -50,5 +50,11 @@ class TextItemComponent {
   String get color => item.font.color;
 
   @HostBinding('style.font-weight')
-  String get bold => item.font.bold.toString();
+  String get bold => item.font.bold ? 'bold' : 'normal';
+
+  @HostBinding('style.text-decoration')
+  String get underline => item.font.underline ? 'underline' : 'none';
+
+  @HostBinding('style.font-style')
+  String get italic => item.font.italic ? 'italic' : 'normal';
 }

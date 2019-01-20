@@ -28,3 +28,59 @@
   outline: none;
   border: 1px solid black;
 }
+
+.separator {
+    width: 100%;
+    border-top: 1px solid #00000038;
+    margin: 5px 0px;
+}
+
+.section-title {
+    width: 100%;
+    color: #4a4a4a;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-align: center;
+    margin: 5px 0px;
+}
+
+.button {
+    width: 45px;
+    height: 45px;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    margin: 0px 5px;
+}
+
+.button:hover {
+  border: 1px solid black;
+}
+
+.button:active {
+  background-color: #c5c5c5;
+}
+
+.icon {
+    background-size: 80%;
+    box-sizing: border-box;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.items-list {
+  width: 100%;
+  display: flex;
+}
+
+.text-icon {
+  background-image: url(https://image.flaticon.com/icons/svg/25/25672.svg);
+}
+
+.image-icon {
+  background-image: url(https://image.flaticon.com/icons/svg/149/149637.svg);
+}
+
+.video-icon {
+  background-image: url(https://image.flaticon.com/icons/svg/148/148720.svg);
+}

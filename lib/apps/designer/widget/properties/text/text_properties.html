@@ -1,0 +1,51 @@
+<div>
+    <div class="row">
+        <div class="label">Left</div>
+        <input type="number" class="input" tjText [bind]="text.left" (bind)="text.left = $event">
+    </div>
+    <div class="row">
+        <div class="label">Top</div>
+        <input type="number" class="input" tjText [bind]="text.top" (bind)="text.top = $event">
+    </div>
+    <div class="row">
+        <div class="label">Width</div>
+        <input type="number" class="input" tjText [bind]="text.width" (bind)="text.width = $event">
+    </div>
+    <div class="row">
+        <div class="label">Height</div>
+        <input type="number" class="input" tjText [bind]="text.height" (bind)="text.height = $event">
+    </div>
+    <div class="row">
+        <div class="label">Color</div>
+        <input class="input" tjText [bind]="text.color" (bind)="text.color = $event">
+    </div>
+    <div>
+        <div class="row">
+            <div class="label">Text</div>
+        </div>
+        <textarea [value]="text.text" tjTextArea (bind)="text.text = $event"></textarea>
+    </div>
+    <div class="separator"></div>
+    <div class="section-title">Font</div>
+    <div class="row">
+        <div class="button-group">
+            <div class="button-group-item icon left-icon" [class.selected]="text.font.align == Align.left" (click)="text.font.align = Align.left"></div>
+            <div class="button-group-item icon center-icon" [class.selected]="text.font.align == Align.center" (click)="text.font.align = Align.center"></div>
+            <div class="button-group-item icon right-icon" [class.selected]="text.font.align == Align.right" (click)="text.font.align = Align.right"></div>
+        </div>
+
+        <div class="button icon bold-icon" [class.selected]="text.font.bold" (click)="text.font.bold = !text.font.bold"></div>
+        <div class="button icon italic-icon" [class.selected]="text.font.italic" (click)="text.font.italic = !text.font.italic"></div>
+        <div class="button icon underline-icon" [class.selected]="text.font.underline" (click)="text.font.underline = !text.font.underline"></div>
+        <!-- TODO bold -->
+        <!-- TODO underline -->
+    </div>
+    <div class="row">
+        <div class="label">Size</div>
+        <input class="input" tjText [bind]="text.font.size" (bind)="text.font.size = $event">
+    </div>
+    <div class="row">
+        <div class="label">Color</div>
+        <input class="input" tjText [bind]="text.font.color" (bind)="text.font.color = $event">
+    </div>
+</div>

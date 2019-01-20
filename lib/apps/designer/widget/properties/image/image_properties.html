@@ -1,31 +1,31 @@
 <div>
     <div class="row">
         <div class="label">Left</div>
-        <input type="number" class="input" tjInput [bind]="left" (bind)="left = $event">
+        <input type="number" class="input" tjText [bind]="image.left" (bind)="image.left = $event">
     </div>
     <div class="row">
         <div class="label">Top</div>
-        <input type="number" class="input" tjInput [bind]="top" (bind)="top = $event">
+        <input type="number" class="input" tjText [bind]="image.top" (bind)="image.top = $event">
     </div>
     <div class="row">
         <div class="label">Width</div>
-        <input type="number" class="input" tjInput [bind]="width" (bind)="width = $event">
+        <input type="number" class="input" tjText [bind]="image.width" (bind)="image.width = $event">
     </div>
     <div class="row">
         <div class="label">Height</div>
-        <input type="number" class="input" tjInput [bind]="height" (bind)="height = $event">
+        <input type="number" class="input" tjText [bind]="image.height" (bind)="image.height = $event">
     </div>
     <div class="row">
         <div class="label">Color</div>
-        <input type="number" class="input">
+        <input class="input" tjText [bind]="image.color" (bind)="image.color = $event">
     </div>
     <div class="row">
         <div class="label">Image</div>
-        <input type="number" class="input">
+        <input class="input" tjText [bind]="image.url" (bind)="image.url = $event">
     </div>
     <div class="row">
         <div class="label">Fit</div>
-        <select class="input">
+        <select class="input" tjSelect [value]="image.fit.name" (bind)="image.fit = Fit.map($event)">
             <option>Normal</option>
             <option>Contain</option>
             <option>Cover</option>

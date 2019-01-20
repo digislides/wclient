@@ -3,6 +3,7 @@ import 'package:angular/angular.dart';
 import '../stage/stage.dart';
 import '../properties/page/page_properties.dart';
 import '../properties/image/image_properties.dart';
+import '../properties/text/text_properties.dart';
 
 import 'package:common/models.dart';
 
@@ -15,6 +16,7 @@ import 'package:common/models.dart';
     PageStageComponent,
     PagePropertiesComponent,
     ImagePropertiesComponent,
+    TextPropertiesComponent,
   ],
   exports: [PageItemType],
 )
@@ -26,7 +28,6 @@ class PageEditorComponent {
       width: 200,
       height: 300,
       duration: 5,
-      color: 'green',
       fit: Fit.cover,
       items: [
         TextItem(
@@ -36,7 +37,7 @@ class PageEditorComponent {
             top: 20,
             width: 100,
             height: 50,
-            bgColor: 'red',
+            color: 'red',
             font: FontProperties(size: 25)),
         ImageItem(
             id: '1',
@@ -50,6 +51,9 @@ class PageEditorComponent {
             fit: Fit.cover),
       ]);
 
+  @ViewChild(PageStageComponent)
+  PageStageComponent stage;
+
   PageEditorComponent();
 
   Iterable<PageItem> selected = [];
@@ -58,5 +62,9 @@ class PageEditorComponent {
 
   void selectionChanged(Iterable<PageItem> items) {
     selected = items;
+  }
+
+  void onItemAdd(PageItem item) {
+    stage.setSelection(item);
   }
 }

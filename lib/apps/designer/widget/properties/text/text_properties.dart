@@ -5,21 +5,22 @@ import 'package:wclient/utils/directives/input_binder.dart';
 import 'package:common/models.dart';
 
 @Component(
-    selector: 'image-properties',
-    styleUrls: ['image_properties.css'],
-    templateUrl: 'image_properties.html',
+    selector: 'text-properties',
+    styleUrls: ['text_properties.css'],
+    templateUrl: 'text_properties.html',
     directives: [
       NgFor,
       NgIf,
       TextBinder,
+      TextAreaBinder,
       SelectBoxBinder,
     ],
     exports: [
-      Fit,
+      Align,
     ])
-class ImagePropertiesComponent {
+class TextPropertiesComponent {
   @Input()
-  ImageItem image = ImageItem(
+  TextItem text = TextItem(
     id: '1',
     name: 'Image1',
     top: 20,
@@ -27,9 +28,8 @@ class ImagePropertiesComponent {
     width: 200,
     height: 300,
     color: 'blue',
-    // TODO url
-    // TODO fit
+    text: "Some text here!",
   );
 
-  ImagePropertiesComponent();
+  TextPropertiesComponent();
 }

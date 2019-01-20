@@ -4,14 +4,14 @@ import 'dart:html';
 import 'package:angular/angular.dart';
 
 @Directive(
-  selector: '[tjInput]',
+  selector: '[tjText]',
 )
-class InputBinder {
+class TextBinder {
   final InputElement _host;
 
   final _valChanged = StreamController<String>();
 
-  InputBinder(Element el): _host = el;
+  TextBinder(Element el) : _host = el;
 
   @Input()
   set bind(value) {
@@ -35,9 +35,49 @@ class InputBinder {
 
   @HostListener('keyup')
   void onKeyUp(KeyboardEvent event) {
-    if(event.keyCode == KeyCode.ENTER) {
+    if (event.keyCode == KeyCode.ENTER) {
       _valChanged.add(_host.value);
-    } else if(event.keyCode == KeyCode.ESC) {
+    } else if (event.keyCode == KeyCode.ESC) {
+      _host.value = _oldValue;
+    }
+  }
+}
+
+@Directive(
+  selector: '[tjTextArea]',
+)
+class TextAreaBinder {
+  final TextAreaElement _host;
+
+  final _valChanged = StreamController<String>();
+
+  TextAreaBinder(Element el) : _host = el;
+
+  @Input()
+  set bind(value) {
+    _host.value = value?.toString() ?? '';
+  }
+
+  @Output()
+  Stream<String> get bind => _valChanged.stream;
+
+  String _oldValue;
+
+  @HostListener('focus')
+  void onFocus(_) {
+    _oldValue = _host.value;
+  }
+
+  @HostListener('blur')
+  void onBlur(_) {
+    _valChanged.add(_host.value);
+  }
+
+  @HostListener('keyup')
+  void onKeyUp(KeyboardEvent event) {
+    if (event.keyCode == KeyCode.ENTER && event.shiftKey) {
+      _valChanged.add(_host.value);
+    } else if (event.keyCode == KeyCode.ESC) {
       _host.value = _oldValue;
     }
   }
@@ -47,7 +87,7 @@ class InputBinder {
 class SelectBoxBinder {
   final SelectElement _host;
 
-  SelectBoxBinder(Element el): _host = el;
+  SelectBoxBinder(Element el) : _host = el;
 
   final _valChanged = StreamController<String>();
 

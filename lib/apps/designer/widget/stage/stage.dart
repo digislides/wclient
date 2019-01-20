@@ -8,6 +8,11 @@ import 'package:common/models.dart';
 import 'items/text_item/text_item.dart';
 import 'items/image_item/image_item.dart';
 
+@Injectable()
+class SelectionModifier {
+
+}
+
 @Component(
   selector: 'page-stage',
   styleUrls: ['stage.css'],
@@ -25,7 +30,7 @@ class PageStageComponent {
         top: 20,
         width: 100,
         height: 50,
-        bgColor: 'red',
+        color: 'red',
         font: FontProperties(size: 25)),
     ImageItem(
         id: '1',
@@ -71,7 +76,7 @@ class PageStageComponent {
   final _rectUpdates = <StreamSubscription>[];
 
   void _updateSelectedRect() {
-    for(final sub in _rectUpdates) {
+    for (final sub in _rectUpdates) {
       sub.cancel();
     }
     _rectUpdates.clear();
@@ -124,4 +129,12 @@ class PageStageComponent {
 
   @Output()
   Stream<Iterable<PageItem>> get onSelect => _onSelect.stream;
+
+  void setSelection(PageItem item) {
+    if(!page.items.contains(item)) return;
+
+    selected.clear();
+    selected[item.id] = item;
+    _updateSelectedRect();
+  }
 }

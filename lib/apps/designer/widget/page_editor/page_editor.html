@@ -2,11 +2,14 @@
 
 <div class="side-pane">
     <template [ngIf]="selected.length == 0">
-        <page-properties [page]="page"></page-properties>
+        <page-properties [page]="page" (onItemAdd)="onItemAdd($event)"></page-properties>
     </template>
     <template [ngIf]="selected.length == 1">
         <template [ngIf]="firstSelected.type == PageItemType.image">
             <image-properties [image]="firstSelected"></image-properties>
+        </template>
+        <template [ngIf]="firstSelected.type == PageItemType.text">
+            <text-properties [text]="firstSelected"></text-properties>
         </template>
     </template>
 </div>

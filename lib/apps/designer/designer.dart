@@ -8,5 +8,4 @@ import 'widget/stage/stage.dart';
   templateUrl: 'designer.html',
   directives: [PageStageComponent],
 )
-class DesignerApp {
-}
+class DesignerApp {}

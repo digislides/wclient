@@ -20,7 +20,7 @@ class ImageItemComponent {
       top: 50,
       width: 200,
       height: 150,
-      bgColor: 'red',
+      color: 'red',
       url:
           'http://as01.epimg.net/en/imagenes/2018/03/04/football/1520180124_449729_noticia_normal.jpg',
       fit: Fit.cover);
@@ -40,7 +40,7 @@ class ImageItemComponent {
   int get height => item.height;
 
   @HostBinding('style.background-color')
-  String get bgColor => item.bgColor;
+  String get color => item.color;
 
   @HostBinding('style.background-image')
   String get bgImage => item.imageUrl;

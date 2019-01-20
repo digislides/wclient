@@ -1,23 +1,35 @@
 <div>
     <div class="row">
         <div class="label">Name</div>
-        <input class="input" tjInput [(bind)]="page.name">
+        <input class="input" tjText [bind]="page.name" (bind)="page.name = $event">
     </div>
     <div class="row">
         <div class="label">Color</div>
-        <input class="input">
+        <input class="input" tjText [bind]="page.color" (bind)="page.color = $event">
     </div>
     <div class="row">
         <div class="label">Image</div>
-        <input class="input" tjInput [bind]="image" (bind)="image = $event">
+        <input class="input" tjText [bind]="image" (bind)="image = $event">
     </div>
     <div class="row">
         <div class="label">Fit</div>
-        <select class="input" [value]="page.fit.name" (bind)="page.fit = Fit.map($event)" tjSelect>
+        <select class="input" tjSelect [value]="page.fit.name" (bind)="page.fit = Fit.map($event)">
             <option>Normal</option>
             <option>Contain</option>
             <option>Cover</option>
             <option>Tile</option>
         </select>
+    </div>
+    <div class="row">
+        <div class="label">Duration</div>
+        <input class="input" tjText [bind]="page.duration" (bind)="page.duration = $event">
+    </div>
+    <div class="separator"></div>
+    <div class="section-title">Add items</div>
+
+    <div class="items-list">
+        <div class="button icon text-icon" (click)="add('text')"></div>
+        <div class="button icon image-icon" (click)="add('image')"></div>
+        <div class="button icon video-icon" (click)="add('video')"></div>
     </div>
 </div>

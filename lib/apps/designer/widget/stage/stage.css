@@ -5,6 +5,7 @@
   overflow: auto;
   background-color: gainsboro;
   border-right: 1px solid #bbbbbb;
+  user-select: none;
 }
 
 .viewport {

@@ -13,4 +13,5 @@ page-stage {
 .side-pane {
   height: 100%;
   width: 320px;
+  background-color: #dedede;
 }
