@@ -12,6 +12,10 @@ import 'package:common/models.dart';
     NgFor,
     NgIf,
     InputBinder,
+    SelectBoxBinder,
+  ],
+  exports: [
+    Fit,
   ],
 )
 class PagePropertiesComponent {
@@ -27,8 +31,10 @@ class PagePropertiesComponent {
 
   PagePropertiesComponent();
 
-  set name(String name) {
-    print(name);
-    page.name = name;
+  String get image => page.image;
+
+  set image(String image) {
+    print(image);
+    page.image = image;
   }
 }

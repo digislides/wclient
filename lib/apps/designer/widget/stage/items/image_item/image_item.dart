@@ -43,21 +43,11 @@ class ImageItemComponent {
   String get bgColor => item.bgColor;
 
   @HostBinding('style.background-image')
-  String get bgImage {
-    if (item.url == null) return 'none';
-    return 'url(${item.url})';
-  }
+  String get bgImage => item.imageUrl;
 
   @HostBinding('style.background-size')
-  String get bgSize {
-    if (item.fit == Fit.contain) return 'contain';
-    if (item.fit == Fit.cover) return 'cover';
-    return 'auto';
-  }
+  String get bgSize => item.fit.sizeCss;
 
   @HostBinding('style.background-repeat')
-  String get bgRepeat {
-    if (item.fit != Fit.tile) return 'no-repeat';
-    return 'repeat';
-  }
+  String get bgRepeat => item.fit.repeatCss;
 }

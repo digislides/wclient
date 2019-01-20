@@ -9,11 +9,11 @@
     </div>
     <div class="row">
         <div class="label">Image</div>
-        <input type="number" class="input">
+        <input class="input" tjInput [bind]="image" (bind)="image = $event">
     </div>
     <div class="row">
         <div class="label">Fit</div>
-        <select class="input">
+        <select class="input" [value]="page.fit.name" (bind)="page.fit = Fit.map($event)" tjSelect>
             <option>Normal</option>
             <option>Contain</option>
             <option>Cover</option>

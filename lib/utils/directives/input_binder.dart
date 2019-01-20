@@ -42,3 +42,25 @@ class InputBinder {
     }
   }
 }
+
+@Directive(selector: 'select[tjSelect]')
+class SelectBoxBinder {
+  final SelectElement _host;
+
+  SelectBoxBinder(Element el): _host = el;
+
+  final _valChanged = StreamController<String>();
+
+  @Output()
+  Stream<String> get bind => _valChanged.stream;
+
+  @Input()
+  set bind(value) {
+    _host.value = value;
+  }
+
+  @HostListener('change')
+  void onChange(value) {
+    _valChanged.add(_host.value);
+  }
+}

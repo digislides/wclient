@@ -5,7 +5,12 @@
          [style.left.px]="holderWidth/2"
          [style.top.px]="holderHeight/2"
          [style.width.px]="page.width"
-         [style.height.px]="page.height">
+         [style.height.px]="page.height"
+            [style.background-color]="page.color"
+         [style.background-image]="page.imageUrl"
+         [style.background-size]="page.fit.sizeCss"
+         [style.background-repeat]="page.fit.repeatCss"
+    >
         <template ngFor let-item [ngForOf]="page.items">
             <template [ngIf]="isText(item)">
                 <text-item [item]="item" (click)="onItemClick($event, item)"></text-item>

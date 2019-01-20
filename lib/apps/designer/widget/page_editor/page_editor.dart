@@ -27,6 +27,7 @@ class PageEditorComponent {
       height: 300,
       duration: 5,
       color: 'green',
+      fit: Fit.cover,
       items: [
         TextItem(
             id: '0',
