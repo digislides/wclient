@@ -1,1 +1,12 @@
-<div>Hello</div>
+<page-stage [page]="page" (onSelect)="selectionChanged($event)"></page-stage>
+
+<div class="side-pane">
+    <template [ngIf]="selected.length == 0">
+        <page-properties [page]="page"></page-properties>
+    </template>
+    <template [ngIf]="selected.length == 1">
+        <template [ngIf]="firstSelected.type == PageItemType.image">
+            <image-properties [image]="firstSelected"></image-properties>
+        </template>
+    </template>
+</div>

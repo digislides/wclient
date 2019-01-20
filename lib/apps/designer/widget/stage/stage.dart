@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'dart:html';
+import 'dart:async';
 
 import 'package:angular/angular.dart';
 import 'package:common/models.dart';
@@ -14,6 +15,7 @@ import 'items/image_item/image_item.dart';
   directives: [NgFor, NgIf, TextItemComponent, ImageItemComponent],
 )
 class PageStageComponent {
+  @Input()
   Page page =
       Page(name: "Page", width: 200, height: 200, color: 'green', items: [
     TextItem(
@@ -66,7 +68,20 @@ class PageStageComponent {
 
   Rectangle<int> selectedRect;
 
+  final _rectUpdates = <StreamSubscription>[];
+
   void _updateSelectedRect() {
+    for(final sub in _rectUpdates) {
+      sub.cancel();
+    }
+    _rectUpdates.clear();
+
+    selected.values.forEach((i) {
+      _rectUpdates.add(i.onRectChange.listen((r) {
+        _updateSelectedRect();
+      }));
+    });
+
     if (selected.isNotEmpty) {
       final first = selected.values.first;
       int left = first.left;
@@ -89,6 +104,8 @@ class PageStageComponent {
     } else {
       selectedRect = null;
     }
+
+    _onSelect.add(selected.values);
   }
 
   void stageClick(MouseEvent event) {
@@ -98,4 +115,13 @@ class PageStageComponent {
       _updateSelectedRect();
     }
   }
+
+  void ngOnChanges(Map<String, SimpleChange> changes) {
+    print("here");
+  }
+
+  final _onSelect = StreamController<Iterable<PageItem>>();
+
+  @Output()
+  Stream<Iterable<PageItem>> get onSelect => _onSelect.stream;
 }

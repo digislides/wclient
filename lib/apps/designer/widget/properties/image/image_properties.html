@@ -1,0 +1,35 @@
+<div>
+    <div class="row">
+        <div class="label">Left</div>
+        <input type="number" class="input" tjInput [bind]="left" (bind)="left = $event">
+    </div>
+    <div class="row">
+        <div class="label">Top</div>
+        <input type="number" class="input" tjInput [bind]="top" (bind)="top = $event">
+    </div>
+    <div class="row">
+        <div class="label">Width</div>
+        <input type="number" class="input" tjInput [bind]="width" (bind)="width = $event">
+    </div>
+    <div class="row">
+        <div class="label">Height</div>
+        <input type="number" class="input" tjInput [bind]="height" (bind)="height = $event">
+    </div>
+    <div class="row">
+        <div class="label">Color</div>
+        <input type="number" class="input">
+    </div>
+    <div class="row">
+        <div class="label">Image</div>
+        <input type="number" class="input">
+    </div>
+    <div class="row">
+        <div class="label">Fit</div>
+        <select class="input">
+            <option>Normal</option>
+            <option>Contain</option>
+            <option>Cover</option>
+            <option>Tile</option>
+        </select>
+    </div>
+</div>
