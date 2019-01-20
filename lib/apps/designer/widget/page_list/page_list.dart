@@ -1,8 +1,4 @@
-import 'dart:async';
-
 import 'package:angular/angular.dart';
-import 'package:angular_components/angular_components.dart';
-
 import 'package:common/models.dart';
 
 @Component(
@@ -65,6 +61,9 @@ class PageListComponent {
               fit: Fit.cover),
         ])
   ];
+
+  @Input()
+  Page selectedPage;
 
   PageListComponent();
 }

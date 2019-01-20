@@ -1,1 +1,8 @@
-<div>Hello</div>
+<div class="title">Pages</div>
+<div class="tools"></div>
+<div class="items">
+    <div *ngFor="let page of pages" class="item" [class.selected]="page == selectedPage">
+        <div class="thumbnail"></div>
+        <div>{{page.name}}</div>
+    </div>
+</div>
