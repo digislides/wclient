@@ -9,9 +9,7 @@ import 'items/text_item/text_item.dart';
 import 'items/image_item/image_item.dart';
 
 @Injectable()
-class SelectionModifier {
-
-}
+class SelectionModifier {}
 
 @Component(
   selector: 'page-stage',
@@ -115,14 +113,12 @@ class PageStageComponent {
 
   void stageClick(MouseEvent event) {
     final tar = event.target as Element;
-    if (tar.classes.contains('viewport') || tar.classes.contains('canvas')) {
+    if (tar.classes.contains('viewport') ||
+        tar.classes.contains('canvas') ||
+        tar.classes.contains('container')) {
       selected.clear();
       _updateSelectedRect();
     }
-  }
-
-  void ngOnChanges(Map<String, SimpleChange> changes) {
-    print("here");
   }
 
   final _onSelect = StreamController<Iterable<PageItem>>();
@@ -131,10 +127,56 @@ class PageStageComponent {
   Stream<Iterable<PageItem>> get onSelect => _onSelect.stream;
 
   void setSelection(PageItem item) {
-    if(!page.items.contains(item)) return;
+    if (!page.items.contains(item)) return;
 
     selected.clear();
     selected[item.id] = item;
     _updateSelectedRect();
+  }
+
+  void onKeyPress(KeyboardEvent event) {
+    int factor = 5;
+    if (event.shiftKey) {
+      factor = 10;
+    } else if (event.altKey) {
+      factor = 1;
+    }
+    if (!event.ctrlKey) {
+      if (event.keyCode == KeyCode.UP) {
+        for (PageItem item in selected.values) {
+          item.top -= factor;
+        }
+      } else if (event.keyCode == KeyCode.DOWN) {
+        for (PageItem item in selected.values) {
+          item.top += factor;
+        }
+      } else if (event.keyCode == KeyCode.LEFT) {
+        for (PageItem item in selected.values) {
+          item.left -= factor;
+        }
+      } else if (event.keyCode == KeyCode.RIGHT) {
+        for (PageItem item in selected.values) {
+          item.left += factor;
+        }
+      }
+    } else {
+      if (event.keyCode == KeyCode.UP) {
+        for (PageItem item in selected.values) {
+          item.height -= factor;
+        }
+      } else if (event.keyCode == KeyCode.DOWN) {
+        for (PageItem item in selected.values) {
+          item.height += factor;
+        }
+      } else if (event.keyCode == KeyCode.LEFT) {
+        for (PageItem item in selected.values) {
+          item.width -= factor;
+        }
+      } else if (event.keyCode == KeyCode.RIGHT) {
+        for (PageItem item in selected.values) {
+          item.width += factor;
+        }
+      }
+    }
   }
 }
