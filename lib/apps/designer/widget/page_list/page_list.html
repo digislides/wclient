@@ -3,7 +3,7 @@
     <div class="title-button">+</div>
 </div>
 <div class="items">
-    <div *ngFor="let page of pages" class="item" [class.selected]="page == selectedPage">
+    <div *ngFor="let page of frame.pages" class="item" [class.selected]="page == selectedPage">
         <div class="thumbnail"></div>
         <div class="name">{{page.name}}</div>
         <div class="button icon delete-icon"></div>
