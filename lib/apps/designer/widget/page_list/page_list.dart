@@ -73,4 +73,8 @@ class PageListComponent {
   Page selectedPage;
 
   PageListComponent();
+
+  void addPage() {
+    frame.addNewPage();
+  }
 }

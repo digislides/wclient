@@ -1,6 +1,6 @@
 <div class="title-bar">
     <div class="title">Pages</div>
-    <div class="title-button">+</div>
+    <div class="title-button" (click)="addPage()">+</div>
 </div>
 <div class="items">
     <div *ngFor="let page of frame.pages" class="item" [class.selected]="page == selectedPage">
