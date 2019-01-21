@@ -77,4 +77,16 @@ class PageListComponent {
   void addPage() {
     frame.addNewPage();
   }
+
+  void deletePage(Page page) {
+    if (selectedPage == page) {
+      // TODO if its selected, set new selected page
+    }
+    frame.removePage(page.id);
+  }
+
+  void duplicatePage(Page page) {
+    // frame.
+    // TODO
+  }
 }
