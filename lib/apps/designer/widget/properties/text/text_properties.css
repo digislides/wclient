@@ -58,6 +58,7 @@ textarea:focus {
     box-sizing: border-box;
     border: 1px solid transparent;
     margin: 0px 5px;
+    cursor: pointer;
 }
 
 .button:hover {
@@ -80,6 +81,7 @@ textarea:focus {
     height: 25px;
     box-sizing: border-box;
     border: 1px solid transparent;
+    cursor: pointer;
 }
 
 .button-group-item:hover {
