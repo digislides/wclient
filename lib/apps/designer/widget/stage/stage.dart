@@ -135,6 +135,13 @@ class PageStageComponent {
   }
 
   void onKeyPress(KeyboardEvent event) {
+    if (event.keyCode == KeyCode.DELETE) {
+      page.items.removeWhere((i) => selected.containsKey(i.id));
+      selected.clear();
+      _updateSelectedRect();
+      return;
+    }
+
     int factor = 5;
     if (event.shiftKey) {
       factor = 10;
