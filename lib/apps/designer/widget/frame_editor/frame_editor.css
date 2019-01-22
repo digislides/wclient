@@ -6,12 +6,19 @@
   flex: 1;
 }
 
+.page-list {
+  height: 100%;
+  background-color: #dedede;
+}
+
 page-stage {
   flex: 1;
 }
 
-.side-pane {
-  height: 100%;
-  width: 320px;
-  background-color: #dedede;
+.no-page-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

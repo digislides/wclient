@@ -1,4 +1,10 @@
-<page-list></page-list>
+<page-list [selectedPage]="selectedPage" (onPageSelect)="selectPage($event)"></page-list>
 <template [ngIf]="selectedPage != null">
     <page-editor [page]="selectedPage"></page-editor>
+</template>
+<template [ngIf]="selectedPage == null">
+    <div class="no-page-info">
+        <div>There are no pages in this frame!</div>
+        <div>To add a new page, click on the add button in the left sidebar.</div>
+    </div>
 </template>

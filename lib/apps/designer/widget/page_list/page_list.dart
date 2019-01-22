@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
@@ -84,7 +85,8 @@ class PageListComponent {
 
   void deletePage(Page page) {
     if (selectedPage == page) {
-      // TODO if its selected, set new selected page
+      // If the page being removed is currently, select a new page
+      selectPage(frame.pages.firstWhere((p) => p != page, orElse: () => null));
     }
     frame.removePage(page.id);
   }
@@ -156,5 +158,14 @@ class PageListComponent {
         draggingOn = null;
       }
     }
+  }
+
+  final _pageSelCntr = StreamController<Page>();
+
+  @Output()
+  Stream<Page> get onPageSelect => _pageSelCntr.stream;
+
+  void selectPage(Page page) {
+    _pageSelCntr.add(page);
   }
 }

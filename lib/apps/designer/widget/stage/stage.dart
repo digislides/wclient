@@ -18,8 +18,7 @@ class SelectionModifier {}
   directives: [NgFor, NgIf, TextItemComponent, ImageItemComponent],
 )
 class PageStageComponent {
-  @Input()
-  Page page =
+  Page _page =
       Page(name: "Page", width: 200, height: 200, color: 'green', items: [
     TextItem(
         id: '0',
@@ -41,6 +40,17 @@ class PageStageComponent {
             'http://as01.epimg.net/en/imagenes/2018/03/04/football/1520180124_449729_noticia_normal.jpg',
         fit: Fit.cover)
   ]);
+
+  @Input()
+  set page(Page page) {
+    if (_page != page) {
+      _page = page;
+      selected.clear();
+      _updateSelectedRect();
+    }
+  }
+
+  Page get page => _page;
 
   PageStageComponent();
 

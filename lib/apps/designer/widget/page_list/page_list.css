@@ -84,6 +84,10 @@
   border-bottom: 1px solid #00000030;
 }
 
+.item.selected {
+  background-color: #b6eaff;
+}
+
 .item.hide {
   display: none;
 }
@@ -103,6 +107,15 @@
     word-break: break-all;
     white-space: nowrap;
     overflow: hidden;
+    cursor: pointer;
+}
+
+.name:hover {
+    color: blue;
+}
+
+.name:active {
+    color: black;
 }
 
 .button {

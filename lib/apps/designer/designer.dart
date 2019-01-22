@@ -1,11 +1,17 @@
 import 'package:angular/angular.dart';
 
-import 'widget/stage/stage.dart';
+import 'widget/frame_editor/frame_editor.dart';
+
+import 'package:common/models.dart';
 
 @Component(
   selector: 'designer-app',
   styleUrls: ['designer.css'],
   templateUrl: 'designer.html',
-  directives: [PageStageComponent],
+  directives: [FrameEditorComponent],
 )
-class DesignerApp {}
+class DesignerApp {
+  /// The frame currently being edited
+  @Input()
+  Frame frame;
+}

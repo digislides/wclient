@@ -13,7 +13,7 @@
         <div class="item" [class.hide]="page == dragging" [class.selected]="page == selectedPage"
              (mousemove)="onDragOverItem($event, page)" [title]="page.name">
             <div class="thumbnail" (mousedown)="onDragStart($event, page)"></div>
-            <div class="name">{{page.name}}</div>
+            <div class="name" (click)="selectPage(page)">{{page.name}}</div>
             <div class="button icon delete-icon" (click)="deletePage(page)"></div>
             <div class="button icon duplicate-icon" (click)="duplicatePage(page)"></div>
         </div>
