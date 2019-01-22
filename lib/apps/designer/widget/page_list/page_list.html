@@ -1,12 +1,25 @@
 <div class="title-bar">
-    <div class="title">Pages</div>
+    <div class="title">{{frame.name}}</div>
     <div class="title-button" (click)="addPage()">+</div>
 </div>
-<div class="items">
-    <div *ngFor="let page of frame.pages" class="item" [class.selected]="page == selectedPage">
-        <div class="thumbnail"></div>
-        <div class="name">{{page.name}}</div>
-        <div class="button icon delete-icon" (click)="deletePage(page)"></div>
-        <div class="button icon duplicate-icon" (click)="duplicatePage(page)"></div>
+<div class="items" [class.dragging]="dragging != null" (mouseup)="onDrop($event)" tabindex="0"
+     (keyup)="onKeyPress($event)">
+    <template ngFor let-page [ngForOf]="frame.pages">
+        <template [ngIf]="page == draggingOn">
+            <div class="drop-spot">
+                <span>{{dragging.name}}</span>
+            </div>
+        </template>
+        <div class="item" [class.hide]="page == dragging" [class.selected]="page == selectedPage"
+             (mousemove)="onDragOverItem($event, page)" [title]="page.name">
+            <div class="thumbnail" (mousedown)="onDragStart($event, page)"></div>
+            <div class="name">{{page.name}}</div>
+            <div class="button icon delete-icon" (click)="deletePage(page)"></div>
+            <div class="button icon duplicate-icon" (click)="duplicatePage(page)"></div>
+        </div>
+    </template>
+    <div class="extra-spot" [class.drop-spot]="dragging != null && draggingOn == null"
+         (mousemove)="onDragOverItem($event, null)">
+        <span *ngIf="dragging != null && draggingOn == null">{{dragging.name}}</span>
     </div>
 </div>

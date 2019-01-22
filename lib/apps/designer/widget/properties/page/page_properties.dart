@@ -43,17 +43,17 @@ class PagePropertiesComponent {
     switch (type) {
       case 'text':
         final item = TextItem();
-        page.items.add(item);
+        page.addNewItem(item);
         _itemAddCntr.add(item);
         break;
       case 'image':
         final item = ImageItem();
-        page.items.add(item);
+        page.addNewItem(item);
         _itemAddCntr.add(item);
         break;
       case 'video':
         final item = VideoItem();
-        page.items.add(item);
+        page.addNewItem(item);
         _itemAddCntr.add(item);
         break;
     }
