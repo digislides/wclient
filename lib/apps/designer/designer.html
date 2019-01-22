@@ -1,12 +1,14 @@
 <div class="header">
     <div class="heading">eSign</div>
     <div class="actions">
-        <div class="action icon frame-edit-icon"></div>
-        <div class="action icon save-icon"></div>
-        <div class="action icon publish-icon"></div>
-        <div class="action icon preview-icon"></div>
+        <div class="action icon frame-edit-icon" title="Edit program"></div>
+        <div class="action icon save-icon" title="Save program"></div>
+        <div class="action icon publish-icon" title="Publish program"></div>
+        <div class="action icon preview-icon" title="Preview program"></div>
     </div>
     <!-- TODO account -->
 </div>
 
-<frame-editor [frame]="frame"></frame-editor>
+<div class="content">
+    <frame-editor [frame]="frame"></frame-editor>
+</div>
