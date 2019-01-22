@@ -75,6 +75,9 @@ class PageListComponent {
   @Input()
   Page selectedPage;
 
+  @ViewChild('items')
+  DivElement itemsDiv;
+
   PageListComponent();
 
   int counter = 0;
@@ -127,7 +130,6 @@ class PageListComponent {
       } else {
         draggingOn = null;
       }
-      event.stopPropagation();
     }
   }
 
@@ -156,6 +158,21 @@ class PageListComponent {
       if (event.keyCode == KeyCode.ESC) {
         dragging = null;
         draggingOn = null;
+      }
+    }
+  }
+
+  void autoScroll(MouseEvent event) {
+    if (dragging != null && event.buttons == 1) {
+      final target = (event.target as Element);
+      int y = target.offsetTop -
+          itemsDiv.scrollTop -
+          itemsDiv.offsetTop +
+          event.offset.y;
+      if (y < 50) {
+        itemsDiv.scrollTop -= 10;
+      } else if (y > (itemsDiv.offsetHeight - 50)) {
+        itemsDiv.scrollTop += 10;
       }
     }
   }

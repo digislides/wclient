@@ -74,6 +74,10 @@
     overflow: hidden;
 }
 
+.drop-spot > * {
+  pointer-events: none;
+}
+
 .item {
   width: 100%;
   height: 51px;

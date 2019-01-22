@@ -2,8 +2,8 @@
     <div class="title">{{frame.name}}</div>
     <div class="title-button" (click)="addPage()">+</div>
 </div>
-<div class="items" [class.dragging]="dragging != null" (mouseup)="onDrop($event)" tabindex="0"
-     (keyup)="onKeyPress($event)">
+<div #items class="items" [class.dragging]="dragging != null" (mouseup)="onDrop($event)" tabindex="0"
+     (keyup)="onKeyPress($event)" (mousemove)="autoScroll($event)">
     <template ngFor let-page [ngForOf]="frame.pages">
         <template [ngIf]="page == draggingOn">
             <div class="drop-spot">
@@ -18,8 +18,9 @@
             <div class="button icon duplicate-icon" (click)="duplicatePage(page)"></div>
         </div>
     </template>
-    <div class="extra-spot" [class.drop-spot]="dragging != null && draggingOn == null"
-         (mousemove)="onDragOverItem($event, null)">
-        <span *ngIf="dragging != null && draggingOn == null">{{dragging.name}}</span>
+    <div class="drop-spot" *ngIf="dragging != null && draggingOn == null">
+        <span>{{dragging.name}}</span>
+    </div>
+    <div class="extra-spot" (mousemove)="onDragOverItem($event, null)">
     </div>
 </div>
