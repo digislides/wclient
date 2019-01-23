@@ -3,4 +3,152 @@
   width: 100%;
   height: 100%;
   user-select: none;
+  background-color: #eee;
+}
+
+.section {
+}
+
+.header-holder {
+  padding: 0px 5px;
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  max-width: 600px;
+}
+
+.section .title {
+  color: #444;
+  font-size: 18px;
+  flex: 1;
+}
+
+.list {
+  display: flex;
+}
+
+.recent {
+
+}
+
+.recent-list {
+
+}
+
+.main {
+
+}
+
+.controls {
+  display: flex;
+}
+
+.main-list {
+  flex-wrap: wrap;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 75px;
+  margin: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.item:hover {
+  cursor: pointer;
+  box-shadow: 1px 2px 4px 1px #00000042;
+}
+
+.item .thumbnail {
+  width: 75px;
+  height: 50px;
+  background-color: white;
+}
+
+.item .name {
+  font-size: 12px;
+  width: 100%;
+  background-color: black;
+  color: white;
+  padding: 5px 2px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.flex-holder {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pag {
+    display: inline-flex;
+    border-radius: 3px;
+    border: 1px solid grey;
+    align-items: center;
+    background-color: #eee;
+    height: 25px;
+}
+
+.pag .btn {
+  background-size: 65%;
+  box-sizing: border-box;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 25px;
+  height: 25px;
+}
+
+.pag .btn:hover {
+  background-color: #fff;
+}
+
+.pag .btn:active {
+  background-color: #ccc;
+}
+
+.pag .btn.pag-first {
+  background-image: url(https://img.icons8.com/ios/50/333333/first-1-filled.png);
+  border-right: 1px solid grey;
+}
+
+.pag .btn.pag-prev {
+  background-image: url(https://img.icons8.com/ios/50/333333/back-filled.png);
+  border-right: 1px solid grey;
+}
+
+.pag .btn.pag-next {
+  background-image: url(https://img.icons8.com/ios/50/333333/forward-filled.png);
+  border-left: 1px solid grey;
+  border-right: 1px solid grey;
+}
+
+.pag .btn.pag-last {
+  background-image: url(https://img.icons8.com/ios/50/333333/last-1-filled.png);
+}
+
+.pag-input {
+  height: 23px;
+  font-size: 14px;
+  text-align: center;
+  width: 30px;
+  border: none;
+  background-color: transparent;
+}
+
+.pag-input:focus {
+  outline: 1px green;
+  background-color: white;
+}
+
+.pag-count {
+  padding: 0px 5px;
+  font-size: 14px;
 }

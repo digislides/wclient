@@ -1,22 +1,49 @@
-<div class="recent">
-    <div class="recent-list">
+<div class=" section recent">
+    <div class="header-holder flex-holder">
+        <div class="header">
+            <div class="title">Recent</div>
+        </div>
+    </div>
+    <div class="list recent-list">
         <div class="item" *ngFor="let program of recent">
-            <!-- TODO -->
+            <div class="thumbnail"></div>
+            <div class="name">{{program.name}}</div>
         </div>
     </div>
 
 </div>
 
-<!-- TODO separator -->
+<div class="separator"></div>
 
-<div class="main">
-    <div class="controls"></div>
-
-    <div class="main-list">
-        <div class="item" *ngFor="let program of programs">
-            <!-- TODO -->
+<div class="section main">
+    <div class="header-holder flex-holder">
+        <div class="header">
+            <div class="title">Programs</div>
+            <div class="controls">
+                <div></div>
+                <div class="search">
+                    <div class="icon search-icon"></div>
+                    <input class="search-input">
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="pagination"></div>
+    <div class="list main-list">
+        <div class="item" *ngFor="let program of programs.items">
+            <div class="thumbnail"></div>
+            <div class="name">{{program.name}}</div>
+        </div>
+    </div>
+
+    <div class="pag-holder flex-holder">
+        <div class="pag">
+            <div class="btn pag-first"></div>
+            <div class="btn pag-prev"></div>
+            <input class="pag-input" tjText [bind]="programs.page">
+            <span class="pag-count">/ {{programs.totalPages}}</span>
+            <div class="btn pag-next"></div>
+            <div class="btn pag-last"></div>
+        </div>
+    </div>
 </div>
