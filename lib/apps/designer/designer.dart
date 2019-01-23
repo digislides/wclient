@@ -11,8 +11,6 @@ import 'package:common/models.dart';
   directives: [FrameEditorComponent],
 )
 class DesignerApp {
-  /// The frame currently being edited
-  @Input()
   Frame frame = Frame(
       id: '1',
       left: 0,
