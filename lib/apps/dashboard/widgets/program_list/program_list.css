@@ -7,6 +7,7 @@
 }
 
 .section {
+  padding: 10px 0px;
 }
 
 .header-holder {
@@ -45,6 +46,66 @@
   display: flex;
 }
 
+.search {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+    background-size: 80%;
+    box-sizing: border-box;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 26px;
+    height: 26px;
+}
+
+.search .icon {
+    height: 28px;
+    line-height: 28px;
+    background-color: #eee;
+    border: 1px solid #ced4da;
+    border-radius: 2px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 0px 5px;
+  background-image: url(https://img.icons8.com/ios/50/333333/search-filled.png);
+}
+
+.search input {
+  flex: 1;
+    border-radius: 2px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border: 1px solid #ced4da;
+    border-left: 0px;
+    padding: 5px;
+}
+
+.search input:focus {
+  outline: none;
+}
+
+.button {
+    border: 1px solid #80808042;
+    margin: 0px 5px;
+    cursor: pointer;
+}
+
+.button:hover {
+  background-color: white;
+}
+
+.button:active {
+  background-color: #a9a9a9;
+}
+
+.refresh-icon {
+  background-image: url(https://img.icons8.com/ios/50/333333/synchronize-filled.png);
+}
+
 .main-list {
   flex-wrap: wrap;
 }
@@ -53,7 +114,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 75px;
+  width: 200px;
   margin: 20px;
   border-radius: 5px;
   overflow: hidden;
@@ -65,15 +126,15 @@
 }
 
 .item .thumbnail {
-  width: 75px;
-  height: 50px;
+  width: 200px;
+  height: 120px;
   background-color: white;
 }
 
 .item .name {
-  font-size: 12px;
+  font-size: 16px;
   width: 100%;
-  background-color: black;
+  background-color: #34697c;
   color: white;
   padding: 5px 2px;
   box-sizing: border-box;
@@ -104,6 +165,7 @@
   background-repeat: no-repeat;
   width: 25px;
   height: 25px;
+  cursor: pointer;
 }
 
 .pag .btn:hover {
