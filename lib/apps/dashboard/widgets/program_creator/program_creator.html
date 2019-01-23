@@ -1,0 +1,31 @@
+<div class="title-bar">
+    <div class="title">Create new program</div>
+    <div class="close-btn">x</div>
+</div>
+<div class="body">
+    <div class="row input-row">
+        <div class="label">
+            <div class="icon name-icon"></div>
+        </div>
+        <input class="input" placeholder="Program name" tjText [bind]="model.name" (bind)="model.name = $event">
+    </div>
+    <div class="row">
+        <div class="input-row col">
+            <div class="label">
+                <div class="icon width-icon"></div>
+            </div>
+            <input class="input" placeholder="Width" tjText [bind]="model.width" (bind)="model.width = $event">
+        </div>
+        <div class="col-space"></div>
+        <div class="input-row col">
+            <div class="label">
+                <div class="icon height-icon"></div>
+            </div>
+            <input class="input" placeholder="Height" tjText [bind]="model.height" (bind)="model.height = $event">
+        </div>
+    </div>
+    <div class="btn-group" role="group" >
+        <div class="btn btn-success" (click)="create()">Create</div>
+        <div class="btn btn-info" (click)="reset()">Reset</div>
+    </div>
+</div>
