@@ -1,0 +1,53 @@
+/* Button */
+
+/* Flat button */
+.flat-btn {
+  color: #fff;
+  padding: 5px 10px;
+  margin: 0px 5px;
+  cursor: pointer;
+}
+
+.flat-btn:hover {
+
+}
+
+.flat-btn:active {
+  color: #eee;
+}
+
+/* Shadow button */
+.btn {
+  color: #fff;
+  padding: 5px 10px;
+  margin: 0px 5px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px 0px black;
+  cursor: pointer;
+}
+
+.btn:hover {
+
+}
+
+.btn:active {
+  box-shadow: none;
+}
+
+/* Button themes */
+
+.btn-success {
+  background-color: #28a745;
+}
+
+.btn-success:hover {
+  background-color: #32b14f;
+}
+
+.btn-info {
+  background-color: #117a8b;
+}
+
+.btn-info:hover {
+  background-color: #56aab7;
+}

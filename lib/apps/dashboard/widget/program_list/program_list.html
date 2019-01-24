@@ -1,4 +1,9 @@
-<div class=" section recent">
+<div class="top-header flex-holder">
+    <div class="title">Programs</div>
+    <div class="flat-btn btn-success">Create</div>
+</div>
+
+<div class="section recent">
     <div class="header-holder flex-holder">
         <div class="header">
             <div class="title">Recent</div>
@@ -18,7 +23,7 @@
 <div class="section main">
     <div class="header-holder flex-holder">
         <div class="header">
-            <div class="title">Programs</div>
+            <div class="title">All</div>
             <div class="controls">
                 <div class="button icon refresh-icon"></div>
                 <div class="search">
@@ -38,12 +43,12 @@
 
     <div class="pag-holder flex-holder">
         <div class="pag">
-            <div class="btn pag-first"></div>
-            <div class="btn pag-prev"></div>
-            <input class="pag-input" tjText [bind]="programs.page">
+            <div class="pag-btn pag-first"></div>
+            <div class="pag-btn pag-prev"></div>
+            <input class="pag-input" tjText [value]="programs.page">
             <span class="pag-count">/ {{programs.totalPages}}</span>
-            <div class="btn pag-next"></div>
-            <div class="btn pag-last"></div>
+            <div class="pag-btn pag-next"></div>
+            <div class="pag-btn pag-last"></div>
         </div>
     </div>
 </div>

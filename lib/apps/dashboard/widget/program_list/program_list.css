@@ -1,9 +1,21 @@
+@import 'package:wclient/utils/css/common.css';
+
 :host {
   display: block;
   width: 100%;
   height: 100%;
   user-select: none;
   background-color: #eee;
+  padding: 5px;
+}
+
+.top-header {
+  display: flex;
+}
+
+.top-header .title {
+  font-size: 22px;
+  flex: 1;
 }
 
 .section {
@@ -11,13 +23,11 @@
 }
 
 .header-holder {
-  padding: 0px 5px;
 }
 
 .header {
   display: flex;
   width: 100%;
-  max-width: 600px;
 }
 
 .section .title {
@@ -143,7 +153,7 @@
 
 .flex-holder {
   width: 100%;
-  max-width: 600px;
+  max-width: 700px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -158,7 +168,7 @@
     height: 25px;
 }
 
-.pag .btn {
+.pag .pag-btn {
   background-size: 65%;
   box-sizing: border-box;
   background-position: center;
@@ -168,31 +178,31 @@
   cursor: pointer;
 }
 
-.pag .btn:hover {
+.pag .pag-btn:hover {
   background-color: #fff;
 }
 
-.pag .btn:active {
+.pag .pag-btn:active {
   background-color: #ccc;
 }
 
-.pag .btn.pag-first {
+.pag .pag-btn.pag-first {
   background-image: url(https://img.icons8.com/ios/50/333333/first-1-filled.png);
   border-right: 1px solid grey;
 }
 
-.pag .btn.pag-prev {
+.pag .pag-btn.pag-prev {
   background-image: url(https://img.icons8.com/ios/50/333333/back-filled.png);
   border-right: 1px solid grey;
 }
 
-.pag .btn.pag-next {
+.pag .pag-btn.pag-next {
   background-image: url(https://img.icons8.com/ios/50/333333/forward-filled.png);
   border-left: 1px solid grey;
   border-right: 1px solid grey;
 }
 
-.pag .btn.pag-last {
+.pag .pag-btn.pag-last {
   background-image: url(https://img.icons8.com/ios/50/333333/last-1-filled.png);
 }
 

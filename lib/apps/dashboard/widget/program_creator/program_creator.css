@@ -1,3 +1,5 @@
+@import 'package:wclient/utils/css/common.css';
+
 :host {
     display: block;
     max-width: 450px;
@@ -108,37 +110,4 @@
   align-items: center;
   justify-content: center;
   margin: 10px;
-}
-
-.btn {
-  color: #fff;
-  padding: 5px 10px;
-  margin: 0px 5px;
-  border-radius: 3px;
-  box-shadow: 1px 1px 1px 0px black;
-  cursor: pointer;
-}
-
-.btn:hover {
-
-}
-
-.btn:active {
-  box-shadow: none;
-}
-
-.btn-success {
-  background-color: #218838;
-}
-
-.btn-success:hover {
-  background-color: #32b14f;
-}
-
-.btn-info {
-  background-color: #117a8b;
-}
-
-.btn-info:hover {
-  background-color: #56aab7;
 }
