@@ -25,10 +25,10 @@
         <div class="header">
             <div class="title">All</div>
             <div class="controls">
-                <div class="button icon refresh-icon"></div>
+                <div class="button icon refresh-icon" (click)="refresh()"></div>
                 <div class="search">
                     <div class="icon"></div>
-                    <input class="search-input">
+                    <input class="search-input" tjText [value]="search" (bind)="search = $event">
                 </div>
             </div>
         </div>

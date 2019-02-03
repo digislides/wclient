@@ -5,6 +5,8 @@ import 'package:wclient/utils/directives/input_binder.dart';
 
 import 'package:wclient/apps/dashboard/widget/program_creator/program_creator.dart';
 
+import 'package:wclient/utils/api/api.dart';
+
 class Paginated<M> {
   int page;
 
@@ -40,7 +42,7 @@ class ProgramListService {
     ProgramCreatorComponent,
   ],
 )
-class ProgramListComponent {
+class ProgramListComponent implements OnInit {
   /// List of programs
   Paginated programs = Paginated(
     page: 0,
@@ -65,9 +67,25 @@ class ProgramListComponent {
 
   bool creating = false;
 
+  String search = "";
+
   ProgramListComponent();
 
   void showCreate() {
     creating = true;
+  }
+
+  Future<void> refresh() async {
+    List<Program> programs = await programApi.getAll(search);
+    this.programs = Paginated(
+      items: programs,
+      numPerPage: programs.length,
+      page: 0,
+      totalPages: 1,
+    );
+  }
+
+  void ngOnInit() {
+    refresh();
   }
 }
