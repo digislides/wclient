@@ -5,6 +5,8 @@ import 'package:wclient/utils/directives/input_binder.dart';
 
 import 'package:common/models.dart';
 
+import 'package:wclient/utils/api/api.dart';
+
 @Component(
   selector: 'program-creator',
   styleUrls: ['program_creator.css'],
@@ -13,6 +15,7 @@ import 'package:common/models.dart';
     NgFor,
     NgIf,
     TextBinder,
+    NumBinder,
     SelectBoxBinder,
   ],
 )
@@ -22,6 +25,8 @@ class ProgramCreatorComponent {
   ProgramCreatorComponent();
 
   Future<void> create() async {
+    print(model);
+    await programApi.create(model);
     // TODO
   }
 
