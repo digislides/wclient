@@ -34,11 +34,13 @@ class TextBinder {
   }
 
   @HostListener('keyup')
-  void onKeyUp(KeyboardEvent event) {
-    if (event.keyCode == KeyCode.ENTER) {
-      _valChanged.add(_host.value);
-    } else if (event.keyCode == KeyCode.ESC) {
-      _host.value = _oldValue;
+  void onKeyUp(final event) {
+    if (event is KeyboardEvent) {
+      if (event.keyCode == KeyCode.ENTER) {
+        _valChanged.add(_host.value);
+      } else if (event.keyCode == KeyCode.ESC) {
+        _host.value = _oldValue;
+      }
     }
   }
 }

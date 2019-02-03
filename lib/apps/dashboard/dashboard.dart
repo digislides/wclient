@@ -9,6 +9,7 @@ import 'package:common/models.dart';
   selector: 'dashboard-app',
   styleUrls: ['dashboard.css'],
   templateUrl: 'dashboard.html',
-  directives: [ProgramListComponent, ProgramCreatorComponent],
+  directives: [ProgramListComponent],
 )
-class DashboardApp {}
+class DashboardApp {
+}

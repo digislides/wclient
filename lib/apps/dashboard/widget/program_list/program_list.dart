@@ -3,6 +3,8 @@ import 'package:common/models.dart';
 
 import 'package:wclient/utils/directives/input_binder.dart';
 
+import 'package:wclient/apps/dashboard/widget/program_creator/program_creator.dart';
+
 class Paginated<M> {
   int page;
 
@@ -35,6 +37,7 @@ class ProgramListService {
     NgFor,
     NgIf,
     TextBinder,
+    ProgramCreatorComponent,
   ],
 )
 class ProgramListComponent {
@@ -60,5 +63,11 @@ class ProgramListComponent {
     Program(name: 'Program3'),
   ];
 
+  bool creating = false;
+
   ProgramListComponent();
+
+  void showCreate() {
+    creating = true;
+  }
 }

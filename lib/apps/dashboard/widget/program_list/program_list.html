@@ -1,6 +1,6 @@
 <div class="top-header flex-holder">
     <div class="title">Programs</div>
-    <div class="flat-btn btn-success">Create</div>
+    <div class="flat-btn btn-success" (click)="showCreate()">Create</div>
 </div>
 
 <div class="section recent">
@@ -51,4 +51,8 @@
             <div class="pag-btn pag-last"></div>
         </div>
     </div>
+</div>
+
+<div *ngIf="creating" class="creator-model">
+    <program-creator ></program-creator>
 </div>
