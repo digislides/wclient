@@ -2,7 +2,55 @@
 
 :host {
     display: block;
-    max-width: 500px;
     width: 100%;
     height: 100%;
+}
+
+.header {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    padding: 0px 10px;
+    box-sizing: border-box;
+    background-color: black;
+    color: white;
+}
+
+.header .title {
+    font-size: 25px;
+    flex: 1;
+    line-height: 50px;
+    margin: 0px 5px;
+}
+
+.header .action {
+    font-size: 20px;
+    line-height: 50px;
+    padding: 0px 10px;
+    cursor: pointer;
+}
+
+.header .action:hover {
+    text-decoration: underline;
+}
+
+.header .action:active {
+    background-color: #ffffff4d;
+}
+
+.header .close {
+    font-size: 35px;
+    line-height: 50px;
+    padding: 0px 10px;
+    cursor: pointer;
+    color: #67a1ff;
+}
+
+.header .close:hover {
+    background-color: #ffffff4d;
+}
+
+.header .close:active {
+    background-color: #4569a2;
 }
