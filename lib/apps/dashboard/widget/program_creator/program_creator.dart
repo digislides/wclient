@@ -34,8 +34,8 @@ class ProgramCreatorComponent {
   }
 
   Future<void> create() async {
-    await programApi.create(model);
-    // TODO
+    Program newProgram = await programApi.create(model);
+    _OnCloseController.add(newProgram.id);
   }
 
   void reset() {

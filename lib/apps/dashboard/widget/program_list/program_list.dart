@@ -4,6 +4,7 @@ import 'package:common/models.dart';
 import 'package:wclient/utils/directives/input_binder.dart';
 
 import 'package:wclient/apps/dashboard/widget/program_creator/program_creator.dart';
+import 'package:wclient/apps/dashboard/widget/program_info/program_info.dart';
 
 import 'package:wclient/utils/api/api.dart';
 
@@ -40,6 +41,7 @@ class ProgramListService {
     NgIf,
     TextBinder,
     ProgramCreatorComponent,
+    ProgramInfoComponent,
   ],
 )
 class ProgramListComponent implements OnInit {
@@ -69,6 +71,8 @@ class ProgramListComponent implements OnInit {
 
   String search = "";
 
+  Program selected;
+
   ProgramListComponent();
 
   void showCreate() {
@@ -91,5 +95,18 @@ class ProgramListComponent implements OnInit {
 
   void closeCreator(String id) {
     creating = false;
+    refresh();
+  }
+
+  void select(Program program) {
+    selected = program;
+  }
+
+  void onInfoClose(bool deleted) {
+    selected = null;
+    refresh();
+    if(deleted) {
+      // TODO show message
+    }
   }
 }

@@ -35,7 +35,7 @@
     </div>
 
     <div class="list main-list">
-        <div class="item" *ngFor="let program of programs.items">
+        <div class="item" *ngFor="let program of programs.items" (click)="select(program)">
             <div class="thumbnail"></div>
             <div class="name">{{program.name}}</div>
         </div>
@@ -55,4 +55,8 @@
 
 <div *ngIf="creating" class="creator-model">
     <program-creator (onClose)="closeCreator($event)"></program-creator>
+</div>
+
+<div *ngIf="selected != null" class="info-holder">
+    <program-info [program]="selected" (onClose)="onInfoClose($event)"></program-info>
 </div>
