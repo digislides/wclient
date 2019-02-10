@@ -101,4 +101,8 @@ class DesignerApp implements OnInit {
   Future<void> save() async {
     await programApi.save(program.id, program.design);
   }
+
+  Future<void> publish() async {
+    await programApi.publish(program.id, program.design);
+  }
 }
