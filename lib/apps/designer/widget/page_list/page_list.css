@@ -39,11 +39,12 @@
 }
 
 .title-button:hover {
-  border: 1px solid grey;
+    border: 1px solid #3ab72c;
+    color: #3ab72c;
 }
 
 .title-button:active {
-  background-color: #a7a7a7;
+    background-color: #c8ffe4;
 }
 
 .items {
