@@ -88,4 +88,8 @@ class ProgramListComponent implements OnInit {
   void ngOnInit() {
     refresh();
   }
+
+  void closeCreator(String id) {
+    creating = false;
+  }
 }

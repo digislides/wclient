@@ -1,11 +1,14 @@
 <div class="header">
     <div class="heading">eSign</div>
-    <div class="actions">
-        <div class="action icon frame-edit-icon" title="Edit program"></div>
-        <div class="action icon save-icon" title="Save program"></div>
-        <div class="action icon publish-icon" title="Publish program"></div>
-        <div class="action icon preview-icon" title="Preview program"></div>
-    </div>
+    <template [ngIf]="program != null">
+        <div class="heading">{{program.name}}</div>
+        <div class="actions">
+            <div class="action icon frame-edit-icon" title="Edit program"></div>
+            <div class="action icon save-icon" title="Save program" (click)="save()"></div>
+            <div class="action icon publish-icon" title="Publish program"></div>
+            <div class="action icon preview-icon" title="Preview program"></div>
+        </div>
+    </template>
     <!-- TODO account -->
 </div>
 

@@ -1,5 +1,5 @@
+import 'dart:async';
 import 'package:angular/angular.dart';
-import 'package:angular_forms/angular_forms.dart';
 
 import 'package:wclient/utils/directives/input_binder.dart';
 
@@ -22,15 +22,27 @@ import 'package:wclient/utils/api/api.dart';
 class ProgramCreatorComponent {
   final model = ProgramCreator();
 
-  ProgramCreatorComponent();
+  StreamController<String> _OnCloseController = StreamController<String>();
+
+  Stream<String> _onClose;
+
+  @Output()
+  Stream<String> get onClose => _onClose;
+
+  ProgramCreatorComponent() {
+    _onClose = _OnCloseController.stream.asBroadcastStream();
+  }
 
   Future<void> create() async {
-    print(model);
     await programApi.create(model);
     // TODO
   }
 
   void reset() {
     model.reset();
+  }
+
+  void close() {
+    _OnCloseController.add(null);
   }
 }

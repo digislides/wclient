@@ -54,5 +54,5 @@
 </div>
 
 <div *ngIf="creating" class="creator-model">
-    <program-creator ></program-creator>
+    <program-creator (onClose)="closeCreator($event)"></program-creator>
 </div>

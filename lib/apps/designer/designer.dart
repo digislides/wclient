@@ -1,16 +1,25 @@
+import 'dart:html';
+
 import 'package:angular/angular.dart';
 
 import 'widget/frame_editor/frame_editor.dart';
 
 import 'package:common/models.dart';
 
+import 'package:wclient/utils/api/api.dart';
+
 @Component(
   selector: 'designer-app',
   styleUrls: ['designer.css'],
   templateUrl: 'designer.html',
-  directives: [FrameEditorComponent],
+  directives: [
+    NgIf,
+    FrameEditorComponent,
+  ],
 )
-class DesignerApp {
+class DesignerApp implements OnInit {
+  Program program;
+
   Frame frame = Frame(
       id: '1',
       left: 0,
@@ -67,4 +76,29 @@ class DesignerApp {
                   fit: Fit.cover),
             ])
       ]);
+
+  String id;
+
+  void setProgram(Program program) {
+    this.program = program;
+    if (this.program.design.frames.isNotEmpty) {
+      frame = this.program.design.frames.first;
+    } else {
+      frame = null;
+    }
+  }
+
+  @override
+  Future<void> ngOnInit() async {
+    print(window.location.href);
+    final uri = Uri.parse(window.location.href);
+    id = uri.queryParameters['id'];
+    Program program = await programApi.getById(id);
+    print(program);
+    setProgram(program);
+  }
+
+  Future<void> save() async {
+    await programApi.save(program.id, program.design);
+  }
 }
