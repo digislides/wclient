@@ -90,7 +90,6 @@ class DesignerApp implements OnInit {
 
   @override
   Future<void> ngOnInit() async {
-    print(window.location.href);
     final uri = Uri.parse(window.location.href);
     id = uri.queryParameters['id'];
     Program program = await programApi.getById(id);
