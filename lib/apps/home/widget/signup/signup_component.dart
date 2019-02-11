@@ -26,7 +26,7 @@ class SignupComponent {
   String password;
 
   Future<void> submit() async {
-    if(password != model.password) {
+    if (password != model.password) {
       print("Passwords do not match!");
       // TODO show message
       return;

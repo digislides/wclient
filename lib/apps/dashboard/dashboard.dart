@@ -11,5 +11,4 @@ import 'package:common/models.dart';
   templateUrl: 'dashboard.html',
   directives: [ProgramListComponent],
 )
-class DashboardApp {
-}
+class DashboardApp {}

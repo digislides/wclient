@@ -105,7 +105,7 @@ class ProgramListComponent implements OnInit {
   void onInfoClose(bool deleted) {
     selected = null;
     refresh();
-    if(deleted) {
+    if (deleted) {
       // TODO show message
     }
   }
