@@ -1,12 +1,23 @@
 <div class="header">
     <div class="close" (click)="close()">&#x3c;</div>
+    <div class="header-icon"></div>
     <div class="title">{{program.name}}</div>
     <div class="action" (click)="design()">Design</div>
     <div class="action" (click)="delete()">Delete</div>
 </div>
 
 <div>
-    <div>
-        <div class="label"></div>
+    <div class="row">
+        <div class="label">Name</div>
+        <div class="value">{{program.name}}</div>
+    </div>
+
+    <div class="row">
+        <div class="label">Running on</div>
+        <div>
+            <div>
+
+            </div>
+        </div>
     </div>
 </div>

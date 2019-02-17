@@ -7,30 +7,7 @@ import 'package:wclient/apps/dashboard/widget/program_creator/program_creator.da
 import 'package:wclient/apps/dashboard/widget/program_info/program_info.dart';
 
 import 'package:wclient/utils/api/api.dart';
-
-class Paginated<M> {
-  int page;
-
-  int numPerPage;
-
-  int totalPages;
-
-  List<M> items;
-
-  Paginated({
-    this.page,
-    this.numPerPage,
-    this.totalPages,
-    this.items,
-  });
-}
-
-class ProgramListService {
-  Future<Paginated<Program>> getPrograms(
-      String search, int numPerPage, int page) async {
-    // TODO
-  }
-}
+import 'package:wclient/utils/pagination/pagination.dart';
 
 @Component(
   selector: 'program-list',

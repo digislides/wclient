@@ -1,0 +1,19 @@
+<div class="header">
+    <div class="close" (click)="close()">&#x3c;</div>
+    <div class="header-icon"></div>
+    <div class="title">{{channel.name}}</div>
+    <div class="action" (click)="editing = true">Edit</div>
+    <div class="action" (click)="preview()">Design</div>
+    <div class="action" (click)="delete()">Delete</div>
+</div>
+
+<div>
+    <div class="row">
+        <div class="label">Name</div>
+        <div class="value">{{channel.name}}</div>
+    </div>
+</div>
+
+<div class="overlay" *ngIf="editing">
+    <channel-edit [channel]="channel"></channel-edit>
+</div>

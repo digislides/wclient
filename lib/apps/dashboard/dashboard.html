@@ -1,12 +1,13 @@
 <div class="header">
     <div class="heading">eSign</div>
     <div class="actions">
-        <div class="action icon program-icon" title="Edit program"></div>
-        <div class="action icon player-icon" title="Save program"></div>
+        <div class="action icon program-icon" [class.selected]="page == 0" (click)="page = 0" title="Programs"></div>
+        <div class="action icon player-icon" [class.selected]="page == 1" (click)="page = 1" title="Channels"></div>
     </div>
     <!-- TODO account -->
 </div>
 
 <div class="content">
-    <program-list></program-list>
+    <program-list *ngIf="page == 0"></program-list>
+    <channel-list *ngIf="page == 1"></channel-list>
 </div>

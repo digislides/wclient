@@ -30,7 +30,10 @@
     height: 44px;
     box-sizing: border-box;
     cursor: pointer;
-    margin: 0px 5px;
+}
+
+.action.selected {
+    background-color: black;
 }
 
 .action:hover {

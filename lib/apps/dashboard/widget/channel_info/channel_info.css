@@ -65,3 +65,14 @@
 .header .close:active {
     background-color: #4569a2;
 }
+
+.overlay {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

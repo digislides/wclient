@@ -1,0 +1,28 @@
+<div class="header">
+    <div class="header-icon"></div>
+    <div class="title">Editing {{channel.name}}</div>
+    <div class="action" (click)="save()">Save</div>
+    <div class="action" (click)="close()">Clode</div>
+</div>
+
+<div>
+    <div class="row">
+        <div class="label">Name</div>
+        <input #nameInp [value]="channel.name">
+    </div>
+
+    <div class="row">
+        <div class="label">Program</div>
+        <div class="value" *ngIf="program != null">{{program.name}}</div>
+        <div class="value" *ngIf="program == null">None</div>
+    </div>
+
+    <div>
+        <input [value]="programFilter" tjText (bind)="programFilter = $event">
+        <div class="program-items">
+            <div class="program-item" *ngFor="let prog of programs" (click)="program = prog">
+                <div class="name">{{prog.name}}</div>
+            </div>
+        </div>
+    </div>
+</div>
