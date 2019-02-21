@@ -1,6 +1,6 @@
 <page-list [frame]="frame" [selectedPage]="selectedPage" (onPageSelect)="selectPage($event)"></page-list>
 <template [ngIf]="selectedPage != null">
-    <page-editor [page]="selectedPage"></page-editor>
+    <page-designer [page]="selectedPage"></page-designer>
 </template>
 <template [ngIf]="selectedPage == null">
     <div class="no-page-info">

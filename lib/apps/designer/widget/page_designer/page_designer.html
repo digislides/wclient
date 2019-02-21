@@ -11,5 +11,8 @@
         <template [ngIf]="firstSelected.type == PageItemType.text">
             <text-properties [text]="firstSelected"></text-properties>
         </template>
+        <template [ngIf]="firstSelected.type == PageItemType.clock">
+            <clock-properties [item]="firstSelected"></clock-properties>
+        </template>
     </template>
 </div>

@@ -5,75 +5,41 @@ import 'dart:async';
 import 'package:angular/angular.dart';
 import 'package:common/models.dart';
 
-import 'items/text_item/text_item.dart';
-import 'items/image_item/image_item.dart';
-import 'items/clock_item/clock_item.dart';
-
-@Injectable()
-class SelectionModifier {}
+import 'items/frame_item.dart';
 
 @Component(
-  selector: 'page-stage',
-  styleUrls: ['stage.css'],
-  templateUrl: 'stage.html',
+  selector: 'program-stage',
+  styleUrls: ['program_stage.css'],
+  templateUrl: 'program_stage.html',
   directives: [
     NgFor,
     NgIf,
-    TextItemComponent,
-    ImageItemComponent,
-    ClockItemComponent,
+    FrameItemComponent,
   ],
 )
-class PageStageComponent {
-  Page _page =
-      Page(name: "Page", width: 200, height: 200, color: 'green', items: [
-    TextItem(
-        id: '0',
-        text: "Hello!",
-        left: 10,
-        top: 20,
-        width: 100,
-        height: 50,
-        color: 'red',
-        font: FontProperties(size: 25)),
-    ImageItem(
-        id: '1',
-        name: 'Image',
-        left: 10,
-        top: 50,
-        width: 150,
-        height: 100,
-        url:
-            'http://as01.epimg.net/en/imagenes/2018/03/04/football/1520180124_449729_noticia_normal.jpg',
-        fit: Fit.cover)
-  ]);
+class ProgramStageComponent {
+  Program _program;
 
   @Input()
-  set page(Page page) {
-    if (_page != page) {
-      _page = page;
+  set program(Program program) {
+    if (_program != program) {
+      _program = program;
       selected.clear();
       _updateSelectedRect();
     }
   }
 
-  Page get page => _page;
+  Program get program => _program;
 
-  PageStageComponent();
+  ProgramStageComponent();
 
   int holderWidth = 100;
 
   int holderHeight = 100;
 
-  bool isText(PageItem item) => item is TextItem;
+  final selected = <String, Frame>{};
 
-  bool isImage(PageItem item) => item is ImageItem;
-
-  bool isClock(PageItem item) => item is ClockItem;
-
-  final selected = <String, PageItem>{};
-
-  void onItemClick(MouseEvent event, PageItem item) {
+  void onItemClick(MouseEvent event, Frame item) {
     if (event.shiftKey) {
       if (selected.containsKey(item.id)) {
         selected.remove(item.id);
@@ -111,7 +77,7 @@ class PageStageComponent {
       int right = first.left + first.width;
       int bottom = first.top + first.height;
 
-      for (PageItem item in selected.values) {
+      for (Frame item in selected.values) {
         int myRight = item.left + item.width;
         int myBottom = item.top + item.height;
 
@@ -140,13 +106,13 @@ class PageStageComponent {
     }
   }
 
-  final _onSelect = StreamController<Iterable<PageItem>>();
+  final _onSelect = StreamController<Iterable<Frame>>();
 
   @Output()
-  Stream<Iterable<PageItem>> get onSelect => _onSelect.stream;
+  Stream<Iterable<Frame>> get onSelect => _onSelect.stream;
 
-  void setSelection(PageItem item) {
-    if (!page.items.contains(item)) return;
+  void setSelection(Frame item) {
+    if (!program.design.frames.contains(item)) return;
 
     selected.clear();
     selected[item.id] = item;
@@ -155,7 +121,7 @@ class PageStageComponent {
 
   void onKeyPress(KeyboardEvent event) {
     if (event.keyCode == KeyCode.DELETE) {
-      page.items.removeWhere((i) => selected.containsKey(i.id));
+      program.design.frames.removeWhere((i) => selected.containsKey(i.id));
       selected.clear();
       _updateSelectedRect();
       return;
@@ -169,37 +135,37 @@ class PageStageComponent {
     }
     if (!event.ctrlKey) {
       if (event.keyCode == KeyCode.UP) {
-        for (PageItem item in selected.values) {
+        for (Frame item in selected.values) {
           item.top -= factor;
         }
       } else if (event.keyCode == KeyCode.DOWN) {
-        for (PageItem item in selected.values) {
+        for (Frame item in selected.values) {
           item.top += factor;
         }
       } else if (event.keyCode == KeyCode.LEFT) {
-        for (PageItem item in selected.values) {
+        for (Frame item in selected.values) {
           item.left -= factor;
         }
       } else if (event.keyCode == KeyCode.RIGHT) {
-        for (PageItem item in selected.values) {
+        for (Frame item in selected.values) {
           item.left += factor;
         }
       }
     } else {
       if (event.keyCode == KeyCode.UP) {
-        for (PageItem item in selected.values) {
+        for (Frame item in selected.values) {
           item.height -= factor;
         }
       } else if (event.keyCode == KeyCode.DOWN) {
-        for (PageItem item in selected.values) {
+        for (Frame item in selected.values) {
           item.height += factor;
         }
       } else if (event.keyCode == KeyCode.LEFT) {
-        for (PageItem item in selected.values) {
+        for (Frame item in selected.values) {
           item.width -= factor;
         }
       } else if (event.keyCode == KeyCode.RIGHT) {
-        for (PageItem item in selected.values) {
+        for (Frame item in selected.values) {
           item.width += factor;
         }
       }

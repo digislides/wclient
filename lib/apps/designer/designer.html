@@ -3,7 +3,8 @@
     <template [ngIf]="program != null">
         <div class="heading">{{program.name}}</div>
         <div class="actions">
-            <div class="action icon frame-edit-icon" title="Edit program"></div>
+            <div *ngIf="editingProgram" class="dummy-action"></div>
+            <div *ngIf="!editingProgram" class="action icon frame-edit-icon" title="Edit program" (click)="editingProgram = true"></div>
             <div class="action icon save-icon" title="Save program" (click)="save()"></div>
             <div class="action icon publish-icon" title="Publish program" (click)="publish()"></div>
             <div class="action icon preview-icon" title="Preview program"></div>
@@ -13,5 +14,6 @@
 </div>
 
 <div class="content">
-    <frame-editor [frame]="frame"></frame-editor>
+    <frame-editor *ngIf="!editingProgram" [frame]="frame"></frame-editor>
+    <program-editor *ngIf="editingProgram" [program]="program"></program-editor>
 </div>

@@ -1,0 +1,26 @@
+<div class="title-bar">
+    <div class="title">{{program.name}}</div>
+    <div class="title-button" (click)="addFrame()">+</div>
+</div>
+<div #items class="items" [class.dragging]="dragging != null" (mouseup)="onDrop($event)" tabindex="0"
+     (keyup)="onKeyPress($event)" (mousemove)="autoScroll($event)">
+    <template ngFor let-frame [ngForOf]="program.design.frames">
+        <template [ngIf]="frame == draggingOn">
+            <div class="drop-spot">
+                <span>{{dragging.name}}</span>
+            </div>
+        </template>
+        <div class="item" [class.hide]="frame == dragging" [class.selected]="frame == selectedFrame"
+             (mousemove)="onDragOverItem($event, frame)" [title]="frame.name">
+            <div class="thumbnail" (mousedown)="onDragStart($event, frame)"></div>
+            <div class="name" (click)="selectFrame(frame)">{{frame.name}}</div>
+            <div class="button icon delete-icon" (click)="deleteFrame(frame)"></div>
+            <div class="button icon duplicate-icon" (click)="duplicateFrame(frame)"></div>
+        </div>
+    </template>
+    <div class="drop-spot" *ngIf="dragging != null && draggingOn == null">
+        <span>{{dragging.name}}</span>
+    </div>
+    <div class="extra-spot" (mousemove)="onDragOverItem($event, null)">
+    </div>
+</div>

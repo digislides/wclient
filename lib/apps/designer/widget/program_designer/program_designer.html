@@ -1,0 +1,10 @@
+<program-stage [program]="program" (onSelect)="selectionChanged($event)"></program-stage>
+
+<div class="side-pane">
+    <template [ngIf]="selected.length == 0">
+        <program-properties [program]="program"></program-properties>
+    </template>
+    <template [ngIf]="selected.length == 1">
+        <frame-properties [frame]="firstSelected"></frame-properties>
+    </template>
+</div>

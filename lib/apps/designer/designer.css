@@ -25,6 +25,13 @@
   margin: 0px 10px;
 }
 
+.dummy-action {
+    width: 45px;
+    height: 44px;
+    box-sizing: border-box;
+    margin: 0px 5px;
+}
+
 .action {
     width: 45px;
     height: 44px;
@@ -49,19 +56,19 @@
 }
 
 .frame-edit-icon {
-  background-image: url(https://www.iconsdb.com/icons/preview/white/square-dashed-xxl.png);
+  background-image: url(/packages/wclient/utils/icons/designer/header/program_edit.png);
 }
 
 .save-icon {
-  background-image: url(https://www.iconsdb.com/icons/preview/white/save-xxl.png);
+  background-image: url(/packages/wclient/utils/icons/designer/header/save.png);
 }
 
 .publish-icon {
-  background-image: url(https://www.iconsdb.com/icons/preview/white/cloud-upload-xxl.png);
+  background-image: url(/packages/wclient/utils/icons/designer/header/publish.png);
 }
 
 .preview-icon {
-  background-image: url(https://www.iconsdb.com/icons/preview/white/eye-3-xxl.png);
+  background-image: url(/packages/wclient/utils/icons/designer/header/preview.png);
 }
 
 .content {

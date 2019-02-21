@@ -73,19 +73,3 @@
   width: 100%;
   display: flex;
 }
-
-.text-icon {
-  background-image: url(/packages/wclient/utils/icons/designer/item_add/text.svg);
-}
-
-.image-icon {
-  background-image: url(/packages/wclient/utils/icons/designer/item_add/image.svg);
-}
-
-.video-icon {
-  background-image: url(/packages/wclient/utils/icons/designer/item_add/video.svg);
-}
-
-.clock-icon {
-  background-image: url(/packages/wclient/utils/icons/designer/item_add/clock.svg);
-}

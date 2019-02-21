@@ -6,15 +6,6 @@
   flex: 1;
 }
 
-.page-list {
-  height: 100%;
-  background-color: #dedede;
-}
-
-page-stage {
-  flex: 1;
-}
-
 .no-page-info {
   flex: 1;
   display: flex;

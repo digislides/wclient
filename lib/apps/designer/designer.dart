@@ -3,6 +3,7 @@ import 'dart:html';
 import 'package:angular/angular.dart';
 
 import 'widget/frame_editor/frame_editor.dart';
+import 'widget/program_editor/program_editor.dart';
 
 import 'package:common/models.dart';
 
@@ -15,6 +16,7 @@ import 'package:wclient/utils/api/api.dart';
   directives: [
     NgIf,
     FrameEditorComponent,
+    ProgramEditorComponent,
   ],
 )
 class DesignerApp implements OnInit {
@@ -79,6 +81,8 @@ class DesignerApp implements OnInit {
 
   String id;
 
+  bool editingProgram = false;
+
   void setProgram(Program program) {
     this.program = program;
     if (this.program.design.frames.isNotEmpty) {
@@ -93,7 +97,6 @@ class DesignerApp implements OnInit {
     final uri = Uri.parse(window.location.href);
     id = uri.queryParameters['id'];
     Program program = await programApi.getById(id);
-    print(program);
     setProgram(program);
   }
 

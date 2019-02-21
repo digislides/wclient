@@ -4,23 +4,25 @@ import '../stage/stage.dart';
 import '../properties/page/page_properties.dart';
 import '../properties/image/image_properties.dart';
 import '../properties/text/text_properties.dart';
+import '../properties/clock/clock_properties.dart';
 
 import 'package:common/models.dart';
 
 @Component(
-  selector: 'page-editor',
-  styleUrls: ['page_editor.css'],
-  templateUrl: 'page_editor.html',
+  selector: 'page-designer',
+  styleUrls: ['page_designer.css'],
+  templateUrl: 'page_designer.html',
   directives: [
     NgIf,
     PageStageComponent,
     PagePropertiesComponent,
     ImagePropertiesComponent,
     TextPropertiesComponent,
+    ClockPropertiesComponent,
   ],
   exports: [PageItemType],
 )
-class PageEditorComponent {
+class PageDesignerComponent {
   @Input()
   Page page = Page(
       id: '1',
@@ -54,7 +56,7 @@ class PageEditorComponent {
   @ViewChild(PageStageComponent)
   PageStageComponent stage;
 
-  PageEditorComponent();
+  PageDesignerComponent();
 
   Iterable<PageItem> selected = [];
 

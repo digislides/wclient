@@ -20,6 +20,9 @@
                 <template [ngIf]="isImage(item)">
                     <image-item [item]="item" (click)="onItemClick($event, item)"></image-item>
                 </template>
+                <template [ngIf]="isClock(item)">
+                    <clock-item [item]="item" (click)="onItemClick($event, item)"></clock-item>
+                </template>
             </template>
         </div>
         <div class="handle-holder"

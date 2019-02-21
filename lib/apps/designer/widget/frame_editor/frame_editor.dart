@@ -1,7 +1,7 @@
 import 'package:angular/angular.dart';
 
 import '../page_list/page_list.dart';
-import '../page_editor/page_editor.dart';
+import '../page_designer/page_designer.dart';
 
 import 'package:common/models.dart';
 
@@ -12,7 +12,7 @@ import 'package:common/models.dart';
   directives: [
     NgIf,
     PageListComponent,
-    PageEditorComponent,
+    PageDesignerComponent,
   ],
   exports: [],
 )

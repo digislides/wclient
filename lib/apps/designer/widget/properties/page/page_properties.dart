@@ -56,6 +56,11 @@ class PagePropertiesComponent {
         page.addNewItem(item);
         _itemAddCntr.add(item);
         break;
+      case 'clock':
+        final item = ClockItem();
+        page.addNewItem(item);
+        _itemAddCntr.add(item);
+        break;
     }
   }
 

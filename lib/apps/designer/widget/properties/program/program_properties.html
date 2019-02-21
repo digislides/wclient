@@ -1,0 +1,18 @@
+<div>
+    <div class="row">
+        <div class="label">Name</div>
+        <input class="input" tjText [bind]="program.name" (bind)="program.name = $event">
+    </div>
+    <div class="row">
+        <div class="label">Color</div>
+        <input class="input" tjText [bind]="program.design.color" (bind)="program.design.color = $event">
+    </div>
+    <div class="row">
+        <div class="label">Width</div>
+        <input type="number" class="input" tjText [bind]="program.design.width" (bind)="program.design.width = $event">
+    </div>
+    <div class="row">
+        <div class="label">Height</div>
+        <input type="number" class="input" tjText [bind]="program.design.height" (bind)="program.design.height = $event">
+    </div>
+</div>
