@@ -23,12 +23,25 @@ class FrameListComponent {
   @ViewChild('items')
   DivElement itemsDiv;
 
-  FrameListComponent();
+  final _frameEditCont = StreamController<Frame>();
+
+  Stream<Frame> _onFrameEdit;
+
+  @Output()
+  Stream<Frame> get onFrameEdit => _onFrameEdit;
+
+  FrameListComponent() {
+    _onFrameEdit = _frameEditCont.stream.asBroadcastStream();
+  }
 
   int counter = 0;
 
   void addFrame() {
     program.design.addNewFrame(name: "New frame ${counter++}");
+  }
+
+  void editFrame(Frame frame) {
+    _frameEditCont.add(frame);
   }
 
   void deleteFrame(Frame frame) {

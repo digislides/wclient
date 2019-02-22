@@ -14,6 +14,7 @@
              (mousemove)="onDragOverItem($event, frame)" [title]="frame.name">
             <div class="thumbnail" (mousedown)="onDragStart($event, frame)"></div>
             <div class="name" (click)="selectFrame(frame)">{{frame.name}}</div>
+            <div class="button icon edit-icon" (click)="editFrame(frame)"></div>
             <div class="button icon delete-icon" (click)="deleteFrame(frame)"></div>
             <div class="button icon duplicate-icon" (click)="duplicateFrame(frame)"></div>
         </div>

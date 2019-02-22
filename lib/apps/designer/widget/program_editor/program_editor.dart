@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:angular/angular.dart';
 
 import '../frame_list/frame_list.dart';
@@ -35,5 +37,20 @@ class ProgramEditorComponent {
 
   void selectFrame(Frame frame) {
     selectedFrame = frame;
+  }
+
+  final _frameEditCont = StreamController<Frame>();
+
+  Stream<Frame> _onFrameEdit;
+
+  @Output()
+  Stream<Frame> get onFrameEdit => _onFrameEdit;
+
+  ProgramEditorComponent() {
+    _onFrameEdit = _frameEditCont.stream.asBroadcastStream();
+  }
+
+  void editFrame(Frame frame) {
+    _frameEditCont.add(frame);
   }
 }

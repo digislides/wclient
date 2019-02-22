@@ -147,6 +147,10 @@
     background-repeat: no-repeat;
 }
 
+.edit-icon {
+  background-image: url(https://image.flaticon.com/icons/svg/61/61456.svg);
+}
+
 .delete-icon {
   background-image: url(https://image.flaticon.com/icons/svg/61/61391.svg);
 }

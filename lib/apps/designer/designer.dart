@@ -107,4 +107,9 @@ class DesignerApp implements OnInit {
   Future<void> publish() async {
     await programApi.publish(program.id, program.design);
   }
+
+  void editFrame(Frame frame) {
+    this.frame = frame;
+    editingProgram = false;
+  }
 }

@@ -27,8 +27,7 @@
 .canvas {
   position: relative;
   background-color: white;
-  border: 1px solid black;
-  box-sizing: border-box;
+  box-shadow: 2px 2px 2px 0px #0000003b;
 }
 
 .handle-holder {
@@ -45,4 +44,5 @@
 .selected-box {
   border: 1px solid blue;
   position: absolute;
+  box-sizing: border-box;
 }

@@ -171,4 +171,21 @@ class ProgramStageComponent {
       }
     }
   }
+
+  String colorOf(int index) => frameColors[index % frameColors.length];
+
+  final frameColors = [
+    "rgba(0, 191, 255, 0.701961)",
+    "rgba(255, 99, 71, 0.7)",
+    "rgba(245, 222, 179, 0.701961)",
+    "rgba(154, 205, 50, 0.7)",
+    "rgba(238, 130, 238, 0.701961)",
+    "rgba(64, 224, 208, 0.7)",
+    "rgba(250, 128, 114, 0.701961)",
+    "rgba(210, 180, 140, 0.701961)",
+    "rgba(112, 128, 144, 0.701961)",
+    "rgba(106, 90, 205, 0.701961)",
+    "rgba(184, 134, 11, 0.701961)",
+    "rgba(135, 206, 235, 0.7)",
+  ];
 }

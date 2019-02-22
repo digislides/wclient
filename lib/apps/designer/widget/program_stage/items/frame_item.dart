@@ -15,6 +15,10 @@ class FrameItemComponent {
   @Input()
   Frame item;
 
+  @Input()
+  @HostBinding('style.background-color')
+  String color;
+
   FrameItemComponent();
 
   @HostBinding('style.left.px')
@@ -28,7 +32,4 @@ class FrameItemComponent {
 
   @HostBinding('style.height.px')
   int get height => item.height;
-
-  @HostBinding('style.background-color')
-  String get color => item.color;
 }
