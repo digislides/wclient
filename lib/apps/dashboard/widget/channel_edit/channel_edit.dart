@@ -58,8 +58,8 @@ class ChannelEditComponent implements OnInit {
 
   Future<void> ngOnInit() async {
     try {
-      if (program.id != null) {
-        program = await programApi.getById(program.id);
+      if (channel.program != null) {
+        program = await programApi.getById(channel.program);
       }
     } catch (e) {
       // TODO
@@ -75,4 +75,6 @@ class ChannelEditComponent implements OnInit {
     final model = ChannelCreator(name: nameInp.value, program: program?.id);
     channel = await channelApi.save(channel.id, model);
   }
+
+  bool selectingProgram = false;
 }

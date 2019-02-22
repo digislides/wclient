@@ -52,4 +52,8 @@ class ChannelInfoComponent {
     await channelApi.delete(channel.id);
     _onCloseController.add(true);
   }
+
+  void closeEditor() {
+    editing = false;
+  }
 }

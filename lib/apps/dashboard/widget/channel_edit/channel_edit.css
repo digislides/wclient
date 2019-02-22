@@ -22,7 +22,7 @@
     width: 50px;
     height: 50px;
     box-sizing: border-box;
-    background-image: url(https://www.iconsdb.com/icons/preview/white/code-2-xxl.png);
+    background-image: url(/packages/wclient/utils/icons/dashboard/header/channel.png);
     background-size: 52%;
     box-sizing: border-box;
     background-position: center;
@@ -67,14 +67,57 @@
     background-color: #4569a2;
 }
 
+.body {
+    padding: 5px 5px;
+    width: 100%;
+    max-width: 400px;
+}
+
 .row {
     display: flex;
+    flex-direction: row;
+    padding: 5px 0px;
+    justify-content: center;
 }
 
 .row .label {
-
+    width: 150px;
 }
 
 .row .value {
+    flex: 1;
+}
 
+.dropdown-btn {
+    background-size: 80%;
+    box-sizing: border-box;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+}
+
+.up-icon {
+  background-image: url(/packages/wclient/utils/icons/dashboard/controls/up.svg);
+}
+
+.down-icon {
+  background-image: url(/packages/wclient/utils/icons/dashboard/controls/down.svg);
+}
+
+.input {
+  background-color: #ffffff78;
+  border: 1px solid #00000030;
+  border-radius: 5px;
+  padding: 3px 5px;
+  flex: 1;
+}
+
+.input:focus {
+  outline: none;
+  border: 1px solid black;
+}
+
+.hide {
+  display: none;
 }

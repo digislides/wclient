@@ -52,11 +52,11 @@
 }
 
 .program-icon {
-  background-image: url(https://www.iconsdb.com/icons/preview/white/code-2-xxl.png);
+  background-image: url(/packages/wclient/utils/icons/dashboard/header/program.png);
 }
 
 .player-icon {
-  background-image: url(https://www.iconsdb.com/icons/preview/white/play-4-xxl.png);
+  background-image: url(/packages/wclient/utils/icons/dashboard/header/channel.png);
 }
 
 .content {

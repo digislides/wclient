@@ -21,7 +21,7 @@
     width: 50px;
     height: 50px;
     box-sizing: border-box;
-    background-image: url(https://www.iconsdb.com/icons/preview/white/code-2-xxl.png);
+    background-image: url(/packages/wclient/utils/icons/dashboard/header/program.png);
     background-size: 52%;
     box-sizing: border-box;
     background-position: center;
@@ -55,7 +55,6 @@
     line-height: 50px;
     padding: 0px 10px;
     cursor: pointer;
-    color: #ff6767;
 }
 
 .header .close:hover {
@@ -64,4 +63,21 @@
 
 .header .close:active {
     background-color: #4569a2;
+}
+
+.body {
+    padding: 5px 5px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    padding: 5px 0px;
+}
+
+.row .label {
+    width: 150px;
+}
+
+.row .value {
 }

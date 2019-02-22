@@ -5,23 +5,27 @@
     <div class="action" (click)="close()">Close</div>
 </div>
 
-<div>
+<div class="body">
     <div class="row">
         <div class="label">Name</div>
-        <input #nameInp [value]="channel.name">
+        <input class="input" #nameInp [value]="channel.name">
     </div>
 
     <div class="row">
         <div class="label">Program</div>
         <div class="value" *ngIf="program != null">{{program.name}}</div>
         <div class="value" *ngIf="program == null">None</div>
+        <div class="dropdown-btn" [class.down-icon]="!selectingProgram" [class.up-icon]="selectingProgram" (click)="selectingProgram = !selectingProgram"></div>
     </div>
 
-    <div>
-        <input [value]="programFilter" tjText (bind)="programFilter = $event">
-        <div class="program-items">
-            <div class="program-item" *ngFor="let prog of programs" (click)="program = prog">
-                <div class="name">{{prog.name}}</div>
+    <div class="row" [class.hide]="!selectingProgram">
+        <div class="label"></div>
+        <div class="value">
+            <input class="input" [value]="programFilter" tjText (bind)="programFilter = $event">
+            <div class="program-items">
+                <div class="program-item" *ngFor="let prog of programs" (click)="program = prog">
+                    <div class="name">{{prog.name}}</div>
+                </div>
             </div>
         </div>
     </div>
