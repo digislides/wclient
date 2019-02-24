@@ -4,6 +4,9 @@ import 'package:wclient/utils/directives/input_binder.dart';
 
 import 'package:common/models.dart';
 
+import 'package:wclient/apps/designer/widget/properties/items/image/image.dart';
+import 'package:wclient/apps/designer/widget/properties/items/color/color.dart';
+
 @Component(
   selector: 'program-properties',
   styleUrls: ['program_properties.css'],
@@ -13,6 +16,8 @@ import 'package:common/models.dart';
     NgIf,
     TextBinder,
     SelectBoxBinder,
+    ImagePropComponent,
+    ColorPropComponent,
   ],
   exports: [
     Fit,

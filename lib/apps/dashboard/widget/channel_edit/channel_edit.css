@@ -88,6 +88,14 @@
     flex: 1;
 }
 
+.row.hug-down {
+    padding-bottom: 0px;
+}
+
+.row.hug-up {
+    padding-top: 0px;
+}
+
 .dropdown-btn {
     background-size: 80%;
     box-sizing: border-box;
@@ -105,11 +113,36 @@
   background-image: url(/packages/wclient/utils/icons/dashboard/controls/down.svg);
 }
 
+.input-box {
+    display: flex;
+    flex: 1;
+    border-radius: 5px;
+    border: 1px solid #00000030;
+    padding: 5px;
+    align-items: center;
+}
+
+.input-box: hover {
+    background-color: #efefef;
+}
+
+.input-box.open {
+    background-color: #efefef;
+}
+
+.program-search-box {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    border: 1px solid #00000030;
+    border-radius: 5px;
+}
+
 .input {
   background-color: #ffffff78;
   border: 1px solid #00000030;
   border-radius: 5px;
-  padding: 3px 5px;
+  padding: 5px;
   flex: 1;
 }
 
@@ -118,6 +151,32 @@
   border: 1px solid black;
 }
 
+.program-search-box .input {
+  border: none;
+  border-radius: 0px;
+}
+
 .hide {
   display: none;
+}
+
+.icon {
+    background-size: 80%;
+    box-sizing: border-box;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 26px;
+    height: 26px;
+}
+
+.icon.search {
+    height: 28px;
+    background-color: #eee;
+    border-radius: 2px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 0px 5px;
+    background-image: url(https://img.icons8.com/ios/50/333333/search-filled.png);
 }

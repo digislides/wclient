@@ -1,0 +1,14 @@
+<div class="display-holder">
+    <div class="display-bg">
+        <div class="row">
+            <div class="col white"></div>
+            <div class="col black"></div>
+        </div>
+        <div class="row">
+            <div class="col black"></div>
+            <div class="col white"></div>
+        </div>
+    </div>
+    <div class="display" [style.background-color]="color"></div>
+</div>
+<input class="input" tjText [bind]="color" (bind)="colorChanged($event)">

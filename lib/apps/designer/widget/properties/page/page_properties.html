@@ -5,11 +5,11 @@
     </div>
     <div class="row">
         <div class="label">Color</div>
-        <input class="input" tjText [bind]="page.color" (bind)="page.color = $event">
+        <color-prop class="value" [color]="page.color" (onChange)="page.color = $event"></color-prop>
     </div>
     <div class="row">
         <div class="label">Image</div>
-        <input class="input" tjText [bind]="image" (bind)="image = $event">
+        <image-prop class="value" [image]="page.image" [imageUrl]="page.imageUrl" (onChange)="page.image = $event"></image-prop>
     </div>
     <div class="row">
         <div class="label">Fit</div>

@@ -31,7 +31,7 @@ class ClockComponent {
 
   void _updateView() {
     _hoursContiner.style.transform =
-    'rotateZ(${(hour * 30) + (minute / 2)}deg)';
+        'rotateZ(${(hour * 30) + (minute / 2)}deg)';
     _minutesContainer.style.transform = 'rotateZ(${minute * 6}deg)';
     _secondsContainer.style.transform = 'rotateZ(${second * 6}deg)';
 

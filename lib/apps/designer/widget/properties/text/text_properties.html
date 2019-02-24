@@ -17,7 +17,7 @@
     </div>
     <div class="row">
         <div class="label">Color</div>
-        <input class="input" tjText [bind]="text.color" (bind)="text.color = $event">
+        <color-prop class="value" [color]="text.color" (onChange)="text.color = $event"></color-prop>
     </div>
     <div>
         <div class="row">
@@ -46,6 +46,6 @@
     </div>
     <div class="row">
         <div class="label">Color</div>
-        <input class="input" tjText [bind]="text.font.color" (bind)="text.font.color = $event">
+        <color-prop class="value" [color]="text.font.color" (onChange)="text.font.color = $event"></color-prop>
     </div>
 </div>

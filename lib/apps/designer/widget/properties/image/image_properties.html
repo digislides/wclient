@@ -17,11 +17,11 @@
     </div>
     <div class="row">
         <div class="label">Color</div>
-        <input class="input" tjText [bind]="image.color" (bind)="image.color = $event">
+        <color-prop class="value" [color]="image.color" (onChange)="image.color = $event"></color-prop>
     </div>
     <div class="row">
         <div class="label">Image</div>
-        <input class="input" tjText [bind]="image.url" (bind)="image.url = $event">
+        <image-prop class="value" [image]="image.url" [imageUrl]="image.imageUrl" (onChange)="image.url = $event"></image-prop>
     </div>
     <div class="row">
         <div class="label">Fit</div>

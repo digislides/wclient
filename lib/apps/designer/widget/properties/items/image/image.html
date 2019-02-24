@@ -1,0 +1,4 @@
+<div class="display-holder">
+    <div class="display" [style.background-image]="imageUrl"></div>
+</div>
+<input class="input" tjText [bind]="image" (bind)="imageChanged($event)">

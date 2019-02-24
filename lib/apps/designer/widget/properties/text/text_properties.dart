@@ -4,6 +4,8 @@ import 'package:wclient/utils/directives/input_binder.dart';
 
 import 'package:common/models.dart';
 
+import 'package:wclient/apps/designer/widget/properties/items/color/color.dart';
+
 @Component(
     selector: 'text-properties',
     styleUrls: ['text_properties.css'],
@@ -14,6 +16,7 @@ import 'package:common/models.dart';
       TextBinder,
       TextAreaBinder,
       SelectBoxBinder,
+      ColorPropComponent,
     ],
     exports: [
       Align,

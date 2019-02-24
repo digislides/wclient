@@ -16,6 +16,10 @@
   font-family: sans-serif;
 }
 
+.value {
+    flex: 1;
+}
+
 .input {
   background-color: #ffffff78;
   border: 1px solid #00000030;
