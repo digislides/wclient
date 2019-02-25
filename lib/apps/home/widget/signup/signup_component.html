@@ -2,27 +2,24 @@
 <h2>Signup</h2>
 <div>
     <div class="form">
-        <div class="form-group">
-            <label>Email&nbsp;*</label>
-            <input type="text" class="form-control" required name="email" tjText [bind]="model.email" (bind)="model.email = $event">
+        <div class="input-row">
+            <div class="label icon mail-icon"></div>
+            <input type="text" placeholder="Email" class="input" required tjText [bind]="model.email" (bind)="model.email = $event">
         </div>
-        <div class="form-group">
-            <label>Name&nbsp;*</label>
-            <input type="text" class="form-control" required name="username" tjText [bind]="model.name" (bind)="model.name = $event">
+        <div class="input-row">
+            <div class="label icon name-icon"></div>
+            <input type="text" placeholder="Name" class="input" required tjText [bind]="model.name" (bind)="model.name = $event">
         </div>
-        <div class="form-group">
-            <label>Password&nbsp;*</label>
-            <input type="password" class="form-control" required name="password" tjText [bind]="model.password" (bind)="model.password = $event">
+        <div class="input-row">
+            <div class="label icon password-icon"></div>
+            <input type="password" placeholder="Password" class="input" required tjText [bind]="model.password" (bind)="model.password = $event">
         </div>
-        <div class="form-group">
-            <label>Repeat password&nbsp;*</label>
-            <input type="password" class="form-control" required name="password" tjText [bind]="password" (bind)="password = $event">
+        <div class="input-row">
+            <div class="label icon password-icon"></div>
+            <input type="password" placeholder="Password" class="input" required tjText [bind]="password" (bind)="password = $event">
         </div>
-        <div class="row">
-            <div class="col-auto">
-                <button type="submit" class="btn btn-primary" (click)="submit()">Submit</button>
-            </div>
-            <small class="col text-right">*&nbsp;Required</small>
+        <div class="actions">
+            <button type="submit" class="btn btn-primary" (click)="submit()">Submit</button>
         </div>
     </div>
 </div>

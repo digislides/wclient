@@ -2,19 +2,16 @@
 <h2>Login</h2>
 <div>
     <div class="form">
-        <div class="form-group">
-            <label>Name&nbsp;*</label>
-            <input type="text" class="form-control" required name="username" tjText [bind]="model.username" (bind)="model.username = $event">
+        <div class="input-row">
+            <div class="label icon mail-icon"></div>
+            <input type="text" placeholder="Email or Name" class="input" required tjText [bind]="model.username" (bind)="model.username = $event">
         </div>
-        <div class="form-group">
-            <label>Password&nbsp;*</label>
-            <input type="password" class="form-control" required name="password" tjText [bind]="model.password" (bind)="model.password = $event">
+        <div class="input-row">
+            <div class="label icon password-icon"></div>
+            <input type="password" placeholder="Password" class="input" required tjText [bind]="model.password" (bind)="model.password = $event">
         </div>
-        <div class="row">
-            <div class="col-auto">
-                <button type="submit" class="btn btn-primary" (click)="submit()">Submit</button>
-            </div>
-            <small class="col text-right">*&nbsp;Required</small>
+        <div class="actions">
+            <button type="submit" class="btn btn-primary" (click)="submit()">Submit</button>
         </div>
     </div>
 </div>
