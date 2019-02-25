@@ -8,6 +8,17 @@ import 'package:wclient/apps/home/widget/signup/signup_component.dart';
   selector: 'home',
   styleUrls: ['home.css'],
   templateUrl: 'home.html',
-  directives: [LoginComponent, SignupComponent],
+  directives: [
+    NgIf,
+    LoginComponent,
+    SignupComponent,
+  ],
 )
-class HomeApp {}
+class HomeApp {
+  Signup signup;
+
+  void onSignupSuccess(Signup signup) {
+    this.signup = signup;
+    print(signup);
+  }
+}

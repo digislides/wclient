@@ -1,8 +1,9 @@
 // Copyright (c) 2017, teja. All rights reserved. Use of this source code
 // is governed by a BSD-style license that can be found in the LICENSE file.
 
+import 'dart:async';
+
 import 'package:angular/angular.dart';
-import 'package:angular_components/angular_components.dart';
 
 import 'package:wclient/utils/directives/input_binder.dart';
 
@@ -21,9 +22,20 @@ import 'package:jaguar_resty/jaguar_resty.dart';
   ],
 )
 class SignupComponent {
+  @Output()
+  Stream<Signup> get onSuccess => _onSuccess;
+
+  final _successController = StreamController<Signup>();
+
+  Stream<Signup> _onSuccess;
+
   Signup model = Signup();
 
   String password;
+
+  SignupComponent() {
+    _onSuccess = _successController.stream.asBroadcastStream();
+  }
 
   Future<void> submit() async {
     if (password != model.password) {
@@ -33,5 +45,6 @@ class SignupComponent {
     }
     final authApi = AuthApi(Route("http://localhost:10000/api"));
     await authApi.signup(model);
+    _successController.add(model);
   }
 }

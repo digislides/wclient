@@ -4,6 +4,19 @@
 <div class="body">
     <div class="auth">
         <login></login>
-        <signup></signup>
+        <signup (onSuccess)="onSignupSuccess($event)"></signup>
+    </div>
+</div>
+
+<div *ngIf="signup != null" class="overlay">
+    <div class="overlay-content">
+        <div class="overlay-header">
+            <div class="title">Signup successful!</div>
+            <div class="overlay-close" (click)="signup = null">-</div>
+        </div>
+        <div class="overlay-body">
+            <div>A new account for <strong>{{signup.name}}</strong> has been successfully created.</div>
+            <div>Check your email (<strong>{{signup.email}}</strong>) for confirmation email.</div>
+        </div>
     </div>
 </div>
