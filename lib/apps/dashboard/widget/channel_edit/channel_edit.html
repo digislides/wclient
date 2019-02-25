@@ -28,7 +28,7 @@
                 <input class="input" [value]="programFilter" tjText (bind)="programFilter = $event">
             </div>
             <div class="program-items">
-                <div class="program-item" *ngFor="let prog of programs" (click)="program = prog">
+                <div class="program-item" *ngFor="let prog of programs" (click)="program = prog" [class.selected]="program != null && program.id == prog.id">
                     <div class="name">{{prog.name}}</div>
                 </div>
             </div>

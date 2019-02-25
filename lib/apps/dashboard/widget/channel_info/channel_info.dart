@@ -53,7 +53,8 @@ class ChannelInfoComponent {
     _onCloseController.add(true);
   }
 
-  void closeEditor() {
+  Future<void> closeEditor() async {
     editing = false;
+    channel = await channelApi.getById(channel.id);
   }
 }
