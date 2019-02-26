@@ -13,6 +13,8 @@ dependencies:
   angular_forms:
   common:
     path: ../common
+  player:
+    path: ../player
 
 dev_dependencies:
   build_runner:
