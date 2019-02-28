@@ -23,9 +23,11 @@ import 'package:wclient/utils/api/api.dart';
     ChannelEditComponent,
   ],
 )
-class ChannelInfoComponent {
+class ChannelInfoComponent implements OnInit {
   @Input()
   Channel channel;
+
+  Program program;
 
   final _onCloseController = StreamController<bool>();
 
@@ -38,14 +40,35 @@ class ChannelInfoComponent {
     _onClose = _onCloseController.stream.asBroadcastStream();
   }
 
+
+  @override
+  Future<void> ngOnInit() async {
+    await update();
+  }
+
+  Future<void> update() async {
+    // TODO show spinner
+    channel = await channelApi.getById(channel.id);
+    if(channel.program != null) {
+      program = await programApi.getById(channel.program);
+    } else {
+      program = null;
+    }
+    // TODO hide spinner
+  }
+
   void close() {
     _onCloseController.add(false);
   }
 
   bool editing = false;
 
+  void play() {
+    window.open("/player/channel/play/index.html?id=${channel.id}", "blank");
+  }
+
   void preview() {
-    window.open("/channel/preview/index.html?id=${channel.id}", "blank");
+    window.open("/player/channel/preview/index.html?id=${channel.id}", "blank");
   }
 
   Future<void> delete() async {
@@ -55,6 +78,6 @@ class ChannelInfoComponent {
 
   Future<void> closeEditor() async {
     editing = false;
-    channel = await channelApi.getById(channel.id);
+    await update();
   }
 }
