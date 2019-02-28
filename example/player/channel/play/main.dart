@@ -3,7 +3,6 @@ import 'dart:html';
 import 'package:jaguar_resty/jaguar_resty.dart';
 import 'package:http/browser_client.dart';
 
-import 'package:common/models.dart';
 import 'package:player/preview.dart';
 import 'package:wclient/utils/api/api.dart';
 
@@ -61,8 +60,14 @@ main() async {
   await update();
 
   final es = EventSource('/api/channel/$id/rt');
+  window.onUnload.listen((_) {
+    es.close();
+  });
   es.addEventListener('publish', (m) async {
     print("Received update notification ...");
     await update();
+  });
+  es.onMessage.listen((m) async {
+    print("Received update notification ...");
   });
 }

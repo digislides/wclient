@@ -64,11 +64,11 @@ class ChannelInfoComponent implements OnInit {
   bool editing = false;
 
   void play() {
-    window.open("/player/channel/play/index.html?id=${channel.id}", "blank");
+    window.open("/player/channel/play/index.html?id=${channel.id}", "_blank");
   }
 
   void preview() {
-    window.open("/player/channel/preview/index.html?id=${channel.id}", "blank");
+    window.open("/player/channel/preview/index.html?id=${channel.id}", "_blank");
   }
 
   Future<void> delete() async {

@@ -41,7 +41,7 @@ class ProgramInfoComponent {
   }
 
   void design() {
-    window.open("/designer/index.html?id=${program.id}", "blank");
+    window.open("/designer/index.html?id=${program.id}", "_blank");
   }
 
   Future<void> delete() async {
