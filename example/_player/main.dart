@@ -31,9 +31,7 @@ main() async {
       });
       cacher.update();
     }
-  } catch(e) {
-
-  }
+  } catch (e) {}
 
   final uri = Uri.parse(window.location.href);
   String id = uri.queryParameters['id'];

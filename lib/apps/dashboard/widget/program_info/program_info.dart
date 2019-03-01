@@ -54,6 +54,7 @@ class ProgramInfoComponent {
   }
 
   void preview() {
-    window.open("/player/program/preview/index.html?id=${program.id}", "_blank");
+    window.open(
+        "/player/program/preview/index.html?id=${program.id}", "_blank");
   }
 }
