@@ -1,43 +1,66 @@
 @import 'package:wclient/utils/css/common.css';
 
 :host {
-  display: block;
-  width: 100%;
-  height: 100%;
-  user-select: none;
-  background-color: #eee;
-  padding: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    background-color: #eee;
+    padding: 5px;
+    box-sizing: border-box;
 }
 
 .top-header {
-  display: flex;
+    display: flex;
+    padding: 5px 0px;
+    box-sizing: border-box;
 }
 
 .top-header .title {
-  font-size: 22px;
-  flex: 1;
+    font-size: 22px;
+    flex: 1;
+}
+
+.container {
+    display: flex;
+    height: 100%;
+    flex: 1;
 }
 
 .section {
-  padding: 10px 0px;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.section.recent {
+    width: 250px;
+    border-right: 1px solid #80808036;
+}
+
+.section.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .header-holder {
 }
 
 .header {
-  display: flex;
-  width: 100%;
+    display: flex;
+    width: 100%;
+    padding: 0px 5px;
+    box-sizing: border-box;
 }
 
 .section .title {
-  color: #444;
-  font-size: 18px;
-  flex: 1;
+    color: #444;
+    font-size: 18px;
+    flex: 1;
 }
 
 .list {
-  display: flex;
 }
 
 .recent {
@@ -45,7 +68,13 @@
 }
 
 .recent-list {
+    overflow: auto;
+    height: 100%;
+}
 
+.main-content {
+    flex: 1;
+    overflow: auto;
 }
 
 .main {
@@ -53,12 +82,12 @@
 }
 
 .controls {
-  display: flex;
+    display: flex;
 }
 
 .search {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .icon {
@@ -81,11 +110,11 @@
     box-sizing: border-box;
     text-align: center;
     padding: 0px 5px;
-  background-image: url(https://img.icons8.com/ios/50/333333/search-filled.png);
+    background-image: url(https://img.icons8.com/ios/50/333333/search-filled.png);
 }
 
 .search input {
-  flex: 1;
+    flex: 1;
     border-radius: 2px;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
@@ -95,7 +124,7 @@
 }
 
 .search input:focus {
-  outline: none;
+    outline: none;
 }
 
 .button {
@@ -117,6 +146,8 @@
 }
 
 .main-list {
+  width: 100%;
+  display: flex;
   flex-wrap: wrap;
 }
 
