@@ -48,4 +48,12 @@ class ProgramInfoComponent {
     await programApi.delete(program.id);
     _onCloseController.add(true);
   }
+
+  void play() {
+    window.open("/player/program/play/index.html?id=${program.id}", "_blank");
+  }
+
+  void preview() {
+    window.open("/player/program/preview/index.html?id=${program.id}", "_blank");
+  }
 }
