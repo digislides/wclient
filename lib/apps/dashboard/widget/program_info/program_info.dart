@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:date_format/date_format.dart';
 
 import 'package:wclient/utils/directives/input_binder.dart';
 
@@ -56,5 +57,11 @@ class ProgramInfoComponent {
   void preview() {
     window.open(
         "/player/program/preview/index.html?id=${program.id}", "_blank");
+  }
+
+  String publishedAtString() {
+    if (program.publishedAt == null) return "Not published yet!";
+    return formatDate(program.publishedAt.toLocal(),
+        [yyyy, '-', mm, '-', dd, ' ', hh, ':', nn]);
   }
 }
