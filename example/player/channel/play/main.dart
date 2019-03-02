@@ -70,4 +70,7 @@ main() async {
   es.onMessage.listen((m) async {
     print("Received update notification ...");
   });
+  Future.delayed(Duration(seconds: 10), () {
+    es.close();
+  });
 }
