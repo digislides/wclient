@@ -1,3 +1,3 @@
-FROM serve
+FROM jaguardart/serve
 
 COPY content /root/content
