@@ -3,36 +3,42 @@
     <div class="flat-btn btn-success" (click)="showCreate()">Create</div>
 </div>
 
-<div class="section main">
-    <div class="header-holder flex-holder">
-        <div class="header">
-            <div class="title">All</div>
-            <div class="controls">
-                <div class="button icon refresh-icon" (click)="refresh()"></div>
-                <div class="search">
-                    <div class="icon"></div>
-                    <input class="search-input" tjText [value]="search" (bind)="search = $event">
+<div class="container">
+    <div class="section main">
+        <div class="header-holder flex-holder">
+            <div class="header">
+                <div class="title">All</div>
+                <div class="controls">
+                    <div class="button icon refresh-icon" (click)="refresh()"></div>
+                    <div class="search">
+                        <div class="icon"></div>
+                        <input class="search-input" tjText [value]="search" (bind)="search = $event">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="list main-list">
-        <div class="item" *ngFor="let channel of channels.items" (click)="select(channel)">
-            <div class="thumbnail"></div>
-            <div class="name">{{channel.name}}</div>
+        <div class="main-content">
+            <div class="list main-list">
+                <div class="item" *ngFor="let channel of channels.items" (click)="select(channel)">
+                    <div class="thumbnail"></div>
+                    <div class="name">{{channel.name}}</div>
+                </div>
+            </div>
         </div>
-    </div>
 
-    <div class="pag-holder flex-holder">
-        <div class="pag">
-            <div class="pag-btn pag-first"></div>
-            <div class="pag-btn pag-prev"></div>
-            <input class="pag-input" tjText [value]="channels.page">
-            <span class="pag-count">/ {{channels.totalPages}}</span>
-            <div class="pag-btn pag-next"></div>
-            <div class="pag-btn pag-last"></div>
+        <!--
+        <div class="pag-holder flex-holder">
+            <div class="pag">
+                <div class="pag-btn pag-first"></div>
+                <div class="pag-btn pag-prev"></div>
+                <input class="pag-input" tjText [value]="channels.page">
+                <span class="pag-count">/ {{channels.totalPages}}</span>
+                <div class="pag-btn pag-next"></div>
+                <div class="pag-btn pag-last"></div>
+            </div>
         </div>
+        -->
     </div>
 </div>
 

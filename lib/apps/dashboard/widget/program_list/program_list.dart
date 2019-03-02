@@ -26,23 +26,12 @@ class ProgramListComponent implements OnInit {
   Paginated programs = Paginated(
     page: 0,
     numPerPage: 6,
-    items: [
-      Program(name: 'Program1'),
-      Program(name: 'Program2'),
-      Program(name: 'Program3'),
-      Program(name: 'Program4'),
-      Program(name: 'Program5'),
-      Program(name: 'Program6'),
-    ],
+    items: [],
     totalPages: 6,
   );
 
   /// List of recent programs
-  List<Program> recent = [
-    Program(name: 'Program1'),
-    Program(name: 'Program2'),
-    Program(name: 'Program3'),
-  ];
+  List<Program> recent = [];
 
   bool creating = false;
 
@@ -64,6 +53,7 @@ class ProgramListComponent implements OnInit {
       page: 0,
       totalPages: 1,
     );
+    recent = await programApi.getRecent();
   }
 
   void ngOnInit() {

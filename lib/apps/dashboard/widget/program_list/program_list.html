@@ -3,53 +3,56 @@
     <div class="flat-btn btn-success" (click)="showCreate()">Create</div>
 </div>
 
-<div class="section recent">
-    <div class="header-holder flex-holder">
-        <div class="header">
-            <div class="title">Recent</div>
+<div class="container">
+    <div class="section recent">
+        <div class="header-holder flex-holder">
+            <div class="header">
+                <div class="title">Recent</div>
+            </div>
         </div>
-    </div>
-    <div class="list recent-list">
-        <div class="item" *ngFor="let program of recent">
-            <div class="thumbnail"></div>
-            <div class="name">{{program.name}}</div>
-        </div>
-    </div>
-
-</div>
-
-<div class="separator"></div>
-
-<div class="section main">
-    <div class="header-holder flex-holder">
-        <div class="header">
-            <div class="title">All</div>
-            <div class="controls">
-                <div class="button icon refresh-icon" (click)="refresh()"></div>
-                <div class="search">
-                    <div class="icon"></div>
-                    <input class="search-input" tjText [value]="search" (bind)="search = $event">
-                </div>
+        <div class="list recent-list">
+            <div class="item" *ngFor="let program of recent">
+                <div class="thumbnail"></div>
+                <div class="name">{{program.name}}</div>
             </div>
         </div>
     </div>
 
-    <div class="list main-list">
-        <div class="item" *ngFor="let program of programs.items" (click)="select(program)">
-            <div class="thumbnail"></div>
-            <div class="name">{{program.name}}</div>
+    <div class="section main">
+        <div class="header-holder flex-holder">
+            <div class="header">
+                <div class="title">All</div>
+                <div class="controls">
+                    <div class="button icon refresh-icon" (click)="refresh()"></div>
+                    <div class="search">
+                        <div class="icon"></div>
+                        <input class="search-input" tjText [value]="search" (bind)="search = $event">
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
 
-    <div class="pag-holder flex-holder">
-        <div class="pag">
-            <div class="pag-btn pag-first"></div>
-            <div class="pag-btn pag-prev"></div>
-            <input class="pag-input" tjText [value]="programs.page">
-            <span class="pag-count">/ {{programs.totalPages}}</span>
-            <div class="pag-btn pag-next"></div>
-            <div class="pag-btn pag-last"></div>
+        <div class="main-content">
+            <div class="list main-list">
+                <div class="item" *ngFor="let program of programs.items" (click)="select(program)">
+                    <div class="thumbnail"></div>
+                    <div class="name">{{program.name}}</div>
+                </div>
+            </div>
         </div>
+
+        <!--
+        <div class="pag-holder flex-holder">
+            <div class="pag">
+                <div class="pag-btn pag-first"></div>
+                <div class="pag-btn pag-prev"></div>
+                <input class="pag-input" tjText [value]="programs.page">
+                <span class="pag-count">/ {{programs.totalPages}}</span>
+                <div class="pag-btn pag-next"></div>
+                <div class="pag-btn pag-last"></div>
+            </div>
+        </div>
+        -->
     </div>
 </div>
 

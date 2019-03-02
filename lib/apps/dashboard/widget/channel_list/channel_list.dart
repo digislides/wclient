@@ -26,14 +26,7 @@ class ChannelListComponent implements OnInit {
   Paginated channels = Paginated(
     page: 0,
     numPerPage: 6,
-    items: [
-      Channel(name: 'Program1'),
-      Channel(name: 'Program2'),
-      Channel(name: 'Program3'),
-      Channel(name: 'Program4'),
-      Channel(name: 'Program5'),
-      Channel(name: 'Program6'),
-    ],
+    items: [],
     totalPages: 6,
   );
 

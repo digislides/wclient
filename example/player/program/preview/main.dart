@@ -13,7 +13,7 @@ main() async {
   final uri = Uri.parse(window.location.href);
   String id = uri.queryParameters['id'];
 
-  PublishedProgram program = await programApi.getPublished(id);
+  Program program = await programApi.getById(id);
   if (program == null) {
     print('No program!');
     return;

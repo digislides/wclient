@@ -40,7 +40,6 @@ class ChannelInfoComponent implements OnInit {
     _onClose = _onCloseController.stream.asBroadcastStream();
   }
 
-
   @override
   Future<void> ngOnInit() async {
     await update();
@@ -49,7 +48,7 @@ class ChannelInfoComponent implements OnInit {
   Future<void> update() async {
     // TODO show spinner
     channel = await channelApi.getById(channel.id);
-    if(channel.program != null) {
+    if (channel.program != null) {
       program = await programApi.getById(channel.program);
     } else {
       program = null;
@@ -68,7 +67,8 @@ class ChannelInfoComponent implements OnInit {
   }
 
   void preview() {
-    window.open("/player/channel/preview/index.html?id=${channel.id}", "_blank");
+    window.open(
+        "/player/channel/preview/index.html?id=${channel.id}", "_blank");
   }
 
   Future<void> delete() async {

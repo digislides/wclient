@@ -3,12 +3,29 @@ import 'dart:html';
 import 'package:jaguar_resty/jaguar_resty.dart';
 import 'package:http/browser_client.dart';
 
-import 'package:common/models.dart';
 import 'package:player/preview.dart';
 import 'package:wclient/utils/api/api.dart';
 
 import 'package:player/service_worker/service_window.dart';
 import 'package:service_worker/window.dart' as sw;
+
+String id;
+
+ProgramView view;
+
+void update() async {
+  final pub = await channelApi.getContent(id);
+
+  await cacheProgramUrls(id, pub.design);
+
+  final thisView = ProgramView(pub.design);
+  if (view != null) view.purge();
+
+  view = thisView;
+  document.body.children.add(view.root);
+
+  view.start();
+}
 
 main() async {
   globalClient = BrowserClient();
@@ -16,11 +33,11 @@ main() async {
   try {
     final cacher = (await sw.getRegistrations()).firstWhere((reg) {
       if (reg.active != null)
-        return reg.active.scriptURL == '/player/sw.dart.js';
+        return reg.active.scriptURL == '/player/channel/play/sw.dart.js';
       return false;
     }, orElse: () => null);
     if (cacher == null) {
-      await sw.register('/player/sw.dart.js');
+      await sw.register('/player/channel/play/sw.dart.js');
       sw.ready.then((sw.ServiceWorkerRegistration reg) {
         print("Registered!");
       });
@@ -34,20 +51,7 @@ main() async {
   } catch (e) {}
 
   final uri = Uri.parse(window.location.href);
-  String id = uri.queryParameters['id'];
+  id = uri.queryParameters['id'];
 
-  Program program = await programApi.getById(id);
-  if (program == null) {
-    print('No program!');
-    return;
-  }
-
-  // print(program.design);
-
-  await cacheProgramUrls(id, program.design);
-
-  final view = ProgramView(program.design);
-
-  document.body.children.add(view.root);
-  view.start();
+  await update();
 }

@@ -1,16 +1,20 @@
 @import 'package:wclient/utils/css/common.css';
 
 :host {
-  display: block;
-  width: 100%;
-  height: 100%;
-  user-select: none;
-  background-color: #eee;
-  padding: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    background-color: #eee;
+    padding: 5px;
+    box-sizing: border-box;
 }
 
 .top-header {
-  display: flex;
+    display: flex;
+    padding: 5px 0px;
+    box-sizing: border-box;
 }
 
 .top-header .title {
@@ -18,8 +22,20 @@
   flex: 1;
 }
 
+.container {
+    display: flex;
+    height: 100%;
+    flex: 1;
+}
+
 .section {
   padding: 10px 0px;
+}
+
+.section.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .header-holder {
@@ -37,19 +53,17 @@
 }
 
 .list {
+}
+
+.main-list {
+  width: 100%;
   display: flex;
+  flex-wrap: wrap;
 }
 
-.recent {
-
-}
-
-.recent-list {
-
-}
-
-.main {
-
+.main-content {
+    flex: 1;
+    overflow: auto;
 }
 
 .controls {
@@ -114,10 +128,6 @@
 
 .refresh-icon {
   background-image: url(https://img.icons8.com/ios/50/333333/synchronize-filled.png);
-}
-
-.main-list {
-  flex-wrap: wrap;
 }
 
 .item {

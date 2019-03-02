@@ -3,36 +3,60 @@ import 'dart:html';
 import 'package:jaguar_resty/jaguar_resty.dart';
 import 'package:http/browser_client.dart';
 
+import 'package:common/models.dart';
 import 'package:player/preview.dart';
 import 'package:wclient/utils/api/api.dart';
 
 import 'package:player/service_worker/service_window.dart';
+import 'package:player/persistent_storage/persistent_storage.dart';
 import 'package:service_worker/window.dart' as sw;
 
 String id;
 
 ProgramView view;
 
+ContentStorage storage;
+
+String version;
+
 void update() async {
-  // TODO return if we already have the content in persistent
+  // Get latest version of content we are supposed to run
+  String latestVersion = await channelApi.getVersion(id);
 
-  final pub = await channelApi.getContent(id);
+  // Check if we are already running latest content
+  if (latestVersion == version) {
+    print("Already have content!");
+    return;
+  }
 
-  // TODO persist pub
+  // Check if we have the version in content storage
+  PublishedProgram pub = await storage.getContentById(id);
+  if (pub == null || pub.id != latestVersion) {
+    print("Fetching new content!");
+    // Fetch new content
+    pub = await channelApi.getContent(id);
+    // Persist new content
+    await storage.saveContent(id, pub);
+  }
 
+  // Cache media
   await cacheProgramUrls(id, pub.design);
 
-  final thisView = ProgramView(pub.design);
+  print("Showing new content!");
+
   if (view != null) view.purge();
 
-  view = thisView;
-  document.body.children.add(view.root);
-
-  view.start();
+  if (pub != null) {
+    view = ProgramView(pub.design);
+    document.body.children.add(view.root);
+    view.start();
+  }
 }
 
 main() async {
   globalClient = BrowserClient();
+
+  storage = await ContentStorage.connect();
 
   try {
     final cacher = (await sw.getRegistrations()).firstWhere((reg) {
@@ -68,7 +92,7 @@ main() async {
     await update();
   });
   es.onMessage.listen((m) async {
-    print("Received update notification ...");
+    print("Received message ...");
   });
   Future.delayed(Duration(seconds: 10), () {
     es.close();
