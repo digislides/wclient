@@ -9,8 +9,7 @@ import 'package:angular/angular.dart';
 import 'package:wclient/utils/directives/input_binder.dart';
 
 import 'package:common/models.dart';
-import 'package:common/api/api.dart';
-import 'package:jaguar_resty/jaguar_resty.dart';
+import 'package:wclient/utils/api/api.dart';
 
 @Component(
   selector: 'login',
@@ -26,9 +25,8 @@ class LoginComponent {
   Login model = Login();
 
   Future<void> submit() async {
-    final authApi = AuthApi(Route("http://localhost:10000/api"));
     await authApi.login(model);
     // TODO handle errors
-    window.location.assign("http://localhost:10000/dashboard/index.html");
+    window.location.assign("/dashboard/index.html");
   }
 }

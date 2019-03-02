@@ -8,8 +8,7 @@ import 'package:angular/angular.dart';
 import 'package:wclient/utils/directives/input_binder.dart';
 
 import 'package:common/models.dart';
-import 'package:common/api/api.dart';
-import 'package:jaguar_resty/jaguar_resty.dart';
+import 'package:wclient/utils/api/api.dart';
 
 @Component(
   selector: 'signup',
@@ -43,7 +42,6 @@ class SignupComponent {
       // TODO show message
       return;
     }
-    final authApi = AuthApi(Route("http://localhost:10000/api"));
     await authApi.signup(model);
     _successController.add(model);
   }
