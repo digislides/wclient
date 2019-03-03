@@ -6,12 +6,13 @@
   flex: 1;
 }
 
-page-stage {
-  flex: 1;
-}
-
 .side-pane {
   height: 100%;
   width: 320px;
   background-color: #dedede;
+}
+
+page-stage {
+  flex: 1;
+  width: calc(100% - 320px);
 }

@@ -1,0 +1,22 @@
+<div #items class="items" [class.dragging]="dragging != null" (mouseup)="onDrop($event)" tabindex="0"
+     (keyup)="onKeyPress($event)" (mousemove)="autoScroll($event)">
+    <template ngFor let-item [ngForOf]="page.items">
+        <template [ngIf]="item == draggingOn">
+            <div class="drop-spot">
+                <span>{{dragging.name}}</span>
+            </div>
+        </template>
+        <div class="item" [class.hide]="item == dragging" [class.selected]="item == selectedItem"
+             (mousemove)="onDragOverItem($event, item)" [title]="item.name">
+            <div class="thumbnail" (mousedown)="onDragStart($event, item)"></div>
+            <div class="name" (click)="selectItem(item)">{{item.name}}</div>
+            <div class="button icon delete-icon" (click)="deleteItem(item)"></div>
+            <div class="button icon duplicate-icon" (click)="duplicateItem(item)"></div>
+        </div>
+    </template>
+    <div class="drop-spot" *ngIf="dragging != null && draggingOn == null">
+        <span>{{dragging.name}}</span>
+    </div>
+    <div class="extra-spot" (mousemove)="onDragOverItem($event, null)">
+    </div>
+</div>

@@ -6,6 +6,7 @@
   border-left: 1px solid #bbb;
   border-right: 1px solid #bbbbbb;
   user-select: none;
+  box-sizing: border-box;
 }
 
 .container {

@@ -13,3 +13,8 @@
   align-items: center;
   justify-content: center;
 }
+
+page-designer {
+  flex: 1;
+  width: calc(100% - 250px);
+}
