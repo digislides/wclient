@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-( cd ../../; webdev build -o build )
+# ( cd ../../; webdev build -o build )
+
+( cd ../../; pub run build_runner build )
 
 cp -r ../../build/example ./content
 
