@@ -1,18 +1,29 @@
 <page-stage [page]="page" (onSelect)="selectionChanged($event)"></page-stage>
 
 <div class="side-pane">
-    <template [ngIf]="selected.length == 0">
-        <page-properties [page]="page" (onItemAdd)="onItemAdd($event)"></page-properties>
-    </template>
-    <template [ngIf]="selected.length == 1">
-        <template [ngIf]="firstSelected.type == PageItemType.image">
-            <image-properties [image]="firstSelected"></image-properties>
-        </template>
-        <template [ngIf]="firstSelected.type == PageItemType.text">
-            <text-properties [text]="firstSelected"></text-properties>
-        </template>
-        <template [ngIf]="firstSelected.type == PageItemType.clock">
-            <clock-properties [item]="firstSelected"></clock-properties>
-        </template>
-    </template>
+    <div class="tab-selector">
+        <div class="tab-selector-item" [class.selected]="selectedTab == 0" (click)="selectedTab = 0">Properties</div>
+        <div class="tab-selector-item" [class.selected]="selectedTab == 1" (click)="selectedTab = 1">Items</div>
+    </div>
+    <div class="tab">
+        <div class="tab-item" [class.selected]="selectedTab == 0">
+            <template [ngIf]="selected.length == 0">
+                <page-properties [page]="page" (onItemAdd)="onItemAdd($event)"></page-properties>
+            </template>
+            <template [ngIf]="selected.length == 1">
+                <template [ngIf]="firstSelected.type == PageItemType.image">
+                    <image-properties [image]="firstSelected"></image-properties>
+                </template>
+                <template [ngIf]="firstSelected.type == PageItemType.text">
+                    <text-properties [text]="firstSelected"></text-properties>
+                </template>
+                <template [ngIf]="firstSelected.type == PageItemType.clock">
+                    <clock-properties [item]="firstSelected"></clock-properties>
+                </template>
+            </template>
+        </div>
+        <div class="tab-item" [class.selected]="selectedTab == 1">
+            <item-list [page]="page"></item-list>
+        </div>
+    </div>
 </div>
