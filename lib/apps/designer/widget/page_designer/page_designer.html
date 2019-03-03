@@ -11,11 +11,14 @@
                 <page-properties [page]="page" (onItemAdd)="onItemAdd($event)"></page-properties>
             </template>
             <template [ngIf]="selected.length == 1">
+                <template [ngIf]="firstSelected.type == PageItemType.text">
+                    <text-properties [text]="firstSelected"></text-properties>
+                </template>
                 <template [ngIf]="firstSelected.type == PageItemType.image">
                     <image-properties [image]="firstSelected"></image-properties>
                 </template>
-                <template [ngIf]="firstSelected.type == PageItemType.text">
-                    <text-properties [text]="firstSelected"></text-properties>
+                <template [ngIf]="firstSelected.type == PageItemType.video">
+                    <video-properties [video]="firstSelected"></video-properties>
                 </template>
                 <template [ngIf]="firstSelected.type == PageItemType.clock">
                     <clock-properties [item]="firstSelected"></clock-properties>

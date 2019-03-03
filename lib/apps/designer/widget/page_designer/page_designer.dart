@@ -5,6 +5,7 @@ import '../properties/page/page_properties.dart';
 import '../properties/image/image_properties.dart';
 import '../properties/text/text_properties.dart';
 import '../properties/clock/clock_properties.dart';
+import '../properties/video/video_properties.dart';
 import '../item_list/item_list.dart';
 
 import 'package:common/models.dart';
@@ -17,8 +18,9 @@ import 'package:common/models.dart';
     NgIf,
     PageStageComponent,
     PagePropertiesComponent,
-    ImagePropertiesComponent,
     TextPropertiesComponent,
+    ImagePropertiesComponent,
+    VideoPropertiesComponent,
     ClockPropertiesComponent,
     ItemListComponent,
   ],

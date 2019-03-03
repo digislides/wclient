@@ -7,6 +7,7 @@ import 'package:common/models.dart';
 
 import 'items/text_item/text_item.dart';
 import 'items/image_item/image_item.dart';
+import 'items/video_item/video_item.dart';
 import 'items/clock_item/clock_item.dart';
 
 @Injectable()
@@ -21,6 +22,7 @@ class SelectionModifier {}
     NgIf,
     TextItemComponent,
     ImageItemComponent,
+    VideoItemComponent,
     ClockItemComponent,
   ],
 )
@@ -68,6 +70,8 @@ class PageStageComponent {
   bool isText(PageItem item) => item is TextItem;
 
   bool isImage(PageItem item) => item is ImageItem;
+
+  bool isVideo(PageItem item) => item is VideoItem;
 
   bool isClock(PageItem item) => item is ClockItem;
 

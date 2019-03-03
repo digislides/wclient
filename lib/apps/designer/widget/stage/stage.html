@@ -20,6 +20,9 @@
                 <template [ngIf]="isImage(item)">
                     <image-item [item]="item" (click)="onItemClick($event, item)"></image-item>
                 </template>
+                <template [ngIf]="isVideo(item)">
+                    <video-item [item]="item" (click)="onItemClick($event, item)"></video-item>
+                </template>
                 <template [ngIf]="isClock(item)">
                     <clock-item [item]="item" (click)="onItemClick($event, item)"></clock-item>
                 </template>

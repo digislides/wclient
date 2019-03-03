@@ -1,0 +1,35 @@
+<div>
+    <div class="row">
+        <div class="label">Left</div>
+        <input type="number" class="input" tjText [bind]="video.left" (bind)="video.left = $event">
+    </div>
+    <div class="row">
+        <div class="label">Top</div>
+        <input type="number" class="input" tjText [bind]="video.top" (bind)="video.top = $event">
+    </div>
+    <div class="row">
+        <div class="label">Width</div>
+        <input type="number" class="input" tjText [bind]="video.width" (bind)="video.width = $event">
+    </div>
+    <div class="row">
+        <div class="label">Height</div>
+        <input type="number" class="input" tjText [bind]="video.height" (bind)="video.height = $event">
+    </div>
+    <div class="row">
+        <div class="label">Color</div>
+        <color-prop class="value" [color]="video.color" (onChange)="video.color = $event"></color-prop>
+    </div>
+    <div class="row">
+        <div class="label">Video</div>
+        <image-prop class="value" [image]="video.url" [imageUrl]="video.videoUrl" (onChange)="video.url = $event"></image-prop>
+    </div>
+    <div class="row">
+        <div class="label">Fit</div>
+        <select class="input" tjSelect [value]="video.fit.name" (bind)="video.fit = Fit.map($event)">
+            <option>Normal</option>
+            <option>Contain</option>
+            <option>Cover</option>
+            <option>Tile</option>
+        </select>
+    </div>
+</div>

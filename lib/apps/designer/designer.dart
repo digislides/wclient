@@ -112,4 +112,9 @@ class DesignerApp implements OnInit {
     this.frame = frame;
     editingProgram = false;
   }
+
+  void preview() {
+    window.open(
+        "/player/program/preview/index.html?id=${program.id}", "_blank");
+  }
 }
