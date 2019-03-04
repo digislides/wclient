@@ -37,6 +37,9 @@ void update() async {
     pub = await channelApi.getContent(id);
     // Persist new content
     await storage.saveContent(id, pub);
+
+    Future.microtask(
+        () async => await channelApi.setPlaying(id, latestVersion));
   }
 
   // Cache media
