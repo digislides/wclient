@@ -37,4 +37,8 @@
             <option>Original</option>
         </select>
     </div>
+    <div class="row">
+        <div class="label">Mutes</div>
+        <input class="value" #muted type="checkbox" [checked]="video.muted" (change)="video.muted = muted.checked">
+    </div>
 </div>
