@@ -24,7 +24,7 @@
                     <video-item [item]="item" (click)="onItemClick($event, item)"></video-item>
                 </template>
                 <template [ngIf]="isClock(item)">
-                    <clock-item [item]="item" (click)="onItemClick($event, item)"></clock-item>
+                    <clock-item class="page-item-clock" [item]="item" (click)="onItemClick($event, item)"></clock-item>
                 </template>
             </template>
         </div>

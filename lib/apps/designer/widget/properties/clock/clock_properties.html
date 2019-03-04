@@ -19,4 +19,24 @@
         <div class="label">Timezone</div>
         <timezone-prop class="value" [zone]="item.timezone" (onChange)="item.timezone = $event"></timezone-prop>
     </div>
+    <div class="row">
+        <div class="label">Text color</div>
+        <color-prop class="value" [color]="item.textColor" (onChange)="item.textColor = $event"></color-prop>
+    </div>
+    <div class="row">
+        <div class="label">Color</div>
+        <color-prop class="value" [color]="item.color" (onChange)="item.color = $event"></color-prop>
+    </div>
+    <div class="row">
+        <div class="label">Image</div>
+        <image-prop class="value" [image]="item.url" [imageUrl]="item.imageUrl" (onChange)="item.url = $event"></image-prop>
+    </div>
+    <div class="row">
+        <div class="label">Hour color</div>
+        <color-prop class="value" [color]="item.hourColor" (onChange)="item.hourColor = $event"></color-prop>
+    </div>
+    <div class="row">
+        <div class="label">Minute color</div>
+        <color-prop class="value" [color]="item.minuteColor" (onChange)="item.minuteColor = $event"></color-prop>
+    </div>
 </div>
