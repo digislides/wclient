@@ -1,5 +1,9 @@
 <div>
     <div class="row">
+        <div class="label">Name</div>
+        <input class="input" tjText [bind]="frame.name" (bind)="frame.name = $event">
+    </div>
+    <div class="row">
         <div class="label">Left</div>
         <input type="number" class="input" tjText [bind]="frame.left" (bind)="frame.left = $event">
     </div>
