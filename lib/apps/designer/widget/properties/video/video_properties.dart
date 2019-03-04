@@ -20,7 +20,7 @@ import 'package:wclient/apps/designer/widget/properties/items/color/color.dart';
       ColorPropComponent,
     ],
     exports: [
-      Fit,
+      VideoFit,
     ])
 class VideoPropertiesComponent {
   @Input()

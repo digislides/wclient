@@ -1,3 +1,3 @@
-<video width="100%" height="100%">
-    <source src="item.videoUrl">
+<video width="100%" height="100%" [style.object-fit]="item.fit.css">
+    <source *ngIf="item.videoUrl != 'none'" [src]="item.videoUrl">
 </video>
