@@ -1,6 +1,7 @@
 import 'package:angular/angular.dart';
 
 import 'package:wclient/utils/directives/input_binder.dart';
+import 'package:wclient/apps/designer/widget/properties/items/timezone/timezone.dart';
 
 import 'package:common/models.dart';
 
@@ -13,6 +14,7 @@ import 'package:common/models.dart';
       NgIf,
       TextBinder,
       SelectBoxBinder,
+      TimezonePropComponent,
     ],
     exports: [
       Fit,

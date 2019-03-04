@@ -19,6 +19,5 @@ class HomeApp {
 
   void onSignupSuccess(Signup signup) {
     this.signup = signup;
-    print(signup);
   }
 }

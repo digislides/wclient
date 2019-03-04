@@ -1,0 +1,6 @@
+<input class="input" tjText [bind]="zoneStr" (bind)="changed($event)" list="timezones">
+
+<datalist id="timezones">
+    <option value="+01:00" label="+01:00 Europe/Stockholm"></option>
+    <option value="-05:00" label="-05:00 America/New_York"></option>
+</datalist>

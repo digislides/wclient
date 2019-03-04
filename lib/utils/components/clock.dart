@@ -7,12 +7,17 @@ class ClockComponent {
 
   DateTime _time = DateTime.now();
 
+  Duration timezone = Duration();
+
   ClockComponent() {
     _build();
   }
 
   set time(DateTime time) {
-    _time = time;
+    final ms = time.toUtc().add(timezone).millisecondsSinceEpoch;
+    _time = DateTime.fromMillisecondsSinceEpoch(ms);
+
+    _updateView();
   }
 
   final _hoursContiner = DivElement()
@@ -34,8 +39,6 @@ class ClockComponent {
         'rotateZ(${(hour * 30) + (minute / 2)}deg)';
     _minutesContainer.style.transform = 'rotateZ(${minute * 6}deg)';
     _secondsContainer.style.transform = 'rotateZ(${second * 6}deg)';
-
-    print(_time);
   }
 
   void _build() {
@@ -52,7 +55,7 @@ class ClockComponent {
     // Sticks
     root.children.add(_hoursContiner);
     root.children.add(_minutesContainer);
-    root.children.add(_secondsContainer);
+    // TODO root.children.add(_secondsContainer);
 
     _updateView();
   }

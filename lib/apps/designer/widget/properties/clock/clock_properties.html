@@ -17,6 +17,6 @@
     </div>
     <div class="row">
         <div class="label">Timezone</div>
-        <input type="number" class="input" tjText [bind]="item.size" (bind)="item.size = $event">
+        <timezone-prop class="value" [zone]="item.timezone" (onChange)="item.timezone = $event"></timezone-prop>
     </div>
 </div>

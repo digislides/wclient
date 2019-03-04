@@ -4,8 +4,6 @@ import 'package:angular/angular.dart';
 
 import 'package:wclient/utils/directives/input_binder.dart';
 
-import 'package:common/models.dart';
-
 @Component(
   selector: 'color-prop',
   styleUrls: ['color.css'],
@@ -15,9 +13,6 @@ import 'package:common/models.dart';
     NgIf,
     TextBinder,
     SelectBoxBinder,
-  ],
-  exports: [
-    Fit,
   ],
 )
 class ColorPropComponent {
