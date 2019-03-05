@@ -43,6 +43,14 @@ class SignupComponent {
       return;
     }
     await authApi.signup(model);
-    _successController.add(model);
+    _successController.add(Signup.serializer.clone(model));
+    reset();
+  }
+
+  void reset() {
+    model.email = '';
+    model.name = '';
+    model.password = '';
+    password = '';
   }
 }

@@ -18,6 +18,19 @@
         <div class="value" *ngIf="program != null">{{program.name}}</div>
         <div class="value" *ngIf="program == null">None</div>
     </div>
+    <div class="row">
+        <div class="label">Should run</div>
+        <div class="value" *ngIf="program != null">{{program.publishString()}}</div>
+        <div class="value" *ngIf="program == null">None</div>
+    </div>
+    <div class="row">
+        <div class="label">Running</div>
+        <div class="value" *ngIf="channel.running != null">
+            <div>{{channel.running.running}}</div>
+            <div>Since {{channel.running.when.toString()}}</div>
+        </div>
+        <div class="value" *ngIf="channel.running == null">None</div>
+    </div>
 </div>
 
 <div class="overlay" *ngIf="editing">
