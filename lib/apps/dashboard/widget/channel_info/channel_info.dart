@@ -9,6 +9,7 @@ import 'package:wclient/apps/dashboard/widget/channel_edit/channel_edit.dart';
 import 'package:common/models.dart';
 
 import 'package:wclient/utils/api/api.dart';
+import 'package:common/utils/published_at_format.dart';
 
 @Component(
   selector: 'channel-info',
@@ -21,6 +22,9 @@ import 'package:wclient/utils/api/api.dart';
     NumBinder,
     SelectBoxBinder,
     ChannelEditComponent,
+  ],
+  exports: [
+    versionToHuman,
   ],
 )
 class ChannelInfoComponent implements OnInit {
@@ -49,6 +53,7 @@ class ChannelInfoComponent implements OnInit {
     // TODO show spinner
     channel = await channelApi.getById(channel.id);
     if (channel.program != null) {
+      print(channel.running);
       program = await programApi.getById(channel.program);
     } else {
       program = null;

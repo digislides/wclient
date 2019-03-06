@@ -95,3 +95,8 @@
 .row .value {
     font-size: 24px;
 }
+
+.sub {
+    font-size: 16px;
+    margin-top: 5px;
+}
