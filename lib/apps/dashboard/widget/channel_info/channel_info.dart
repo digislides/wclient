@@ -53,7 +53,6 @@ class ChannelInfoComponent implements OnInit {
     // TODO show spinner
     channel = await channelApi.getById(channel.id);
     if (channel.program != null) {
-      print(channel.running);
       program = await programApi.getById(channel.program);
     } else {
       program = null;
