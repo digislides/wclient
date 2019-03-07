@@ -2,9 +2,26 @@
 
 rm -rf ./content web.tar.gz
 
-# ( cd ../../; webdev build -o build )
+extension=
 
-( cd ../../; pub run build_runner build -o build )
+case "$(uname -s)" in
+    Linux*)
+      ;;
+    Darwin*)
+      ;;
+    CYGWIN*)
+      extension=.bat
+      ;;
+    MINGW*)
+      extension=.bat
+      ;;
+    *)
+      echo Unknown terminal!
+      exit -1
+esac
+
+( cd ../../; webdev${extension} build -o build )
+# ( cd ../../; pub${extension} run build_runner build -o build )
 
 cp -r ../../build/example ./content
 
