@@ -1,0 +1,77 @@
+/* Based on pe icon 7 weather */
+@font-face {
+	font-family: 'wi-flat-thin';
+	src: url('./wi_flat_thin.ttf?-ujaud2') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.wi-flat-thin {
+	display: inline-block;
+	font-family: 'wi-flat-thin';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+
+.wi-flat-thin.wi-01d:before {
+	content: "\e60c";
+}
+.wi-flat-thin.wi-02d:before {
+	content: "\e63a";
+}
+.wi-flat-thin.wi-03d:before {
+	content: "\e636";
+}
+.wi-flat-thin.wi-04d:before {
+	content: "\e636";
+}
+.wi-flat-thin.wi-09d:before {
+	content: "\e62c";
+}
+.wi-flat-thin.wi-10d:before {
+	content: "\e614";
+}
+.wi-flat-thin.wi-11d:before {
+	content: "\e61b";
+}
+.wi-flat-thin.wi-13d:before {
+	content: "\e611";
+}
+.wi-flat-thin.wi-15d:before {
+	content: "\e626";
+}
+
+.wi-flat-thin.wi-01n:before {
+	content: "\e619";
+}
+.wi-flat-thin.wi-02n:before {
+	content: "\e63b";
+}
+.wi-flat-thin.wi-03n:before {
+	content: "\e636";
+}
+.wi-flat-thin.wi-04n:before {
+	content: "\e636";
+}
+.wi-flat-thin.wi-09n:before {
+	content: "\e62a";
+}
+.wi-flat-thin.wi-10n:before {
+	content: "\e615";
+}
+.wi-flat-thin.wi-11n:before {
+	content: "\e61f";
+}
+.wi-flat-thin.wi-13n:before {
+	content: "\e612";
+}
+.wi-flat-thin.wi-50n:before {
+	content: "\e627";
+}

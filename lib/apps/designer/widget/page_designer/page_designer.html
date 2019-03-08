@@ -23,6 +23,9 @@
                 <template [ngIf]="firstSelected.type == PageItemType.clock">
                     <clock-properties [item]="firstSelected"></clock-properties>
                 </template>
+                <template [ngIf]="firstSelected.type == PageItemType.weather">
+                    <weather-properties [item]="firstSelected"></weather-properties>
+                </template>
             </template>
         </div>
         <div class="tab-item" [class.selected]="selectedTab == 1">

@@ -66,6 +66,11 @@ class PagePropertiesComponent {
         page.addNewItem(item);
         _itemAddCntr.add(item);
         break;
+      case 'weather':
+        final item = WeatherItem();
+        page.addNewItem(item);
+        _itemAddCntr.add(item);
+        break;
     }
   }
 

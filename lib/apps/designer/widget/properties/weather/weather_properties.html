@@ -1,0 +1,30 @@
+<div>
+    <div class="row">
+        <div class="label">Name</div>
+        <input class="input" tjText [bind]="item.name" (bind)="item.name = $event">
+    </div>
+    <div class="row">
+        <div class="label">Left</div>
+        <input type="number" class="input" tjText [bind]="item.left" (bind)="item.left = $event">
+    </div>
+    <div class="row">
+        <div class="label">Top</div>
+        <input type="number" class="input" tjText [bind]="item.top" (bind)="item.top = $event">
+    </div>
+    <div class="row">
+        <div class="label">Size</div>
+        <input type="number" class="input" tjText [bind]="item.size" (bind)="item.size = $event">
+    </div>
+    <div class="row">
+        <div class="label">Color</div>
+        <color-prop class="value" [color]="item.color" (onChange)="item.color = $event"></color-prop>
+    </div>
+    <div class="row">
+        <div class="label">Theme</div>
+        <select class="input" tjSelect [value]="item.theme.label" (bind)="item.theme = WeatherTheme.map[$event]">
+            <template ngFor let-label [ngForOf]="WeatherTheme.labels">
+                <option>{{label}}</option>
+            </template>
+        </select>
+    </div>
+</div>

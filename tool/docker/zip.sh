@@ -20,8 +20,8 @@ case "$(uname -s)" in
       exit -1
 esac
 
-( cd ../../; webdev${extension} build -o build )
-# ( cd ../../; pub${extension} run build_runner build -o build )
+# ( cd ../../; webdev${extension} build -o build )
+( cd ../../; pub${extension} run build_runner build -o build )
 
 cp -r ../../build/example ./content
 

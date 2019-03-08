@@ -9,6 +9,7 @@ import 'items/text_item/text_item.dart';
 import 'items/image_item/image_item.dart';
 import 'items/video_item/video_item.dart';
 import 'items/clock_item/clock_item.dart';
+import 'items/weather_item/weather_item.dart';
 
 @Injectable()
 class SelectionModifier {}
@@ -24,6 +25,10 @@ class SelectionModifier {}
     ImageItemComponent,
     VideoItemComponent,
     ClockItemComponent,
+    WeatherItemComponent,
+  ],
+  exports: [
+    PageItemType,
   ],
 )
 class PageStageComponent {

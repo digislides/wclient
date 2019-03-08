@@ -93,3 +93,7 @@
 .clock-icon {
   background-image: url(/packages/wclient/utils/icons/designer/item_add/clock.svg);
 }
+
+.weather-icon {
+  background-image: url(/packages/wclient/utils/icons/designer/item_add/weather.svg);
+}

@@ -14,17 +14,20 @@
              [style.background-repeat]="page.fit.repeatCss"
         >
             <template ngFor let-item [ngForOf]="page.items">
-                <template [ngIf]="isText(item)">
+                <template [ngIf]="item.type == PageItemType.text">
                     <text-item [item]="item" (click)="onItemClick($event, item)"></text-item>
                 </template>
-                <template [ngIf]="isImage(item)">
+                <template [ngIf]="item.type == PageItemType.image">
                     <image-item [item]="item" (click)="onItemClick($event, item)"></image-item>
                 </template>
-                <template [ngIf]="isVideo(item)">
+                <template [ngIf]="item.type == PageItemType.video">
                     <video-item [item]="item" (click)="onItemClick($event, item)"></video-item>
                 </template>
-                <template [ngIf]="isClock(item)">
+                <template [ngIf]="item.type == PageItemType.clock">
                     <clock-item class="page-item-clock" [item]="item" (click)="onItemClick($event, item)"></clock-item>
+                </template>
+                <template [ngIf]="item.type == PageItemType.weather">
+                    <weather-item class="page-item-weather" [item]="item" (click)="onItemClick($event, item)"></weather-item>
                 </template>
             </template>
         </div>
