@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
@@ -18,6 +17,9 @@ import 'package:common/models.dart';
 class WeatherItemComponent {
   @Input()
   WeatherItem item;
+
+  @ViewChild('holder')
+  DivElement holder;
 
   WeatherItemComponent(HtmlElement root) {
     // TODO

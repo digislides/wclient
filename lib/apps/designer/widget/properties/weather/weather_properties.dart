@@ -22,6 +22,7 @@ import 'package:common/models.dart';
     ],
     exports: [
       WeatherTheme,
+      WeatherIconType,
     ])
 class WeatherPropertiesComponent {
   @Input()

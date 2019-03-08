@@ -27,4 +27,12 @@
             </template>
         </select>
     </div>
+    <div class="row">
+        <div class="label">Dummy</div>
+        <select class="input" tjSelect [value]="item.dummy.id" (bind)="item.dummy = WeatherIconType.values[$event]">
+            <template ngFor let-item [ngForOf]="WeatherIconType.values.values">
+                <option [value]="item.id">{{item.name}}</option>
+            </template>
+        </select>
+    </div>
 </div>
