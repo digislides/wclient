@@ -72,81 +72,78 @@
 }
 */
 .wi-flat {
-  display: block;
-  -webkit-mask-size: cover;
-  mask-size: cover;
 }
 
 .wi-flat.wi-01d {
-  -webkit-mask: url(/static/css/weather/flat/01d.svg) no-repeat 100% 100%;
-  mask: url(/static/css/weather/flat/01d.svg) no-repeat 100% 100%;
+  -webkit-mask: url(/static/css/weather/flat/01d.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat/01d.svg) center / contain no-repeat;
 }
 .wi-flat.wi-02d {
-  -webkit-mask: url(/static/css/weather/flat/02d.svg);
-  mask: url(/static/css/weather/flat/02d.svg);
+  -webkit-mask: url(/static/css/weather/flat/02d.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat/02d.svg) center / contain no-repeat;
 }
 .wi-flat.wi-03d {
-  -webkit-mask: url(/static/css/weather/flat/03d.svg);
-  mask: url(/static/css/weather/flat/03d.svg);
+  -webkit-mask: url(/static/css/weather/flat/03d.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat/03d.svg) center / contain no-repeat;
 }
 .wi-flat.wi-04d {
-  -webkit-mask: url(/static/css/weather/flat/04d.svg);
-  mask: url(/static/css/weather/flat/04d.svg);
+  -webkit-mask: url(/static/css/weather/flat/04d.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat/04d.svg) center / contain no-repeat;
 }
 .wi-flat.wi-09d {
-  -webkit-mask: url(/static/css/weather/flat/09d.svg);
-  mask: url(/static/css/weather/flat/09d.svg);
+  -webkit-mask: url(/static/css/weather/flat/09d.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat/09d.svg) center / contain no-repeat;
 }
 .wi-flat.wi-10d {
-  -webkit-mask: url(/static/css/weather/flat/10d.svg);
-  mask: url(/static/css/weather/flat/10d.svg);
+  -webkit-mask: url(/static/css/weather/flat/10d.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat/10d.svg) center / contain no-repeat;
 }
 .wi-flat.wi-11d {
-  -webkit-mask: url(/static/css/weather/flat/11d.svg);
-  mask: url(/static/css/weather/flat/11d.svg);
+  -webkit-mask: url(/static/css/weather/flat/11d.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat/11d.svg) center / contain no-repeat;
 }
 .wi-flat.wi-13d {
-  -webkit-mask: url(/static/css/weather/flat/13d.svg);
-  mask: url(/static/css/weather/flat/13d.svg);
+  -webkit-mask: url(/static/css/weather/flat/13d.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat/13d.svg) center / contain no-repeat;
 }
 .wi-flat.wi-50d {
-  -webkit-mask: url(/static/css/weather/flat/50d.svg);
-  mask: url(/static/css/weather/flat/50d.svg);
+  -webkit-mask: url(/static/css/weather/flat/50d.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat/50d.svg) center / contain no-repeat;
 }
 
 .wi-flat.wi-01n {
-  -webkit-mask: url(/static/css/weather/flat/01n.svg);
-  mask: url(/static/css/weather/flat/01n.svg);
+  -webkit-mask: url(/static/css/weather/flat/01n.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat/01n.svg) center / contain no-repeat;
 }
 .wi-flat.wi-02n {
-  -webkit-mask: url(/static/css/weather/flat/02n.svg);
-  mask: url(/static/css/weather/flat/02n.svg);
+  -webkit-mask: url(/static/css/weather/flat/02n.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat/02n.svg) center / contain no-repeat;
 }
 .wi-flat.wi-03n {
-  -webkit-mask: url(/static/css/weather/flat/03n.svg);
-  mask: url(/static/css/weather/flat/03n.svg);
+  -webkit-mask: url(/static/css/weather/flat/03n.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat/03n.svg) center / contain no-repeat;
 }
 .wi-flat.wi-04n {
-  -webkit-mask: url(/static/css/weather/flat/04n.svg);
-  mask: url(/static/css/weather/flat/04n.svg);
+  -webkit-mask: url(/static/css/weather/flat/04n.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat/04n.svg) center / contain no-repeat;
 }
 .wi-flat.wi-09n {
-  -webkit-mask: url(/static/css/weather/flat/09n.svg);
-  mask: url(/static/css/weather/flat/09n.svg);
+  -webkit-mask: url(/static/css/weather/flat/09n.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat/09n.svg) center / contain no-repeat;
 }
 .wi-flat.wi-10n {
-  -webkit-mask: url(/static/css/weather/flat/10n.svg);
-  mask: url(/static/css/weather/flat/10n.svg);
+  -webkit-mask: url(/static/css/weather/flat/10n.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat/10n.svg) center / contain no-repeat;
 }
 .wi-flat.wi-11n {
-  -webkit-mask: url(/static/css/weather/flat/11n.svg);
-  mask: url(/static/css/weather/flat/11n.svg);
+  -webkit-mask: url(/static/css/weather/flat/11n.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat/11n.svg) center / contain no-repeat;
 }
 .wi-flat.wi-13n {
-  -webkit-mask: url(/static/css/weather/flat/13n.svg);
-  mask: url(/static/css/weather/flat/13n.svg);
+  -webkit-mask: url(/static/css/weather/flat/13n.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat/13n.svg) center / contain no-repeat;
 }
 .wi-flat.wi-50n {
-  -webkit-mask: url(/static/css/weather/flat/50n.svg);
-  mask: url(/static/css/weather/flat/50n.svg);
+  -webkit-mask: url(/static/css/weather/flat/50n.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat/50n.svg) center / contain no-repeat;
 }

@@ -1,4 +1,5 @@
 /* Based on pe icon 7 weather */
+/*
 @font-face {
 	font-family: 'wi-flat-thin';
 	src: url('./wi_flat_thin.ttf?-ujaud2') format('truetype');
@@ -74,4 +75,82 @@
 }
 .wi-flat-thin.wi-50n:before {
 	content: "\e627";
+}*/
+
+
+.wi-flat-thin {
+}
+
+.wi-flat-thin.wi-01d {
+  -webkit-mask: url(/static/css/weather/flat_thin/01d.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat_thin/01d.svg) center / contain no-repeat;
+}
+.wi-flat-thin.wi-02d {
+  -webkit-mask: url(/static/css/weather/flat_thin/02d.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat_thin/02d.svg) center / contain no-repeat;
+}
+.wi-flat-thin.wi-03d {
+  -webkit-mask: url(/static/css/weather/flat_thin/03d.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat_thin/03d.svg) center / contain no-repeat;
+}
+.wi-flat-thin.wi-04d {
+  -webkit-mask: url(/static/css/weather/flat_thin/04d.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat_thin/04d.svg) center / contain no-repeat;
+}
+.wi-flat-thin.wi-09d {
+  -webkit-mask: url(/static/css/weather/flat_thin/09d.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat_thin/09d.svg) center / contain no-repeat;
+}
+.wi-flat-thin.wi-10d {
+  -webkit-mask: url(/static/css/weather/flat_thin/10d.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat_thin/10d.svg) center / contain no-repeat;
+}
+.wi-flat-thin.wi-11d {
+  -webkit-mask: url(/static/css/weather/flat_thin/11d.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat_thin/11d.svg) center / contain no-repeat;
+}
+.wi-flat-thin.wi-13d {
+  -webkit-mask: url(/static/css/weather/flat_thin/13d.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat_thin/13d.svg) center / contain no-repeat;
+}
+.wi-flat-thin.wi-50d {
+  -webkit-mask: url(/static/css/weather/flat_thin/50d.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat_thin/50d.svg) center / contain no-repeat;
+}
+
+.wi-flat-thin.wi-01n {
+  -webkit-mask: url(/static/css/weather/flat_thin/01n.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat_thin/01n.svg) center / contain no-repeat;
+}
+.wi-flat-thin.wi-02n {
+  -webkit-mask: url(/static/css/weather/flat_thin/02n.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat_thin/02n.svg) center / contain no-repeat;
+}
+.wi-flat-thin.wi-03n {
+  -webkit-mask: url(/static/css/weather/flat_thin/03n.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat_thin/03n.svg) center / contain no-repeat;
+}
+.wi-flat-thin.wi-04n {
+  -webkit-mask: url(/static/css/weather/flat_thin/04n.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat_thin/04n.svg) center / contain no-repeat;
+}
+.wi-flat-thin.wi-09n {
+  -webkit-mask: url(/static/css/weather/flat_thin/09n.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat_thin/09n.svg) center / contain no-repeat;
+}
+.wi-flat-thin.wi-10n {
+  -webkit-mask: url(/static/css/weather/flat_thin/10n.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat_thin/10n.svg) center / contain no-repeat;
+}
+.wi-flat-thin.wi-11n {
+  -webkit-mask: url(/static/css/weather/flat_thin/11n.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat_thin/11n.svg) center / contain no-repeat;
+}
+.wi-flat-thin.wi-13n {
+  -webkit-mask: url(/static/css/weather/flat_thin/13n.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat_thin/13n.svg) center / contain no-repeat;
+}
+.wi-flat-thin.wi-50n {
+  -webkit-mask: url(/static/css/weather/flat_thin/50n.svg) center / contain no-repeat;
+  mask: url(/static/css/weather/flat_thin/50n.svg) center / contain no-repeat;
 }
