@@ -43,7 +43,7 @@ void update() async {
   }
 
   // Cache media
-  if(pub != null && pub.design != null) {
+  if (pub != null && pub.design != null) {
     await cacheProgramUrls(id, pub.design);
     version = pub.id;
   } else {
