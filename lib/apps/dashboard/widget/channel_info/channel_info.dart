@@ -8,7 +8,7 @@ import 'package:wclient/apps/dashboard/widget/channel_edit/channel_edit.dart';
 
 import 'package:common/models.dart';
 
-import 'package:wclient/utils/api/api.dart';
+import 'package:common/api/api.dart';
 import 'package:common/utils/published_at_format.dart';
 
 @Component(

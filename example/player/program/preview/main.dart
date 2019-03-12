@@ -5,7 +5,7 @@ import 'package:http/browser_client.dart';
 
 import 'package:common/models.dart';
 import 'package:player/preview.dart';
-import 'package:wclient/utils/api/api.dart';
+import 'package:common/api/api.dart';
 
 main() async {
   globalClient = BrowserClient();

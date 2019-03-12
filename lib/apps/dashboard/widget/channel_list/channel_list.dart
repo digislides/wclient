@@ -6,7 +6,7 @@ import 'package:wclient/utils/directives/input_binder.dart';
 import 'package:wclient/apps/dashboard/widget/channel_creator/channel_creator.dart';
 import 'package:wclient/apps/dashboard/widget/channel_info/channel_info.dart';
 
-import 'package:wclient/utils/api/api.dart';
+import 'package:common/api/api.dart';
 import 'package:wclient/utils/pagination/pagination.dart';
 
 @Component(
