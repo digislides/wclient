@@ -66,6 +66,12 @@ class PageStageComponent {
 
   Page get page => _page;
 
+  @ViewChild("viewport")
+  DivElement viewportDiv;
+
+  @ViewChild("canvas")
+  DivElement canvasDiv;
+
   PageStageComponent();
 
   int holderWidth = 100;
@@ -144,8 +150,20 @@ class PageStageComponent {
     if (tar.classes.contains('viewport') ||
         tar.classes.contains('canvas') ||
         tar.classes.contains('container')) {
-      selected.clear();
-      _updateSelectedRect();
+      if (_moveStart == null &&
+          _hResizeStart == null &&
+          _vResizeStart == null) {
+        selected.clear();
+        _updateSelectedRect();
+      }
+
+      viewportDiv.classes.remove("moving");
+      _moveStart = null;
+      _moveStarts = null;
+      _hResizeStart = null;
+      _hResizeStarts = null;
+      _vResizeStart = null;
+      _vResizeStarts = null;
     }
   }
 
@@ -211,6 +229,103 @@ class PageStageComponent {
         for (PageItem item in selected.values) {
           item.width += factor;
         }
+      }
+    }
+  }
+
+  Point<int> _moveStart;
+
+  Map<String, Point<int>> _moveStarts;
+
+  void onMoveStart(MouseEvent e) {
+    if (e.buttons != 1) return;
+
+    if (selected.isNotEmpty) {
+      viewportDiv.classes.add("moving");
+
+      _moveStart = selectedRect.topLeft;
+      _moveStarts = {};
+      for (PageItem item in selected.values) {
+        _moveStarts[item.id] = item.pos;
+      }
+    }
+  }
+
+  void onMouseMove(MouseEvent e) {
+    if (_moveStart != null) {
+      var diff = e.offset - _moveStart - Point<int>(50, 50);
+      diff = Point<int>(diff.x.toInt(), diff.y.toInt());
+      for (PageItem sel in selected.values) {
+        sel.pos = _moveStarts[sel.id] + diff;
+      }
+      _updateSelectedRect();
+    }
+    if (_hResizeStart != null) {
+      num diff = (e.offset.x - 50 - _hResizeStart.left) / (_hResizeStart.width);
+      for (PageItem sel in selected.values) {
+        sel.left = _hResizeStart.left +
+            ((_hResizeStarts[sel.id].left - _hResizeStart.left) * diff).toInt();
+        sel.width = _hResizeStart.left +
+            ((_hResizeStarts[sel.id].width - _hResizeStart.left) * diff)
+                .toInt();
+      }
+      _updateSelectedRect();
+    }
+    if (_vResizeStart != null) {
+      num diff = (e.offset.y - 50 - _vResizeStart.top) / (_vResizeStart.height);
+      for (PageItem sel in selected.values) {
+        sel.top = _vResizeStart.top +
+            ((_vResizeStarts[sel.id].top - _vResizeStart.top) * diff).toInt();
+        sel.height = _vResizeStart.top +
+            ((_vResizeStarts[sel.id].height - _vResizeStart.top) * diff)
+                .toInt();
+      }
+      _updateSelectedRect();
+    }
+  }
+
+  void onMouseLeave(MouseEvent e) {
+    viewportDiv.classes.remove("moving");
+    _moveStart = null;
+    _moveStarts = null;
+    _hResizeStart = null;
+    _hResizeStarts = null;
+    _vResizeStart = null;
+    _vResizeStarts = null;
+  }
+
+  Rectangle<int> _hResizeStart;
+
+  Map<String, Rectangle<int>> _hResizeStarts;
+
+  void onHResizeStart(MouseEvent e) {
+    if (e.buttons != 1) return;
+
+    if (selected.isNotEmpty) {
+      viewportDiv.classes.add("moving");
+
+      _hResizeStart = selectedRect;
+      _hResizeStarts = {};
+      for (PageItem item in selected.values) {
+        _hResizeStarts[item.id] = item.rect;
+      }
+    }
+  }
+
+  Rectangle<int> _vResizeStart;
+
+  Map<String, Rectangle<int>> _vResizeStarts;
+
+  void onVResizeStart(MouseEvent e) {
+    if (e.buttons != 1) return;
+
+    if (selected.isNotEmpty) {
+      viewportDiv.classes.add("moving");
+
+      _vResizeStart = selectedRect;
+      _vResizeStarts = {};
+      for (PageItem item in selected.values) {
+        _vResizeStarts[item.id] = item.rect;
       }
     }
   }

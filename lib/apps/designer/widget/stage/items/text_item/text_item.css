@@ -2,4 +2,5 @@
   display: block;
   position: absolute;
   cursor: default;
+  overflow: hidden;
 }
