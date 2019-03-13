@@ -4,8 +4,6 @@ import 'package:angular/angular.dart';
 
 import 'widget/frame_editor/frame_editor.dart';
 import 'widget/program_editor/program_editor.dart';
-import 'package:common/data_text/data_repo.dart';
-import 'package:common/data/data_weather.dart';
 
 import 'package:common/models.dart';
 
@@ -93,8 +91,7 @@ class DesignerApp implements OnInit {
       frame = null;
     }
 
-    program.design.dataRepository.sources
-        .addAll([WeatherData()..register('Stockholm')]);
+    program.design.dataRepository.start();
   }
 
   @override

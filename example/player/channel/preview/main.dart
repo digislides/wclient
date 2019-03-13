@@ -13,7 +13,7 @@ String id;
 
 ProgramView view;
 
-void update() async {
+Future<void> update() async {
   final pub = await channelApi.getContent(id);
 
   await cacheProgramUrls(id, pub.design);
@@ -24,7 +24,7 @@ void update() async {
   view = thisView;
   document.body.children.add(view.root);
 
-  view.start();
+  await view.start();
 }
 
 main() async {

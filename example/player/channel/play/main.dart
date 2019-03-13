@@ -52,12 +52,14 @@ void update() async {
 
   print("Showing new content!");
 
-  if (view != null) view.purge();
+  if (view != null) {
+    await view.purge();
+  }
 
   if (pub != null && pub.design != null) {
     view = ProgramView(pub.design);
     document.body.children.add(view.root);
-    view.start();
+    await view.start();
   }
 }
 
