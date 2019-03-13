@@ -73,8 +73,12 @@ class PageDesignerComponent {
   }
 
   void onItemAdd(PageItem item) {
-    stage.setSelection(item);
+    stage.setSelection(PageItemSelectionEvent(item, false));
   }
 
   int selectedTab = 0;
+
+  void selectItem(PageItemSelectionEvent e) {
+    stage.setSelection(e);
+  }
 }

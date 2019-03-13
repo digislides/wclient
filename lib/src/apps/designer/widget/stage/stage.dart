@@ -11,6 +11,8 @@ import 'items/video_item/video_item.dart';
 import 'items/clock_item/clock_item.dart';
 import 'items/weather_item/weather_item.dart';
 
+import '../item_list/item_list.dart';
+
 @Injectable()
 class SelectionModifier {}
 
@@ -88,8 +90,15 @@ class PageStageComponent {
 
   final selected = <String, PageItem>{};
 
-  void onItemClick(MouseEvent event, PageItem item) {
-    if (event.shiftKey) {
+  void setSelection(PageItemSelectionEvent e) {
+    if (!page.items.contains(e.item)) return;
+
+    _select(e);
+  }
+
+  void _select(PageItemSelectionEvent e) {
+    final item = e.item;
+    if (e.shift) {
       if (selected.containsKey(item.id)) {
         selected.remove(item.id);
       } else {
@@ -101,6 +110,10 @@ class PageStageComponent {
     }
 
     _updateSelectedRect();
+  }
+
+  void onItemClick(MouseEvent event, PageItem item) {
+    _select(PageItemSelectionEvent(item, event.shiftKey));
   }
 
   Rectangle<int> selectedRect;
@@ -171,14 +184,6 @@ class PageStageComponent {
 
   @Output()
   Stream<Iterable<PageItem>> get onSelect => _onSelect.stream;
-
-  void setSelection(PageItem item) {
-    if (!page.items.contains(item)) return;
-
-    selected.clear();
-    selected[item.id] = item;
-    _updateSelectedRect();
-  }
 
   void onKeyPress(KeyboardEvent event) {
     if (event.keyCode == KeyCode.DELETE) {
@@ -348,4 +353,12 @@ class PageStageComponent {
       }
     }
   }
+}
+
+class PageItemSelectionEvent {
+  final PageItem item;
+
+  final bool shift;
+
+  PageItemSelectionEvent(this.item, this.shift);
 }

@@ -29,7 +29,7 @@
             </template>
         </div>
         <div class="tab-item" [class.selected]="selectedTab == 1">
-            <item-list [page]="page"></item-list>
+            <item-list [page]="page" [selectedItems]="selected" (onItemSelect)="selectItem($event)"></item-list>
         </div>
     </div>
 </div>

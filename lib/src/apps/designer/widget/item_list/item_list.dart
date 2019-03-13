@@ -4,6 +4,8 @@ import 'dart:html';
 import 'package:angular/angular.dart';
 import 'package:common/models.dart';
 
+import '../stage/stage.dart';
+
 @Component(
   selector: 'item-list',
   styleUrls: ['item_list.css'],
@@ -18,7 +20,7 @@ class ItemListComponent {
   Page page;
 
   @Input()
-  PageItem selectedItem;
+  Iterable<PageItem> selectedItems;
 
   @ViewChild('items')
   DivElement itemsDiv;
@@ -28,9 +30,8 @@ class ItemListComponent {
   int counter = 0;
 
   void deleteItem(PageItem item) {
-    if (selectedItem == item) {
-      // If the item being removed is currently, select a new item
-      selectItem(page.items.firstWhere((p) => p != item, orElse: () => null));
+    if (selectedItems.contains(item)) {
+      // TODO remove
     }
     page.removeItem(item.id);
   }
@@ -117,12 +118,12 @@ class ItemListComponent {
     }
   }
 
-  final _itemSelCntr = StreamController<PageItem>();
+  final _itemSelCntr = StreamController<PageItemSelectionEvent>();
 
   @Output()
-  Stream<PageItem> get onItemSelect => _itemSelCntr.stream;
+  Stream<PageItemSelectionEvent> get onItemSelect => _itemSelCntr.stream;
 
-  void selectItem(PageItem item) {
-    _itemSelCntr.add(item);
+  void selectItem(MouseEvent e, PageItem item) {
+    _itemSelCntr.add(PageItemSelectionEvent(item, e.shiftKey));
   }
 }
