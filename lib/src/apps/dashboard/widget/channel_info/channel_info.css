@@ -1,0 +1,102 @@
+@import 'package:wclient/src/utils/css/common.css';
+
+:host {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.header {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    padding: 0px 10px;
+    box-sizing: border-box;
+    background-color: black;
+    color: white;
+}
+
+.header .header-icon {
+    width: 50px;
+    height: 50px;
+    box-sizing: border-box;
+    background-image: url(/packages/wclient/src/utils/icons/dashboard/header/channel.png);
+    background-size: 52%;
+    box-sizing: border-box;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.header .title {
+    font-size: 25px;
+    flex: 1;
+    line-height: 50px;
+    margin: 0px 5px;
+}
+
+.header .action {
+    font-size: 20px;
+    line-height: 50px;
+    padding: 0px 10px;
+    cursor: pointer;
+}
+
+.header .action:hover {
+    text-decoration: underline;
+}
+
+.header .action:active {
+    background-color: #ffffff4d;
+}
+
+.header .close {
+    font-size: 35px;
+    line-height: 50px;
+    padding: 0px 10px;
+    cursor: pointer;
+}
+
+.header .close:hover {
+    background-color: #ffffff4d;
+}
+
+.header .close:active {
+    background-color: #4569a2;
+}
+
+.overlay {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.body {
+    padding: 20px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 0px;
+}
+
+.row .label {
+    width: 200px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.row .value {
+    font-size: 24px;
+}
+
+.sub {
+    font-size: 16px;
+    margin-top: 5px;
+}

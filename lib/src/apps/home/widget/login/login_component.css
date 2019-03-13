@@ -1,0 +1,69 @@
+:host {
+  display: block;
+}
+
+h2 {
+    text-align: center;
+}
+
+.input-row {
+    height: 29px;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    border: 1px solid #00000030;
+    border-radius: 5px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.input-row:focus-within {
+  border: 1px solid black;
+}
+
+.input-row .input {
+    border: none;
+    outline: none;
+    background-color: white;
+    flex: 1;
+    color: black;
+    padding: 5px;
+    font-size: 15px;
+    height: 100%;
+}
+
+.input-row .input:focus {
+  border: none;
+  outline: none;
+}
+
+.input-row .label {
+    width: 26px;
+    height: 100%;
+    background-color: #e9ecef;
+    border-right: 1px solid #ced4da;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 0px 5px;
+}
+
+.icon {
+    background-size: 60%;
+    box-sizing: border-box;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.mail-icon {
+  background-image: url(/packages/wclient/src/utils/icons/home/email.svg);
+}
+
+.password-icon {
+  background-image: url(/packages/wclient/src/utils/icons/home/password.svg);
+}
+
+.actions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}

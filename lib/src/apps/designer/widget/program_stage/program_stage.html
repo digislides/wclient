@@ -1,0 +1,33 @@
+<div class="container" (click)="stageClick($event)"
+     (keydown)="onKeyPress($event)" tabindex="0">
+    <div class="viewport"
+         [style.width.px]="program.design.width + holderWidth"
+         [style.height.px]="program.design.height + holderHeight">
+        <div class="canvas"
+             [style.left.px]="holderWidth/2"
+             [style.top.px]="holderHeight/2"
+             [style.width.px]="program.design.width"
+             [style.height.px]="program.design.height"
+             [style.background-color]="program.design.color">
+            <template ngFor let-item let-i="index" [ngForOf]="program.design.frames">
+                <frame-item [item]="item" [color]="colorOf(i)" (click)="onItemClick($event, item)"></frame-item>
+            </template>
+        </div>
+        <div class="handle-holder"
+             [style.left.px]="holderWidth/2"
+             [style.top.px]="holderHeight/2"
+             [style.width.px]="program.design.width"
+             [style.height.px]="program.design.height">
+            <!--<div class="handle-container">-->
+                <template [ngIf]="selectedRect != null">
+                    <div class="selected-box"
+                         [style.left.px]="selectedRect.left"
+                         [style.top.px]="selectedRect.top"
+                         [style.width.px]="selectedRect.width"
+                         [style.height.px]="selectedRect.height">
+                    </div>
+                </template>
+            <!--</div>-->
+        </div>
+    </div>
+</div>
