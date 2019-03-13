@@ -41,11 +41,11 @@
 }
 
 .action:hover {
-    background-color: #868686;
+    background-color: #363636;
 }
 
 .action:active {
-  background-color: #c5c5c5;
+    background-color: #6f6f6f;
 }
 
 .icon {

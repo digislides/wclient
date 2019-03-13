@@ -261,24 +261,43 @@ class PageStageComponent {
       _updateSelectedRect();
     }
     if (_hResizeStart != null) {
-      num diff = (e.offset.x - 50 - _hResizeStart.left) / (_hResizeStart.width);
-      for (PageItem sel in selected.values) {
-        sel.left = _hResizeStart.left +
-            ((_hResizeStarts[sel.id].left - _hResizeStart.left) * diff).toInt();
-        sel.width = _hResizeStart.left +
-            ((_hResizeStarts[sel.id].width - _hResizeStart.left) * diff)
-                .toInt();
+      num diff =
+          ((e.offset.x - 50) - _hResizeStart.left) / (_hResizeStart.width);
+      if (!diff.isNegative) {
+        for (PageItem sel in selected.values) {
+          sel.left = _hResizeStart.left +
+              ((_hResizeStarts[sel.id].left - _hResizeStart.left) * diff)
+                  .toInt();
+          sel.width = (_hResizeStarts[sel.id].width * diff).toInt();
+        }
+      } else {
+        diff = diff.abs();
+        for (PageItem sel in selected.values) {
+          sel.left = ((_hResizeStart.left - (_hResizeStart.width * diff)) +
+                  ((_hResizeStarts[sel.id].left - _hResizeStart.left) * diff))
+              .toInt();
+          sel.width = (_hResizeStarts[sel.id].width * diff).toInt();
+        }
       }
       _updateSelectedRect();
     }
     if (_vResizeStart != null) {
-      num diff = (e.offset.y - 50 - _vResizeStart.top) / (_vResizeStart.height);
-      for (PageItem sel in selected.values) {
-        sel.top = _vResizeStart.top +
-            ((_vResizeStarts[sel.id].top - _vResizeStart.top) * diff).toInt();
-        sel.height = _vResizeStart.top +
-            ((_vResizeStarts[sel.id].height - _vResizeStart.top) * diff)
-                .toInt();
+      num diff =
+          ((e.offset.y - 50) - _vResizeStart.top) / (_vResizeStart.height);
+      if (!diff.isNegative) {
+        for (PageItem sel in selected.values) {
+          sel.top = _vResizeStart.top +
+              ((_vResizeStarts[sel.id].top - _vResizeStart.top) * diff).toInt();
+          sel.height = (_vResizeStarts[sel.id].height * diff).toInt();
+        }
+      } else {
+        diff = diff.abs();
+        for (PageItem sel in selected.values) {
+          sel.top = ((_vResizeStart.top - (_vResizeStart.height * diff)) +
+                  ((_vResizeStarts[sel.id].top - _vResizeStart.top) * diff))
+              .toInt();
+          sel.height = (_vResizeStarts[sel.id].height * diff).toInt();
+        }
       }
       _updateSelectedRect();
     }
