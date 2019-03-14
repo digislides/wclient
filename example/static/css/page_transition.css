@@ -1,0 +1,77 @@
+.transition-moveFromLeft.new { animation: moveFromLeft 1s ease both; }
+.transition-moveFromLeft.old { animation: moveToRight 1s ease both; }
+
+.transition-moveFromRight.new { animation: moveFromRight 1s ease both; }
+.transition-moveFromRight.old { animation: moveToLeft 1s ease both; }
+
+.transition-moveFromTop.new { animation: moveFromTop 1s ease both; }
+.transition-moveFromTop.old { animation: moveToBottom 1s ease both; }
+
+.transition-moveFromBottom.new { animation: moveFromBottom 1s ease both; }
+.transition-moveFromBottom.old { animation: moveToTop 1s ease both; }
+
+.transition-slideFromLeft.new { animation: moveFromLeft 1s ease both; }
+.transition-slideFromLeft.old { }
+
+.transition-slideFromRight.new { animation: moveFromRight 1s ease both; }
+.transition-slideFromRight.old { }
+
+.transition-slideFromTop.new { animation: moveFromTop 1s ease both; }
+.transition-slideFromTop.old { }
+
+.transition-slideFromBottom.new { animation: moveFromBottom 1s ease both; }
+.transition-slideFromBottom.old { }
+
+@keyframes moveToLeft { to { transform: translateX(-100%); } }
+
+@keyframes moveFromLeft { from { transform: translateX(-100%); } }
+
+@keyframes moveToRight { to { transform: translateX(100%); } }
+
+@keyframes moveFromRight { from { transform: translateX(100%); } }
+
+@keyframes moveToTop { to { transform: translateY(-100%); } }
+
+@keyframes moveFromTop { from { transform: translateY(-100%); } }
+
+@keyframes moveToBottom { to { transform: translateY(100%); } }
+
+@keyframes moveFromBottom { from { transform: translateY(100%); } }
+
+@keyframes fadeOut { to { opacity: 0; } }
+
+@keyframes fadeIn { from { opacity: 0; } }
+
+.transition-fadeOut.new { animation: fadeIn 2s ease both; }
+.transition-fadeOut.old { animation: fadeOut 2s ease both; }
+
+.transition-fadeIn.new { animation: fadeIn 2s ease both; }
+.transition-fadeIn.old { }
+
+.transition-fadeFromLeft.new { animation: fadeFromLeft 1s ease both; }
+.transition-fadeFromLeft.old { animation: fadeToRight 1s ease both; }
+
+.transition-fadeFromRight.new { animation: fadeFromRight 1s ease both; }
+.transition-fadeFromRight.old { animation: fadeToLeft 1s ease both; }
+
+.transition-fadeFromTop.new { animation: fadeFromTop 1s ease both; }
+.transition-fadeFromTop.old { animation: fadeToBottom 1s ease both; }
+
+.transition-fadeFromBottom.new { animation: fadeFromBottom 1s ease both; }
+.transition-fadeFromBottom.old { animation: fadeToTop 1s ease both; }
+
+@keyframes fadeToLeft { to { opacity: 0; transform: translateX(-100%); } }
+
+@keyframes fadeFromLeft { from { opacity: 0; transform: translateX(-100%); } }
+
+@keyframes fadeToRight { to { opacity: 0; transform: translateX(100%); } }
+
+@keyframes fadeFromRight { from { opacity: 0; transform: translateX(100%); } }
+
+@keyframes fadeToTop { to { opacity: 0; transform: translateY(-100%); } }
+
+@keyframes fadeFromTop { from { opacity: 0; transform: translateY(-100%); } }
+
+@keyframes fadeToBottom { to { opacity: 0; transform: translateY(100%); } }
+
+@keyframes fadeFromBottom { from { opacity: 0; transform: translateY(100%); } }

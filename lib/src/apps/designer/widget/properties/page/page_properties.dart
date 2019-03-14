@@ -23,6 +23,7 @@ import 'package:wclient/src/apps/designer/widget/properties/items/color/color.da
   ],
   exports: [
     Fit,
+    Transition,
   ],
 )
 class PagePropertiesComponent {

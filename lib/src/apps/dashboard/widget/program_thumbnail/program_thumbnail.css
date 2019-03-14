@@ -1,0 +1,7 @@
+@import 'package:wclient/src/utils/css/common.css';
+
+:host {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
