@@ -1,0 +1,34 @@
+.program {
+  position: relative;
+  overflow: hidden;
+}
+
+.frame {
+  position: absolute;
+  overflow: hidden;
+}
+
+.page {
+  display: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.page.show {
+  display: block;
+}
+
+.page-item {
+  position: absolute;
+  overflow: hidden;
+}
+
+.page-item-text .holder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.page-item-text .holder span {
+    width: 100%;
+}

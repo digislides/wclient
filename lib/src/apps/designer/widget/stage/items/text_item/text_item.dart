@@ -57,4 +57,7 @@ class TextItemComponent {
 
   @HostBinding('style.font-style')
   String get italic => item.font.italic ? 'italic' : 'normal';
+
+  @HostBinding('class')
+  String get classes => "page-item-text";
 }

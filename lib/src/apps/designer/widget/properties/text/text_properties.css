@@ -61,7 +61,7 @@ textarea:focus {
     height: 25px;
     box-sizing: border-box;
     border: 1px solid transparent;
-    margin: 0px 5px;
+    margin: 0px 1px;
     cursor: pointer;
 }
 
@@ -77,6 +77,7 @@ textarea:focus {
 .button-group {
     display: flex;
     flex-direction: row;
+    margin: 0px 5px;
 }
 
 .button-group-item {
@@ -98,27 +99,39 @@ textarea:focus {
 }
 
 .left-icon {
-  background-image: url(https://img.icons8.com/material-sharp/1600/align-left.png);
+  background-image: url(/packages/wclient/src/utils/icons/designer/font/align-left.png);
 }
 
 .center-icon {
-  background-image: url(https://img.icons8.com/material-sharp/1600/align-center.png);
+  background-image: url(/packages/wclient/src/utils/icons/designer/font/align-center.png);
 }
 
 .right-icon {
-  background-image: url(https://img.icons8.com/material-sharp/1600/align-right.png);
+  background-image: url(/packages/wclient/src/utils/icons/designer/font/align-right.png);
+}
+
+.top-icon {
+  background-image: url(/packages/wclient/src/utils/icons/designer/font/align-top.svg);
+}
+
+.middle-icon {
+  background-image: url(/packages/wclient/src/utils/icons/designer/font/align-middle.svg);
+}
+
+.bottom-icon {
+  background-image: url(/packages/wclient/src/utils/icons/designer/font/align-bottom.svg);
 }
 
 .bold-icon {
-  background-image: url(https://image.flaticon.com/icons/svg/25/25432.svg);
+  background-image: url(/packages/wclient/src/utils/icons/designer/font/bold.svg);
 }
 
 .italic-icon {
-  background-image: url(https://image.flaticon.com/icons/svg/107/107178.svg);
+  background-image: url(/packages/wclient/src/utils/icons/designer/font/itallic.svg);
 }
 
 .underline-icon {
-  background-image: url(https://image.flaticon.com/icons/svg/24/24397.svg);
+  background-image: url(/packages/wclient/src/utils/icons/designer/font/underline.svg);
 }
 
 .separator {
