@@ -152,12 +152,16 @@
     background-repeat: no-repeat;
 }
 
+.edit-icon {
+  background-image: url(/packages/wclient/src/utils/icons/designer/edit.svg);
+}
+
 .delete-icon {
-  background-image: url(https://image.flaticon.com/icons/svg/61/61391.svg);
+  background-image: url(/packages/wclient/src/utils/icons/designer/delete.svg);
 }
 
 .duplicate-icon {
-  background-image: url(https://image.flaticon.com/icons/svg/992/992688.svg);
+  background-image: url(/packages/wclient/src/utils/icons/designer/duplicate.svg);
 }
 
 .dragging {

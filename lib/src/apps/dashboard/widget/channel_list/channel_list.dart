@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:angular/angular.dart';
 import 'package:common/models.dart';
 
@@ -71,5 +73,14 @@ class ChannelListComponent implements OnInit {
     if (deleted) {
       // TODO show message
     }
+  }
+
+  void play(Channel channel) {
+    window.open("/player/channel/play/index.html?id=${channel.id}", "_blank");
+  }
+
+  void preview(Channel channel) {
+    window.open(
+        "/player/channel/preview/index.html?id=${channel.id}", "_blank");
   }
 }

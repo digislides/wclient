@@ -136,29 +136,58 @@
   justify-content: center;
   width: 200px;
   margin: 20px;
-  border-radius: 5px;
   overflow: hidden;
+  background-color: white;
 }
 
 .item:hover {
-  cursor: pointer;
   box-shadow: 1px 2px 4px 1px #00000042;
-}
-
-.item .thumbnail {
-  width: 200px;
-  height: 120px;
-  background-color: white;
 }
 
 .item .name {
   font-size: 16px;
   width: 100%;
-  background-color: #34697c;
-  color: white;
+  color: black;
   padding: 5px 2px;
   box-sizing: border-box;
   text-align: center;
+}
+
+.item .actions {
+  width: 100%;
+  height: 32px;
+  display: flex;
+  flex-direction: row;
+}
+
+.item .actions .action {
+  height: 32px;
+  flex: 1;
+  background-color: #5bbcdf;
+  background-repeat: no-repeat;
+  background-size: 35%;
+  background-position: center;
+  cursor: pointer;
+}
+
+.item .actions .action:hover {
+  background-color: #63cdf3;
+}
+
+.item .actions .action:active {
+  background-color: #2c8daf;
+}
+
+.action-info {
+  background-image: url(/packages/wclient/src/utils/icons/designer/info.svg);
+}
+
+.action-preview {
+  background-image: url(/packages/wclient/src/utils/icons/designer/preview.svg);
+}
+
+.action-play {
+  background-image: url(/packages/wclient/src/utils/icons/designer/play.svg);
 }
 
 .flex-holder {

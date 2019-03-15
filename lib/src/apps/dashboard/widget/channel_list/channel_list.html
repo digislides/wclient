@@ -20,9 +20,13 @@
 
         <div class="main-content">
             <div class="list main-list">
-                <div class="item" *ngFor="let channel of channels.items" (click)="select(channel)">
-                    <div class="thumbnail"></div>
+                <div class="item" *ngFor="let channel of channels.items">
                     <div class="name">{{channel.name}}</div>
+                    <div class="actions">
+                        <div class="action action-info" (click)="select(channel)"></div>
+                        <div class="action action-preview" (click)="preview(channel)"></div>
+                        <div class="action action-play" (click)="play(channel)"></div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -8,7 +8,10 @@
              [style.top.px]="holderHeight/2"
              [style.width.px]="program.design.width"
              [style.height.px]="program.design.height"
-             [style.background-color]="program.design.color">
+             [style.background-color]="program.design.color"
+             [style.background-image]="program.design.imageUrl"
+             [style.background-size]="program.design.fit.sizeCss"
+             [style.background-repeat]="program.design.fit.repeatCss">
             <template ngFor let-item let-i="index" [ngForOf]="program.design.frames">
                 <frame-item [item]="item" (click)="onItemClick($event, item)"></frame-item>
             </template>
