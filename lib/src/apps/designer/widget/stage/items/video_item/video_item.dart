@@ -31,4 +31,7 @@ class VideoItemComponent {
 
   @HostBinding('style.background-color')
   String get color => item.color;
+
+  @HostBinding('class')
+  String get classes => "page-item-video";
 }

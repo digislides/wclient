@@ -84,4 +84,7 @@ class ClockItemComponent implements OnDestroy {
       _changeStream = null;
     }
   }
+
+  @HostBinding('class')
+  String get classes => "page-item-clock";
 }

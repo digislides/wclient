@@ -1,0 +1,9 @@
+<div class="canvas"
+     [style.width.px]="program.width"
+     [style.height.px]="program.height"
+     [style.background-color]="program.color"
+     [style.background-image]="program.imageUrl"
+     [style.background-size]="program.fit.sizeCss"
+     [style.background-repeat]="program.fit.repeatCss" [style.transform]="transform">
+    <frame-thumbnail *ngFor="let frame of program.frames" [frame]="frame"></frame-thumbnail>
+</div>

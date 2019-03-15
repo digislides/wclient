@@ -50,4 +50,7 @@ class ImageItemComponent {
 
   @HostBinding('style.background-repeat')
   String get bgRepeat => item.fit.repeatCss;
+
+  @HostBinding('class')
+  String get classes => "page-item-image";
 }

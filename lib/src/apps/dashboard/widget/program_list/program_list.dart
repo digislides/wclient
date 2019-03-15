@@ -6,6 +6,8 @@ import 'package:wclient/src/utils/directives/input_binder.dart';
 import 'package:wclient/src/apps/dashboard/widget/program_creator/program_creator.dart';
 import 'package:wclient/src/apps/dashboard/widget/program_info/program_info.dart';
 
+import 'package:wclient/src/apps/thumbnail/program_thumbnail/program_thumbnail.dart';
+
 import 'package:common/api/api.dart';
 import 'package:wclient/src/utils/pagination/pagination.dart';
 
@@ -17,6 +19,7 @@ import 'package:wclient/src/utils/pagination/pagination.dart';
     NgFor,
     NgIf,
     TextBinder,
+    ProgramThumbnailComponent,
     ProgramCreatorComponent,
     ProgramInfoComponent,
   ],

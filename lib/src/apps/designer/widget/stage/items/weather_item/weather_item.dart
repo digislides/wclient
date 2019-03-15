@@ -38,4 +38,7 @@ class WeatherItemComponent {
   int get height => item.height;
 
   // TODO background color
+
+  @HostBinding('class')
+  String get classes => "page-item-weather";
 }

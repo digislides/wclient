@@ -169,7 +169,11 @@
 .item .thumbnail {
   width: 200px;
   height: 120px;
-  background-color: white;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(/packages/wclient/src/utils/images/transparent_checkerboard.png) repeat center;
 }
 
 .item .name {

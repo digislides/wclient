@@ -7,19 +7,19 @@
      [style.background-repeat]="page.fit.repeatCss" [style.transform]="transform">
     <template ngFor let-item [ngForOf]="page.items">
         <template [ngIf]="item.type == PageItemType.text">
-            <text-item class="page-item-text" [item]="item"></text-item>
+            <text-item [item]="item"></text-item>
         </template>
         <template [ngIf]="item.type == PageItemType.image">
-            <image-item class="page-item-image" [item]="item"></image-item>
+            <image-item [item]="item"></image-item>
         </template>
         <template [ngIf]="item.type == PageItemType.video">
-            <video-item class="page-item-video" [item]="item"></video-item>
+            <video-item [item]="item"></video-item>
         </template>
         <template [ngIf]="item.type == PageItemType.clock">
-            <clock-item class="page-item-clock" [item]="item"></clock-item>
+            <clock-item [item]="item"></clock-item>
         </template>
         <template [ngIf]="item.type == PageItemType.weather">
-            <weather-item class="page-item-weather" [item]="item"></weather-item>
+            <weather-item [item]="item"></weather-item>
         </template>
     </template>
 </div>

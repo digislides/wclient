@@ -12,7 +12,9 @@
         </div>
         <div class="list recent-list">
             <div class="item" *ngFor="let program of recent">
-                <div class="thumbnail"></div>
+                <div class="thumbnail">
+                    <program-thumbnail [program]="program.design" [width]="200" [height]="120"></program-thumbnail>
+                </div>
                 <div class="name">{{program.name}}</div>
             </div>
         </div>
@@ -35,7 +37,9 @@
         <div class="main-content">
             <div class="list main-list">
                 <div class="item" *ngFor="let program of programs.items" (click)="select(program)">
-                    <div class="thumbnail"></div>
+                    <div class="thumbnail">
+                        <program-thumbnail [program]="program.design" [width]="200" [height]="120"></program-thumbnail>
+                    </div>
                     <div class="name">{{program.name}}</div>
                 </div>
             </div>
