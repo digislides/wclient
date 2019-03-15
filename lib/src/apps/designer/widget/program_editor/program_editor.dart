@@ -31,6 +31,9 @@ class ProgramEditorComponent {
     }
   }
 
+  @ViewChild(ProgramDesignerComponent)
+  ProgramDesignerComponent designer;
+
   Program get program => _program;
 
   Frame selectedFrame;

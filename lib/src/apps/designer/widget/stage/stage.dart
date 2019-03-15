@@ -78,14 +78,6 @@ class PageStageComponent {
 
   int holderHeight = 100;
 
-  bool isText(PageItem item) => item is TextItem;
-
-  bool isImage(PageItem item) => item is ImageItem;
-
-  bool isVideo(PageItem item) => item is VideoItem;
-
-  bool isClock(PageItem item) => item is ClockItem;
-
   final selected = <String, PageItem>{};
 
   void setSelection(PageItemSelectionEvent e) {

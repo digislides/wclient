@@ -6,7 +6,6 @@
   border-left: 1px solid #bbb;
   border-right: 1px solid #bbbbbb;
   user-select: none;
-  box-sizing: border-box;
 }
 
 .container {
@@ -23,6 +22,10 @@
 
 .viewport {
   position: relative;
+}
+
+.viewport.moving * {
+  pointer-events: none;
 }
 
 .canvas {
@@ -46,4 +49,43 @@
   border: 1px solid blue;
   position: absolute;
   box-sizing: border-box;
+}
+
+.mover {
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    background-color: #4ffbf9;
+    left: -4px;
+    top: -4px;
+    border: 1px solid black;
+    box-sizing: border-box;
+    pointer-events: all;
+    cursor: move;
+}
+
+.h-sizer {
+    width: 6px;
+    height: 12px;
+    position: absolute;
+    background-color: #4ffbf9;
+    left: calc(100% - 3px);
+    top: calc(50% - 6px);
+    border: 1px solid black;
+    box-sizing: border-box;
+    pointer-events: all;
+    cursor: ew-resize;
+}
+
+.v-sizer {
+    width: 12px;
+    height: 6px;
+    position: absolute;
+    background-color: #4ffbf9;
+    left: calc(50% - 6px);
+    top: calc(100% - 3px);
+    border: 1px solid black;
+    box-sizing: border-box;
+    pointer-events: all;
+    cursor: ns-resize;
 }

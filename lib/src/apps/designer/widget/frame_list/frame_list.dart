@@ -4,6 +4,7 @@ import 'dart:html';
 import 'package:angular/angular.dart';
 import 'package:common/models.dart';
 
+import 'package:wclient/src/apps/designer/widget/program_stage/program_stage.dart';
 import 'package:wclient/src/apps/thumbnail/frame/frame_thumbnail.dart';
 
 @Component(
@@ -50,8 +51,9 @@ class FrameListComponent {
   void deleteFrame(Frame frame) {
     if (selectedFrame == frame) {
       // If the frame being removed is currently, select a new frame
-      selectFrame(program.design.frames
-          .firstWhere((p) => p != frame, orElse: () => null));
+      final f = program.design.frames
+          .firstWhere((p) => p != frame, orElse: () => null);
+      _frameSelCntr.add((FrameItemSelectionEvent(f, false)));
     }
     program.design.removeFrame(frame.id);
   }
@@ -139,12 +141,12 @@ class FrameListComponent {
     }
   }
 
-  final _frameSelCntr = StreamController<Frame>();
+  final _frameSelCntr = StreamController<FrameItemSelectionEvent>();
 
   @Output()
-  Stream<Frame> get onFrameSelect => _frameSelCntr.stream;
+  Stream<FrameItemSelectionEvent> get onFrameSelect => _frameSelCntr.stream;
 
-  void selectFrame(Frame frame) {
-    _frameSelCntr.add(frame);
+  void selectFrame(MouseEvent e, Frame frame) {
+    _frameSelCntr.add(FrameItemSelectionEvent(frame, e.shiftKey));
   }
 }

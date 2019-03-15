@@ -1,9 +1,9 @@
-<div class="container" (click)="stageClick($event)"
-     (keydown)="onKeyPress($event)" tabindex="0">
-    <div class="viewport"
+<div class="container" tabindex="0" (keydown)="onKeyPress($event)"
+     (mouseup)="stageClick($event)" (mousemove)="onMouseMove" (mouseleave)="onMouseLeave">
+    <div #viewport class="viewport"
          [style.width.px]="program.design.width + holderWidth"
          [style.height.px]="program.design.height + holderHeight">
-        <div class="canvas"
+        <div #canvas class="canvas"
              [style.left.px]="holderWidth/2"
              [style.top.px]="holderHeight/2"
              [style.width.px]="program.design.width"
@@ -28,6 +28,9 @@
                          [style.top.px]="selectedRect.top"
                          [style.width.px]="selectedRect.width"
                          [style.height.px]="selectedRect.height">
+                        <div class="mover" (mousedown)="onMoveStart($event)"></div>
+                        <div class="h-sizer" (mousedown)="onHResizeStart($event)"></div>
+                        <div class="v-sizer" (mousedown)="onVResizeStart($event)"></div>
                     </div>
                 </template>
             <!--</div>-->

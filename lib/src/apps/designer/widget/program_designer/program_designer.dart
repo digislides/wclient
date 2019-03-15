@@ -35,7 +35,7 @@ class ProgramDesignerComponent {
     selected = items;
   }
 
-  void onItemAdd(Frame item) {
-    stage.setSelection(item);
+  void onItemAdd(FrameItemSelectionEvent e) {
+    stage.setSelection(e);
   }
 }
