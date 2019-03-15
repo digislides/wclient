@@ -1,8 +1,11 @@
 import 'dart:async';
 import 'dart:html';
+import 'dart:math';
 
 import 'package:angular/angular.dart';
 import 'package:common/models.dart';
+
+import 'package:wclient/src/apps/thumbnail/page/page_thumbnail.dart';
 
 @Component(
   selector: 'page-list',
@@ -11,6 +14,7 @@ import 'package:common/models.dart';
   directives: [
     NgFor,
     NgIf,
+    PageThumbnailComponent,
   ],
 )
 class PageListComponent {

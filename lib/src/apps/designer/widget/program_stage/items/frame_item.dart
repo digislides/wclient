@@ -2,6 +2,8 @@ import 'package:angular/angular.dart';
 
 import 'package:common/models.dart';
 
+import 'package:wclient/src/apps/thumbnail/frame/frame_thumbnail.dart';
+
 @Component(
   selector: 'frame-item',
   styleUrls: ['frame_item.css'],
@@ -9,15 +11,12 @@ import 'package:common/models.dart';
   directives: [
     NgFor,
     NgIf,
+    FrameThumbnailComponent,
   ],
 )
 class FrameItemComponent {
   @Input()
   Frame item;
-
-  @Input()
-  @HostBinding('style.background-color')
-  String color;
 
   FrameItemComponent();
 

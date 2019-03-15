@@ -1,0 +1,12 @@
+@import 'package:wclient/src/utils/css/common.css';
+
+:host {
+    display: block;
+    pointer-events: none;
+}
+
+.canvas {
+  position: relative;
+  background-color: transparent;
+  transform-origin: top left;
+}

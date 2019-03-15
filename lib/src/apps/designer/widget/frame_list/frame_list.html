@@ -12,7 +12,9 @@
         </template>
         <div class="item" [class.hide]="frame == dragging" [class.selected]="frame == selectedFrame"
              (mousemove)="onDragOverItem($event, frame)" [title]="frame.name">
-            <div class="thumbnail" (mousedown)="onDragStart($event, frame)"></div>
+            <div class="thumbnail" (mousedown)="onDragStart($event, frame)">
+                <frame-thumbnail [frame]="frame" [width]="50" [height]="50"></frame-thumbnail>
+            </div>
             <div class="name" (click)="selectFrame(frame)">{{frame.name}}</div>
             <div class="button icon edit-icon" (click)="editFrame(frame)"></div>
             <div class="button icon delete-icon" (click)="deleteFrame(frame)"></div>

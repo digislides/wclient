@@ -11,8 +11,6 @@ import 'items/video_item/video_item.dart';
 import 'items/clock_item/clock_item.dart';
 import 'items/weather_item/weather_item.dart';
 
-import '../item_list/item_list.dart';
-
 @Injectable()
 class SelectionModifier {}
 

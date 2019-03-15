@@ -10,7 +10,7 @@
              [style.height.px]="program.design.height"
              [style.background-color]="program.design.color">
             <template ngFor let-item let-i="index" [ngForOf]="program.design.frames">
-                <frame-item [item]="item" [color]="colorOf(i)" (click)="onItemClick($event, item)"></frame-item>
+                <frame-item [item]="item" (click)="onItemClick($event, item)"></frame-item>
             </template>
         </div>
         <div class="handle-holder"

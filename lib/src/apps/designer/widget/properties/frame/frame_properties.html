@@ -19,4 +19,29 @@
         <div class="label">Height</div>
         <input type="number" class="input" tjText [bind]="frame.height" (bind)="frame.height = $event">
     </div>
+    <div class="row">
+        <div class="label">Color</div>
+        <color-prop class="value" [color]="frame.color" (onChange)="frame.color = $event"></color-prop>
+    </div>
+    <div class="row">
+        <div class="label">Image</div>
+        <image-prop class="value" [image]="frame.image" [imageUrl]="frame.imageUrl" (onChange)="frame.image = $event"></image-prop>
+    </div>
+    <div class="row">
+        <div class="label">Fit</div>
+        <select class="input" tjSelect [value]="frame.fit.name" (bind)="frame.fit = Fit.map($event)">
+            <option>Normal</option>
+            <option>Contain</option>
+            <option>Cover</option>
+            <option>Tile</option>
+        </select>
+    </div>
+    <div class="row">
+        <div class="label">Transition</div>
+        <select class="input" tjSelect [value]="frame.transition.id" (bind)="frame.transition = Transition.map[$event]">
+            <template ngFor let-item [ngForOf]="Transition.values">
+                <option [value]="item.id">{{item.name}}</option>
+            </template>
+        </select>
+    </div>
 </div>

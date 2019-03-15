@@ -4,6 +4,9 @@ import 'package:wclient/src/utils/directives/input_binder.dart';
 
 import 'package:common/models.dart';
 
+import 'package:wclient/src/apps/designer/widget/properties/items/image/image.dart';
+import 'package:wclient/src/apps/designer/widget/properties/items/color/color.dart';
+
 @Component(
     selector: 'frame-properties',
     styleUrls: ['frame_properties.css'],
@@ -12,11 +15,13 @@ import 'package:common/models.dart';
       NgFor,
       NgIf,
       TextBinder,
-      TextAreaBinder,
       SelectBoxBinder,
+      ImagePropComponent,
+      ColorPropComponent,
     ],
     exports: [
-      Align,
+      Fit,
+      Transition,
     ])
 class FramePropertiesComponent {
   @Input()

@@ -39,12 +39,6 @@ class PagePropertiesComponent {
 
   PagePropertiesComponent();
 
-  String get image => page.image;
-
-  set image(String image) {
-    page.image = image;
-  }
-
   void add(String type) {
     switch (type) {
       case 'text':

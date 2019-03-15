@@ -1,0 +1,11 @@
+<div class="canvas"
+     [style.width.px]="frame.width"
+     [style.height.px]="frame.height"
+     [style.background-color]="frame.color"
+     [style.background-image]="frame.imageUrl"
+     [style.background-size]="frame.fit.sizeCss"
+     [style.background-repeat]="frame.fit.repeatCss" [style.transform]="transform">
+    <template [ngIf]="page != null">
+        <page-thumbnail [page]="page"></page-thumbnail>
+    </template>
+</div>
