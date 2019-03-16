@@ -3,7 +3,7 @@ import 'dart:html';
 import 'package:angular/angular.dart';
 
 import 'widget/frame_editor/frame_editor.dart';
-import 'widget/program_editor/program_editor.dart';
+import 'widget/program_designer/program_designer.dart';
 
 import 'package:common/models.dart';
 
@@ -16,7 +16,7 @@ import 'package:common/api/api.dart';
   directives: [
     NgIf,
     FrameEditorComponent,
-    ProgramEditorComponent,
+    ProgramDesignerComponent,
   ],
 )
 class DesignerApp implements OnInit {

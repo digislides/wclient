@@ -177,7 +177,7 @@ class PageStageComponent {
 
   void onKeyPress(KeyboardEvent event) {
     if (event.keyCode == KeyCode.DELETE) {
-      page.items.removeWhere((i) => selected.containsKey(i.id));
+      selected.values.forEach((i) => page.removeItem(i.id));
       selected.clear();
       _updateSelectedRect();
       return;

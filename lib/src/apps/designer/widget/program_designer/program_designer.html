@@ -1,3 +1,5 @@
+<frame-list [program]="program" [selectedFrames]="selected" (onFrameSelect)="selectFrame($event)" (onFrameEdit)="editFrame($event)"></frame-list>
+
 <program-stage [program]="program" (onSelect)="selectionChanged($event)"></program-stage>
 
 <div class="side-pane">

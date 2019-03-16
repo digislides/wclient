@@ -10,7 +10,7 @@
                 <span>{{dragging.name}}</span>
             </div>
         </template>
-        <div class="item" [class.hide]="frame == dragging" [class.selected]="frame == selectedFrame"
+        <div class="item" [class.hide]="frame == dragging" [class.selected]="selectedFrames.containsKey(frame.id)"
              (mousemove)="onDragOverItem($event, frame)" [title]="frame.name">
             <div class="thumbnail" (mousedown)="onDragStart($event, frame)">
                 <frame-thumbnail [frame]="frame" [width]="50" [height]="50"></frame-thumbnail>

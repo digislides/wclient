@@ -104,7 +104,7 @@ class ProgramStageComponent {
       selectedRect = null;
     }
 
-    _onSelect.add(selected.values);
+    _onSelect.add(selected);
   }
 
   void stageClick(MouseEvent event) {
@@ -129,10 +129,10 @@ class ProgramStageComponent {
     }
   }
 
-  final _onSelect = StreamController<Iterable<Frame>>();
+  final _onSelect = StreamController<Map<String, Frame>>();
 
   @Output()
-  Stream<Iterable<Frame>> get onSelect => _onSelect.stream;
+  Stream<Map<String, Frame>> get onSelect => _onSelect.stream;
 
   void setSelection(FrameItemSelectionEvent e) {
     if (!program.design.frames.contains(e.item)) return;
@@ -142,7 +142,7 @@ class ProgramStageComponent {
 
   void onKeyPress(KeyboardEvent event) {
     if (event.keyCode == KeyCode.DELETE) {
-      program.design.frames.removeWhere((i) => selected.containsKey(i.id));
+      selected.values.forEach((i) => program.design.removeFrame(i.id));
       selected.clear();
       _updateSelectedRect();
       return;
@@ -234,7 +234,7 @@ class ProgramStageComponent {
         diff = diff.abs();
         for (Frame sel in selected.values) {
           sel.left = ((_hResizeStart.left - (_hResizeStart.width * diff)) +
-              ((_hResizeStarts[sel.id].left - _hResizeStart.left) * diff))
+                  ((_hResizeStarts[sel.id].left - _hResizeStart.left) * diff))
               .toInt();
           sel.width = (_hResizeStarts[sel.id].width * diff).toInt();
         }
@@ -254,7 +254,7 @@ class ProgramStageComponent {
         diff = diff.abs();
         for (Frame sel in selected.values) {
           sel.top = ((_vResizeStart.top - (_vResizeStart.height * diff)) +
-              ((_vResizeStarts[sel.id].top - _vResizeStart.top) * diff))
+                  ((_vResizeStarts[sel.id].top - _vResizeStart.top) * diff))
               .toInt();
           sel.height = (_vResizeStarts[sel.id].height * diff).toInt();
         }

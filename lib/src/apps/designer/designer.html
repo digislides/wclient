@@ -15,5 +15,5 @@
 
 <div class="content">
     <frame-editor *ngIf="!editingProgram" [frame]="frame"></frame-editor>
-    <program-editor *ngIf="editingProgram" [program]="program" (onFrameEdit)="editFrame($event)"></program-editor>
+    <program-design *ngIf="editingProgram" [program]="program" (onFrameEdit)="editFrame($event)"></program-design>
 </div>

@@ -22,7 +22,7 @@ class FrameListComponent {
   Program program;
 
   @Input()
-  Frame selectedFrame;
+  Map<String, Frame> selectedFrames;
 
   @ViewChild('items')
   DivElement itemsDiv;
@@ -49,7 +49,7 @@ class FrameListComponent {
   }
 
   void deleteFrame(Frame frame) {
-    if (selectedFrame == frame) {
+    if (selectedFrames.containsKey(frame.id)) {
       // If the frame being removed is currently, select a new frame
       final f = program.design.frames
           .firstWhere((p) => p != frame, orElse: () => null);
