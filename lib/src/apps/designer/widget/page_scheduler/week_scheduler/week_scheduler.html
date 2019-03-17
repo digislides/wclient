@@ -1,0 +1,42 @@
+<div class="content">
+    <div class="days">
+        <div class="day">
+            <input type="checkbox">
+            <span>M</span>
+        </div>
+        <div class="day">
+            <input type="checkbox">
+            <span>Te</span>
+        </div>
+        <div class="day">
+            <input type="checkbox">
+            <span>W</span>
+        </div>
+        <div class="day">
+            <input type="checkbox">
+            <span>Th</span>
+        </div>
+        <div class="day">
+            <input type="checkbox">
+            <span>F</span>
+        </div>
+        <div class="day">
+            <input type="checkbox">
+            <span>Sa</span>
+        </div>
+        <div class="day">
+            <input type="checkbox">
+            <span>Su</span>
+        </div>
+    </div>
+    <div class="periods-header">
+        <span>Times</span>
+        <div class="period-add" (click)="addPeriod()">+</div>
+    </div>
+    <div class="period" *ngFor="let period of schedule.times">
+        <input type="time">
+        <span class="to-label"> to </span>
+        <input type="time">
+        <div class="period-remove" (click)="removePeriod(period)">-</div>
+    </div>
+</div>
