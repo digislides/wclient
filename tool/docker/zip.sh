@@ -21,7 +21,7 @@ case "$(uname -s)" in
 esac
 
 # ( cd ../../; webdev${extension} build -o build )
-( cd ../../; pub${extension} run build_runner build -o build )
+( cd ../../; pub${extension} run build_runner build --low-resources-mode -o build )
 
 cp -r ../../build/example ./content
 

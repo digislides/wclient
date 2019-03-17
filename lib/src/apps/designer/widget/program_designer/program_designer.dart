@@ -36,7 +36,7 @@ class ProgramDesignerComponent {
   Map<String, Frame> selected = {};
 
   Frame get firstSelected {
-    if(selected.isEmpty) return null;
+    if (selected.isEmpty) return null;
     return selected.values.first;
   }
 
