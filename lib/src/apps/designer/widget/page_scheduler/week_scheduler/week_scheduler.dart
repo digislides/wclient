@@ -21,7 +21,7 @@ class WeekSchedulerComponent {
   WeekSchedule schedule = WeekSchedule();
 
   void addPeriod() {
-    schedule.times.add(TimeInterval(0, 0));
+    schedule.times.add(TimeInterval());
   }
 
   void removePeriod(TimeInterval period) {

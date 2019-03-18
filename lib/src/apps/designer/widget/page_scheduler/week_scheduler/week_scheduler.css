@@ -18,12 +18,13 @@
     display: flex;
     font-size: 22px;
     align-items: center;
+    margin: 5px 0px;
 }
 
 .period {
     display: flex;
     align-items: center;
-    margin-top: 5px;
+    margin: 5px 0px;
 }
 
 .period .to-label {
