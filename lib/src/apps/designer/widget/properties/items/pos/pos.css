@@ -1,0 +1,34 @@
+:host {
+    display: flex;
+    width: 100%;
+    height: 26px;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.item {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.item:focus-within {
+
+}
+
+.icon {
+
+}
+
+.left-icon {
+
+}
+
+.top-icon {
+
+}
+
+.input {
+    flex: 1;
+}
