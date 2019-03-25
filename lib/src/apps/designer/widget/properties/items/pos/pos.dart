@@ -31,7 +31,7 @@ class PosPropComponent {
     _onChange = _onChangeCont.stream.asBroadcastStream();
   }
 
-  void colorChanged(String value) {
-    // TODO
+  void changed(String x, String y) {
+    _onChangeCont.add(Point(int.tryParse(x) ?? 0, int.tryParse(y) ?? 0));
   }
 }

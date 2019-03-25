@@ -4,20 +4,12 @@
         <input class="input" tjText [bind]="image.name" (bind)="image.name = $event">
     </div>
     <div class="row">
-        <div class="label">Left</div>
-        <input type="number" class="input" tjText [bind]="image.left" (bind)="image.left = $event">
+        <div class="label">Position</div>
+        <pos-prop class="value" [pos]="image.pos" (onChange)="image.pos = $event"></pos-prop>
     </div>
     <div class="row">
-        <div class="label">Top</div>
-        <input type="number" class="input" tjText [bind]="image.top" (bind)="image.top = $event">
-    </div>
-    <div class="row">
-        <div class="label">Width</div>
-        <input type="number" class="input" tjText [bind]="image.width" (bind)="image.width = $event">
-    </div>
-    <div class="row">
-        <div class="label">Height</div>
-        <input type="number" class="input" tjText [bind]="image.height" (bind)="image.height = $event">
+        <div class="label">Size</div>
+        <size-prop class="value" [size]="image.size" (onChange)="image.size = $event"></size-prop>
     </div>
     <div class="row">
         <div class="label">Color</div>

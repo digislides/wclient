@@ -18,7 +18,7 @@ import 'package:wclient/src/utils/directives/input_binder.dart';
 )
 class SizePropComponent {
   @Input()
-  Point<int> pos = Point<int>(0, 0);
+  Point<int> size = Point<int>(0, 0);
 
   @Output()
   Stream<Point<int>> get onChange => _onChange;
@@ -31,7 +31,7 @@ class SizePropComponent {
     _onChange = _onChangeCont.stream.asBroadcastStream();
   }
 
-  void colorChanged(String value) {
-    // TODO
+  void changed(String x, String y) {
+    _onChangeCont.add(Point(int.tryParse(x) ?? 0, int.tryParse(y) ?? 0));
   }
 }

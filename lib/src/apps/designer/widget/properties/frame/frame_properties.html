@@ -4,20 +4,12 @@
         <input class="input" tjText [bind]="frame.name" (bind)="frame.name = $event">
     </div>
     <div class="row">
-        <div class="label">Left</div>
-        <input type="number" class="input" tjText [bind]="frame.left" (bind)="frame.left = $event">
+        <div class="label">Position</div>
+        <pos-prop class="value" [pos]="frame.pos" (onChange)="frame.pos = $event"></pos-prop>
     </div>
     <div class="row">
-        <div class="label">Top</div>
-        <input type="number" class="input" tjText [bind]="frame.top" (bind)="frame.top = $event">
-    </div>
-    <div class="row">
-        <div class="label">Width</div>
-        <input type="number" class="input" tjText [bind]="frame.width" (bind)="frame.width = $event">
-    </div>
-    <div class="row">
-        <div class="label">Height</div>
-        <input type="number" class="input" tjText [bind]="frame.height" (bind)="frame.height = $event">
+        <div class="label">Size</div>
+        <size-prop class="value" [pos]="frame.size" (onChange)="frame.size = $event"></size-prop>
     </div>
     <div class="row">
         <div class="label">Color</div>

@@ -1,9 +1,9 @@
 <div class="item">
     <div class="icon left-icon"></div>
-    <input #left class="input" tjText [bind]="pos.x" (bind)="colorChanged(left.value, top.value)">
+    <input #left class="input" type="number" tjText [bind]="pos.x" (bind)="changed(left.value, top.value)">
 </div>
 
 <div class="item">
     <div class="icon top-icon"></div>
-    <input #top class="input" tjText [bind]="pos.y" (bind)="colorChanged(left.value, top.value)">
+    <input #top class="input" type="number" tjText [bind]="pos.y" (bind)="changed(left.value, top.value)">
 </div>

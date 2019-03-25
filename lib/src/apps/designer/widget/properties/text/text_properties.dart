@@ -4,6 +4,8 @@ import 'package:wclient/src/utils/directives/input_binder.dart';
 
 import 'package:common/models.dart';
 
+import 'package:wclient/src/apps/designer/widget/properties/items/pos/pos.dart';
+import 'package:wclient/src/apps/designer/widget/properties/items/size/size.dart';
 import 'package:wclient/src/apps/designer/widget/properties/items/color/color.dart';
 
 @Component(
@@ -16,6 +18,8 @@ import 'package:wclient/src/apps/designer/widget/properties/items/color/color.da
       TextBinder,
       TextAreaBinder,
       SelectBoxBinder,
+      PosPropComponent,
+      SizePropComponent,
       ColorPropComponent,
     ],
     exports: [
