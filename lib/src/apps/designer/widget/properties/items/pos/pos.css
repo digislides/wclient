@@ -18,7 +18,7 @@
 }
 
 .item:focus-within {
-
+    border-color: black;
 }
 
 .item:not(:last-child) {
