@@ -1,4 +1,5 @@
 import 'dart:html';
+import 'dart:convert';
 
 import 'package:jaguar_resty/jaguar_resty.dart';
 import 'package:http/browser_client.dart';
@@ -103,8 +104,5 @@ main() async {
   });
   es.onMessage.listen((m) async {
     print("Received message ...");
-  });
-  Future.delayed(Duration(seconds: 10), () {
-    es.close();
   });
 }
