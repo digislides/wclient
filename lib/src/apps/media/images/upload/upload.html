@@ -1,0 +1,21 @@
+<div>
+    <div>
+        <div>Image</div>
+        <input #file type="file" multiple (change)="onFilePick(file.files)">
+    </div>
+
+    <div *ngFor="let upload of uploads">
+        <div>Name</div>
+        <input tjText [bind]="upload.name" (bind)="upload.name = $event">
+        <div (click)="uploads.remove(upload)">x</div>
+    </div>
+
+    <div>
+        <div>Tags</div>
+        <div></div>
+    </div>
+
+    <div>
+        <div>Upload</div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="tabs">
+    <div class="tab image" [class.selected]="selected == 0" (click)="selected = 0">
+        <div class="icon"></div>
+        <div class="name">Images</div>
+    </div>
+    <div class="tab video" [class.selected]="selected == 1" (click)="selected = 1">
+        <div class="icon"></div>
+        <div class="name">Videos</div>
+    </div>
+    <div class="tab audio" [class.selected]="selected == 2" (click)="selected = 2">
+        <div class="icon"></div>
+        <div class="name">Audios</div>
+    </div>
+    <div class="tab font" [class.selected]="selected == 3" (click)="selected = 3">
+        <div class="icon"></div>
+        <div class="name">Fonts</div>
+    </div>
+</div>
+<div class="content">
+    <image-list *ngIf="selected == 0"></image-list>
+    <video-list *ngIf="selected == 1"></video-list>
+    <audio-list *ngIf="selected == 2"></audio-list>
+    <font-list *ngIf="selected == 3"></font-list>
+</div>
