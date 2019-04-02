@@ -1,0 +1,25 @@
+<div>
+    <div>
+        <div>Name</div>
+        <input tjText [bind]="image.name" (bind)="image.name = $event">
+        <div>{{image.name}}</div>
+    </div>
+
+    <div class="tags-box">
+        <div class="tags-header">
+            <div>Tags</div>
+            <input #tagEnter (keyup.enter)="addTag(tagEnter)">
+        </div>
+        <div class="tags">
+            <div class="tag" *ngFor="let tag of tags">
+                <div class="name">{{tag}}</div>
+                <div class="close" (click)="tags.remove(tag)">x</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="actions">
+    <div (click)="save()">Save</div>
+    <div (click)="close()">Close</div>
+</div>

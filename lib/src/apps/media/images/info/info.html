@@ -1,0 +1,22 @@
+<div class="header">
+    <div class="action" (click)="editing = true">Edit</div>
+    <div class="action" (click)="delete()">Delete</div>
+    <div class="action" (click)="close()">Close</div>
+</div>
+
+<div>
+    <div>
+        <div>Name</div>
+        <div>{{image.name}}</div>
+    </div>
+
+    <div>
+        <div>Size</div>
+        <div>{{image.width}}:{{image.height}}</div>
+    </div>
+
+    <div>
+        <div>Tags</div>
+        <div *ngFor="let tag of tags">{{tag}}</div>
+    </div>
+</div>

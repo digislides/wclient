@@ -13,16 +13,27 @@
 .image {
     width: 100px;
     height: 100px;
+    background-color: grey;
+    margin: 10px;
 }
 
 .image .img {
     width: 100px;
-    height: 80px;
+    height: 70px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
 }
 
 .image .name {
-
+    font-size: 15px;
+    width: 100%;
+    height: 30px;
+    padding: 5px 2px;
+    box-sizing: border-box;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    background-color: #cccccc;
 }
