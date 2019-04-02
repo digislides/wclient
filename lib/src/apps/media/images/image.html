@@ -10,3 +10,9 @@
 <image-upload *ngIf="showCreate"></image-upload>
 
 <!-- TODO list -->
+<div class="list">
+    <div class="image" *ngFor="let image of images">
+        <div class="img" [style.background-image]="image.urlCss"></div>
+        <div class="name">{{image.name}}</div>
+    </div>
+</div>

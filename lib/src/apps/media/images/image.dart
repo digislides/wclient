@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:angular/angular.dart';
 import 'package:common/models.dart';
-import 'package:common/common.dart';
+import 'package:common/api/api.dart';
 
 import 'upload/upload.dart';
 
@@ -18,6 +18,16 @@ import 'upload/upload.dart';
   exports: [
   ],
 )
-class ImageListComponent {
+class ImageListComponent implements OnInit {
   bool showCreate = false;
+
+  List<MediaImage> images = [];
+
+  void ngOnInit() async {
+    await update();
+  }
+
+  void update() async {
+    images = await mediaImageApi.getAll("");
+  }
 }
