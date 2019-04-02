@@ -6,6 +6,7 @@
   padding: 5px 10px;
   margin: 0px 5px;
   cursor: pointer;
+  width: fit-content;
 }
 
 .flat-btn:hover {
@@ -23,6 +24,7 @@
   margin: 0px 5px;
   border-radius: 3px;
   cursor: pointer;
+  width: fit-content;
 }
 
 .btn:hover {
@@ -41,6 +43,14 @@
 
 .btn-success:hover {
   background-color: #32b14f;
+}
+
+.btn-failure {
+  background-color: #F44336;
+}
+
+.btn-failure:hover {
+  background-color: #ff7066;
 }
 
 .btn-info {
