@@ -6,6 +6,7 @@ import 'package:common/models.dart';
 
 import '../images/image.dart';
 import '../videos/video.dart';
+import '../fonts/font.dart';
 
 @Component(
   selector: 'media-list',
@@ -16,6 +17,7 @@ import '../videos/video.dart';
     NgIf,
     ImageListComponent,
     VideoListComponent,
+    FontListComponent,
   ],
   exports: [
   ],

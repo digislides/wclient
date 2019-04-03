@@ -5,29 +5,29 @@ import 'package:common/api/api.dart';
 import 'info/info.dart';
 
 @Component(
-  selector: 'image-list',
-  styleUrls: ['image.css'],
-  templateUrl: 'image.html',
+  selector: 'font-list',
+  styleUrls: ['font.css'],
+  templateUrl: 'font.html',
   directives: [
     NgFor,
     NgIf,
-    ImageInfoComponent,
+    FontInfoComponent,
   ],
   exports: [
   ],
 )
-class ImageListComponent implements OnInit {
-  List<MediaImage> images = [];
+class FontListComponent implements OnInit {
+  List<MediaFont> fonts = [];
 
   void ngOnInit() async {
     await update();
   }
 
   void update() async {
-    images = await mediaImageApi.getAll("");
+    fonts = await mediaFontApi.getAll("");
   }
 
-  MediaImage showing;
+  MediaFont showing;
 
   void closeShowing() async {
     showing = null;

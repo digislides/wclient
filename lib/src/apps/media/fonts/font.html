@@ -1,0 +1,14 @@
+<div class="header">
+    <div>
+        <input>
+    </div>
+</div>
+
+<div class="list">
+    <div class="image" *ngFor="let font of fonts" (click)="showing = font">
+        <!--<div class="img" [style.background-image]="image.urlCss"></div>-->
+        <div class="name">{{font.name}}</div>
+    </div>
+</div>
+
+<font-info *ngIf="showing != null" [font]="showing" (onClose)="closeShowing()"></font-info>

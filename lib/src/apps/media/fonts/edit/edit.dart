@@ -8,7 +8,7 @@ import 'package:common/api/api.dart';
 import 'package:wclient/src/utils/directives/input_binder.dart';
 
 @Component(
-  selector: 'image-edit',
+  selector: 'font-edit',
   styleUrls: ['edit.css'],
   templateUrl: 'edit.html',
   directives: [
@@ -18,20 +18,20 @@ import 'package:wclient/src/utils/directives/input_binder.dart';
   ],
   exports: [],
 )
-class ImageEditComponent {
-  MediaImage _image;
+class FontEditComponent {
+  MediaFont _font;
 
   @Input()
-  set image(MediaImage value) {
-    _image = value;
-    if (_image == null) {
+  set font(MediaFont value) {
+    _font = value;
+    if (_font == null) {
       model = MediaCreator(name: "", tags: []);
     } else {
-      model = MediaCreator(name: _image.name, tags: _image.tags.toList());
+      model = MediaCreator(name: _font.name, tags: _font.tags.toList());
     }
   }
 
-  MediaImage get image => _image;
+  MediaFont get font => _font;
 
   MediaCreator model = MediaCreator(name: "", tags: []);
 
@@ -44,7 +44,7 @@ class ImageEditComponent {
   @Output()
   Stream get onClose => _onClose;
 
-  ImageEditComponent() {
+  FontEditComponent() {
     _onClose = _closeCont.stream.asBroadcastStream();
   }
 
@@ -56,11 +56,11 @@ class ImageEditComponent {
   }
 
   Future<void> save() async {
-    await mediaImageApi.save(image.id, model);
+    await mediaVideoApi.save(font.id, model);
   }
 
   Future<void> delete() async {
-    await mediaImageApi.delete(image.id);
+    await mediaVideoApi.delete(font.id);
     _closeCont.add(null);
   }
 
