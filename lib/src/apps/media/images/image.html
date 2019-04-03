@@ -4,15 +4,15 @@
         <input>
     </div>
 
-    <div (click)="showCreate = true">Create</div>
+    <div (click)="launchUploader()">Create</div>
 </div>
-
-<image-upload *ngIf="showCreate"></image-upload>
 
 <!-- TODO list -->
 <div class="list">
-    <div class="image" *ngFor="let image of images">
+    <div class="image" *ngFor="let image of images" (click)="showing = image">
         <div class="img" [style.background-image]="image.urlCss"></div>
         <div class="name">{{image.name}}</div>
     </div>
 </div>
+
+<image-info *ngIf="showing != null" [image]="showing" (onClose)="closeShowing()"></image-info>

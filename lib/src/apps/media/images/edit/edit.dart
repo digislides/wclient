@@ -1,7 +1,6 @@
 import 'dart:html';
-import 'package:path/path.dart' as path;
+import 'dart:async';
 
-import 'package:jaguar_resty/jaguar_resty.dart';
 import 'package:angular/angular.dart';
 import 'package:common/models.dart';
 import 'package:common/api/api.dart';
@@ -38,6 +37,17 @@ class ImageEditComponent {
 
   bool editing = false;
 
+  final _closeCont = StreamController();
+
+  Stream _onClose;
+
+  @Output()
+  Stream get onClose => _onClose;
+
+  ImageEditComponent() {
+    _onClose = _closeCont.stream.asBroadcastStream();
+  }
+
   void addTag(InputElement el) {
     final name = el.value;
     if (name.isEmpty || name.contains(RegExp(r"[^a-zA-Z0-9_\-]"))) return;
@@ -49,7 +59,12 @@ class ImageEditComponent {
     await mediaImageApi.save(image.id, model);
   }
 
+  Future<void> delete() async {
+    await mediaImageApi.delete(image.id);
+    _closeCont.add(null);
+  }
+
   void close() {
-    // TODO
+    _closeCont.add(null);
   }
 }

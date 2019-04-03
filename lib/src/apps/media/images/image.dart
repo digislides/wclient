@@ -1,10 +1,10 @@
-import 'dart:math';
+import 'dart:html';
 
 import 'package:angular/angular.dart';
 import 'package:common/models.dart';
 import 'package:common/api/api.dart';
 
-import 'upload/upload.dart';
+import 'info/info.dart';
 
 @Component(
   selector: 'image-list',
@@ -13,14 +13,12 @@ import 'upload/upload.dart';
   directives: [
     NgFor,
     NgIf,
-    ImageUploadComponent,
+    ImageInfoComponent,
   ],
   exports: [
   ],
 )
 class ImageListComponent implements OnInit {
-  bool showCreate = false;
-
   List<MediaImage> images = [];
 
   void ngOnInit() async {
@@ -29,5 +27,16 @@ class ImageListComponent implements OnInit {
 
   void update() async {
     images = await mediaImageApi.getAll("");
+  }
+
+  void launchUploader() {
+    window.open("/media/upload/index.html", "_blank");
+  }
+
+  MediaImage showing;
+
+  void closeShowing() async {
+    showing = null;
+    await update();
   }
 }

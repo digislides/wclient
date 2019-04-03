@@ -9,7 +9,7 @@ import 'package:common/api/api.dart';
 import 'package:wclient/src/utils/directives/input_binder.dart';
 
 @Component(
-  selector: 'image-upload',
+  selector: 'media-upload',
   styleUrls: ['upload.css'],
   templateUrl: 'upload.html',
   directives: [
@@ -19,7 +19,7 @@ import 'package:wclient/src/utils/directives/input_binder.dart';
   ],
   exports: [],
 )
-class ImageUploadComponent {
+class MediaUploadComponent {
   @ViewChild("file")
   FileUploadInputElement fileInput;
 

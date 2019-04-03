@@ -1,5 +1,5 @@
 import 'dart:html';
-import 'package:path/path.dart' as path;
+import 'dart:async';
 
 import 'package:jaguar_resty/jaguar_resty.dart';
 import 'package:angular/angular.dart';
@@ -7,6 +7,8 @@ import 'package:common/models.dart';
 import 'package:common/api/api.dart';
 
 import 'package:wclient/src/utils/directives/input_binder.dart';
+
+import '../edit/edit.dart';
 
 @Component(
   selector: 'image-info',
@@ -16,6 +18,7 @@ import 'package:wclient/src/utils/directives/input_binder.dart';
     NgFor,
     NgIf,
     TextBinder,
+    ImageEditComponent,
   ],
   exports: [],
 )
@@ -25,11 +28,32 @@ class ImageInfoComponent {
 
   bool editing = false;
 
+  final _closeCont = StreamController();
+
+  Stream _onClose;
+
+  @Output()
+  Stream get onClose => _onClose;
+
+  ImageInfoComponent() {
+    _onClose = _closeCont.stream.asBroadcastStream();
+  }
+
   Future<void> delete() async {
-    // TODO
+    await mediaImageApi.delete(image.id);
+    _closeCont.add(null);
   }
 
   void close() {
-    // TODO
+    _closeCont.add(null);
+  }
+
+  void _update() async {
+    image = await mediaImageApi.getById(image.id);
+  }
+
+  void closeEditing() async {
+    editing = false;
+    await _update();
   }
 }
