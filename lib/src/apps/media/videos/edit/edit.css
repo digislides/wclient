@@ -26,7 +26,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
-    background-image: url(/packages/wclient/src/utils/icons/media/white/image.svg);
+    background-image: url(/packages/wclient/src/utils/icons/media/white/video.svg);
     margin: 0px 5px;
 }
 
@@ -69,6 +69,17 @@
     margin: 10px 5px;
 }
 
+.tags-header {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+.tags-header input {
+    margin-left: 5px;
+}
+
 .tags {
     display: flex;
     flex-wrap: wrap;
@@ -85,4 +96,15 @@
 
 .tag .name {
     padding: 0px 5px;
+}
+
+.tag .close {
+    cursor: pointer;
+    color: #b51717;
+    padding: 0px 5px;
+    border-left: 1px solid #4f4f4f;
+}
+
+.tag .close:active {
+    background-color: #aaa;
 }

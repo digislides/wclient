@@ -29,8 +29,11 @@ class MediaUploadComponent {
 
   void onFilePick(List<File> files) {
     for (File f in files) {
-      final up = Upload(
-          path.basenameWithoutExtension(f.name), path.extension(f.name), f);
+      print(f.type);
+      final type = typeToMediaType(f.type);
+      if (type == null) continue;
+      final up = Upload(path.basenameWithoutExtension(f.name),
+          path.extension(f.name), f, type);
       final fr = FileReader();
       fr.onLoad.listen((_) {
         up.url = fr.result;
@@ -54,8 +57,19 @@ class MediaUploadComponent {
       fr.readAsArrayBuffer(upload.file);
       await fr.onLoad.first;
       final name = upload.name + upload.extension;
-      await mediaImageApi.create(MediaCreator(name: name, tags: tags),
-          MultipartFile(fr.result, filename: name));
+      if (upload.type == MediaType.image) {
+        await mediaImageApi.create(MediaCreator(name: name, tags: tags),
+            MultipartFile(fr.result, filename: name));
+      } else if (upload.type == MediaType.video) {
+        await mediaVideoApi.create(MediaCreator(name: name, tags: tags),
+            MultipartFile(fr.result, filename: name));
+      } else if (upload.type == MediaType.audio) {
+        await mediaAudioApi.create(MediaCreator(name: name, tags: tags),
+            MultipartFile(fr.result, filename: name));
+      } else if (upload.type == MediaType.font) {
+        await mediaFontApi.create(MediaCreator(name: name, tags: tags),
+            MultipartFile(fr.result, filename: name));
+      }
     }
   }
 }
@@ -69,5 +83,29 @@ class Upload {
 
   String url;
 
-  Upload(this.name, this.extension, this.file);
+  MediaType type;
+
+  Upload(this.name, this.extension, this.file, this.type);
+}
+
+enum MediaType {
+  image,
+  video,
+  audio,
+  font,
+}
+
+MediaType typeToMediaType(String type) {
+  switch (type) {
+    case "image/png":
+    case "image/jpeg":
+      return MediaType.image;
+    case "video/mp4":
+      return MediaType.video;
+    case "font/ttf":
+    case "":
+      return MediaType.font;
+    default:
+      return null;
+  }
 }

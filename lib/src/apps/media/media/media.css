@@ -54,6 +54,45 @@
     background-image: url(/packages/wclient/src/utils/icons/media/font.svg);
 }
 
+.spacer {
+    flex: 1;
+}
+
+.action {
+    height: 40px;
+    cursor: pointer;
+    margin: 0px 15px;
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+}
+
+.action .name {
+    margin-left: 5px;
+    height: fit-content;
+    font-size: 22px;
+}
+
+.action .icon {
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.action:active {
+    background-color: #eee;
+}
+
+.action.upload .icon {
+    background-image: url(/packages/wclient/src/utils/icons/media/upload.svg);
+}
+
+.action.upload .name {
+    color: #38bd38;
+}
+
 .content {
     width: 100%;
     height: calc(100% - 40px);

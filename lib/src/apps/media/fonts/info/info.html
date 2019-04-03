@@ -1,0 +1,31 @@
+<div class="header">
+    <div class="icon"></div>
+    <div class="title">Image</div>
+    <div class="action" (click)="editing = true">Edit</div>
+    <div class="action" (click)="delete()">Delete</div>
+    <div class="action" (click)="close()">Close</div>
+</div>
+
+<div class="body">
+
+    <div class="row">
+        <div class="label">Name</div>
+        <div class="value">{{image.name}}</div>
+    </div>
+
+    <div class="row">
+        <div class="label">Size</div>
+        <div class="value">{{image.width}}:{{image.height}}</div>
+    </div>
+
+    <div class="row-v">
+        <div class="label">Tags</div>
+        <div class="tags">
+            <div class="tag" *ngFor="let tag of image.tags">
+                <div class="name">{{tag}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<image-edit *ngIf="editing" [image]="image" (onClose)="closeEditing()"></image-edit>

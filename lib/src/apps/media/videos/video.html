@@ -1,0 +1,14 @@
+<div class="header">
+    <div>
+        <input>
+    </div>
+</div>
+
+<div class="list">
+    <div class="video" *ngFor="let video of videos" (click)="showing = video">
+        <!--<div class="img" [style.background-image]="image.urlCss"></div>-->
+        <div class="name">{{video.name}}</div>
+    </div>
+</div>
+
+<video-info *ngIf="showing != null" [video]="showing" (onClose)="closeShowing()"></video-info>

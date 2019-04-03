@@ -5,29 +5,29 @@ import 'package:common/api/api.dart';
 import 'info/info.dart';
 
 @Component(
-  selector: 'image-list',
-  styleUrls: ['image.css'],
-  templateUrl: 'image.html',
+  selector: 'video-list',
+  styleUrls: ['video.css'],
+  templateUrl: 'video.html',
   directives: [
     NgFor,
     NgIf,
-    ImageInfoComponent,
+    VideoInfoComponent,
   ],
   exports: [
   ],
 )
-class ImageListComponent implements OnInit {
-  List<MediaImage> images = [];
+class VideoListComponent implements OnInit {
+  List<MediaVideo> videos = [];
 
   void ngOnInit() async {
     await update();
   }
 
   void update() async {
-    images = await mediaImageApi.getAll("");
+    videos = await mediaVideoApi.getAll("");
   }
 
-  MediaImage showing;
+  MediaVideo showing;
 
   void closeShowing() async {
     showing = null;
