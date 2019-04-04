@@ -1,42 +1,42 @@
-<div class="body">
-    <div class="header">Upload Images</div>
+<div class="header">
+    <div>Upload</div>
+    <div class="spacer"></div>
+    <div class="btn btn-success" [class.btn-disabled]="uploads.isEmpty" (click)="upload()">Upload</div>
+    <div class="btn btn-failure" (click)="uploads.clear()">Reset</div>
+</div>
 
-    <div class="tags-box">
-        <div class="tags-header">
-            <div>Tags</div>
-            <input #tagEnter (keyup.enter)="addTag(tagEnter)">
-        </div>
-        <div class="tags">
-            <div class="tag" *ngFor="let tag of tags">
-                <div class="name">{{tag}}</div>
-                <div class="close" (click)="tags.remove(tag)">x</div>
-            </div>
-        </div>
+<div class="box tags-box">
+    <div class="tags-header">
+        <div>Tags</div>
+        <input #tagEnter (keyup.enter)="addTag(tagEnter)">
     </div>
-
-    <div class="files-box">
-        <div class="files-header">
-            <div>Files</div>
-            <span class="btn btn-info" (click)="fileInput.click()">Choose</span>
+    <div class="tags">
+        <div class="tag" *ngFor="let tag of tags">
+            <div class="name">{{tag}}</div>
+            <div class="close" (click)="tags.remove(tag)">x</div>
         </div>
-
-        <div class="files">
-            <template [ngIf]="uploads.isEmpty">
-                <div>No file selected!</div>
-            </template>
-            <template [ngIf]="uploads.isNotEmpty">
-                <div class="file" *ngFor="let upload of uploads">
-                    <img [src]="upload.url">
-                    <input tjText [bind]="upload.name" (bind)="upload.name = $event">
-                    <div class="close" (click)="uploads.remove(upload)">x</div>
-                </div>
-            </template>
-        </div>
-    </div>
-    <input #file type="file" multiple hidden (change)="onFilePick(file.files)">
-
-    <div class="actions">
-        <div class="btn btn-success" (click)="upload()">Upload</div>
-        <div class="btn btn-failure" (click)="uploads.clear()">Reset</div>
     </div>
 </div>
+
+<div class="box files-box">
+    <div class="files-header">
+        <div>Files</div>
+        <span class="btn btn-info" (click)="fileInput.click()">Choose</span>
+    </div>
+
+    <div class="files">
+        <template [ngIf]="uploads.isEmpty">
+            <div>No file selected!</div>
+        </template>
+        <template [ngIf]="uploads.isNotEmpty">
+            <div class="file" *ngFor="let upload of uploads">
+                <img [src]="upload.url">
+                <input tjText [bind]="upload.name" (bind)="upload.name = $event">
+                <div class="close" (click)="uploads.remove(upload)">x</div>
+            </div>
+        </template>
+    </div>
+</div>
+<input #file type="file" multiple hidden (change)="onFilePick(file.files)">
+
+<media-upload-progress *ngIf="uploading" [uploads]="uploads" (onClose)="onProgressClose()"></media-upload-progress>

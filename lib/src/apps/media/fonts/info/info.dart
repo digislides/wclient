@@ -1,3 +1,4 @@
+import 'dart:html';
 import 'dart:async';
 
 import 'package:angular/angular.dart';
@@ -33,7 +34,10 @@ class FontInfoComponent {
   @Output()
   Stream get onClose => _onClose;
 
+  String baseUrl;
+
   FontInfoComponent() {
+    baseUrl = window.location.origin;
     _onClose = _closeCont.stream.asBroadcastStream();
   }
 

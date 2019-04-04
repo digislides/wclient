@@ -8,6 +8,8 @@ import 'package:common/api/api.dart';
 
 import 'package:wclient/src/utils/directives/input_binder.dart';
 
+import 'progress/progress.dart';
+
 @Component(
   selector: 'media-upload',
   styleUrls: ['upload.css'],
@@ -16,6 +18,7 @@ import 'package:wclient/src/utils/directives/input_binder.dart';
     NgFor,
     NgIf,
     TextBinder,
+    MediaUploadProgressComponent,
   ],
   exports: [],
 )
@@ -27,13 +30,15 @@ class MediaUploadComponent {
 
   final uploads = <Upload>[];
 
+  bool uploading = false;
+
   void onFilePick(List<File> files) {
     for (File f in files) {
       print(f.type);
       final type = typeToMediaType(f.type);
       if (type == null) continue;
       final up = Upload(path.basenameWithoutExtension(f.name),
-          path.extension(f.name), f, type);
+          path.extension(f.name), f, type, tags);
       final fr = FileReader();
       fr.onLoad.listen((_) {
         up.url = fr.result;
@@ -51,61 +56,14 @@ class MediaUploadComponent {
     el.value = "";
   }
 
-  void upload() async {
-    for (Upload upload in uploads) {
-      final fr = FileReader();
-      fr.readAsArrayBuffer(upload.file);
-      await fr.onLoad.first;
-      final name = upload.name + upload.extension;
-      if (upload.type == MediaType.image) {
-        await mediaImageApi.create(MediaCreator(name: name, tags: tags),
-            MultipartFile(fr.result, filename: name));
-      } else if (upload.type == MediaType.video) {
-        await mediaVideoApi.create(MediaCreator(name: name, tags: tags),
-            MultipartFile(fr.result, filename: name));
-      } else if (upload.type == MediaType.audio) {
-        await mediaAudioApi.create(MediaCreator(name: name, tags: tags),
-            MultipartFile(fr.result, filename: name));
-      } else if (upload.type == MediaType.font) {
-        await mediaFontApi.create(MediaCreator(name: name, tags: tags),
-            MultipartFile(fr.result, filename: name));
-      }
-    }
+  void upload() {
+    if (uploads.isEmpty) return;
+    uploading = true;
   }
-}
 
-class Upload {
-  String name;
-
-  String extension;
-
-  Blob file;
-
-  String url;
-
-  MediaType type;
-
-  Upload(this.name, this.extension, this.file, this.type);
-}
-
-enum MediaType {
-  image,
-  video,
-  audio,
-  font,
-}
-
-MediaType typeToMediaType(String type) {
-  switch (type) {
-    case "image/png":
-    case "image/jpeg":
-      return MediaType.image;
-    case "video/mp4":
-      return MediaType.video;
-    case "font/ttf":
-    case "":
-      return MediaType.font;
-    default:
-      return null;
+  void onProgressClose() {
+    uploads.clear();
+    tags.clear();
+    uploading = false;
   }
 }

@@ -16,9 +16,10 @@
 
 .list {
     width: 100%;
-    height: calc(100% - 40px);
+    max-height: calc(100% - 40px);
     display: flex;
     flex-wrap: wrap;
+    overflow-y: auto;
 }
 
 .image {

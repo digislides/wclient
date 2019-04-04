@@ -35,7 +35,10 @@ class ImageInfoComponent {
   @Output()
   Stream get onClose => _onClose;
 
+  String baseUrl;
+
   ImageInfoComponent() {
+    baseUrl = window.location.origin;
     _onClose = _closeCont.stream.asBroadcastStream();
   }
 

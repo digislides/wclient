@@ -1,0 +1,23 @@
+<div class="header">
+    <div class="title">Uploading {{uploads.length}} files ...</div>
+</div>
+
+<div class="list">
+    <div class="item" *ngFor="let upload of uploads">
+        <div class="status" [class.finished]="upload.finished" [class.failed]="upload.failed"></div>
+        <div *ngIf="upload.media == null">{{upload.name}}</div>
+        <a *ngIf="upload.media != null" [href]="upload.media.url" target="_blank">{{upload.name}}</a>
+    </div>
+</div>
+
+<div *ngIf="finished" class="finished-box">
+    <div class="content">
+        <div class="msg" *ngIf="failed == 0">Files uploaded successfully!</div>
+        <div class="msg" *ngIf="failed != 0">{{failed}} files failed!</div>
+        <div class="actions">
+            <div class="btn btn-success" (click)="finished = false">View list</div>
+            <div class="btn btn-success" (click)="uploadMore()">Upload more files</div>
+            <div class="btn btn-failure" (click)="close()">Close</div>
+        </div>
+    </div>
+</div>
