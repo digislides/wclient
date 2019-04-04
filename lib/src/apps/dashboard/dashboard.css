@@ -68,6 +68,10 @@
   background-image: url(/packages/wclient/src/utils/icons/dashboard/header/media.svg);
 }
 
+.monitor-icon {
+  background-image: url(/packages/wclient/src/utils/icons/dashboard/header/monitor.svg);
+}
+
 .content {
   width: 100%;
   height: calc(100% - 45px);
