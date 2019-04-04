@@ -58,4 +58,6 @@ class FontInfoComponent {
     editing = false;
     await _update();
   }
+
+  String get url => "$baseUrl${font.url}";
 }

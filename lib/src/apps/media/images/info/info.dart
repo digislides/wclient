@@ -59,4 +59,6 @@ class ImageInfoComponent {
     editing = false;
     await _update();
   }
+
+  String get url => "$baseUrl${image.url}";
 }

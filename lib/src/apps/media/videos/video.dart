@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:angular/angular.dart';
 import 'package:common/models.dart';
 import 'package:common/api/api.dart';
@@ -32,5 +34,16 @@ class VideoListComponent implements OnInit {
   void closeShowing() async {
     showing = null;
     await update();
+  }
+
+  String search = "";
+
+  List<String> tags = [];
+
+  void addTag(InputElement el) {
+    final name = el.value;
+    if (name.isEmpty || name.contains(RegExp(r"[^a-zA-Z0-9_\-]"))) return;
+    tags.add(name);
+    el.value = "";
   }
 }

@@ -1,6 +1,20 @@
 <div class="header">
-    <div>
-        <input>
+    <div class="controls">
+        <div class="button icon refresh-icon" (click)="update()"></div>
+        <div class="lab-input search">
+            <div class="icon"></div>
+            <input class="search-input" tjText [value]="search" (bind)="search = $event">
+        </div>
+        <div class="tags">
+            <div class="tag" *ngFor="let tag of tags">
+                <div class="name">{{tag}}</div>
+                <div class="close" (click)="tags.remove(tag)">x</div>
+            </div>
+            <div class="lab-input tagger">
+                <div class="icon"></div>
+                <input class="search-input" #tagEnter (keyup.enter)="addTag(tagEnter)">
+            </div>
+        </div>
     </div>
 </div>
 

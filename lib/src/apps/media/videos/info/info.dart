@@ -58,4 +58,6 @@ class VideoInfoComponent {
     editing = false;
     await _update();
   }
+
+  String get url => "$baseUrl${video.url}";
 }
