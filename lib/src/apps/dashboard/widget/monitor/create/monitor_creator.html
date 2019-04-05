@@ -1,0 +1,32 @@
+<div class="title-bar">
+    <div class="title">Create new monitor</div>
+    <div class="close-btn" (click)="close()">x</div>
+</div>
+<div class="body">
+    <div class="row input-row">
+        <div class="label">
+            <div class="icon name-icon"></div>
+        </div>
+        <input class="input" placeholder="Monitor name" tjText [bind]="model.name" (bind)="model.name = $event">
+    </div>
+
+    <div>Data</div>
+    <div class="table">
+        <div class="row row-header">
+            <div>Name</div>
+            <div>Value</div>
+        </div>
+        <div class="row" *ngFor="let field of model.fields">
+            <input tjText [bind]="field.name" (bind)="field.name = $event">
+            <input tjText [bind]="field.value" (bind)="field.value = $event">
+        </div>
+        <div>
+            <div (click)="addRow()">Add row</div>
+        </div>
+    </div>
+
+    <div class="btn-group" role="group" >
+        <div class="btn btn-success" (click)="create()">Create</div>
+        <div class="btn btn-info" (click)="reset()">Reset</div>
+    </div>
+</div>

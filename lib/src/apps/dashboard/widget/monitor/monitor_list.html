@@ -1,0 +1,15 @@
+<div class="header">
+    <div class="title">Monitors</div>
+</div>
+
+<div class="controls">
+    <div class="action" (click)="create = true">Create</div>
+</div>
+
+<div>
+    <div *ngFor="let monitor of monitors">
+        <div class="name">{{monitor.name}}</div>
+    </div>
+</div>
+
+<monitor-creator *ngIf="create" (onClose)="create = false"></monitor-creator>

@@ -3,6 +3,7 @@ import 'package:angular/angular.dart';
 import 'widget/program_list/program_list.dart';
 import 'widget/channel_list/channel_list.dart';
 import '../media/media/media.dart';
+import 'widget/monitor/monitor_list.dart';
 
 @Component(
   selector: 'dashboard-app',
@@ -13,6 +14,7 @@ import '../media/media/media.dart';
     ProgramListComponent,
     ChannelListComponent,
     MediaListComponent,
+    MonitorListComponent,
   ],
 )
 class DashboardApp {

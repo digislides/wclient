@@ -1,0 +1,37 @@
+<div class="header">
+    <div class="header-icon"></div>
+    <div class="title">Editing {{channel.name}}</div>
+    <div class="action" (click)="save()">Save</div>
+    <div class="action" (click)="close()">Close</div>
+</div>
+
+<div class="body">
+    <div class="row">
+        <div class="label">Name</div>
+        <input class="input" #nameInp [value]="channel.name">
+    </div>
+
+    <div class="row hug-down">
+        <div class="label">Program</div>
+        <div class="input-box" [class.open]="selectingProgram">
+            <div class="value" *ngIf="program != null">{{program.name}}</div>
+            <div class="value" *ngIf="program == null">None</div>
+            <div class="dropdown-btn" [class.down-icon]="!selectingProgram" [class.up-icon]="selectingProgram" (click)="selectingProgram = !selectingProgram"></div>
+        </div>
+    </div>
+
+    <div class="row" [class.hide]="!selectingProgram">
+        <div class="label"></div>
+        <div class="value">
+            <div class="program-search-box">
+                <div class="icon search"></div>
+                <input class="input" [value]="programFilter" tjText (bind)="programFilter = $event">
+            </div>
+            <div class="program-items">
+                <div class="program-item" *ngFor="let prog of programs" (click)="program = prog" [class.selected]="program != null && program.id == prog.id">
+                    <div class="name">{{prog.name}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

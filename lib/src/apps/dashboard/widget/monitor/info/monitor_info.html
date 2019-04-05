@@ -1,0 +1,38 @@
+<div class="header">
+    <div class="close" (click)="close()">&#x3c;</div>
+    <div class="header-icon"></div>
+    <div class="title">{{channel.name}}</div>
+    <div class="action" (click)="editing = true">Edit</div>
+    <div class="action" (click)="delete()">Delete</div>
+    <div class="action" (click)="preview()">Preview</div>
+    <div class="action" (click)="play()">Play</div>
+</div>
+
+<div class="body">
+    <div class="row">
+        <div class="label">Name</div>
+        <div class="value">{{channel.name}}</div>
+    </div>
+    <div class="row">
+        <div class="label">Program</div>
+        <div class="value" *ngIf="program != null">{{program.name}}</div>
+        <div class="value" *ngIf="program == null">None</div>
+    </div>
+    <div class="row">
+        <div class="label">Should run</div>
+        <div class="value" *ngIf="program != null">{{program.publishString()}}</div>
+        <div class="value" *ngIf="program == null">None</div>
+    </div>
+    <div class="row">
+        <div class="label">Running</div>
+        <div class="value" *ngIf="channel.running != null">
+            <div>{{versionToHuman(channel.running.running)}}</div>
+            <div class="sub">Since {{channel.running.when.toString()}}</div>
+        </div>
+        <div class="value" *ngIf="channel.running == null">None</div>
+    </div>
+</div>
+
+<div class="overlay" *ngIf="editing">
+    <channel-edit [channel]="channel" (onClose)="closeEditor()"></channel-edit>
+</div>
