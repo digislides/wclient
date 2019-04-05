@@ -4,12 +4,11 @@ import 'dart:html';
 import 'package:angular/angular.dart';
 
 import 'package:wclient/src/utils/directives/input_binder.dart';
-import 'package:wclient/src/apps/dashboard/widget/channel_edit/channel_edit.dart';
+import '../edit/monitor_edit.dart';
 
 import 'package:common/models.dart';
 
 import 'package:common/api/api.dart';
-import 'package:common/utils/published_at_format.dart';
 
 @Component(
   selector: 'monitor-info',
@@ -20,18 +19,13 @@ import 'package:common/utils/published_at_format.dart';
     NgIf,
     TextBinder,
     NumBinder,
-    SelectBoxBinder,
-    ChannelEditComponent,
+    MonitorEditComponent,
   ],
-  exports: [
-    versionToHuman,
-  ],
+  exports: [],
 )
 class MonitorInfoComponent implements OnInit {
   @Input()
-  Channel channel;
-
-  Program program;
+  Monitor monitor;
 
   final _onCloseController = StreamController<bool>();
 
@@ -40,7 +34,7 @@ class MonitorInfoComponent implements OnInit {
   @Output()
   Stream<bool> get onClose => _onClose;
 
-  ChannelInfoComponent() {
+  MonitorInfoComponent() {
     _onClose = _onCloseController.stream.asBroadcastStream();
   }
 
@@ -51,12 +45,7 @@ class MonitorInfoComponent implements OnInit {
 
   Future<void> update() async {
     // TODO show spinner
-    channel = await channelApi.getById(channel.id);
-    if (channel.program != null) {
-      program = await programApi.getById(channel.program);
-    } else {
-      program = null;
-    }
+    monitor = await monitorApi.getById(monitor.id);
     // TODO hide spinner
   }
 
@@ -66,17 +55,8 @@ class MonitorInfoComponent implements OnInit {
 
   bool editing = false;
 
-  void play() {
-    window.open("/player/channel/play/index.html?id=${channel.id}", "_blank");
-  }
-
-  void preview() {
-    window.open(
-        "/player/channel/preview/index.html?id=${channel.id}", "_blank");
-  }
-
   Future<void> delete() async {
-    await channelApi.delete(channel.id);
+    await monitorApi.delete(monitor.id);
     _onCloseController.add(true);
   }
 

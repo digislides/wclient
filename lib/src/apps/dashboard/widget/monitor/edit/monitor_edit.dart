@@ -21,18 +21,12 @@ import 'package:common/api/api.dart';
     SelectBoxBinder,
   ],
 )
-class MonitorEditComponent implements OnInit {
+class MonitorEditComponent {
   @ViewChild('nameInp')
   InputElement nameInp;
 
   @Input()
-  Channel channel;
-
-  List<Program> programs = [];
-
-  Program program;
-
-  String _programFilter;
+  Monitor monitor;
 
   final _onCloseController = StreamController<bool>();
 
@@ -41,30 +35,8 @@ class MonitorEditComponent implements OnInit {
   @Output()
   Stream<bool> get onClose => _onClose;
 
-  ChannelEditComponent() {
+  MonitorEditComponent() {
     _onClose = _onCloseController.stream.asBroadcastStream();
-  }
-
-  String get programFilter => _programFilter;
-
-  set programFilter(String value) {
-    _programFilter = value;
-    _updateProgramFilter();
-  }
-
-  Future<void> _updateProgramFilter() async {
-    programs = await programApi.getAll(_programFilter ?? '');
-  }
-
-  Future<void> ngOnInit() async {
-    try {
-      if (channel.program != null) {
-        program = await programApi.getById(channel.program);
-      }
-    } catch (e) {
-      // TODO
-    }
-    await _updateProgramFilter();
   }
 
   void close() {
@@ -72,9 +44,8 @@ class MonitorEditComponent implements OnInit {
   }
 
   Future<void> save() async {
-    final model = ChannelCreator(name: nameInp.value, program: program?.id);
-    channel = await channelApi.save(channel.id, model);
+    final model = MonitorCreator()..name = nameInp.value;
+    // TODO fields
+    monitor = await monitorApi.save(monitor.id, model);
   }
-
-  bool selectingProgram = false;
 }

@@ -7,9 +7,10 @@
 </div>
 
 <div>
-    <div *ngFor="let monitor of monitors">
-        <div class="name">{{monitor.name}}</div>
+    <div *ngFor="let monitor of monitors.items">
+        <div class="name" (click)="showing = monitor">{{monitor.name}}</div>
     </div>
 </div>
 
 <monitor-creator *ngIf="create" (onClose)="create = false"></monitor-creator>
+<monitor-info *ngIf="showing != null" [monitor]="showing"></monitor-info>

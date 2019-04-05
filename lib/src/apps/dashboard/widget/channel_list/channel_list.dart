@@ -25,7 +25,7 @@ import 'package:wclient/src/utils/pagination/pagination.dart';
 )
 class ChannelListComponent implements OnInit {
   /// List of programs
-  Paginated channels = Paginated(
+  Paginated channels = Paginated<Channel>(
     page: 0,
     numPerPage: 6,
     items: [],
