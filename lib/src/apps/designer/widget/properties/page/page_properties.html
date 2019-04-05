@@ -32,6 +32,13 @@
             </template>
         </select>
     </div>
+
+
+    <div class="row">
+        <div class="label">Schedule</div>
+        <div (click)="showSchedule = true">Edit</div>
+    </div>
+
     <div class="separator"></div>
     <div class="section-title">Add items</div>
 
@@ -43,3 +50,5 @@
         <div class="button icon weather-icon" (click)="add('weather')"></div>
     </div>
 </div>
+
+<page-scheduler *ngIf="showSchedule == true" [page]="page" (onClose)="showSchedule = false"></page-scheduler>

@@ -1,3 +1,14 @@
-<div>
+<div class="content">
+    <div class="header">
+        <div class="title">Page schedule</div>
+        <div class="header-action" (click)="close()">Close</div>
+    </div>
 
+    <div class="body">
+        <week-scheduler *ngFor="let w of page.schedule.schedule" [schedule]="w" (onClose)="page.schedule.schedule.remove(w)"></week-scheduler>
+
+        <div class="action" (click)="add()">
+            <span>Add schedule</span>
+        </div>
+    </div>
 </div>

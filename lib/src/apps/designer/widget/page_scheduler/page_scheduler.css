@@ -1,5 +1,73 @@
 :host {
-  display: block;
-  width: 100%;
-  height: 100%;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #00000091;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+.header {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    background-color: black;
+    color: white;
+    padding: 0px 5px;
+    box-sizing: border-box;
+}
+
+.header .title {
+    font-weight: bold;
+    flex: 1;
+}
+
+.header-action {
+    height: 100%;
+    line-height: 40px;
+    padding: 0px 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.header-action:active {
+    background-color: #777;
+}
+
+.body {
+    width: 100%;
+    height: calc(100% - 40px);
+    padding: 5px 10px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.action {
+    padding: 20px;
+    width: fit-content;
+    height: fit-content;
+    background-color: #eee;
+    color: #46b146;
+    cursor: pointer;
+    font-size: 20px;
+    margin: 15px 30px;
+    user-select: none;
+}
+
+.action:hover {
+    color: #2c8a2c;
+}
+
+.action:active {
+    background-color: #d8d8d8;
 }

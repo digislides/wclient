@@ -9,6 +9,8 @@ import 'package:common/models.dart';
 import 'package:wclient/src/apps/designer/widget/properties/items/image/image.dart';
 import 'package:wclient/src/apps/designer/widget/properties/items/color/color.dart';
 
+import '../../page_scheduler/page_scheduler.dart';
+
 @Component(
   selector: 'page-properties',
   styleUrls: ['page_properties.css'],
@@ -20,6 +22,7 @@ import 'package:wclient/src/apps/designer/widget/properties/items/color/color.da
     SelectBoxBinder,
     ImagePropComponent,
     ColorPropComponent,
+    PageSchedulerComponent,
   ],
   exports: [
     Fit,
@@ -36,6 +39,8 @@ class PagePropertiesComponent {
       color: 'red',
       duration: 5,
       items: []);
+
+  bool showSchedule = false;
 
   PagePropertiesComponent();
 

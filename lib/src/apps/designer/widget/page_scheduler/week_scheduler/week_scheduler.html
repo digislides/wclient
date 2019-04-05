@@ -1,4 +1,9 @@
 <div class="content">
+    <div class="header">
+        <div>Schedule</div>
+        <div class="period-remove" (click)="delete()">-</div>
+    </div>
+
     <div class="days">
         <div class="day">
             <input #monday type="checkbox" [checked]="schedule.monday" (change)="schedule.monday = monday.checked">
@@ -29,6 +34,7 @@
             <span>Su</span>
         </div>
     </div>
+
     <div class="periods-header">
         <span>Times</span>
         <div class="period-add" (click)="addPeriod()">+</div>
@@ -38,5 +44,16 @@
         <span class="to-label"> to </span>
         <input #stop type="time" [value]="period.stopStr" (change)="period.stop = stop.value">
         <div class="period-remove" (click)="removePeriod(period)">-</div>
+    </div>
+
+    <div class="periods-header">
+        <span>Dates</span>
+        <div class="period-add" (click)="addDate()">+</div>
+    </div>
+    <div class="period" *ngFor="let period of schedule.dates">
+        <input #startDate type="date" [value]="period.startStr" (change)="period.start = startDate.value">
+        <span class="to-label"> to </span>
+        <input #endDate type="date" [value]="period.endStr" (change)="period.end = endDate.value">
+        <div class="period-remove" (click)="removeDate(period)">-</div>
     </div>
 </div>

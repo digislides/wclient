@@ -1,11 +1,9 @@
 import 'dart:async';
-import 'dart:html';
-import 'dart:math';
 
 import 'package:angular/angular.dart';
 import 'package:common/models.dart';
 
-import 'package:wclient/src/apps/thumbnail/page/page_thumbnail.dart';
+import 'week_scheduler/week_scheduler.dart';
 
 @Component(
   selector: 'page-scheduler',
@@ -14,9 +12,29 @@ import 'package:wclient/src/apps/thumbnail/page/page_thumbnail.dart';
   directives: [
     NgFor,
     NgIf,
-    PageThumbnailComponent,
+    WeekSchedulerComponent,
   ],
 )
 class PageSchedulerComponent {
-  PageSchedule schedule = PageSchedule();
+  @Input()
+  Page page = Page();
+
+  final _closeCont = StreamController();
+
+  Stream _onClose;
+
+  @Output()
+  Stream get onClose => _onClose;
+
+  PageSchedulerComponent() {
+    _onClose = _closeCont.stream.asBroadcastStream();
+  }
+
+  void add() {
+    page.schedule.schedule.add(WeekSchedule());
+  }
+
+  void close() {
+    _closeCont.add(null);
+  }
 }

@@ -18,7 +18,19 @@ import 'package:wclient/src/apps/thumbnail/page/page_thumbnail.dart';
   ],
 )
 class WeekSchedulerComponent {
+  @Input()
   WeekSchedule schedule = WeekSchedule();
+
+  final _closeCont = StreamController();
+
+  Stream _onClose;
+
+  @Output()
+  Stream get onClose => _onClose;
+
+  WeekSchedulerComponent() {
+    _onClose = _closeCont.stream.asBroadcastStream();
+  }
 
   void addPeriod() {
     schedule.times.add(TimeInterval());
@@ -26,5 +38,17 @@ class WeekSchedulerComponent {
 
   void removePeriod(TimeInterval period) {
     schedule.times.remove(period);
+  }
+
+  void addDate() {
+    schedule.dates.add(DateInterval());
+  }
+
+  void removeDate(DateInterval date) {
+    schedule.dates.remove(date);
+  }
+
+  void delete() {
+    _closeCont.add(null);
   }
 }
