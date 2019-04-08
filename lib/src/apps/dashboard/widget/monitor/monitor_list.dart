@@ -50,4 +50,12 @@ class MonitorListComponent implements OnInit {
   void ngOnInit() async {
     await refresh();
   }
+
+  void onInfoClose(bool deleted) {
+    showing = null;
+    refresh();
+    if (deleted) {
+      // TODO show message
+    }
+  }
 }

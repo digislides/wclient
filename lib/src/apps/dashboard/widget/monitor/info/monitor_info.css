@@ -7,6 +7,7 @@
     position: fixed;
     left: 0px;
     top: 0px;
+    background-color: white;
 }
 
 .header {
@@ -102,4 +103,12 @@
 .sub {
     font-size: 16px;
     margin-top: 5px;
+}
+
+.table {
+
+}
+
+.table-row {
+
 }

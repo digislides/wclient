@@ -5,3 +5,43 @@
     width: 100%;
     height: 100%;
 }
+
+.header {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    max-width: 400px;
+    padding: 0px 5px;
+    box-sizing: border-box;
+}
+
+.header .title {
+    flex: 1;
+    font-size: 20px;
+}
+
+.items {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: calc(100% - 40px);
+    overflow-y: auto;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.item {
+    width: 150px;
+    height: fit-content;
+    padding: 10px 5px;
+    cursor: pointer;
+    background-color: #ececec;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.item:active {
+    background-color: #ccc;
+}

@@ -11,6 +11,16 @@
         <div class="label">Name</div>
         <div class="value">{{monitor.name}}</div>
     </div>
+
+    <div class="row">
+        <div class="label">User data</div>
+    </div>
+    <table>
+        <tr *ngFor="let field of monitor.fields">
+            <td>{{field.name}}</td>
+            <td>{{field.value}}</td>
+        </tr>
+    </table>
 </div>
 
 <div class="overlay" *ngIf="editing">
