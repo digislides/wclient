@@ -12,7 +12,7 @@
 
     <div class="section-header">
         <div class="title">User data</div>
-        <div class="flat-btn add-btn" (click)="addRow()">+ Add row</div>
+        <div class="flat-btn add-row" (click)="addRow()">+ Add row</div>
     </div>
     <div class="table">
         <table>
@@ -23,7 +23,7 @@
             </tr>
             <tr *ngFor="let field of model.fields">
                 <td>
-                   <div (click)="model.fields.remove(field)">X</div>
+                   <div class="flat-btn remove-row" (click)="model.fields.remove(field)">-</div>
                 </td>
                 <td class="td-name">
                     <input tjText [bind]="field.name" (bind)="field.name = $event">

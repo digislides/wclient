@@ -56,4 +56,6 @@ class MonitorCommComponent implements OnInit, OnDestroy {
   Future<void> closeEditor() async {
     showingScreenshot = false;
   }
+
+  bool showExecute = false;
 }

@@ -170,9 +170,19 @@
 }
 
 .td-value textarea {
-  width: 100%;
+    width: 100%;
 }
 
-.add-btn {
-  color: black;
+.add-row {
+    color: #2d8a2d;
+    background-color: #c4ffc4;
+}
+
+.remove-row {
+    color: red;
+    background-color: #ffd5d5;
+    padding: 5px;
+    margin: 0px;
+    height: 5px;
+    line-height: 5px;
 }

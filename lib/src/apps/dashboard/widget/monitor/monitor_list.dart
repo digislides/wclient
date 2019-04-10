@@ -51,11 +51,18 @@ class MonitorListComponent implements OnInit {
     await refresh();
   }
 
-  void onInfoClose(bool deleted) {
+  void onInfoClose(bool deleted) async {
     showing = null;
-    refresh();
+    await refresh();
     if (deleted) {
       // TODO show message
+    }
+  }
+
+  void creatorClose(String id) async {
+    create = false;
+    if(id != null) {
+      await refresh();
     }
   }
 }

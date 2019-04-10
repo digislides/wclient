@@ -8,6 +8,6 @@
 </div>
 
 <div class="overlay" *ngIf="create">
-    <monitor-creator (onClose)="create = false"></monitor-creator>
+    <monitor-creator (onClose)="creatorClose($event)"></monitor-creator>
 </div>
 <monitor-info *ngIf="showing != null" [monitor]="showing" (onClose)="onInfoClose($event)"></monitor-info>

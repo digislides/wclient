@@ -1,16 +1,17 @@
 <div class="header">
     <div class="header-icon"></div>
     <div class="title">{{monitor.name}}</div>
-    <div class="action" (click)="close()"></div>
+    <div class="action" (click)="close()">Close</div>
 </div>
 
 <div class="body">
-    <div>
-        <div>Screenshot</div>
-        <div>Reboot</div>
+    <div class="actions-header">
+        <div class="flat-btn">Screenshot</div>
+        <div class="flat-btn">Reboot</div>
+        <div class="flat-btn">Execute</div>
     </div>
 
-    <div>
+    <div *ngIf="showExecute">
         <div>
             <span>Execute</span>
             <input>

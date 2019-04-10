@@ -112,3 +112,12 @@
 .table-row {
 
 }
+
+.actions-header {
+  display: flex;
+  align-items: center;
+}
+
+.flat-btn {
+  color: black;
+}
