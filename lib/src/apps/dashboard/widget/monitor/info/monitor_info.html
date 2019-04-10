@@ -4,6 +4,7 @@
     <div class="title">{{monitor.name}}</div>
     <div class="action" (click)="editing = true">Edit</div>
     <div class="action" (click)="delete()">Delete</div>
+    <div class="action" (click)="showingComm = true">Comm</div>
 </div>
 
 <div class="body">
@@ -25,4 +26,8 @@
 
 <div class="overlay" *ngIf="editing">
     <monitor-edit [monitor]="monitor" (onClose)="closeEditor()"></monitor-edit>
+</div>
+
+<div class="overlay" *ngIf="showingComm">
+    <monitor-comm [monitor]="monitor" (onClose)="showingComm = false"></monitor-comm>
 </div>

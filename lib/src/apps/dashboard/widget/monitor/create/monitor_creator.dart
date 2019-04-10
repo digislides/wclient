@@ -16,6 +16,7 @@ import 'package:common/api/api.dart';
     NgIf,
     TextBinder,
     NumBinder,
+    TextAreaBinder,
     SelectBoxBinder,
   ],
 )

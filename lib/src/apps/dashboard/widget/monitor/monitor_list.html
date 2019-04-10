@@ -1,11 +1,13 @@
 <div class="header">
     <div class="title">Monitors</div>
-    <div class="action" (click)="create = true">Create</div>
+    <div class="btn btn-success" (click)="create = true">Create</div>
 </div>
 
 <div class="items">
     <div class="item" *ngFor="let monitor of monitors.items" (click)="showing = monitor">{{monitor.name}}</div>
 </div>
 
-<monitor-creator *ngIf="create" (onClose)="create = false"></monitor-creator>
+<div class="overlay" *ngIf="create">
+    <monitor-creator (onClose)="create = false"></monitor-creator>
+</div>
 <monitor-info *ngIf="showing != null" [monitor]="showing" (onClose)="onInfoClose($event)"></monitor-info>

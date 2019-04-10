@@ -4,11 +4,12 @@
     display: block;
     max-width: 500px;
     width: 100%;
-    border: 1px solid green;
     border-radius: 5px;
-    box-shadow: 0px 0px 5px 6px #204cff2b;
+    box-shadow: 0px 0px 5px 6px #f8ff7a17;
     cursor: default;
     user-select: none;
+    height: calc(100% - 100px);
+    overflow: hidden;
 }
 
 .title-bar {
@@ -49,14 +50,17 @@
 }
 
 .body {
-    padding: 10px 0px;
+    padding: 10px;
     background-color: white;
+    height: calc(100% - 85px);
+    box-sizing: border-box;
+    overflow: auto;
 }
 
 .row {
   display: flex;
   align-items: center;
-  margin: 10px;
+  margin: 10px 0px;
 }
 
 .input {
@@ -75,20 +79,22 @@
 }
 
 .input-row .input {
-  border-radius: 2px;
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
-  border: 1px solid #ced4da;
-  border-left: 0px;
-  padding: 5px;
+    border-radius: 2px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border: 1px solid #ced4da;
+    border-left: 0px;
+    padding: 0px 5px;
+    height: 28px;
+    box-sizing: border-box;
 }
 
 .input-row .input:focus {
 }
 
 .input-row .label {
-    height: 27px;
-    line-height: 27px;
+    height: 28px;
+    line-height: 28px;
     background-color: #e9ecef;
     border: 1px solid #ced4da;
     border-radius: 2px;
@@ -97,6 +103,15 @@
     box-sizing: border-box;
     text-align: center;
     padding: 0px 5px;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+}
+
+.section-header .title {
+    font-weight: bold;
 }
 
 .icon {
@@ -129,16 +144,35 @@
 }
 
 .btn-group {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: white;
+    box-sizing: border-box;
 }
 
-.table {
-  overflow: auto;
+.td-name {
+  min-width: 150px;
 }
 
-.row {
-  display: flex;
+.td-value {
+  width: 100%;
+}
+
+.td-name input {
+    outline: none;
+    border: 1px solid grey;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 2px 5px;
+    font-size: 12px;
+}
+
+.td-value textarea {
+  width: 100%;
+}
+
+.add-btn {
+  color: black;
 }
