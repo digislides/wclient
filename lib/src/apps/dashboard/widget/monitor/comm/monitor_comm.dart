@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'dart:html';
 
+import 'dart:convert';
+
 import 'package:angular/angular.dart';
 
 import 'package:wclient/src/utils/directives/input_binder.dart';
@@ -27,6 +29,8 @@ class MonitorCommComponent implements OnInit, OnDestroy {
   @Input()
   Monitor monitor;
 
+  Connection conn;
+
   final _onCloseController = StreamController<bool>();
 
   Stream<bool> _onClose;
@@ -40,11 +44,12 @@ class MonitorCommComponent implements OnInit, OnDestroy {
 
   @override
   Future<void> ngOnInit() async {
-    // TODO
+    conn = await Connection.make(monitor.id);
+    await conn.exec("ls");
   }
 
   Future<void> ngOnDestroy() async {
-    // TODO
+    conn?.stop();
   }
 
   void close() {
@@ -58,4 +63,35 @@ class MonitorCommComponent implements OnInit, OnDestroy {
   }
 
   bool showExecute = false;
+}
+
+class Connection {
+  final WebSocket ws;
+
+  Connection(this.ws);
+
+  Future<void> _init() async {
+    ws.onMessage.listen((e) {
+      print(e.data);
+    });
+  }
+
+  Future<void> exec(String command) async {
+    ws.send(jsonEncode({"cmd": "exec", "command": command}));
+  }
+
+  Future<void> stop() async {
+    ws.close();
+  }
+
+  static Future<Connection> make(String id) async {
+    final ws = WebSocket("ws://localhost:10000/api/monitor/$id/rt");
+
+    await ws.onOpen.first;
+    print("Opened!");
+
+    final conn = Connection(ws);
+    await conn._init();
+    return conn;
+  }
 }
