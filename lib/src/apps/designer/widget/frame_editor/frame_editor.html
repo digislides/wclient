@@ -1,4 +1,4 @@
-<page-list [frame]="frame" [selectedPage]="selectedPage" (onPageSelect)="selectPage($event)"></page-list>
+<page-list [program]="program" [frame]="frame" [selectedPage]="selectedPage" (onPageSelect)="selectPage($event)"></page-list>
 <template [ngIf]="selectedPage != null">
     <page-designer [page]="selectedPage"></page-designer>
 </template>

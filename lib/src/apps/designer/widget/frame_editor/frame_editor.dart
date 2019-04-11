@@ -17,6 +17,9 @@ import 'package:common/models.dart';
   exports: [],
 )
 class FrameEditorComponent {
+  @Input()
+  Program program;
+
   Frame _frame = Frame(
       id: '1',
       left: 0,

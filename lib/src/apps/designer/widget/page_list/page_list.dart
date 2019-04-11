@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:html';
-import 'dart:math';
 
 import 'package:angular/angular.dart';
 import 'package:common/models.dart';
@@ -18,6 +17,9 @@ import 'package:wclient/src/apps/thumbnail/page/page_thumbnail.dart';
   ],
 )
 class PageListComponent {
+  @Input()
+  Program program;
+
   @Input()
   Frame frame = Frame(
       id: '1',
@@ -187,5 +189,11 @@ class PageListComponent {
 
   void selectPage(Page page) {
     _pageSelCntr.add(page);
+  }
+
+  void preview(Page page) {
+    window.open(
+        '/player/program/page/preview/index.html?id=${program.id}&frame=${frame.id}&page=${page.id}',
+        "_blank");
   }
 }

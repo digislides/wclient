@@ -14,6 +14,6 @@
 </div>
 
 <div class="content">
-    <frame-editor *ngIf="!editingProgram" [frame]="frame"></frame-editor>
+    <frame-editor *ngIf="!editingProgram" [program]="program" [frame]="frame"></frame-editor>
     <program-design *ngIf="editingProgram" [program]="program" (onFrameEdit)="editFrame($event)"></program-design>
 </div>
