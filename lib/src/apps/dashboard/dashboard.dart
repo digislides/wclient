@@ -1,7 +1,7 @@
 import 'package:angular/angular.dart';
 
-import 'widget/program_list/program_list.dart';
-import 'widget/channel_list/channel_list.dart';
+import 'widget/program/program_list.dart';
+import 'widget/channel/channel_list.dart';
 import '../media/media/media.dart';
 import 'widget/monitor/monitor_list.dart';
 

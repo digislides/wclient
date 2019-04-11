@@ -5,8 +5,8 @@ import 'package:common/models.dart';
 
 import 'package:wclient/src/utils/directives/input_binder.dart';
 
-import 'package:wclient/src/apps/dashboard/widget/channel_creator/channel_creator.dart';
-import 'package:wclient/src/apps/dashboard/widget/channel_info/channel_info.dart';
+import 'creator/channel_creator.dart';
+import 'info/channel_info.dart';
 
 import 'package:common/api/api.dart';
 import 'package:wclient/src/utils/pagination/pagination.dart';

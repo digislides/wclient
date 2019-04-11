@@ -5,21 +5,6 @@
     display: block;
     width: 100%;
     height: 100%;
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    background-color: white;
-}
-
-.overlay {
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .body {
@@ -40,17 +25,4 @@
 
 .row .value {
     font-size: 24px;
-}
-
-.sub {
-    font-size: 16px;
-    margin-top: 5px;
-}
-
-.table {
-
-}
-
-.table-row {
-
 }

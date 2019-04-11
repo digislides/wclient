@@ -1,7 +1,8 @@
 <div class="title-bar">
     <div class="title">Create new monitor</div>
-    <div class="close-btn" (click)="close()">x</div>
+    <div class="close-btn" (click)="close()">-</div>
 </div>
+
 <div class="body">
     <div class="row input-row">
         <div class="label">
@@ -14,26 +15,24 @@
         <div class="title">User data</div>
         <div class="flat-btn add-row" (click)="addRow()">+ Add row</div>
     </div>
-    <div class="table">
-        <table>
-            <tr>
-                <th></th>
-                <th class="td-name">Name</th>
-                <th class="td-value">Value</th>
-            </tr>
-            <tr *ngFor="let field of model.fields">
-                <td>
-                   <div class="flat-btn remove-row" (click)="model.fields.remove(field)">-</div>
-                </td>
-                <td class="td-name">
-                    <input tjText [bind]="field.name" (bind)="field.name = $event">
-                </td>
-                <td class="td-value">
-                    <textarea tjTextArea [bind]="field.value" (bind)="field.value = $event"></textarea>
-                </td>
-            </tr>
-        </table>
-    </div>
+    <table>
+        <tr>
+            <th></th>
+            <th class="td-name">Name</th>
+            <th class="td-value">Value</th>
+        </tr>
+        <tr *ngFor="let field of model.fields">
+            <td>
+               <div class="flat-btn remove-row" (click)="model.fields.remove(field)">-</div>
+            </td>
+            <td class="td-name">
+                <input tjText [bind]="field.name" (bind)="field.name = $event">
+            </td>
+            <td class="td-value">
+                <textarea tjTextArea [bind]="field.value" (bind)="field.value = $event"></textarea>
+            </td>
+        </tr>
+    </table>
 </div>
 
 <div class="btn-group" role="group" >

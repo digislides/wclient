@@ -17,6 +17,7 @@ import 'package:common/api/api.dart';
     NgFor,
     NgIf,
     TextBinder,
+    TextAreaBinder,
     NumBinder,
     SelectBoxBinder,
   ],
@@ -44,8 +45,13 @@ class MonitorEditComponent {
   }
 
   Future<void> save() async {
-    final model = MonitorCreator()..name = nameInp.value;
-    // TODO fields
+    final model = MonitorCreator()
+      ..name = nameInp.value
+      ..fields = monitor.fields;
     monitor = await monitorApi.save(monitor.id, model);
+  }
+
+  void addRow() {
+    monitor.fields.add(InfoField());
   }
 }

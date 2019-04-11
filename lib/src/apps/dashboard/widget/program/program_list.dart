@@ -3,8 +3,8 @@ import 'package:common/models.dart';
 
 import 'package:wclient/src/utils/directives/input_binder.dart';
 
-import 'package:wclient/src/apps/dashboard/widget/program_creator/program_creator.dart';
-import 'package:wclient/src/apps/dashboard/widget/program_info/program_info.dart';
+import 'creator/program_creator.dart';
+import 'info/program_info.dart';
 
 import 'package:wclient/src/apps/thumbnail/program_thumbnail/program_thumbnail.dart';
 

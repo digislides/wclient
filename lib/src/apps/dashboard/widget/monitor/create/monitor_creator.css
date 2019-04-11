@@ -1,52 +1,15 @@
 @import 'package:wclient/src/utils/css/common.css';
+@import 'package:wclient/src/utils/css/creator.css';
 
 :host {
     display: block;
     max-width: 500px;
     width: 100%;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px 6px #f8ff7a17;
+    box-shadow: 1px 1px 9px 6px #ffffff2b;
     cursor: default;
     user-select: none;
     height: calc(100% - 100px);
     overflow: hidden;
-}
-
-.title-bar {
-    width: 100%;
-    height: 35px;
-    display: flex;
-    align-items: center;
-    background-color: #3f7842;
-}
-
-.title-bar .title {
-    flex: 1;
-    font-size: 20px;
-    text-align: center;
-    color: white;
-}
-
-.title-bar .close-btn {
-    margin: 0px 5px;
-    color: white;
-    font-size: 18px;
-    background-color: #ca0000;
-    border-radius: 50%;
-    width: 22px;
-    height: 22px;
-    line-height: 20px;
-    text-align: center;
-    cursor: pointer;
-}
-
-.title-bar .close-btn:hover {
-    background-color: #ff0000;
-    box-shadow: 1px 1px 1px 1px #00000059;
-}
-
-.title-bar .close-btn:active {
-    box-shadow: none;
 }
 
 .body {
@@ -63,84 +26,12 @@
   margin: 10px 0px;
 }
 
-.input {
-  background-color: #ffffff78;
-  border: 1px solid #00000030;
-  flex: 1;
-}
-
-.input:focus {
-  outline: none;
-}
-
-.input-row {
-  display: flex;
-  align-items: center;
-}
-
-.input-row .input {
-    border-radius: 2px;
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
-    border: 1px solid #ced4da;
-    border-left: 0px;
-    padding: 0px 5px;
-    height: 28px;
-    box-sizing: border-box;
-}
-
-.input-row .input:focus {
-}
-
-.input-row .label {
-    height: 28px;
-    line-height: 28px;
-    background-color: #e9ecef;
-    border: 1px solid #ced4da;
-    border-radius: 2px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    box-sizing: border-box;
-    text-align: center;
-    padding: 0px 5px;
-}
-
-.section-header {
-    display: flex;
-    align-items: center;
-}
-
-.section-header .title {
-    font-weight: bold;
-}
-
-.icon {
-    background-size: 80%;
-    box-sizing: border-box;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 26px;
-    height: 26px;
-}
-
 .col {
   flex: 1;
 }
 
 .col-space {
   width: 10px;
-}
-
-.name-icon {
-  background-image: url(https://img.icons8.com/ios/50/333333/dog-tag.png);
-}
-
-.width-icon {
-  background-image: url(https://img.icons8.com/ios/50/333333/width.png);
-}
-
-.height-icon {
-  background-image: url(https://img.icons8.com/ios/50/333333/height.png);
 }
 
 .btn-group {
@@ -150,6 +41,15 @@
     padding: 10px;
     background-color: white;
     box-sizing: border-box;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+}
+
+.section-header .title {
+    font-weight: bold;
 }
 
 .td-name {

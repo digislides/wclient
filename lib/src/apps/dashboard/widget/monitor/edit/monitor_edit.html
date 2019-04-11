@@ -1,5 +1,5 @@
 <div class="header">
-    <div class="header-icon"></div>
+    <div class="header-icon monitor"></div>
     <div class="title">Editing {{monitor.name}}</div>
     <div class="action" (click)="save()">Save</div>
     <div class="action" (click)="close()">Close</div>
@@ -9,5 +9,29 @@
     <div class="row">
         <div class="label">Name</div>
         <input class="input" #nameInp [value]="monitor.name">
+    </div>
+    <div class="section">
+        <div class="section-header">
+            <div class="title">User data</div>
+            <div class="flat-btn add-row" (click)="addRow()">+ Add row</div>
+        </div>
+        <table>
+            <tr>
+                <th></th>
+                <th class="td-name">Name</th>
+                <th class="td-value">Value</th>
+            </tr>
+            <tr *ngFor="let field of monitor.fields">
+                <td>
+                    <div class="flat-btn remove-row" (click)="monitor.fields.remove(field)">-</div>
+                </td>
+                <td class="td-name">
+                    <input tjText [bind]="field.name" (bind)="field.name = $event">
+                </td>
+                <td class="td-value">
+                    <textarea tjTextArea [bind]="field.value" (bind)="field.value = $event"></textarea>
+                </td>
+            </tr>
+        </table>
     </div>
 </div>

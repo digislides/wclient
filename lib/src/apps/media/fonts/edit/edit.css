@@ -1,4 +1,5 @@
 @import 'package:wclient/src/utils/css/common.css';
+@import 'package:wclient/src/utils/css/header.css';
 
 :host {
     display: block;
@@ -8,46 +9,6 @@
     left: 0px;
     top: 0px;
     background-color: white;
-}
-
-.header {
-    background-color: black;
-    color: white;
-    display: flex;
-    align-items: center;
-    height: 40px;
-    font-size: 20px;
-    padding: 0px 5px;
-}
-
-.header .icon {
-    width: 30px;
-    height: 30px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-image: url(/packages/wclient/src/utils/icons/media/white/font.svg);
-    margin: 0px 5px;
-}
-
-.header .title {
-    flex: 1;
-}
-
-.header .action {
-    margin: 0px 10px;
-    padding: 0px 10px;
-    height: 100%;
-    line-height: 40px;
-    cursor: pointer;
-}
-
-.header .action:hover {
-    background-color: #777;
-}
-
-.header .action:active {
-    background-color: grey;
 }
 
 .body {

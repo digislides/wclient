@@ -1,4 +1,5 @@
 @import 'package:wclient/src/utils/css/common.css';
+@import 'package:wclient/src/utils/css/header.css';
 
 :host {
     display: block;
@@ -7,70 +8,10 @@
     background-color: white;
 }
 
-.header {
-    width: 100%;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    padding: 0px 10px;
-    box-sizing: border-box;
-    background-color: black;
-    color: white;
-}
-
-.header .header-icon {
-    width: 50px;
-    height: 50px;
-    box-sizing: border-box;
-    background-image: url(/packages/wclient/src/utils/icons/dashboard/header/channel.png);
-    background-size: 52%;
-    box-sizing: border-box;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.header .title {
-    font-size: 25px;
-    flex: 1;
-    line-height: 50px;
-    margin: 0px 5px;
-}
-
-.header .action {
-    font-size: 20px;
-    line-height: 50px;
-    padding: 0px 10px;
-    cursor: pointer;
-}
-
-.header .action:hover {
-    text-decoration: underline;
-}
-
-.header .action:active {
-    background-color: #ffffff4d;
-}
-
-.header .close {
-    font-size: 35px;
-    line-height: 50px;
-    padding: 0px 10px;
-    cursor: pointer;
-    color: #ff6767;
-}
-
-.header .close:hover {
-    background-color: #ffffff4d;
-}
-
-.header .close:active {
-    background-color: #4569a2;
-}
-
 .body {
     padding: 5px 5px;
     width: 100%;
-    max-width: 400px;
+    box-sizing: border-box;
 }
 
 .row {
@@ -218,5 +159,56 @@
     white-space: nowrap;
     word-break: break-all;
     text-overflow: ellipsis;
+}
+
+.section {
+    margin: 10px 0px;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.section-header .title {
+    font-weight: bold;
+}
+
+.td-name {
+  min-width: 150px;
+  border: 1px solid #e5e5e5;
+}
+
+.td-value {
+  width: 100%;
+  border: 1px solid #e5e5e5;
+}
+
+.td-name input {
+    outline: none;
+    border: 1px solid grey;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 2px 5px;
+    font-size: 12px;
+}
+
+.td-value textarea {
+    width: 100%;
+}
+
+.add-row {
+    color: #2d8a2d;
+    background-color: #c4ffc4;
+}
+
+.remove-row {
+    color: red;
+    background-color: #ffd5d5;
+    padding: 5px;
+    margin: 0px;
+    height: 5px;
+    line-height: 5px;
 }
 

@@ -97,3 +97,23 @@
 .weather-icon {
   background-image: url(/packages/wclient/src/utils/icons/designer/item_add/weather.svg);
 }
+
+.big-button {
+    width: fit-content;
+    height: fit-content;
+    box-sizing: border-box;
+    border: 1px solid #b1b1b1;
+    cursor: pointer;
+    background-color: #eee;
+    padding: 2px 5px;
+    font-size: 12px;
+    user-select: none;
+}
+
+.big-button:hover {
+    background-color: #ccc;
+}
+
+.big-button:active {
+    background-color: #b3b3b3;
+}

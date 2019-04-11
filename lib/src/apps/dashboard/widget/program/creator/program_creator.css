@@ -1,0 +1,39 @@
+@import 'package:wclient/src/utils/css/common.css';
+@import 'package:wclient/src/utils/css/creator.css';
+
+:host {
+    display: block;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 1px 1px 9px 6px #ffffff2b;
+    cursor: default;
+    user-select: none;
+    height: fit-content;
+    overflow: hidden;
+}
+
+.body {
+    padding: 10px 0px;
+    background-color: white;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+.col {
+  flex: 1;
+}
+
+.col-space {
+  width: 10px;
+}
+
+.btn-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
