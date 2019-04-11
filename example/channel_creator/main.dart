@@ -1,5 +1,5 @@
 import 'package:angular/angular.dart';
-import 'package:wclient/src/apps/dashboard/widget/channel_creator/channel_creator.template.dart'
+import 'package:wclient/src/apps/dashboard/widget/channel/creator/channel_creator.template.dart'
     as ng;
 
 void main() {
