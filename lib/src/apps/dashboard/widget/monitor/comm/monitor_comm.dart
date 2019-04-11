@@ -63,6 +63,18 @@ class MonitorCommComponent implements OnInit, OnDestroy {
   }
 
   bool showExecute = false;
+
+  void screenshot() {
+    conn.screenshot();
+  }
+
+  void reboot() {
+    conn.reboot();
+  }
+
+  void execute(String value) {
+    conn.exec(value);
+  }
 }
 
 class Connection {
@@ -72,11 +84,30 @@ class Connection {
 
   Future<void> _init() async {
     ws.onMessage.listen((e) {
+      if (e.data is! String) return;
+      final map = jsonDecode(e.data);
+
       print(e.data);
+
+      if (map["repcmd"] == "screenshot") {
+        final url = 'data:image/bmp;base64,' +
+            base64.encode((map["file"] as Iterable<dynamic>).cast<int>());
+        print(url);
+        window.open(url, "_blank");
+        return;
+      }
     });
   }
 
-  Future<void> exec(String command) async {
+  void screenshot() {
+    ws.send(jsonEncode({"cmd": "screenshot"}));
+  }
+
+  void reboot() {
+    ws.send(jsonEncode({"cmd": "reboot"}));
+  }
+
+  void exec(String command) {
     ws.send(jsonEncode({"cmd": "exec", "command": command}));
   }
 

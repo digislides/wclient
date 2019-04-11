@@ -6,9 +6,13 @@
 
 <div class="body">
     <div class="actions-header">
-        <div class="flat-btn">Screenshot</div>
-        <div class="flat-btn">Reboot</div>
-        <div class="flat-btn">Execute</div>
+        <div class="flat-btn" (click)="screenshot()">Screenshot</div>
+        <div class="flat-btn" (click)="reboot()">Reboot</div>
+    </div>
+
+    <div>
+        <input #executeCmd>
+        <div class="flat-btn" (click)="execute(executeCmd.value)">Execute</div>
     </div>
 
     <div *ngIf="showExecute">
