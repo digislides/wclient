@@ -19,8 +19,7 @@ import '../fonts/font.dart';
     VideoListComponent,
     FontListComponent,
   ],
-  exports: [
-  ],
+  exports: [],
 )
 class MediaListComponent {
   int selected = 0;

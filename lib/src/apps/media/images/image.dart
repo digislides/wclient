@@ -18,8 +18,7 @@ import 'info/info.dart';
     TextBinder,
     ImageInfoComponent,
   ],
-  exports: [
-  ],
+  exports: [],
 )
 class ImageListComponent implements OnInit {
   List<MediaImage> images = [];

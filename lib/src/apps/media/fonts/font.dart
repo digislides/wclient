@@ -15,8 +15,7 @@ import 'info/info.dart';
     NgIf,
     FontInfoComponent,
   ],
-  exports: [
-  ],
+  exports: [],
 )
 class FontListComponent implements OnInit {
   List<MediaFont> fonts = [];

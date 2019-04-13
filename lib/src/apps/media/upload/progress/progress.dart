@@ -66,11 +66,12 @@ class MediaUploadProgressComponent {
               MediaCreator(name: name, tags: upload.tags),
               MultipartFile(fr.result, filename: name));
         } else if (upload.type == MediaType.font) {
-          upload.media = await mediaFontApi.create(MediaCreator(name: name, tags: upload.tags),
+          upload.media = await mediaFontApi.create(
+              MediaCreator(name: name, tags: upload.tags),
               MultipartFile(fr.result, filename: name));
         }
         upload.finished = true;
-      } catch(e) {
+      } catch (e) {
         failed++;
         upload.failed = true;
       }

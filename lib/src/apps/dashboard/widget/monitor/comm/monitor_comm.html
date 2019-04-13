@@ -15,16 +15,22 @@
         <div class="flat-btn" (click)="execute(executeCmd.value)">Execute</div>
     </div>
 
-    <div *ngIf="showExecute">
-        <div>
-            <span>Execute</span>
-            <input>
-        </div>
-
+    <div *ngIf="execSub != null">
         <div>
             <span>Status code</span>
+            <span *ngIf="exitCode != null">{{exitCode}}</span>
         </div>
 
-        <div></div>
+        <div *ngIf="stdout.isNotEmpty">
+            <div>Stdout:</div>
+            <div>{{stdout}}</div>
+        </div>
+
+        <div *ngIf="stderr.isNotEmpty">
+            <div>Stderr:</div>
+            <div>{{stderr}}</div>
+        </div>
     </div>
+
+    <img *ngIf="screenshotUrl != null" [src]="screenshotUrl">
 </div>

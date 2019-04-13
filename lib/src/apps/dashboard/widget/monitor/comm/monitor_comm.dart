@@ -45,7 +45,6 @@ class MonitorCommComponent implements OnInit, OnDestroy {
   @override
   Future<void> ngOnInit() async {
     conn = await Connection.make(monitor.id);
-    await conn.exec("ls");
   }
 
   Future<void> ngOnDestroy() async {
@@ -64,16 +63,39 @@ class MonitorCommComponent implements OnInit, OnDestroy {
 
   bool showExecute = false;
 
-  void screenshot() {
-    conn.screenshot();
+  String screenshotUrl;
+
+  Future<void> screenshot() async {
+    screenshotUrl = await conn.screenshot();
   }
 
   void reboot() {
     conn.reboot();
   }
 
-  void execute(String value) {
-    conn.exec(value);
+  StreamSubscription<ExecPart> execSub;
+
+  String stdout = "";
+
+  String stderr = "";
+
+  int exitCode;
+
+  void execute(String value) async {
+    stdout = "";
+    stderr = "";
+    exitCode = null;
+    final stream = await conn.exec(value);
+    // TODO stop subscription
+    execSub = stream.listen((final p) {
+      if (p is ExecStdout) {
+        stdout += p.data;
+      } else if (p is ExecStderr) {
+        stderr += p.data;
+      } else if (p is ExecStatus) {
+        exitCode = p.code;
+      }
+    });
   }
 }
 
@@ -82,33 +104,59 @@ class Connection {
 
   Connection(this.ws);
 
+  int _i = 0;
+
+  Completer<String> _screenshots;
+
+  StreamController<ExecPart> _exces;
+
   Future<void> _init() async {
     ws.onMessage.listen((e) {
       if (e.data is! String) return;
-      final map = jsonDecode(e.data);
+      final Map map = jsonDecode(e.data);
+      final id = map["id"];
+
+      if (_i != id) return;
 
       print(e.data);
 
       if (map["repcmd"] == "screenshot") {
         final url = 'data:image/bmp;base64,' +
             base64.encode((map["file"] as Iterable<dynamic>).cast<int>());
-        print(url);
-        window.open(url, "_blank");
+        if (_screenshots != null) {
+          _screenshots.complete(url);
+          _screenshots = null;
+        }
         return;
+      } else if (map["repcmd"] == "exec") {
+        if (map.containsKey("stdout")) {
+          _exces.add(ExecStdout(map["stdout"]));
+        } else if (map.containsKey("stderr")) {
+          _exces.add(ExecStderr(map["stderr"]));
+        } else if (map.containsKey("exitCode")) {
+          _exces.add(ExecStatus(map["exitCode"]));
+        }
       }
     });
   }
 
-  void screenshot() {
-    ws.send(jsonEncode({"cmd": "screenshot"}));
+  Future<String> screenshot() async {
+    int id = ++_i;
+    _screenshots = Completer<String>();
+    ws.send(jsonEncode({"id": id, "cmd": "screenshot"}));
+    return _screenshots.future;
   }
 
   void reboot() {
-    ws.send(jsonEncode({"cmd": "reboot"}));
+    int id = ++_i;
+    ws.send(jsonEncode({"id": id, "cmd": "reboot"}));
   }
 
-  void exec(String command) {
-    ws.send(jsonEncode({"cmd": "exec", "command": command}));
+  Future<Stream<ExecPart>> exec(String command) async {
+    int id = ++_i;
+    _exces = StreamController<ExecPart>();
+    ws.send(jsonEncode({"id": id, "cmd": "exec", "command": command}));
+    return _exces.stream;
   }
 
   Future<void> stop() async {
@@ -125,4 +173,24 @@ class Connection {
     await conn._init();
     return conn;
   }
+}
+
+abstract class ExecPart {}
+
+class ExecStdout implements ExecPart {
+  final String data;
+
+  ExecStdout(this.data);
+}
+
+class ExecStderr implements ExecPart {
+  final String data;
+
+  ExecStderr(this.data);
+}
+
+class ExecStatus implements ExecPart {
+  final int code;
+
+  ExecStatus(this.code);
 }

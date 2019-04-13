@@ -15,8 +15,7 @@ import 'info/info.dart';
     NgIf,
     VideoInfoComponent,
   ],
-  exports: [
-  ],
+  exports: [],
 )
 class VideoListComponent implements OnInit {
   List<MediaVideo> videos = [];

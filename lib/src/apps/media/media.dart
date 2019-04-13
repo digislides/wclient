@@ -17,5 +17,4 @@ import 'package:common/api/api.dart';
     MediaListComponent,
   ],
 )
-class MediaApp {
-}
+class MediaApp {}

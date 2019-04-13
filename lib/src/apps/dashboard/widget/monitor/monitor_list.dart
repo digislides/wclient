@@ -61,7 +61,7 @@ class MonitorListComponent implements OnInit {
 
   void creatorClose(String id) async {
     create = false;
-    if(id != null) {
+    if (id != null) {
       await refresh();
     }
   }
