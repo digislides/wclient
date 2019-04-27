@@ -21,14 +21,14 @@
             <span *ngIf="exitCode != null">{{exitCode}}</span>
         </div>
 
-        <div *ngIf="stdout.isNotEmpty">
-            <div>Stdout:</div>
-            <div>{{stdout}}</div>
+        <div *ngIf="stdout.isNotEmpty" class="section">
+            <div class="section-header">Stdout</div>
+            <pre>{{stdout}}</pre>
         </div>
 
-        <div *ngIf="stderr.isNotEmpty">
-            <div>Stderr:</div>
-            <div>{{stderr}}</div>
+        <div *ngIf="stderr.isNotEmpty" class="section">
+            <div class="section-header">Stderr:</div>
+            <pre>{{stderr}}</pre>
         </div>
     </div>
 

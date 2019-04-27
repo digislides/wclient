@@ -66,7 +66,11 @@ class MonitorCommComponent implements OnInit, OnDestroy {
   String screenshotUrl;
 
   Future<void> screenshot() async {
-    screenshotUrl = await conn.screenshot();
+    try {
+      screenshotUrl = await conn.screenshot();
+    } on String catch (e) {
+      print("Error: $e");
+    }
   }
 
   void reboot() {
@@ -95,6 +99,10 @@ class MonitorCommComponent implements OnInit, OnDestroy {
       } else if (p is ExecStatus) {
         exitCode = p.code;
       }
+    }, onError: (e) {
+      if (e is String) {
+        print("Error: $e");
+      }
     });
   }
 }
@@ -120,6 +128,18 @@ class Connection {
 
       print(e.data);
 
+      if (map.containsKey("failed")) {
+        if (_screenshots != null) {
+          _screenshots.completeError(map["failed"]);
+          return;
+        }
+
+        if (_exces != null) {
+          _exces.addError(map["failed"]);
+          return;
+        }
+      }
+
       if (map["repcmd"] == "screenshot") {
         final url = 'data:image/bmp;base64,' +
             base64.encode((map["file"] as Iterable<dynamic>).cast<int>());
@@ -142,6 +162,7 @@ class Connection {
 
   Future<String> screenshot() async {
     int id = ++_i;
+    _exces = null;
     _screenshots = Completer<String>();
     ws.send(jsonEncode({"id": id, "cmd": "screenshot"}));
     return _screenshots.future;
@@ -149,11 +170,14 @@ class Connection {
 
   void reboot() {
     int id = ++_i;
+    _screenshots = null;
+    _exces = null;
     ws.send(jsonEncode({"id": id, "cmd": "reboot"}));
   }
 
   Future<Stream<ExecPart>> exec(String command) async {
     int id = ++_i;
+    _screenshots = null;
     _exces = StreamController<ExecPart>();
     ws.send(jsonEncode({"id": id, "cmd": "exec", "command": command}));
     return _exces.stream;
