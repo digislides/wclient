@@ -23,6 +23,7 @@
     width: 26px;
     height: 26px;
     border-right: 1px solid #cacaca;
+    box-sizing: border-box;
     position: relative;
 }
 
@@ -48,10 +49,24 @@
     border: none;
     background-color: #ffffff78;
     padding: 5px;
-    flex: 1;
+    width: calc(100% - 52px);
 }
 
 .input:focus {
   outline: none;
   border: none;
+}
+
+.down {
+    width: 26px;
+    height: 26px;
+    border-right: 1px solid #cacaca;
+    box-sizing: border-box;
+    line-height: 26px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.down.open {
+    background-color: #0002;
 }

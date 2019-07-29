@@ -10,7 +10,6 @@ import 'package:wclient/src/utils/directives/input_binder.dart';
   styleUrls: ['color.css'],
   templateUrl: 'color.html',
   directives: [
-    NgFor,
     NgIf,
     TextBinder,
     SelectBoxBinder,
@@ -22,7 +21,7 @@ class ColorPropComponent {
   String label = 'Color';
 
   @Input()
-  String color = 'transparent';
+  String color = 'rgba(0, 0, 0, 0.0)';
 
   @Output()
   Stream<String> get onChange => _onChange;
@@ -38,4 +37,6 @@ class ColorPropComponent {
   void colorChanged(String value) {
     _onChangeCont.add(value);
   }
+
+  bool paletteOpen = false;
 }

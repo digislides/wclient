@@ -22,3 +22,5 @@ dev_dependencies:
 dependency_overrides:
   angular_color_picker:
     path: ../../dart/angular_color_picker
+  lib_colors:
+    path: ../../dart/lib_colors

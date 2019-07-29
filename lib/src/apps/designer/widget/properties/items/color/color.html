@@ -6,8 +6,9 @@
             <div class="display" [style.background-color]="color"></div>
         </div>
         <input class="input" tjText [bind]="color" (bind)="colorChanged">
+        <div class="down" [class.open]="paletteOpen" (click)="paletteOpen = !paletteOpen">+</div>
     </div>
 </div>
 <div class="row">
-    <awesome-color-picker [value]="color" (change)="colorChanged($event.hex())"></awesome-color-picker>
+    <awesome-color-picker *ngIf="paletteOpen" [value]="color" (change)="colorChanged($event.hex())"></awesome-color-picker>
 </div>
