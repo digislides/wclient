@@ -11,10 +11,7 @@
         <div class="label">Height</div>
         <input type="number" class="input" tjText [bind]="program.design.height" (bind)="program.design.height = $event">
     </div>
-    <div class="row">
-        <div class="label">Color</div>
-        <color-prop class="value" [color]="program.design.color" (onChange)="program.design.color = $event"></color-prop>
-    </div>
+    <color-prop class="value" label="color" [color]="program.design.color" (onChange)="program.design.color = $event"></color-prop>
     <div class="row">
         <div class="label">Image</div>
         <image-prop class="value" [image]="program.design.url" [imageUrl]="program.design.imageUrl" (onChange)="program.design.url = $event"></image-prop>

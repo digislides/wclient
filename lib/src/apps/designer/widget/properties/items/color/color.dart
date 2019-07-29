@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:angular/angular.dart';
+import 'package:angular_color_picker/angular_color_picker.dart';
 
 import 'package:wclient/src/utils/directives/input_binder.dart';
 
@@ -13,9 +14,13 @@ import 'package:wclient/src/utils/directives/input_binder.dart';
     NgIf,
     TextBinder,
     SelectBoxBinder,
+    AwesomeColorPicker,
   ],
 )
 class ColorPropComponent {
+  @Input()
+  String label = 'Color';
+
   @Input()
   String color = 'transparent';
 

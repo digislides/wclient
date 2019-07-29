@@ -22,7 +22,6 @@ import '../../page_scheduler/page_scheduler.dart';
     SelectBoxBinder,
     ImagePropComponent,
     ColorPropComponent,
-    PageSchedulerComponent,
   ],
   exports: [
     Fit,

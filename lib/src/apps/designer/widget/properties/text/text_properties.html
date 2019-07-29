@@ -11,10 +11,7 @@
         <div class="label">Size</div>
         <size-prop class="value" [pos]="text.size" (onChange)="text.size = $event"></size-prop>
     </div>
-    <div class="row">
-        <div class="label">Color</div>
-        <color-prop class="value" [color]="text.color" (onChange)="text.color = $event"></color-prop>
-    </div>
+    <color-prop class="value" label="color" [color]="text.color" (onChange)="text.color = $event"></color-prop>
     <div>
         <div class="row">
             <div class="label">Text</div>
@@ -48,8 +45,5 @@
         <div class="label">Size</div>
         <input class="input" tjText [bind]="text.font.size" (bind)="text.font.size = $event">
     </div>
-    <div class="row">
-        <div class="label">Color</div>
-        <color-prop class="value" [color]="text.font.color" (onChange)="text.font.color = $event"></color-prop>
-    </div>
+    <color-prop class="value" label="color" [color]="text.font.color" (onChange)="text.font.color = $event"></color-prop>
 </div>

@@ -1,14 +1,13 @@
-<div class="display-holder">
-    <div class="display-bg">
-        <div class="row">
-            <div class="col white"></div>
-            <div class="col black"></div>
+<div class="row">
+    <div class="label">{{label}}</div>
+    <div class="color-control">
+        <div class="display-holder">
+            <div class="display-bg"></div>
+            <div class="display" [style.background-color]="color"></div>
         </div>
-        <div class="row">
-            <div class="col black"></div>
-            <div class="col white"></div>
-        </div>
+        <input class="input" tjText [bind]="color" (bind)="colorChanged">
     </div>
-    <div class="display" [style.background-color]="color"></div>
 </div>
-<input class="input" tjText [bind]="color" (bind)="colorChanged($event)">
+<div class="row">
+    <awesome-color-picker [value]="color" (change)="colorChanged($event.hex())"></awesome-color-picker>
+</div>

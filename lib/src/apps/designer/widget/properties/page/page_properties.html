@@ -3,10 +3,7 @@
         <div class="label">Name</div>
         <input class="input" tjText [bind]="page.name" (bind)="page.name = $event">
     </div>
-    <div class="row">
-        <div class="label">Color</div>
-        <color-prop class="value" [color]="page.color" (onChange)="page.color = $event"></color-prop>
-    </div>
+    <color-prop class="value" label="Color" [color]="page.color" (onChange)="page.color = $event"></color-prop>
     <div class="row">
         <div class="label">Image</div>
         <image-prop class="value" [image]="page.image" [imageUrl]="page.imageUrl" (onChange)="page.image = $event"></image-prop>

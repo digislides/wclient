@@ -11,10 +11,7 @@
         <div class="label">Size</div>
         <size-prop class="value" [pos]="video.size" (onChange)="video.size = $event"></size-prop>
     </div>
-    <div class="row">
-        <div class="label">Color</div>
-        <color-prop class="value" [color]="video.color" (onChange)="video.color = $event"></color-prop>
-    </div>
+    <color-prop class="value" label="color" [color]="video.color" (onChange)="video.color = $event"></color-prop>
     <div class="row">
         <div class="label">Video</div>
         <image-prop class="value" [image]="video.url" [imageUrl]="video.videoUrl" (onChange)="video.url = $event"></image-prop>

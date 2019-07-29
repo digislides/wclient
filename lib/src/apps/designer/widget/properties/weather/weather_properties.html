@@ -15,10 +15,7 @@
         <div class="label">Size</div>
         <input type="number" class="input" tjText [bind]="item.size" (bind)="item.size = $event">
     </div>
-    <div class="row">
-        <div class="label">Color</div>
-        <color-prop class="value" [color]="item.color" (onChange)="item.color = $event"></color-prop>
-    </div>
+    <color-prop class="value" label="color" [color]="item.color" (onChange)="item.color = $event"></color-prop>
     <div class="row">
         <div class="label">Theme</div>
         <select class="input" tjSelect [value]="item.theme.label" (bind)="item.theme = WeatherTheme.map[$event]">

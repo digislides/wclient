@@ -11,10 +11,7 @@
         <div class="label">Size</div>
         <size-prop class="value" [pos]="frame.size" (onChange)="frame.size = $event"></size-prop>
     </div>
-    <div class="row">
-        <div class="label">Color</div>
-        <color-prop class="value" [color]="frame.color" (onChange)="frame.color = $event"></color-prop>
-    </div>
+    <color-prop class="value" label="color" [color]="frame.color" (onChange)="frame.color = $event"></color-prop>
     <div class="row">
         <div class="label">Image</div>
         <image-prop class="value" [image]="frame.image" [imageUrl]="frame.imageUrl" (onChange)="frame.image = $event"></image-prop>
