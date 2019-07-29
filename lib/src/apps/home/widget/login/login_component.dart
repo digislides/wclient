@@ -25,6 +25,8 @@ class LoginComponent {
   Login model = Login();
 
   Future<void> submit() async {
+    error = null;
+
     try {
       model.validate();
       await authApi.login(model);

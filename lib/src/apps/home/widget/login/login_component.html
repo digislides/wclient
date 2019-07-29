@@ -5,11 +5,12 @@
         <div class="input-row" [class.has-error]="error != null && error.username != null">
             <div class="label icon mail-icon"></div>
             <input type="text" placeholder="Email or Name" class="input" required tjText [bind]="model.username" (bind)="model.username = $event" (enter)="submit()">
-            <div class="error" *ngIf="error != null && error.username != null">!</div>
+            <div class="error" *ngIf="error != null && error.username != null" [title]="error.username">!</div>
         </div>
-        <div class="input-row">
+        <div class="input-row" [class.has-error]="error != null && error.password != null">
             <div class="label icon password-icon"></div>
             <input type="password" placeholder="Password" class="input" required tjText [bind]="model.password" (bind)="model.password = $event" (enter)="submit()">
+            <div class="error" *ngIf="error != null && error.password != null" [title]="error.password">!</div>
         </div>
         <div class="actions">
             <button type="submit" class="btn btn-primary" (click)="submit()">Submit</button>
