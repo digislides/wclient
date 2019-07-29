@@ -23,6 +23,11 @@ class TextBinder {
 
   String _oldValue;
 
+  @Output()
+  Stream<String> get enter => _enterEmitter.stream;
+
+  final _enterEmitter = StreamController<String>();
+
   @HostListener('focus')
   void onFocus(_) {
     _oldValue = _host.value;
@@ -38,11 +43,14 @@ class TextBinder {
     if (event is KeyboardEvent) {
       if (event.keyCode == KeyCode.ENTER) {
         _valChanged.add(_host.value);
+        _enterEmitter.add(_host.value);
       } else if (event.keyCode == KeyCode.ESC) {
         _host.value = _oldValue;
       }
     }
   }
+
+
 }
 
 @Directive(
