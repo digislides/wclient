@@ -30,7 +30,6 @@ class LoginComponent {
     try {
       model.validate();
       await authApi.login(model);
-      // TODO handle errors
       window.location.assign("/dashboard/index.html");
     } on LoginError catch (e) {
       error = e;

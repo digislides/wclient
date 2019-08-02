@@ -37,14 +37,18 @@ class SignupComponent {
   }
 
   Future<void> submit() async {
-    if (password != model.password) {
-      print("Passwords do not match!");
-      // TODO show message
-      return;
+    error = null;
+    try {
+      if (password != model.password) {
+        throw SignupError(passwordRepeat: 'Does not match!');
+      }
+      model.validate();
+      await authApi.signup(model);
+      _successController.add(Signup.serializer.clone(model));
+      reset();
+    } on SignupError catch(e) {
+      error = e;
     }
-    await authApi.signup(model);
-    _successController.add(Signup.serializer.clone(model));
-    reset();
   }
 
   void reset() {
@@ -53,4 +57,6 @@ class SignupComponent {
     model.password = '';
     password = '';
   }
+
+  SignupError error;
 }

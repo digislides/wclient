@@ -2,21 +2,25 @@
 <h2>Signup</h2>
 <div>
     <div class="form">
-        <div class="input-row">
+        <div class="input-row" [class.has-error]="error != null && error.email != null">
             <div class="label icon mail-icon"></div>
-            <input type="text" placeholder="Email" class="input" required tjText [bind]="model.email" (bind)="model.email = $event">
+            <input type="text" placeholder="Email" class="input" required tjText [bind]="model.email" (bind)="model.email = $event" (enter)="submit()">
+            <div class="error" *ngIf="error != null && error.email != null" [title]="error.email">!</div>
         </div>
-        <div class="input-row">
+        <div class="input-row" [class.has-error]="error != null && error.name != null">
             <div class="label icon name-icon"></div>
-            <input type="text" placeholder="Name" class="input" required tjText [bind]="model.name" (bind)="model.name = $event">
+            <input type="text" placeholder="Name" class="input" required tjText [bind]="model.name" (bind)="model.name = $event" (enter)="submit()">
+            <div class="error" *ngIf="error != null && error.name != null" [title]="error.name">!</div>
         </div>
-        <div class="input-row">
+        <div class="input-row" [class.has-error]="error != null && error.password != null">
             <div class="label icon password-icon"></div>
-            <input type="password" placeholder="Password" class="input" required tjText [bind]="model.password" (bind)="model.password = $event">
+            <input type="password" placeholder="Password" class="input" required tjText [bind]="model.password" (bind)="model.password = $event" (enter)="submit()">
+            <div class="error" *ngIf="error != null && error.password != null" [title]="error.password">!</div>
         </div>
-        <div class="input-row">
+        <div class="input-row" [class.has-error]="error != null && error.passwordRepeat != null">
             <div class="label icon password-icon"></div>
-            <input type="password" placeholder="Password" class="input" required tjText [bind]="password" (bind)="password = $event">
+            <input type="password" placeholder="Password" class="input" required tjText [bind]="password" (bind)="password = $event" (enter)="submit()">
+            <div class="error" *ngIf="error != null && error.passwordRepeat != null" [title]="error.passwordRepeat">!</div>
         </div>
         <div class="actions">
             <button type="submit" class="btn btn-primary" (click)="submit()">Submit</button>
