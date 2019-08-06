@@ -6,7 +6,7 @@
     <div class="item" *ngFor="let upload of uploads">
         <div class="status" [class.finished]="upload.finished" [class.failed]="upload.failed"></div>
         <div *ngIf="upload.media == null">{{upload.name}}</div>
-        <!-- <a *ngIf="upload.media != null" [href]="upload.media.url" target="_blank">{{upload.name}}</a> -->
+        <a *ngIf="upload.media != null" [href]="upload.media.url" target="_blank">{{upload.name}}{{upload.extension}}</a>
     </div>
 </div>
 

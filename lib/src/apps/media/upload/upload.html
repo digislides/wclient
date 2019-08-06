@@ -32,6 +32,7 @@
             <div class="file" *ngFor="let upload of uploads">
                 <!-- <img [src]="upload.url"> -->
                 <input tjText [bind]="upload.name" (bind)="upload.name = $event">
+                {{upload.extension}}
                 <div class="close" (click)="uploads.remove(upload)">x</div>
             </div>
         </template>
