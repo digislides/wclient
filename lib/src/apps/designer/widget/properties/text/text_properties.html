@@ -12,12 +12,13 @@
         <size-prop class="value" [size]="text.size" (onChange)="text.size = $event"></size-prop>
     </div>
     <color-prop class="value" label="color" [color]="text.color" (onChange)="text.color = $event"></color-prop>
-    <div>
+    <text-prop-item [text]="text.text" (change)="text.text = $event"></text-prop-item>
+    <!--<div>
         <div class="row">
             <div class="label">Text</div>
         </div>
         <textarea [value]="text.text" tjTextArea (bind)="text.text = $event"></textarea>
-    </div>
+    </div>-->
     <div class="separator"></div>
     <div class="section-title">Font</div>
     <div class="row">

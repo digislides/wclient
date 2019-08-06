@@ -1,0 +1,8 @@
+<div class="holder">
+    <div class="header">
+        <div class="label">Text</div>
+        <div class="button icon link-data-icon" (click)="linkData"></div>
+    </div>
+    <div #content class="content" contenteditable="true" (input)="changed()"></div>
+    <!--<textarea [value]="text" tjTextArea (bind)="changed" (blur)="blurred"></textarea>-->
+</div>

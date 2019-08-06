@@ -1,6 +1,8 @@
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:common/data/data_repo.dart';
+import 'package:common/data/data_weather.dart';
 
 import 'widget/frame_editor/frame_editor.dart';
 import 'widget/program_designer/program_designer.dart';
@@ -29,6 +31,7 @@ class DesignerApp implements OnInit {
       width: 200,
       height: 300,
       name: 'Frame1',
+      dataRepository: DataRepository([WeatherData()..register('stockholm')]),
       pages: [
         Page(
             id: '1',
@@ -40,7 +43,7 @@ class DesignerApp implements OnInit {
             items: [
               TextItem(
                   id: '0',
-                  text: "Hello!",
+                  text: "Hello! {{weather/stockholm/temperature}}",
                   left: 10,
                   top: 20,
                   width: 100,
