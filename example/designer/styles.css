@@ -6,3 +6,12 @@ html, body {
   font-family: 'Roboto', sans-serif;
   overflow: hidden;
 }
+
+.data-link {
+    border: 1px solid #8e8e8e;
+    user-select: none;
+    padding: 0px 3px;
+    background-color: #73cec6;
+    border-radius: 5px;
+    cursor: pointer;
+}

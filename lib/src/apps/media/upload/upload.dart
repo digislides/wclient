@@ -34,16 +34,10 @@ class MediaUploadComponent {
 
   void onFilePick(List<File> files) {
     for (File f in files) {
-      print(f.type);
       final type = typeToMediaType(f.type);
       if (type == null) continue;
       final up = Upload(path.basenameWithoutExtension(f.name),
           path.extension(f.name), f, type, tags);
-      final fr = FileReader();
-      fr.onLoad.listen((_) {
-        up.url = fr.result;
-      });
-      fr.readAsDataUrl(f);
       uploads.add(up);
     }
     fileInput.value = "";

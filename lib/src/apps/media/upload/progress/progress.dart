@@ -94,9 +94,9 @@ class Upload {
 
   String extension;
 
-  Blob file;
+  File file;
 
-  String url;
+  // Blob file;
 
   MediaType type;
 

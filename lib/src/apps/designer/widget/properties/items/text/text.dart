@@ -49,20 +49,29 @@ class TextPropComponent implements AfterViewInit {
 
     for (var item in parsed.elements) {
       if (item is String) {
-        final lines = LineSplitter.split(item);
-        for (final line in lines) {
+        final lines = LineSplitter.split(item).toList();
+        for (int i = 0; i < lines.length; i++) {
+          final line = lines[i];
           if (line.isNotEmpty) {
             cur.children.add(SpanElement()..text = line);
           } else {
             cur.children.add(BRElement());
           }
           contentDiv.children.add(cur);
-          cur = DivElement();
+          if (i < lines.length - 1) cur = DivElement();
         }
       } else if (item is DataLink) {
         final div = SpanElement()
           ..text = item.path
-          ..title = item.path;
+          ..title = item.path
+          ..classes.add('data-link')
+          ..dataset['path'] = jsonEncode(item.segments)
+          ..dataset['args'] = jsonEncode(item.args)
+          ..contentEditable = 'false'
+          ..onKeyDown.listen((e) {
+            e.preventDefault();
+            e.stopPropagation();
+          });
         cur.children.add(div);
       }
     }
@@ -98,9 +107,17 @@ class TextPropComponent implements AfterViewInit {
     if (div.children.isNotEmpty) {
       for (Element el in div.children) {
         if (el is SpanElement) {
-          sb.write(el.text);
+          if (el.dataset['path'] == null) {
+            sb.write(el.text);
+          } else {
+            final path =
+                (jsonDecode(el.dataset['path']) as List).cast<String>();
+            final args =
+                (jsonDecode(el.dataset['args']) as Map).cast<String, String>();
+            final link = DataLink(path, args);
+            sb.write(link.toString());
+          }
         }
-        // TODO Handle DataLink
       }
     } else {
       sb.write(div.text);

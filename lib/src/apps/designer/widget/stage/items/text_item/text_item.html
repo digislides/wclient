@@ -1,3 +1,8 @@
 <div class="holder" [style.align-items]="item.font.valign.css">
-    <span>{{item.linkedText}}</span>
+    <div>
+        <template ngFor let-line [ngForOf]="lines" let-i="index">
+            <span>{{line}}</span>
+            <br *ngIf="i < lines.length - 1" />
+        </template>
+    </div>
 </div>

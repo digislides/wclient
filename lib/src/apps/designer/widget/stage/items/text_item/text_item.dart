@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:angular/angular.dart';
 
 import 'package:common/models.dart';
@@ -60,4 +62,6 @@ class TextItemComponent {
 
   @HostBinding('class')
   String get classes => "page-item-text";
+
+  Iterable<String> get lines => LineSplitter.split(item.linkedText);
 }
