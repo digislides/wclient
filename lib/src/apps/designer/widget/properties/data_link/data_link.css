@@ -1,0 +1,28 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.label {
+  width: 75px;
+  color: #4a4a4a;
+  font-size: 14px;
+  font-family: sans-serif;
+}
+
+.value {
+    flex: 1;
+}
+
+.input {
+  background-color: #ffffff78;
+  border: 1px solid #00000030;
+  border-radius: 5px;
+  padding: 5px;
+  flex: 1;
+}
+
+.input:focus {
+  outline: none;
+  border: 1px solid black;
+}

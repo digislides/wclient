@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:html';
-import 'dart:math';
 
 import 'package:angular/angular.dart';
 import 'package:common/data/data_repo.dart';
+import 'package:wclient/src/apps/designer/widget/properties/data_link/data_link.dart';
 
 import 'package:wclient/src/utils/directives/input_binder.dart';
 
@@ -16,9 +16,13 @@ import 'package:wclient/src/utils/directives/input_binder.dart';
     NgFor,
     NgIf,
     TextBinder,
+    DataLinkPickerComponent,
   ],
 )
 class TextPropComponent implements AfterViewInit {
+  @Input()
+  DataRepository repo;
+
   @Input()
   set text(String value) {
     _text = value;

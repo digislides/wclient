@@ -12,7 +12,7 @@
         <size-prop class="value" [size]="text.size" (onChange)="text.size = $event"></size-prop>
     </div>
     <color-prop class="value" label="color" [color]="text.color" (onChange)="text.color = $event"></color-prop>
-    <text-prop-item [text]="text.text" (change)="text.text = $event"></text-prop-item>
+    <text-prop-item [repo]="text.dataRepository" [text]="text.text" (change)="text.text = $event"></text-prop-item>
     <!--<div>
         <div class="row">
             <div class="label">Text</div>
