@@ -1,0 +1,57 @@
+:host {
+    display: block;
+    margin: 5px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid gray;
+    height: 200px;
+    user-select: none;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 4px 2px;
+    background-color: black;
+    box-sizing: border-box;
+    color: #e4e4e4;
+}
+
+.header .title {
+    flex: 1;
+}
+
+.header-button {
+    cursor: pointer;
+    padding: 0px 4px;
+}
+
+.header-button:active {
+    background-color: #666;
+}
+
+.item {
+    font-size: 14px;
+    padding: 5px 2px;
+    cursor: pointer;
+}
+
+.actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 5px 0px;
+}
+
+.action-button {
+    cursor: pointer;
+    padding: 2px 10px;
+    background-color: #efefef;
+}
+
+.action-button:active {
+    background-color: #bbb;
+}

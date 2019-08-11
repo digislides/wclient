@@ -7,11 +7,56 @@ html, body {
   overflow: hidden;
 }
 
-.data-link {
+.data-link-view {
     border: 1px solid #8e8e8e;
     user-select: none;
     padding: 0px 3px;
     background-color: #73cec6;
     border-radius: 5px;
     cursor: pointer;
+    position: relative;
+}
+
+.data-link-view-actions {
+    flex-direction: row;
+    background-color: black;
+    display: none;
+    position: absolute;
+    padding: 5px;
+    border-radius: 5px;
+    right: 0;
+    top: calc(100% + 7px);
+    box-shadow: 1px 1px 5px 1px #00000087;
+    cursor: default;
+}
+
+.data-link-view-actions::before {
+    content: '';
+    width: 10px;
+    height: 5px;
+    background-color: black;
+    position: absolute;
+    top: -5px;
+    left: calc(50% - 5px);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    box-shadow: 1px 1px 5px 1px #00000087;
+}
+
+.data-link-view-actions.show {
+    display: flex;
+}
+
+.data-link-view-action {
+    padding: 2px 6px;
+    margin: 0px 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.data-link-view-action:hover {
+    background-color: #383838;
+}
+
+.data-link-view-action:active {
+    background-color: #777;
 }

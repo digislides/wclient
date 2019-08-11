@@ -4,7 +4,8 @@ import 'dart:html';
 
 import 'package:angular/angular.dart';
 import 'package:common/data/data_repo.dart';
-import 'package:wclient/src/apps/designer/widget/properties/data_link/data_link.dart';
+import 'package:wclient/src/apps/designer/widget/properties/items/data_link_picker/data_link_picker.dart';
+import 'package:wclient/src/utils/components/data_link_view.dart';
 
 import 'package:wclient/src/utils/directives/input_binder.dart';
 
@@ -41,15 +42,17 @@ class TextPropComponent implements AfterViewInit {
 
     if (_text == curContent) return;
 
-    print('----');
-    print(_text);
-    print(curContent);
+    // print('----');
+    // print(_text);
+    // print(curContent);
 
     contentDiv.children.clear();
 
     final parsed = DataText.parse(_text);
 
     DivElement cur = DivElement();
+
+    int linkId = 0;
 
     for (var item in parsed.elements) {
       if (item is String) {
@@ -65,18 +68,46 @@ class TextPropComponent implements AfterViewInit {
           if (i < lines.length - 1) cur = DivElement();
         }
       } else if (item is DataLink) {
+        /*
         final div = SpanElement()
-          ..text = item.path
-          ..title = item.path
-          ..classes.add('data-link')
-          ..dataset['path'] = jsonEncode(item.segments)
-          ..dataset['args'] = jsonEncode(item.args)
-          ..contentEditable = 'false'
-          ..onKeyDown.listen((e) {
-            e.preventDefault();
-            e.stopPropagation();
+          ..onClick.listen((_) {
+            showDataLinkPicker = true;
           });
-        cur.children.add(div);
+          */
+        final withOutMe = (int i) {
+          return () {
+            final content = _readContent();
+            final parsed = DataText.parse(content);
+
+            final sb = StringBuffer();
+
+            int linkId = 0;
+
+            for(final el in parsed.elements) {
+              if(el is DataLink) {
+                if(linkId != i) {
+                  sb.write(el.toString());
+                }
+                linkId++;
+              } else {
+                sb.write(el);
+              }
+            }
+
+            text = sb.toString();
+          };
+        };
+        final editMe = (int i) {
+          return () {
+            _edit(i, item);
+          };
+        };
+
+        final dataLinkComp = DataLinkView(item,
+            onDelete: withOutMe(linkId), onEdit: editMe(linkId));
+        cur.children.add(dataLinkComp.root);
+
+        linkId++;
       }
     }
 
@@ -128,6 +159,14 @@ class TextPropComponent implements AfterViewInit {
     }
   }
 
+  DataLink editingLink;
+
+  void _edit(int i, DataLink link) {
+    editingLink = link;
+    showDataLinkPicker = true;
+    // TODO
+  }
+
   void blurred(Event event) {
     TextAreaElement tae = event.target;
     int start = tae.selectionStart;
@@ -144,12 +183,27 @@ class TextPropComponent implements AfterViewInit {
           text.substring(_blurredAt.range.start, _blurredAt.range.end);
       print(selection);
     }
+
+    editingLink = null;
+    showDataLinkPicker = true;
   }
 
   @override
   void ngAfterViewInit() {
     _render();
   }
+
+  void insertDataLink(String link) {
+    if (link != null) {
+      text = _text + link;
+      // TODO place it at where the mouse was
+    } else {
+      // TODO set the mouse pointer back
+    }
+    showDataLinkPicker = false;
+  }
+
+  bool showDataLinkPicker = false;
 }
 
 class Range {

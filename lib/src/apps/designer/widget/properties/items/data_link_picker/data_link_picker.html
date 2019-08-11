@@ -1,0 +1,23 @@
+<div class="header">
+    <div class="title">{{defPeek.path}}</div>
+    <div class="header-button" (click)="home">H</div>
+    <div class="header-button" (click)="quit">X</div>
+</div>
+
+<div class="list">
+    <div *ngIf="defPeekIsBranch">
+        <div *ngFor="let item of defPeekAsBranch.next.values" class="item" [title]="item.description">
+            <div (click)="defPeek = item">{{item.name}}</div>
+        </div>
+    </div>
+    <div *ngIf="defPeekIsLeaf">
+        <div *ngFor="let item of defPeekAsLeaf.args" [title]="item.description">
+            <div>{{item.name}}</div>
+        </div>
+
+        <div class="actions">
+            <div class="action-button" (click)="apply">Apply</div>
+            <div class="action-button">Reset</div>
+        </div>
+    </div>
+</div>

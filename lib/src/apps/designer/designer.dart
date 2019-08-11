@@ -43,7 +43,7 @@ class DesignerApp implements OnInit {
             items: [
               TextItem(
                   id: '0',
-                  text: "Hello! {{weather/stockholm/temperature}}",
+                  text: "Hello! {{weather/stockholm/temperature}} World!",
                   left: 10,
                   top: 20,
                   width: 100,
