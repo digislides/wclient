@@ -4,7 +4,7 @@
         <div class="button icon link-data-icon" (click)="linkData"></div>
     </div>
 
-    <div #content class="content" [class.hide]="showDataLinkPicker" contenteditable="true" (input)="changed()"></div>
+    <div #content class="content" (blur)="blurred" [class.hide]="showDataLinkPicker" contenteditable="true" (input)="changed()"></div>
     <!--<textarea [value]="text" tjTextArea (bind)="changed" (blur)="blurred"></textarea>-->
     <data-link-picker *ngIf="showDataLinkPicker" [link]="editingLink" [repo]="repo" (finish)="insertDataLink"></data-link-picker>
 </div>
