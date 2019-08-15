@@ -42,8 +42,12 @@
 
 @keyframes fadeIn { from { opacity: 0; } }
 
-.transition-fadeOut.new { animation: fadeIn 2s ease both; }
-.transition-fadeOut.old { animation: fadeOut 2s ease both; }
+.transition-fadeOut.new {
+}
+.transition-fadeOut.old {
+    animation: fadeOut 2s ease both;
+    z-index: 2;
+}
 
 .transition-fadeIn.new { animation: fadeIn 2s ease both; }
 .transition-fadeIn.old { }
