@@ -1,6 +1,6 @@
 <div class="title-bar">
     <div class="title">{{program.name}}</div>
-    <div class="title-button" (click)="addFrame()">+</div>
+    <div class="title-button" (click)="addFrame()" title="Add new frame">+</div>
 </div>
 <div #items class="items" [class.dragging]="dragging != null" (mouseup)="onDrop($event)" tabindex="0"
      (keyup)="onKeyPress($event)" (mousemove)="autoScroll($event)">
@@ -16,9 +16,9 @@
                 <frame-thumbnail [frame]="frame" [width]="50" [height]="50"></frame-thumbnail>
             </div>
             <div class="name" (click)="selectFrame($event, frame)">{{frame.name}}</div>
-            <div class="button icon edit-icon" (click)="editFrame(frame)"></div>
-            <div class="button icon delete-icon" (click)="deleteFrame(frame)"></div>
-            <div class="button icon duplicate-icon" (click)="duplicateFrame(frame)"></div>
+            <div class="button icon edit-icon" (click)="editFrame(frame)" title="Design frame"></div>
+            <div class="button icon delete-icon" (click)="deleteFrame(frame)" title="Delete frame"></div>
+            <div class="button icon duplicate-icon" (click)="duplicateFrame(frame)" title="Duplicate frame"></div>
         </div>
     </template>
     <div class="drop-spot" *ngIf="dragging != null && draggingOn == null">
