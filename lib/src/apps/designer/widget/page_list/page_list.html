@@ -16,9 +16,9 @@
                 <page-thumbnail [page]="page" [width]="50" [height]="50"></page-thumbnail>
             </div>
             <div class="name" (click)="selectPage(page)">{{page.name}}</div>
-            <div class="button icon preview-icon" (click)="preview(page)"></div>
-            <div class="button icon delete-icon" (click)="deletePage(page)"></div>
-            <div class="button icon duplicate-icon" (click)="duplicatePage(page)"></div>
+            <div class="button icon preview-icon" (click)="preview(page)" title="Preview page"></div>
+            <div class="button icon delete-icon" (click)="deletePage(page)" title="Delete page"></div>
+            <div class="button icon duplicate-icon" (click)="duplicatePage(page)" title="Duplicate page"></div>
         </div>
     </template>
     <div class="drop-spot" *ngIf="dragging != null && draggingOn == null">

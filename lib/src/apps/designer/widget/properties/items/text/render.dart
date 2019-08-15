@@ -5,11 +5,7 @@ typedef _EditFunc = void Function(int index, DataLink item);
 void _render(DivElement contentDiv, String text, {_EditFunc onEdit}) {
   final curContent = _readContent(contentDiv, _Cursor());
 
-  if (text == curContent) return;
-
-  // print('----');
-  // print(_text);
-  // print(curContent);
+  if (text == curContent.content) return;
 
   contentDiv.children.clear();
 
