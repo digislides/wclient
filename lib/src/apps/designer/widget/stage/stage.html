@@ -28,6 +28,9 @@
                 <template [ngIf]="item.type == PageItemType.weather">
                     <weather-item [item]="item" (click)="onItemClick($event, item)"></weather-item>
                 </template>
+                <template [ngIf]="item.type == PageItemType.widget">
+                    <widget-item [item]="item" (click)="onItemClick($event, item)"></widget-item>
+                </template>
             </template>
         </div>
         <div class="handle-holder"

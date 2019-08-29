@@ -54,6 +54,10 @@
   background-image: url(/packages/wclient/src/utils/icons/designer/item_add/weather.svg);
 }
 
+.widget-icon {
+  background-image: url(/packages/wclient/src/utils/icons/designer/item_add/widget.svg);
+}
+
 .big-button {
     width: fit-content;
     height: fit-content;

@@ -70,6 +70,11 @@ class PagePropertiesComponent {
         page.addNewItem(item);
         _itemAddCntr.add(item);
         break;
+      case 'widget':
+        final item = WidgetItem();
+        page.addNewItem(item);
+        _itemAddCntr.add(item);
+        break;
     }
   }
 

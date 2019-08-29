@@ -4,6 +4,7 @@ import 'dart:async';
 
 import 'package:angular/angular.dart';
 import 'package:common/models.dart';
+import 'package:wclient/src/apps/designer/widget/stage/items/widget_item/widget_item.dart';
 
 import 'items/text_item/text_item.dart';
 import 'items/image_item/image_item.dart';
@@ -26,6 +27,7 @@ class SelectionModifier {}
     VideoItemComponent,
     ClockItemComponent,
     WeatherItemComponent,
+    WidgetItemComponent,
   ],
   exports: [
     PageItemType,

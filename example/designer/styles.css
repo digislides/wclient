@@ -60,3 +60,7 @@ html, body {
 .data-link-view-action:active {
     background-color: #777;
 }
+
+iframe {
+    border: none;
+}

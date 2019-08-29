@@ -39,3 +39,9 @@
 .page-item-text .holder span {
     width: 100%;
 }
+
+.page-item-widget iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}

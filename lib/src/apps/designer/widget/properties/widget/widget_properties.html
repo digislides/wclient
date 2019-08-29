@@ -1,0 +1,31 @@
+<div>
+    <div class="row">
+        <div class="label">Name</div>
+        <input class="input" tjText [bind]="item.name" (bind)="item.name = $event">
+    </div>
+    <div class="row">
+        <div class="label">Position</div>
+        <pos-prop class="value" [pos]="item.pos" (onChange)="item.pos = $event"></pos-prop>
+    </div>
+    <div class="row">
+        <div class="label">Size</div>
+        <size-prop class="value" [size]="item.size" (onChange)="item.size = $event"></size-prop>
+    </div>
+    <div>
+        <div class="row">
+            <div class="label">Type</div>
+            <div class="prop-btn-group">
+                <div class="prop-btn-group-item" [class.selected]="item.isUrl" (click)="item.isUrl = true">Link</div>
+                <div class="prop-btn-group-item" [class.selected]="!item.isUrl" (click)="item.isUrl = false">Code</div>
+            </div>
+        </div>
+        <div class="row" *ngIf="item.isUrl">
+            <div class="label">URL</div>
+            <input class="input" tjText [bind]="item.url" (bind)="item.url = $event">
+        </div>
+        <div class="row" *ngIf="!item.isUrl">
+            <div class="label">Code</div>
+            <textarea class="input" tjTextArea [bind]="item.url" (bind)="item.url = $event"></textarea>
+        </div>
+    </div>
+</div>

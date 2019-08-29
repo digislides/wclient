@@ -1,0 +1,3 @@
+<iframe *ngIf="item.isUrl" [src]="url" scrolling="no"></iframe>
+<iframe *ngIf="!item.isUrl" [srcdoc]="srcdoc" scrolling="no"></iframe>
+<!-- <iframe src="http://localhost:10000/dashboard/index.html"></iframe> -->

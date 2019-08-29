@@ -44,3 +44,46 @@
     text-align: center;
     margin: 5px 0px;
 }
+
+.prop-btn {
+    width: 25px;
+    height: 25px;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    margin: 0px 1px;
+    cursor: pointer;
+}
+
+.prop-btn:hover {
+  border: 1px solid black;
+}
+
+.prop-btn.selected {
+    background-color: #b6eaff;
+    border: 1px solid #164f71;
+}
+
+.prop-btn-group {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid gray;
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+.prop-btn-group-item {
+    flex: 1;
+    box-sizing: border-box;
+    cursor: pointer;
+    padding: 2px 5px;
+}
+
+.prop-btn-group-item:hover {
+}
+
+.prop-btn-group-item.selected {
+    height: 100%;
+    background: #cecece;
+    color: #000000;
+    box-shadow: inset 2px 2px 2px 0px #0000001c;
+}

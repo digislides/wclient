@@ -1,4 +1,5 @@
 import 'package:angular/angular.dart';
+import 'package:wclient/src/apps/designer/widget/properties/widget/widget_properties.dart';
 
 import '../stage/stage.dart';
 import '../properties/page/page_properties.dart';
@@ -24,6 +25,7 @@ import 'package:common/models.dart';
     VideoPropertiesComponent,
     ClockPropertiesComponent,
     WeatherPropertiesComponent,
+    WidgetPropertiesComponent,
     ItemListComponent,
   ],
   exports: [PageItemType],

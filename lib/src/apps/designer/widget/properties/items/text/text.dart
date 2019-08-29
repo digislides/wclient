@@ -67,9 +67,7 @@ class TextPropComponent implements AfterViewInit {
   void blurred(FocusEvent event) {
     final sel = window.getSelection();
     final range = sel.getRangeAt(0);
-    final node = sel.focusNode as Text;
-    print(range.startOffset);
-    print(node.text);
+    final node = sel.focusNode;
 
     _contentRead = _readContent(contentDiv, _Cursor(node: node, pos: range.startOffset));
   }
