@@ -1,0 +1,53 @@
+<div>
+    <div class="row">
+        <div class="label">Name</div>
+        <input class="input" tjText [bind]="item.name" (bind)="item.name = $event">
+    </div>
+    <div class="row">
+        <div class="label">Position</div>
+        <pos-prop class="value" [pos]="item.pos" (onChange)="item.pos = $event"></pos-prop>
+    </div>
+    <div class="row">
+        <div class="label">Size</div>
+        <size-prop class="value" [size]="item.size" (onChange)="item.size = $event"></size-prop>
+    </div>
+    <color-prop class="value" label="color" [color]="item.color" (onChange)="item.color = $event"></color-prop>
+
+
+    <div class="row">
+        <div class="label">Lines</div>
+        <div class="lines">
+            <div class="line" *ngFor="let line of item.lines; let i=index">
+                <textarea class="line-text" [bind]="line" tjTextArea (bind)="item.lines[i] = $event"></textarea>
+                <div class="remove-line" (click)="item.lines.removeAt(i)">X</div>
+            </div>
+            <div class="line newline">
+                <textarea #newLine class="line-text" tjTextArea (keydown.shift.enter)="addLine(newLine)"></textarea>
+            </div>
+            <div class="newline-help">Shift+Enter to add item</div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="label">Gap</div>
+        <input class="input" tjNum [bind]="item.gap" (bind)="item.gap = $event">
+    </div>
+    <div class="row">
+        <div class="label">Separator</div>
+        <input class="input" tjText [bind]="item.separator" (bind)="item.separator = $event">
+    </div>
+
+    <div class="separator"></div>
+    <div class="section-title">Font</div>
+    <div class="row">
+        <div class="button icon bold-icon" [class.selected]="item.font.bold" (click)="item.font.bold = !item.font.bold"></div>
+        <div class="button icon italic-icon" [class.selected]="item.font.italic" (click)="item.font.italic = !item.font.italic"></div>
+        <div class="button icon underline-icon" [class.selected]="item.font.underline" (click)="item.font.underline = !item.font.underline"></div>
+    </div>
+    <div class="row">
+        <div class="label">Size</div>
+        <input class="input" tjText [bind]="item.font.size" (bind)="item.font.size = $event">
+    </div>
+    <color-prop class="value" label="color" [color]="item.font.color" (onChange)="item.font.color = $event"></color-prop>
+</div>

@@ -32,6 +32,7 @@
 .items-list {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .text-icon {
@@ -55,6 +56,10 @@
 }
 
 .widget-icon {
+  background-image: url(/packages/wclient/src/utils/icons/designer/item_add/widget.svg);
+}
+
+.scroller-icon {
   background-image: url(/packages/wclient/src/utils/icons/designer/item_add/widget.svg);
 }
 

@@ -8,6 +8,7 @@ import '../properties/text/text_properties.dart';
 import '../properties/clock/clock_properties.dart';
 import '../properties/video/video_properties.dart';
 import '../properties/weather/weather_properties.dart';
+import '../properties/scroller/scroller_properties.dart';
 import '../item_list/item_list.dart';
 
 import 'package:common/models.dart';
@@ -26,6 +27,7 @@ import 'package:common/models.dart';
     ClockPropertiesComponent,
     WeatherPropertiesComponent,
     WidgetPropertiesComponent,
+    ScrollerPropertiesComponent,
     ItemListComponent,
   ],
   exports: [PageItemType],

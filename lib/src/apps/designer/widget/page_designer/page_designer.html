@@ -29,6 +29,9 @@
                 <template [ngIf]="firstSelected.type == PageItemType.widget">
                     <widget-properties [item]="firstSelected"></widget-properties>
                 </template>
+                <template [ngIf]="firstSelected.type == PageItemType.scroller">
+                    <scroller-properties [item]="firstSelected"></scroller-properties>
+                </template>
             </template>
         </div>
         <div class="tab-item" [class.selected]="selectedTab == 1">

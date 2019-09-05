@@ -1,0 +1,178 @@
+:host {
+  display: block;
+  background-color: #dedede;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  padding: 2px 5px;
+}
+
+.label {
+  width: 75px;
+  color: #4a4a4a;
+  font-size: 14px;
+  font-family: sans-serif;
+}
+
+.value {
+    flex: 1;
+}
+
+.input {
+  background-color: #ffffff78;
+  border: 1px solid #00000030;
+  border-radius: 5px;
+  padding: 5px;
+  flex: 1;
+}
+
+.input:focus {
+  outline: none;
+  border: 1px solid black;
+}
+
+.icon {
+    background-size: 80%;
+    box-sizing: border-box;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.button {
+    width: 25px;
+    height: 25px;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    margin: 0px 1px;
+    cursor: pointer;
+}
+
+.button:hover {
+  border: 1px solid black;
+}
+
+.button.selected {
+    background-color: #b6eaff;
+    border: 1px solid #164f71;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: row;
+    margin: 0px 5px;
+}
+
+.button-group-item {
+    flex: 1;
+    width: 25px;
+    height: 25px;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.button-group-item:hover {
+  border: 1px solid black;
+}
+
+.button-group-item.selected {
+    background-color: #b6eaff;
+    border: 1px solid #164f71;
+}
+
+.left-icon {
+  background-image: url(/packages/wclient/src/utils/icons/designer/font/align-left.png);
+}
+
+.center-icon {
+  background-image: url(/packages/wclient/src/utils/icons/designer/font/align-center.png);
+}
+
+.right-icon {
+  background-image: url(/packages/wclient/src/utils/icons/designer/font/align-right.png);
+}
+
+.top-icon {
+  background-image: url(/packages/wclient/src/utils/icons/designer/font/align-top.svg);
+}
+
+.middle-icon {
+  background-image: url(/packages/wclient/src/utils/icons/designer/font/align-middle.svg);
+}
+
+.bottom-icon {
+  background-image: url(/packages/wclient/src/utils/icons/designer/font/align-bottom.svg);
+}
+
+.bold-icon {
+  background-image: url(/packages/wclient/src/utils/icons/designer/font/bold.svg);
+}
+
+.italic-icon {
+  background-image: url(/packages/wclient/src/utils/icons/designer/font/itallic.svg);
+}
+
+.underline-icon {
+  background-image: url(/packages/wclient/src/utils/icons/designer/font/underline.svg);
+}
+
+.separator {
+    width: 100%;
+    border-top: 1px solid #00000038;
+    margin: 5px 0px;
+}
+
+.section-title {
+    width: 100%;
+    color: #4a4a4a;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-align: center;
+    margin: 5px 0px;
+}
+
+.lines {
+    width: 100%;
+    width: calc(100% - 75px);
+}
+
+.line {
+    position: relative;
+    width: 100%;
+}
+
+.remove-line {
+    color: hsl(0, 0%, 0%);
+    background-color: #ffb3b3;
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    padding: 5px 7px;
+    font-size: 10px;
+}
+
+.line:hover .remove-line {
+    display: block;
+}
+
+.line-text {
+    width: calc(100% - 7px);
+    margin-right: 5px;
+}
+
+.newline {
+    padding-top: 3px;
+    border-top: 2px solid #6caf54;
+    margin-top: 3px;
+}
+
+.newline-help {
+    margin-top: 2px;
+    font-size: 12px;
+    color: #666;
+}

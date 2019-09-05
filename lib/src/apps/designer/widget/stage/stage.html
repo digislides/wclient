@@ -1,5 +1,5 @@
 <div class="container" tabindex="0" (keydown)="onKeyPress($event)"
-     (mouseup)="stageClick($event)" (mousemove)="onMouseMove" (mouseleave)="onMouseLeave">
+     (click)="stageClick($event)" (mousemove)="onMouseMove" (mouseleave)="onMouseLeave">
     <div #viewport class="viewport"
          [style.width.px]="page.width + holderWidth"
          [style.height.px]="page.height + holderHeight">
@@ -14,22 +14,25 @@
              [style.background-repeat]="page.fit.repeatCss">
             <template ngFor let-item [ngForOf]="page.items">
                 <template [ngIf]="item.type == PageItemType.text">
-                    <text-item [item]="item" (click)="onItemClick($event, item)"></text-item>
+                    <text-item class="page-item" [item]="item" (click)="onItemClick($event, item)"></text-item>
                 </template>
                 <template [ngIf]="item.type == PageItemType.image">
-                    <image-item [item]="item" (click)="onItemClick($event, item)"></image-item>
+                    <image-item class="page-item" [item]="item" (click)="onItemClick($event, item)"></image-item>
                 </template>
                 <template [ngIf]="item.type == PageItemType.video">
-                    <video-item [item]="item" (click)="onItemClick($event, item)"></video-item>
+                    <video-item class="page-item" [item]="item" (click)="onItemClick($event, item)"></video-item>
                 </template>
                 <template [ngIf]="item.type == PageItemType.clock">
-                    <clock-item [item]="item" (click)="onItemClick($event, item)"></clock-item>
+                    <clock-item class="page-item" [item]="item" (click)="onItemClick($event, item)"></clock-item>
                 </template>
                 <template [ngIf]="item.type == PageItemType.weather">
-                    <weather-item [item]="item" (click)="onItemClick($event, item)"></weather-item>
+                    <weather-item class="page-item" [item]="item" (click)="onItemClick($event, item)"></weather-item>
                 </template>
                 <template [ngIf]="item.type == PageItemType.widget">
-                    <widget-item [item]="item" (click)="onItemClick($event, item)"></widget-item>
+                    <widget-item class="page-item" [item]="item" (click)="onItemClick($event, item)"></widget-item>
+                </template>
+                <template [ngIf]="item.type == PageItemType.scroller">
+                    <scroller-item class="page-item" [item]="item" (click)="onItemClick($event, item)"></scroller-item>
                 </template>
             </template>
         </div>

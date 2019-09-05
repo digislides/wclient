@@ -1,8 +1,6 @@
-<div class="holder" [style.align-items]="item.font.valign.css">
-    <div>
-        <template ngFor let-line [ngForOf]="lines" let-i="index">
-            <span>{{line}}</span>
-            <br *ngIf="i < lines.length - 1" />
-        </template>
-    </div>
+<div class="holder" [style.text-align]="item.font.align.toString()">
+    <template ngFor let-line [ngForOf]="lines" let-i="index">
+        {{line}}
+        <br *ngIf="i < lines.length - 1" />
+    </template>
 </div>

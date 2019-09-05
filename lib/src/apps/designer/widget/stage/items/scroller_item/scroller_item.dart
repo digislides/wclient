@@ -1,21 +1,19 @@
-import 'dart:convert';
-
 import 'package:angular/angular.dart';
 
 import 'package:common/models.dart';
 
 @Component(
-  selector: 'text-item',
-  styleUrls: ['text_item.css'],
-  templateUrl: 'text_item.html',
+  selector: 'scroller-item',
+  styleUrls: ['scroller_item.css'],
+  templateUrl: 'scroller_item.html',
   directives: [
     NgFor,
     NgIf,
   ],
 )
-class TextItemComponent {
+class ScrollerItemComponent {
   @Input()
-  TextItem item = TextItem(
+  ScrollerItem item = ScrollerItem(
       id: '1',
       name: 'Image',
       left: 100,
@@ -23,7 +21,6 @@ class TextItemComponent {
       width: 200,
       height: 150,
       color: 'red',
-      text: 'Hello!',
       font: FontProperties(
           size: 25, color: 'blue', align: Align.center, bold: true));
 
@@ -45,9 +42,6 @@ class TextItemComponent {
   @HostBinding('style.font-size.px')
   int get fontSize => item.font.size;
 
-  @HostBinding('style.align-items')
-  String get vAlign => item.font.valign.css;
-
   @HostBinding('style.color')
   String get color => item.font.color;
 
@@ -61,7 +55,5 @@ class TextItemComponent {
   String get italic => item.font.italic ? 'italic' : 'normal';
 
   @HostBinding('class')
-  String get classes => "page-item page-item-text";
-
-  Iterable<String> get lines => LineSplitter.split(item.linkedText);
+  String get classes => "page-item page-item-scroller";
 }

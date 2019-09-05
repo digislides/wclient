@@ -4,6 +4,7 @@ import 'dart:async';
 
 import 'package:angular/angular.dart';
 import 'package:common/models.dart';
+import 'package:wclient/src/apps/designer/widget/stage/items/scroller_item/scroller_item.dart';
 import 'package:wclient/src/apps/designer/widget/stage/items/widget_item/widget_item.dart';
 
 import 'items/text_item/text_item.dart';
@@ -28,12 +29,13 @@ class SelectionModifier {}
     ClockItemComponent,
     WeatherItemComponent,
     WidgetItemComponent,
+    ScrollerItemComponent,
   ],
   exports: [
     PageItemType,
   ],
 )
-class PageStageComponent {
+class PageStageComponent implements AfterViewInit, OnDestroy {
   Page _page =
       Page(name: "Page", width: 200, height: 200, color: 'green', items: [
     TextItem(
@@ -75,6 +77,26 @@ class PageStageComponent {
   DivElement canvasDiv;
 
   PageStageComponent();
+
+  StreamSubscription _onPasteSub;
+
+  void ngAfterViewInit() {
+    _onPasteSub = document.onPaste.listen((e) {
+      if (e.target != document.body) return;
+
+      if (e.clipboardData.types.contains('text/plain')) {
+        page.addNewItem(TextItem(text: e.clipboardData.getData('text/plain')));
+      }
+    });
+  }
+
+  @override
+  void ngOnDestroy() {
+    if (_onPasteSub != null) {
+      _onPasteSub.cancel();
+      _onPasteSub = null;
+    }
+  }
 
   int holderWidth = 100;
 

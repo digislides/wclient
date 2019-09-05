@@ -1,0 +1,8 @@
+<div class="holder">
+    <template ngFor let-line [ngForOf]="item.lines" let-i="index">
+        <span class="line" [style.margin-right.px]="item.gap">{{line}}</span>
+        <template [ngIf]="item.separator.isNotEmpty">
+            <span *ngIf="i < item.lines.length - 1" [style.margin-right.px]="item.gap">{{item.separator}}</span>
+        </template>
+    </template>
+</div>

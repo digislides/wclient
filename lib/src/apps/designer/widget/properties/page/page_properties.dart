@@ -22,6 +22,7 @@ import '../../page_scheduler/page_scheduler.dart';
     SelectBoxBinder,
     ImagePropComponent,
     ColorPropComponent,
+    PageSchedulerComponent,
   ],
   exports: [
     Fit,
@@ -72,6 +73,11 @@ class PagePropertiesComponent {
         break;
       case 'widget':
         final item = WidgetItem();
+        page.addNewItem(item);
+        _itemAddCntr.add(item);
+        break;
+      case 'scroller':
+        final item = ScrollerItem();
         page.addNewItem(item);
         _itemAddCntr.add(item);
         break;

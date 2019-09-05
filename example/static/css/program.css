@@ -8,7 +8,7 @@
   overflow: hidden;
 }
 
-.frame .holder {
+.frame > .holder {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -30,14 +30,16 @@
   overflow: hidden;
 }
 
-.page-item-text .holder {
-    width: 100%;
-    height: 100%;
-    display: flex;
+.page-item:hover {
+  /* outline: 1px dashed black; */
 }
 
-.page-item-text .holder span {
+.page-item-text > .holder {
     width: 100%;
+    /*
+    height: 100%;
+    display: flex;
+    */
 }
 
 .page-item-widget iframe {
