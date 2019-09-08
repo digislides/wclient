@@ -1,13 +1,14 @@
 :host {
-  display: block;
+  display: flex;
   position: absolute;
   cursor: default;
   overflow: hidden;
+  align-items: center;
 }
 
 .holder {
     width: 100%;
-    height: 100%;
+    height: auto;
     position: relative;
     white-space: nowrap;
 }

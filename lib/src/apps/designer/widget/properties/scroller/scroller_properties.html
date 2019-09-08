@@ -13,6 +13,11 @@
     </div>
     <color-prop class="value" label="color" [color]="item.color" (onChange)="item.color = $event"></color-prop>
 
+    <div class="row">
+        <div class="label">Duration</div>
+        <input class="input" tjNum [bind]="item.duration" (bind)="item.duration = $event">
+    </div>
+
 
     <div class="row">
         <div class="label">Lines</div>
@@ -27,7 +32,6 @@
             <div class="newline-help">Shift+Enter to add item</div>
         </div>
     </div>
-
 
     <div class="row">
         <div class="label">Gap</div>
