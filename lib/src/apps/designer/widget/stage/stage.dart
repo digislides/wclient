@@ -6,6 +6,7 @@ import 'package:angular/angular.dart';
 import 'package:common/models.dart';
 import 'package:wclient/src/apps/designer/widget/stage/items/scroller_item/scroller_item.dart';
 import 'package:wclient/src/apps/designer/widget/stage/items/widget_item/widget_item.dart';
+import 'package:wclient/src/utils/directives/input_binder.dart';
 
 import 'items/text_item/text_item.dart';
 import 'items/image_item/image_item.dart';
@@ -23,6 +24,7 @@ class SelectionModifier {}
   directives: [
     NgFor,
     NgIf,
+    NumBinder,
     TextItemComponent,
     ImageItemComponent,
     VideoItemComponent,
@@ -69,6 +71,9 @@ class PageStageComponent implements AfterViewInit, OnDestroy {
   }
 
   Page get page => _page;
+
+  @ViewChild("container")
+  DivElement containerDiv;
 
   @ViewChild("viewport")
   DivElement viewportDiv;
@@ -248,8 +253,18 @@ class PageStageComponent implements AfterViewInit, OnDestroy {
         for (PageItem item in selected.values) {
           item.width += factor;
         }
+      } else if(event.keyCode == 187) {
+        zoomIn();
+        event.preventDefault();
+      } else if(event.keyCode == 189) {
+        zoomOut();
+        event.preventDefault();
+      } else if(event.keyCode == KeyCode.SPACE) {
+        fitToViewport();
+        event.preventDefault();
       }
     }
+    print(event.keyCode);
   }
 
   Point<int> _moveStart;
@@ -367,6 +382,46 @@ class PageStageComponent implements AfterViewInit, OnDestroy {
       }
     }
   }
+
+  int scale = 100;
+
+  void setScale(int newScale) {
+    if(newScale <= 0) {
+      newScale = 100;
+    }
+    scale = newScale;
+  }
+
+  void zoomIn() {
+    setScale(scale * 2);
+  }
+
+  void zoomOut() {
+    setScale(scale ~/ 2);
+  }
+
+  void fitToViewport() {
+    num width = page.width;
+    num height = page.height;
+    num ratio = page.width/page.height;
+    int scale = 100;
+    if(page.width > containerDiv.clientWidth) {
+      width = containerDiv.clientWidth;
+      height = width/ratio;
+      scale = (containerDiv.clientWidth/page.width * 100).toInt();
+    }
+    if(height > containerDiv.clientHeight) {
+      height = containerDiv.clientHeight;
+      width = height * ratio;
+      scale = (containerDiv.clientHeight/page.height * 100).toInt();
+    }
+    // TODO
+    setScale(scale);
+  }
+
+  void restoreScale() => scale = 100;
+
+  String get scaleCss => 'scale(${scale/100})';
 }
 
 class PageItemSelectionEvent {

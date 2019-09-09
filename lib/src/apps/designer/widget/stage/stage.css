@@ -6,12 +6,13 @@
   border-left: 1px solid #bbb;
   border-right: 1px solid #bbbbbb;
   user-select: none;
+  position: relative;
 }
 
 .container {
   display: block;
   width: 100%;
-  height: 100%;
+  height: calc(100% - 34px);
   overflow: auto;
   background-color: gainsboro;
 }
@@ -22,6 +23,7 @@
 
 .viewport {
   position: relative;
+  transform-origin: left top;
 }
 
 .viewport.moving * {
@@ -88,4 +90,76 @@
     box-sizing: border-box;
     pointer-events: all;
     cursor: ns-resize;
+}
+
+.tool-bar {
+    width: 100%;
+    height: 24px;
+    padding: 5px 0px;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+
+.tool-bar .tool-section {
+    display: flex;
+    width: auto;
+    height: 100%;
+    margin: 0px 5px;
+}
+
+.tool-bar .tool-btn {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: background-size 0.1s;
+}
+
+.tool-bar .tool-btn:hover {
+    background-size: 90%;
+}
+
+.tool-bar .tool-btn:active {
+    background-size: 70%;
+}
+
+.tool-bar .tool-item {
+    margin: 0px 5px;
+    display: flex;
+    align-items: center;
+}
+
+.scale-display {
+    width: 40px;
+    background-color: #828282;
+    border-radius: 5px;
+    border: 1px solid black;
+    text-align: center;
+    color: inherit;
+    padding: 3px 0px;
+    font-size: 15px;
+}
+
+.scale-display:focus {
+    outline: none;
+}
+
+.zoom-out {
+    background-image: url(/packages/wclient/src/utils/icons/designer/zoom/zoomout.svg);
+}
+
+.zoom-in {
+    background-image: url(/packages/wclient/src/utils/icons/designer/zoom/zoomin.svg);
+}
+
+.fit-viewport {
+    background-image: url(/packages/wclient/src/utils/icons/designer/zoom/fit.svg);
+}
+
+.restore-scale {
+    background-image: url(/packages/wclient/src/utils/icons/designer/zoom/noscale.svg);
 }
