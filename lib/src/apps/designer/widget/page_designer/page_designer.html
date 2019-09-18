@@ -33,6 +33,9 @@
                     <scroller-properties [item]="firstSelected"></scroller-properties>
                 </template>
             </template>
+            <template [ngIf]="selected.length > 1">
+                <multiselect-properties (action)="onMultiSelectAction"></multiselect-properties>
+            </template>
         </div>
         <div class="tab-item" [class.selected]="selectedTab == 1">
             <item-list [page]="page" [selectedItems]="selected" (onItemSelect)="selectItem($event)"></item-list>

@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="section">
+        <div class="section-title">Align</div>
+        <div class="row">
+            <div class="icon align-left" (click)="send('align-left')"></div>
+            <div class="icon align-center" (click)="send('align-center')"></div>
+            <div class="icon align-right" (click)="send('align-right')"></div>
+        </div>
+        <div class="row">
+            <div class="icon align-top" (click)="send('align-top')"></div>
+            <div class="icon align-mid" (click)="send('align-mid')"></div>
+            <div class="icon align-bottom" (click)="send('align-bottom')"></div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Distribute</div>
+        <div class="row">
+            <div class="icon dist-h" (click)="send('dist-h')"></div>
+            <div class="icon dist-htouch" (click)="send('dist-htouch')"></div>
+        </div>
+        <div class="row">
+            <div class="icon dist-v" (click)="send('dist-v')"></div>
+            <div class="icon dist-vtouch" (click)="send('dist-vtouch')"></div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Size</div>
+        <div class="row">
+            <div class="icon size-width" (click)="send('size-width')"></div>
+            <div class="icon size-height" (click)="send('size-height')"></div>
+            <div class="icon size-both" (click)="send('size-both')"></div>
+        </div>
+        <div class="row">
+            <div class="icon size-extend-width" (click)="send('size-extend-width')"></div>
+            <div class="icon size-extend-height" (click)="send('size-extend-height')"></div>
+            <div class="icon size-extend-both" (click)="send('size-extend-both')"></div>
+        </div>
+    </div>
+</div>

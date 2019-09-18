@@ -163,3 +163,19 @@
 .restore-scale {
     background-image: url(/packages/wclient/src/utils/icons/designer/zoom/noscale.svg);
 }
+
+.zoom-out {
+    background-image: url(/packages/wclient/src/utils/icons/designer/zoom/zoomout.svg);
+}
+
+.zoom-in {
+    background-image: url(/packages/wclient/src/utils/icons/designer/zoom/zoomin.svg);
+}
+
+.fit-viewport {
+    background-image: url(/packages/wclient/src/utils/icons/designer/zoom/fit.svg);
+}
+
+.restore-scale {
+    background-image: url(/packages/wclient/src/utils/icons/designer/zoom/noscale.svg);
+}

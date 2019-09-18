@@ -1,0 +1,75 @@
+:host {
+  display: block;
+}
+
+.section {
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.section-title {
+    color: #6f6f6f;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    margin: 5px 0px;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    margin: 0px 5px;
+    border: 1px solid transparent;
+}
+
+.icon:hover {
+    border: 1px solid #aaa;
+}
+
+.icon:active {
+    box-shadow: inset 0px 0px 4px -1px rgba(0,0,0,0.6);
+}
+
+.align-left {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/align_left.svg);
+}
+
+.align-center {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/align_center.svg);
+}
+
+.align-right {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/align_right.svg);
+}
+
+.align-top {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/align_top.svg);
+}
+
+.align-mid {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/align_mid.svg);
+}
+
+.align-bottom {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/align_bottom.svg);
+}
+
+.size-width {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/size_width.svg);
+}
+
+.size-height {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/size_height.svg);
+}
+
+.size-both {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/size_both.svg);
+}

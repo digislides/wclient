@@ -3,6 +3,7 @@ import 'package:wclient/src/apps/designer/widget/properties/widget/widget_proper
 
 import '../stage/stage.dart';
 import '../properties/page/page_properties.dart';
+import '../properties/multiselect/multiselect_properties.dart';
 import '../properties/image/image_properties.dart';
 import '../properties/text/text_properties.dart';
 import '../properties/clock/clock_properties.dart';
@@ -28,6 +29,7 @@ import 'package:common/models.dart';
     WeatherPropertiesComponent,
     WidgetPropertiesComponent,
     ScrollerPropertiesComponent,
+    MultiSelectPropertiesComponent,
     ItemListComponent,
   ],
   exports: [PageItemType],
@@ -84,5 +86,277 @@ class PageDesignerComponent {
 
   void selectItem(PageItemSelectionEvent e) {
     stage.setSelection(e);
+  }
+
+  void onMultiSelectAction(String action) {
+    if(action.startsWith('align-')) {
+      align(action);
+    } else if(action.startsWith('dist-')) {
+      distributer(action);
+    } else if(action.startsWith('size-')) {
+      sizer(action);
+    }
+  }
+
+  void align(String where) {
+    switch (where) {
+      case 'align-top':
+        if (selected.isNotEmpty) {
+          final top = selected.first.top;
+          for (PageItem item in selected) {
+            item.top = top;
+          }
+        }
+        break;
+      case 'align-mid':
+        if (selected.isNotEmpty) {
+          final mid =
+              selected.first.top + (selected.first.height ~/ 2);
+          for (PageItem item in selected) {
+            item.top = mid - (item.height ~/ 2);
+          }
+        }
+        break;
+      case 'align-bottom':
+        if (selected.isNotEmpty) {
+          final bottom =
+              selected.first.top + selected.first.height;
+          for (PageItem item in selected) {
+            item.top = bottom - item.height;
+          }
+        }
+        break;
+      case 'align-left':
+        if (selected.isNotEmpty) {
+          final left = selected.first.left;
+          for (PageItem item in selected) {
+            item.left = left;
+          }
+        }
+        break;
+      case 'align-center':
+        if (selected.isNotEmpty) {
+          final center =
+              selected.first.left + (selected.first.width ~/ 2);
+          for (PageItem item in selected) {
+            item.left = center - (item.width ~/ 2);
+          }
+        }
+        break;
+      case 'align-right':
+        if (selected.isNotEmpty) {
+          final right =
+              selected.first.left + selected.first.width;
+          for (PageItem item in selected) {
+            item.left = right - item.width;
+          }
+        }
+        break;
+    }
+  }
+
+  void sizer(String where) {
+    switch (where) {
+      case 'size-width':
+        if (selected.isNotEmpty) {
+          final width = selected.first.width;
+          for (PageItem item in selected) {
+            item.width = width;
+          }
+        }
+        break;
+      case 'size-height':
+        if (selected.isNotEmpty) {
+          final height = selected.first.height;
+          for (PageItem item in selected) {
+            item.height = height;
+          }
+        }
+        break;
+      case 'size-both':
+        if (selected.isNotEmpty) {
+          final width = selected.first.width;
+          final height = selected.first.height;
+          for (PageItem item in selected) {
+            item.width = width;
+            item.height = height;
+          }
+        }
+        break;
+      case 'size-extend-width':
+        if (selected.isNotEmpty) {
+          for (PageItem item in selected) {
+            final newWidth = page.width - item.left;
+            if (newWidth > 0) item.width = newWidth;
+          }
+        }
+        break;
+      case 'size-extend-height':
+        if (selected.isNotEmpty) {
+          for (PageItem item in selected) {
+            final newHeight = page.height - item.top;
+            if (newHeight > 0) item.height = newHeight;
+          }
+        }
+        break;
+      case 'size-extend-both':
+        if (selected.isNotEmpty) {
+          for (PageItem item in selected) {
+            item.width = page.width;
+            item.height = page.height;
+          }
+        }
+        break;
+    }
+  }
+
+
+
+  void distributer(String where) {
+    switch (where) {
+      case 'dist-h':
+        if (selected.length > 2) {
+          final sorted = selected.toList()
+            ..sort((a, b) => a.left - b.left);
+
+          int gap = 0;
+
+          PageItem bef;
+
+          for (final item in sorted) {
+            if (bef != null) {
+              gap += item.left - (bef.left + bef.width);
+            }
+            bef = item;
+          }
+
+          gap = modn(gap, selected.length - 1);
+
+          bef = null;
+
+          for (final item in sorted) {
+            if (bef != null) {
+              item.left = bef.left + bef.width + gap;
+            }
+            bef = item;
+          }
+        }
+        break;
+      case 'hcenter':
+        if (selected.length > 2) {
+          final sorted = selected.toList()
+            ..sort((a, b) => a.left - b.left);
+
+          int gap = 0;
+
+          PageItem bef;
+
+          for (final item in sorted) {
+            if (bef != null) {
+              gap += (item.left + (item.width ~/ 2)) -
+                  (bef.left + (bef.width ~/ 2));
+            }
+            bef = item;
+          }
+
+          gap = gap ~/ (selected.length - 1);
+          bef = null;
+
+          for (final item in sorted) {
+            if (bef != null) {
+              item.left =
+                  (bef.left + (bef.width ~/ 2)) + gap - (item.width ~/ 2);
+            }
+            bef = item;
+          }
+        }
+        break;
+      case 'htouch':
+        if (selected.length > 1) {
+          final sorted = selected.toList()
+            ..sort((a, b) => a.left - b.left);
+
+          PageItem bef;
+
+          for (final item in sorted) {
+            if (bef != null) {
+              item.left = bef.left + bef.width;
+            }
+            bef = item;
+          }
+        }
+        break;
+      case 'vtop':
+        if (selected.length > 2) {
+          final sorted = selected.toList()
+            ..sort((a, b) => a.top - b.top);
+
+          int gap = 0;
+
+          PageItem bef;
+
+          for (final item in sorted) {
+            if (bef != null) {
+              gap += item.top - (bef.top + bef.height);
+            }
+            bef = item;
+          }
+
+          gap = gap ~/ (selected.length - 1);
+          bef = null;
+
+          for (final item in sorted) {
+            if (bef != null) {
+              item.top = bef.top + bef.height + gap;
+            }
+            bef = item;
+          }
+        }
+        break;
+      case 'vmid':
+        if (selected.length > 2) {
+          final sorted = selected.toList()
+            ..sort((a, b) => a.top - b.top);
+
+          int gap = 0;
+
+          PageItem bef;
+
+          for (final item in sorted) {
+            if (bef != null) {
+              gap += (item.top + (item.height ~/ 2)) -
+                  (bef.top + (bef.height ~/ 2));
+            }
+            bef = item;
+          }
+
+          gap = gap ~/ (selected.length - 1);
+          bef = null;
+
+          for (final item in sorted) {
+            if (bef != null) {
+              item.top =
+                  (bef.top + (bef.height ~/ 2)) + gap - (item.height ~/ 2);
+            }
+            bef = item;
+          }
+        }
+        break;
+      case 'vtouch':
+        if (selected.length > 1) {
+          final sorted = selected.toList()
+            ..sort((a, b) => a.top - b.top);
+
+          PageItem bef;
+
+          for (final item in sorted) {
+            if (bef != null) {
+              item.top = bef.top + bef.height;
+            }
+            bef = item;
+          }
+        }
+        break;
+    }
   }
 }

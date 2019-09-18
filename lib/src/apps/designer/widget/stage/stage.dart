@@ -6,6 +6,9 @@ import 'package:angular/angular.dart';
 import 'package:common/models.dart';
 import 'package:wclient/src/apps/designer/widget/stage/items/scroller_item/scroller_item.dart';
 import 'package:wclient/src/apps/designer/widget/stage/items/widget_item/widget_item.dart';
+import 'package:wclient/src/apps/designer/widget/toolbar/distributer/distributer.dart';
+import 'package:wclient/src/apps/designer/widget/toolbar/positioner/positioner.dart';
+import 'package:wclient/src/apps/designer/widget/toolbar/sizer/sizer.dart';
 import 'package:wclient/src/utils/directives/input_binder.dart';
 
 import 'items/text_item/text_item.dart';
@@ -32,6 +35,9 @@ class SelectionModifier {}
     WeatherItemComponent,
     WidgetItemComponent,
     ScrollerItemComponent,
+    SizerComponent,
+    PositionerComponent,
+    DistributerComponent,
   ],
   exports: [
     PageItemType,
@@ -253,18 +259,17 @@ class PageStageComponent implements AfterViewInit, OnDestroy {
         for (PageItem item in selected.values) {
           item.width += factor;
         }
-      } else if(event.keyCode == 187) {
+      } else if (event.keyCode == 187) {
         zoomIn();
         event.preventDefault();
-      } else if(event.keyCode == 189) {
+      } else if (event.keyCode == 189) {
         zoomOut();
         event.preventDefault();
-      } else if(event.keyCode == KeyCode.SPACE) {
+      } else if (event.keyCode == KeyCode.SPACE) {
         fitToViewport();
         event.preventDefault();
       }
     }
-    print(event.keyCode);
   }
 
   Point<int> _moveStart;
@@ -386,7 +391,7 @@ class PageStageComponent implements AfterViewInit, OnDestroy {
   int scale = 100;
 
   void setScale(int newScale) {
-    if(newScale <= 0) {
+    if (newScale <= 0) {
       newScale = 100;
     }
     scale = newScale;
@@ -403,17 +408,17 @@ class PageStageComponent implements AfterViewInit, OnDestroy {
   void fitToViewport() {
     num width = page.width;
     num height = page.height;
-    num ratio = page.width/page.height;
+    num ratio = page.width / page.height;
     int scale = 100;
-    if(page.width > containerDiv.clientWidth) {
+    if (page.width > containerDiv.clientWidth) {
       width = containerDiv.clientWidth;
-      height = width/ratio;
-      scale = (containerDiv.clientWidth/page.width * 100).toInt();
+      height = width / ratio;
+      scale = (containerDiv.clientWidth / page.width * 100).toInt();
     }
-    if(height > containerDiv.clientHeight) {
+    if (height > containerDiv.clientHeight) {
       height = containerDiv.clientHeight;
       width = height * ratio;
-      scale = (containerDiv.clientHeight/page.height * 100).toInt();
+      scale = (containerDiv.clientHeight / page.height * 100).toInt();
     }
     // TODO
     setScale(scale);
@@ -421,7 +426,113 @@ class PageStageComponent implements AfterViewInit, OnDestroy {
 
   void restoreScale() => scale = 100;
 
-  String get scaleCss => 'scale(${scale/100})';
+  String get scaleCss => 'scale(${scale / 100})';
+
+  void sizer(String where) {
+    switch (where) {
+      case 'extend_width':
+        if (selected.isNotEmpty) {
+          for (PageItem item in selected.values) {
+            final newWidth = page.width - item.left;
+            if (newWidth > 0) item.width = newWidth;
+          }
+        }
+        break;
+      case 'extend_height':
+        if (selected.isNotEmpty) {
+          for (PageItem item in selected.values) {
+            final newHeight = page.height - item.top;
+            if (newHeight > 0) item.height = newHeight;
+          }
+        }
+        break;
+      case 'fullsize':
+        if (selected.isNotEmpty) {
+          for (PageItem item in selected.values) {
+            item.width = page.width;
+            item.height = page.height;
+          }
+        }
+        break;
+    }
+  }
+
+  void positioner(String where) {
+    switch (where) {
+      case 'topleft':
+        if (selected.isNotEmpty) {
+          for (PageItem item in selected.values) {
+            item.left = 0;
+            item.top = 0;
+          }
+        }
+        break;
+      case 'topcenter':
+        if (selected.isNotEmpty) {
+          for (PageItem item in selected.values) {
+            item.left = ((page.width / 2) - (item.width ~/ 2)).toInt();
+            item.top = 0;
+          }
+        }
+        break;
+      case 'topright':
+        if (selected.isNotEmpty) {
+          for (PageItem item in selected.values) {
+            item.left = page.width - item.width;
+            item.top = 0;
+          }
+        }
+        break;
+      case 'midleft':
+        if (selected.isNotEmpty) {
+          for (PageItem item in selected.values) {
+            item.left = 0;
+            item.top = ((page.height / 2) - (item.height ~/ 2)).toInt();
+          }
+        }
+        break;
+      case 'midcenter':
+        if (selected.isNotEmpty) {
+          for (PageItem item in selected.values) {
+            item.left = ((page.width / 2) - (item.width ~/ 2)).toInt();
+            item.top = ((page.height / 2) - (item.height ~/ 2)).toInt();
+          }
+        }
+        break;
+      case 'midright':
+        if (selected.isNotEmpty) {
+          for (PageItem item in selected.values) {
+            item.left = page.width - item.width;
+            item.top = ((page.height / 2) - (item.height ~/ 2)).toInt();
+          }
+        }
+        break;
+      case 'bottomleft':
+        if (selected.isNotEmpty) {
+          for (PageItem item in selected.values) {
+            item.left = 0;
+            item.top = page.height - item.height;
+          }
+        }
+        break;
+      case 'bottomcenter':
+        if (selected.isNotEmpty) {
+          for (PageItem item in selected.values) {
+            item.left = ((page.width / 2) - (item.width ~/ 2)).toInt();
+            item.top = page.height - item.height;
+          }
+        }
+        break;
+      case 'bottomright':
+        if (selected.isNotEmpty) {
+          for (PageItem item in selected.values) {
+            item.left = page.width - item.width;
+            item.top = page.height - item.height;
+          }
+        }
+        break;
+    }
+  }
 }
 
 class PageItemSelectionEvent {
@@ -430,4 +541,11 @@ class PageItemSelectionEvent {
   final bool shift;
 
   PageItemSelectionEvent(this.item, this.shift);
+}
+
+int modn(int q, int d) {
+  int mod = q % d;
+  int gap = q ~/ d;
+  gap += mod ~/ d;
+  return gap;
 }

@@ -64,16 +64,17 @@
         <div class="tool-btn tool-item"></div>
     </div>
     <div class="tool-section middle">
-        <div class="tool-btn tool-item fit-viewport" (click)="fitToViewport()" title="Fit (ctrl + space)"></div>
-        <div class="tool-btn tool-item zoom-out" (click)="zoomOut()" title="Zoom out (ctrl + +)"></div>
+        <div class="tool-btn tool-item fit-viewport" (click)="fitToViewport()" title="Fit (ctrl space)"></div>
+        <div class="tool-btn tool-item zoom-out" (click)="zoomOut()" title="Zoom out (ctrl +)"></div>
         <div class="tool-item">
             <input class="scale-display" tjNum [bind]="scale" (bind)="setScale" title="Scale"/>
             <span style="margin-left: 2px">%</span>
         </div>
-        <div class="tool-btn tool-item zoom-in" (click)="zoomIn()" title="Zoom in (ctrl + -)"></div>
+        <div class="tool-btn tool-item zoom-in" (click)="zoomIn()" title="Zoom in (ctrl -)"></div>
         <div class="tool-btn tool-item restore-scale" (click)="restoreScale()" title="Original size"></div>
     </div>
     <div class="tool-section right">
-        <div class="tool-btn tool-item"></div>
+        <positioner-tool (perform)="positioner"></positioner-tool>
+        <sizer-tool (perform)="sizer"></sizer-tool>
     </div>
 </div>

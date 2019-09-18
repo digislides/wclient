@@ -46,7 +46,6 @@ class ScrollerPropertiesComponent {
   ScrollerPropertiesComponent();
 
   void setLine(int i, String v) {
-    print(v);
     item.lines[i] = v;
   }
 

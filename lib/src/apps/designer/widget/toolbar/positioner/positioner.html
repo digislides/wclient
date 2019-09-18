@@ -1,0 +1,18 @@
+<div class="tool-btn tool-item halign" (click)="open"></div>
+<div class="popup" [class.open]="show">
+    <div class="row">
+        <div class="tool-btn tool-item top-align" (click)="align($event, 'topleft')"></div>
+        <div class="tool-btn tool-item mid-align" (click)="align($event, 'topcenter')"></div>
+        <div class="tool-btn tool-item bottom-align" (click)="align($event, 'topright')"></div>
+    </div>
+    <div class="row">
+        <div class="tool-btn tool-item top-align" (click)="align($event, 'midleft')"></div>
+        <div class="tool-btn tool-item mid-align" (click)="align($event, 'midcenter')"></div>
+        <div class="tool-btn tool-item bottom-align" (click)="align($event, 'midright')"></div>
+    </div>
+    <div class="row">
+        <div class="tool-btn tool-item top-align" (click)="align($event, 'bottomleft')"></div>
+        <div class="tool-btn tool-item mid-align" (click)="align($event, 'bottomcenter')"></div>
+        <div class="tool-btn tool-item bottom-align" (click)="align($event, 'bottomright')"></div>
+    </div>
+</div>

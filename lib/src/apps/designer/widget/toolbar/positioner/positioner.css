@@ -1,0 +1,70 @@
+:host {
+  display: block;
+  position: relative;
+  color: white;
+  margin: 0px 3px;
+}
+
+.popup {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    bottom: 31px;
+    right: 0px;
+    align-items: center;
+    background-color: rgba(0,0,0,0.7);
+    color: white;
+    padding: 5px 5px;
+    border-radius: 5px;
+    border-bottom-right-radius: 0px;
+    box-shadow: 1px 1px 5px 2px #0000005e;
+}
+
+.popup.open {
+    display: flex;
+}
+
+.tool-btn {
+     width: 24px;
+     height: 24px;
+     cursor: pointer;
+     background-size: 80%;
+     background-repeat: no-repeat;
+     background-position: center;
+     transition: background-size 0.1s;
+ }
+
+.tool-btn:hover {
+     background-size: 90%;
+}
+
+.tool-btn:active {
+    background-size: 70%;
+}
+
+.tool-item {
+     margin: 0px 5px;
+     display: flex;
+     align-items: center;
+}
+
+.halign {
+    background-image: url(/packages/wclient/src/utils/icons/designer/zoom/zoomout.svg);
+}
+
+.top-align {
+    background-image: url(/packages/wclient/src/utils/icons/designer/zoom/zoomout.svg);
+}
+
+.mid-align {
+    background-image: url(/packages/wclient/src/utils/icons/designer/zoom/zoomout.svg);
+}
+
+.bottom-align {
+    background-image: url(/packages/wclient/src/utils/icons/designer/zoom/zoomout.svg);
+}
+
+.row {
+    margin: 3px 0px;
+    display: flex;
+}
