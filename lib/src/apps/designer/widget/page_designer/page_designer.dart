@@ -159,27 +159,37 @@ class PageDesignerComponent {
     switch (where) {
       case 'size-width':
         if (selected.isNotEmpty) {
-          final width = selected.first.width;
+          final newWidth = selected.first.width;
           for (PageItem item in selected) {
-            item.width = width;
+            item.width = newWidth;
           }
         }
         break;
       case 'size-height':
         if (selected.isNotEmpty) {
-          final height = selected.first.height;
+          final newHeight = selected.first.height;
           for (PageItem item in selected) {
-            item.height = height;
+            item.height = newHeight;
           }
         }
         break;
-      case 'size-both':
+      case 'size-width-ratio':
         if (selected.isNotEmpty) {
-          final width = selected.first.width;
-          final height = selected.first.height;
+          final newWidth = selected.first.width;
           for (PageItem item in selected) {
-            item.width = width;
-            item.height = height;
+            double ratio = item.height/item.width;
+            item.width = newWidth;
+            item.height = (ratio * newWidth).toInt();
+          }
+        }
+        break;
+      case 'size-height-ratio':
+        if (selected.isNotEmpty) {
+          final newHeight = selected.first.height;
+          for (PageItem item in selected) {
+            double ratio = item.width/item.height;
+            item.height = newHeight;
+            item.width = (ratio * newHeight).toInt();
           }
         }
         break;
@@ -199,18 +209,31 @@ class PageDesignerComponent {
           }
         }
         break;
-      case 'size-extend-both':
+      case 'size-extend-width-ratio':
         if (selected.isNotEmpty) {
           for (PageItem item in selected) {
-            item.width = page.width;
-            item.height = page.height;
+            final newWidth = page.width - item.left;
+
+            if (newWidth <= 0) continue;
+            double ratio = item.height / item.width;
+            item.width = newWidth;
+            item.height = (ratio * newWidth).toInt();
+          }
+        }
+        break;
+      case 'size-extend-height-ratio':
+        if (selected.isNotEmpty) {
+          for (PageItem item in selected) {
+            final newHeight = page.height - item.top;
+            if (newHeight <= 0) continue;
+            double ratio = item.width / item.height;
+            item.height = newHeight;
+            item.width = (ratio * newHeight).toInt();
           }
         }
         break;
     }
   }
-
-
 
   void distributer(String where) {
     switch (where) {
@@ -242,36 +265,7 @@ class PageDesignerComponent {
           }
         }
         break;
-      case 'hcenter':
-        if (selected.length > 2) {
-          final sorted = selected.toList()
-            ..sort((a, b) => a.left - b.left);
-
-          int gap = 0;
-
-          PageItem bef;
-
-          for (final item in sorted) {
-            if (bef != null) {
-              gap += (item.left + (item.width ~/ 2)) -
-                  (bef.left + (bef.width ~/ 2));
-            }
-            bef = item;
-          }
-
-          gap = gap ~/ (selected.length - 1);
-          bef = null;
-
-          for (final item in sorted) {
-            if (bef != null) {
-              item.left =
-                  (bef.left + (bef.width ~/ 2)) + gap - (item.width ~/ 2);
-            }
-            bef = item;
-          }
-        }
-        break;
-      case 'htouch':
+      case 'dist-htouch':
         if (selected.length > 1) {
           final sorted = selected.toList()
             ..sort((a, b) => a.left - b.left);
@@ -286,7 +280,65 @@ class PageDesignerComponent {
           }
         }
         break;
-      case 'vtop':
+      case 'dist-hwide':
+        if (selected.length > 2) {
+          final sorted = selected.toList()
+            ..sort((a, b) => a.left - b.left);
+
+          int gap = 0;
+
+          PageItem bef;
+
+          for (final item in sorted) {
+            if (bef != null) {
+              gap += item.left - (bef.left + bef.width);
+            }
+            bef = item;
+          }
+
+          gap = modn(gap, selected.length - 1);
+          gap += 5;
+
+          bef = null;
+
+          for (final item in sorted) {
+            if (bef != null) {
+              item.left = bef.left + bef.width + gap;
+            }
+            bef = item;
+          }
+        }
+        break;
+      case 'dist-hcontract':
+        if (selected.length > 2) {
+          final sorted = selected.toList()
+            ..sort((a, b) => a.left - b.left);
+
+          int gap = 0;
+
+          PageItem bef;
+
+          for (final item in sorted) {
+            if (bef != null) {
+              gap += item.left - (bef.left + bef.width);
+            }
+            bef = item;
+          }
+
+          gap = modn(gap, selected.length - 1);
+          gap -= 5;
+
+          bef = null;
+
+          for (final item in sorted) {
+            if (bef != null) {
+              item.left = bef.left + bef.width + gap;
+            }
+            bef = item;
+          }
+        }
+        break;
+      case 'dist-v':
         if (selected.length > 2) {
           final sorted = selected.toList()
             ..sort((a, b) => a.top - b.top);
@@ -313,7 +365,22 @@ class PageDesignerComponent {
           }
         }
         break;
-      case 'vmid':
+      case 'dist-vtouch':
+        if (selected.length > 1) {
+          final sorted = selected.toList()
+            ..sort((a, b) => a.top - b.top);
+
+          PageItem bef;
+
+          for (final item in sorted) {
+            if (bef != null) {
+              item.top = bef.top + bef.height;
+            }
+            bef = item;
+          }
+        }
+        break;
+      case 'dist-vwide':
         if (selected.length > 2) {
           final sorted = selected.toList()
             ..sort((a, b) => a.top - b.top);
@@ -324,34 +391,48 @@ class PageDesignerComponent {
 
           for (final item in sorted) {
             if (bef != null) {
-              gap += (item.top + (item.height ~/ 2)) -
-                  (bef.top + (bef.height ~/ 2));
+              gap += item.top - (bef.top + bef.height);
             }
             bef = item;
           }
 
           gap = gap ~/ (selected.length - 1);
+          gap += 5;
+
           bef = null;
 
           for (final item in sorted) {
             if (bef != null) {
-              item.top =
-                  (bef.top + (bef.height ~/ 2)) + gap - (item.height ~/ 2);
+              item.top = bef.top + bef.height + gap;
             }
             bef = item;
           }
         }
         break;
-      case 'vtouch':
-        if (selected.length > 1) {
+      case 'dist-vcontract':
+        if (selected.length > 2) {
           final sorted = selected.toList()
             ..sort((a, b) => a.top - b.top);
+
+          int gap = 0;
 
           PageItem bef;
 
           for (final item in sorted) {
             if (bef != null) {
-              item.top = bef.top + bef.height;
+              gap += item.top - (bef.top + bef.height);
+            }
+            bef = item;
+          }
+
+          gap = gap ~/ (selected.length - 1);
+          gap -= 5;
+
+          bef = null;
+
+          for (final item in sorted) {
+            if (bef != null) {
+              item.top = bef.top + bef.height + gap;
             }
             bef = item;
           }

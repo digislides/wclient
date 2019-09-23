@@ -6,7 +6,6 @@ import 'package:angular/angular.dart';
 import 'package:common/models.dart';
 import 'package:wclient/src/apps/designer/widget/stage/items/scroller_item/scroller_item.dart';
 import 'package:wclient/src/apps/designer/widget/stage/items/widget_item/widget_item.dart';
-import 'package:wclient/src/apps/designer/widget/toolbar/distributer/distributer.dart';
 import 'package:wclient/src/apps/designer/widget/toolbar/positioner/positioner.dart';
 import 'package:wclient/src/apps/designer/widget/toolbar/sizer/sizer.dart';
 import 'package:wclient/src/utils/directives/input_binder.dart';
@@ -37,7 +36,6 @@ class SelectionModifier {}
     ScrollerItemComponent,
     SizerComponent,
     PositionerComponent,
-    DistributerComponent,
   ],
   exports: [
     PageItemType,

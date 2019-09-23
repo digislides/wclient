@@ -2,40 +2,67 @@
     <div class="section">
         <div class="section-title">Align</div>
         <div class="row">
-            <div class="icon align-left" (click)="send('align-left')"></div>
-            <div class="icon align-center" (click)="send('align-center')"></div>
-            <div class="icon align-right" (click)="send('align-right')"></div>
+            <div class="icon align-left" (click)="send('align-left')" title="Align left"></div>
+            <div class="icon align-center" (click)="send('align-center')" title="Align center"></div>
+            <div class="icon align-right" (click)="send('align-right')" title="Align right"></div>
         </div>
         <div class="row">
-            <div class="icon align-top" (click)="send('align-top')"></div>
-            <div class="icon align-mid" (click)="send('align-mid')"></div>
-            <div class="icon align-bottom" (click)="send('align-bottom')"></div>
+            <div class="icon align-top" (click)="send('align-top')" title="Align top"></div>
+            <div class="icon align-mid" (click)="send('align-mid')" title="Align mid"></div>
+            <div class="icon align-bottom" (click)="send('align-bottom')" title="Align bottom"></div>
         </div>
     </div>
 
     <div class="section">
         <div class="section-title">Distribute</div>
         <div class="row">
-            <div class="icon dist-h" (click)="send('dist-h')"></div>
-            <div class="icon dist-htouch" (click)="send('dist-htouch')"></div>
+            <div class="icon dist-h" (click)="send('dist-h')" title="Distribute horizontally"></div>
+            <div class="icon dist-htouch" (click)="send('dist-htouch')" title="Remove gap horizontally"></div>
+            <div class="icon dist-hwide" (click)="send('dist-hwide')" title="Widen gap horizontally"></div>
+            <div class="icon dist-hcontract" (click)="send('dist-hcontract')" title="Contract gap horizontally"></div>
         </div>
         <div class="row">
-            <div class="icon dist-v" (click)="send('dist-v')"></div>
-            <div class="icon dist-vtouch" (click)="send('dist-vtouch')"></div>
+            <div class="icon dist-v" (click)="send('dist-v')" title="Distribute vertically"></div>
+            <div class="icon dist-vtouch" (click)="send('dist-vtouch')" title="Remove gap vertically"></div>
+            <div class="icon dist-vwide" (click)="send('dist-vwide')" title="Widen gap vertically"></div>
+            <div class="icon dist-vcontract" (click)="send('dist-vcontract')" title="Contract gap vertically"></div>
         </div>
     </div>
 
     <div class="section">
         <div class="section-title">Size</div>
         <div class="row">
-            <div class="icon size-width" (click)="send('size-width')"></div>
-            <div class="icon size-height" (click)="send('size-height')"></div>
-            <div class="icon size-both" (click)="send('size-both')"></div>
+            <div class="icon size-width" (click)="send('size-width')" title="Same width"></div>
+            <div class="icon size-height" (click)="send('size-height')" title="Same height"></div>
+            <div class="icon size-width-ratio" (click)="send('size-width-ratio')" title="Same width with aspect ratio"></div>
+            <div class="icon size-height-ratio" (click)="send('size-height-ratio')" title="Same height with aspect ratio"></div>
         </div>
         <div class="row">
-            <div class="icon size-extend-width" (click)="send('size-extend-width')"></div>
-            <div class="icon size-extend-height" (click)="send('size-extend-height')"></div>
-            <div class="icon size-extend-both" (click)="send('size-extend-both')"></div>
+            <div class="icon size-extend-width" (click)="send('size-extend-width')" title="Extend width to page boundary"></div>
+            <div class="icon size-extend-height" (click)="send('size-extend-height')" title="Extend height to page boundary"></div>
+            <div class="icon size-extend-width-ratio" (click)="send('size-extend-width-ratio')" title="Extend width to page boundary with aspect ratio"></div>
+            <div class="icon size-extend-height-ratio" (click)="send('size-extend-height-ratio')" title="Extend height to page boundary with aspect ratio"></div>
         </div>
     </div>
+
+    <!--
+    <div class="section">
+        <div class="section-title">Position</div>
+        <div class="row">
+            <div class="icon size-width" (click)="send('pos-lefttop')"></div>
+            <div class="icon size-height" (click)="send('pos-centertop')"></div>
+            <div class="icon size-both" (click)="send('size-righttop')"></div>
+        </div>
+        <div class="row">
+            <div class="icon size-extend-width" (click)="send('pos-leftmid')"></div>
+            <div class="icon size-extend-height" (click)="send('size-centermid')"></div>
+            <div class="icon size-extend-both" (click)="send('size-rightmid')"></div>
+        </div>
+        <div class="row">
+            <div class="icon size-extend-width" (click)="send('pos-leftbottom')"></div>
+            <div class="icon size-extend-height" (click)="send('size-centerbottom')"></div>
+            <div class="icon size-extend-both" (click)="send('size-rightbottom')"></div>
+        </div>
+    </div>
+    -->
 </div>
