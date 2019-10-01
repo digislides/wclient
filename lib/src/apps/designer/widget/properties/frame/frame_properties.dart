@@ -29,6 +29,9 @@ import 'package:wclient/src/apps/designer/widget/properties/items/color/color.da
     ])
 class FramePropertiesComponent {
   @Input()
+  ProgramDesign design;
+
+  @Input()
   Frame frame;
 
   FramePropertiesComponent();

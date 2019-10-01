@@ -30,6 +30,9 @@ import 'package:wclient/src/apps/designer/widget/properties/items/color/color.da
     ])
 class TextPropertiesComponent {
   @Input()
+  Page page;
+
+  @Input()
   TextItem text = TextItem(
     id: '1',
     name: 'Image1',

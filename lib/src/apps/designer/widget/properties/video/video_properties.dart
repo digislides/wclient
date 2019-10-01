@@ -28,6 +28,9 @@ import 'package:wclient/src/apps/designer/widget/properties/items/color/color.da
     ])
 class VideoPropertiesComponent {
   @Input()
+  Page page;
+
+  @Input()
   VideoItem video;
 
   VideoPropertiesComponent();

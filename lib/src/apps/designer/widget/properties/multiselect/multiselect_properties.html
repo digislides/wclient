@@ -32,10 +32,10 @@
     <div class="section">
         <div class="section-title">Size</div>
         <div class="row">
-            <div class="icon size-width" (click)="send('size-width')" title="Same width"></div>
-            <div class="icon size-height" (click)="send('size-height')" title="Same height"></div>
-            <div class="icon size-width-ratio" (click)="send('size-width-ratio')" title="Same width with aspect ratio"></div>
-            <div class="icon size-height-ratio" (click)="send('size-height-ratio')" title="Same height with aspect ratio"></div>
+            <div class="icon size-same-width" (click)="send('size-width')" title="Same width"></div>
+            <div class="icon size-same-height" (click)="send('size-height')" title="Same height"></div>
+            <div class="icon size-same-width-ratio" (click)="send('size-width-ratio')" title="Same width with aspect ratio"></div>
+            <div class="icon size-same-height-ratio" (click)="send('size-height-ratio')" title="Same height with aspect ratio"></div>
         </div>
         <div class="row">
             <div class="icon size-extend-width" (click)="send('size-extend-width')" title="Extend width to page boundary"></div>
@@ -45,24 +45,22 @@
         </div>
     </div>
 
-    <!--
     <div class="section">
         <div class="section-title">Position</div>
         <div class="row">
-            <div class="icon size-width" (click)="send('pos-lefttop')"></div>
-            <div class="icon size-height" (click)="send('pos-centertop')"></div>
-            <div class="icon size-both" (click)="send('size-righttop')"></div>
+            <div class="icon pos-lefttop" (click)="send('pos-lefttop')"></div>
+            <div class="icon pos-centertop" (click)="send('pos-centertop')"></div>
+            <div class="icon pos-righttop" (click)="send('pos-righttop')"></div>
         </div>
         <div class="row">
-            <div class="icon size-extend-width" (click)="send('pos-leftmid')"></div>
-            <div class="icon size-extend-height" (click)="send('size-centermid')"></div>
-            <div class="icon size-extend-both" (click)="send('size-rightmid')"></div>
+            <div class="icon pos-leftmid" (click)="send('pos-leftmid')"></div>
+            <div class="icon pos-centermid" (click)="send('pos-centermid')"></div>
+            <div class="icon pos-rightmid" (click)="send('pos-rightmid')"></div>
         </div>
         <div class="row">
-            <div class="icon size-extend-width" (click)="send('pos-leftbottom')"></div>
-            <div class="icon size-extend-height" (click)="send('size-centerbottom')"></div>
-            <div class="icon size-extend-both" (click)="send('size-rightbottom')"></div>
+            <div class="icon pos-leftbottom" (click)="send('pos-leftbottom')"></div>
+            <div class="icon pos-centerbottom" (click)="send('pos-centerbottom')"></div>
+            <div class="icon pos-rightbottom" (click)="send('pos-rightbottom')"></div>
         </div>
     </div>
-    -->
 </div>

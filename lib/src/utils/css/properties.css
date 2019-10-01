@@ -1,12 +1,13 @@
 .row {
   display: flex;
-  align-items: center;
   padding: 2px 5px;
   box-sizing: border-box;
 }
 
 .label {
   width: 75px;
+  height: 26px;
+  line-height: 26px;
   color: #4a4a4a;
   font-size: 14px;
   font-family: sans-serif;

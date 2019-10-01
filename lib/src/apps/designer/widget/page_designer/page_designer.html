@@ -12,25 +12,25 @@
             </template>
             <template [ngIf]="selected.length == 1">
                 <template [ngIf]="firstSelected.type == PageItemType.text">
-                    <text-properties [text]="firstSelected"></text-properties>
+                    <text-properties [page]="page" [text]="firstSelected"></text-properties>
                 </template>
                 <template [ngIf]="firstSelected.type == PageItemType.image">
-                    <image-properties [image]="firstSelected"></image-properties>
+                    <image-properties [page]="page" [image]="firstSelected"></image-properties>
                 </template>
                 <template [ngIf]="firstSelected.type == PageItemType.video">
-                    <video-properties [video]="firstSelected"></video-properties>
+                    <video-properties [page]="page" [video]="firstSelected"></video-properties>
                 </template>
                 <template [ngIf]="firstSelected.type == PageItemType.clock">
-                    <clock-properties [item]="firstSelected"></clock-properties>
+                    <clock-properties [page]="page" [item]="firstSelected"></clock-properties>
                 </template>
                 <template [ngIf]="firstSelected.type == PageItemType.weather">
-                    <weather-properties [item]="firstSelected"></weather-properties>
+                    <weather-properties [page]="page" [item]="firstSelected"></weather-properties>
                 </template>
                 <template [ngIf]="firstSelected.type == PageItemType.widget">
-                    <widget-properties [item]="firstSelected"></widget-properties>
+                    <widget-properties [page]="page" [item]="firstSelected"></widget-properties>
                 </template>
                 <template [ngIf]="firstSelected.type == PageItemType.scroller">
-                    <scroller-properties [item]="firstSelected"></scroller-properties>
+                    <scroller-properties [page]="page" [item]="firstSelected"></scroller-properties>
                 </template>
             </template>
             <template [ngIf]="selected.length > 1">

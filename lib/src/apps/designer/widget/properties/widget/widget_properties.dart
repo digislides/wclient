@@ -25,6 +25,9 @@ import 'package:wclient/src/apps/designer/widget/properties/items/size/size.dart
     ])
 class WidgetPropertiesComponent {
   @Input()
+  Page page;
+
+  @Input()
   WidgetItem item = WidgetItem(
     id: '1',
     name: 'Widget',

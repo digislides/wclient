@@ -1,9 +1,31 @@
-<div class="item">
-    <div class="icon left-icon"></div>
-    <input #left class="input" type="number" tjText [bind]="pos.x" (bind)="changed(left.value, top.value)">
+<div class="header">
+    <div class="item">
+        <div class="icon left-icon"></div>
+        <input #left class="input" type="number" tjText [bind]="item.left" (bind)="changed(left.value, top.value)">
+    </div>
+
+    <div class="item">
+        <div class="icon top-icon"></div>
+        <input #top class="input" type="number" tjText [bind]="item.top" (bind)="changed(left.value, top.value)">
+    </div>
+
+    <div class="expander" [class.expanded]="showActions" (click)="showActions = !showActions"></div>
 </div>
 
-<div class="item">
-    <div class="icon top-icon"></div>
-    <input #top class="input" type="number" tjText [bind]="pos.y" (bind)="changed(left.value, top.value)">
+<div *ngIf="showActions" class="actions">
+    <div class="row">
+        <div class="icon pos-lefttop" (click)="position('pos-lefttop')"></div>
+        <div class="icon pos-centertop" (click)="position('pos-centertop')"></div>
+        <div class="icon pos-righttop" (click)="position('pos-righttop')"></div>
+    </div>
+    <div class="row">
+        <div class="icon pos-leftmid" (click)="position('pos-leftmid')"></div>
+        <div class="icon pos-centermid" (click)="position('pos-centermid')"></div>
+        <div class="icon pos-rightmid" (click)="position('pos-rightmid')"></div>
+    </div>
+    <div class="row">
+        <div class="icon pos-leftbottom" (click)="position('pos-leftbottom')"></div>
+        <div class="icon pos-centerbottom" (click)="position('pos-centerbottom')"></div>
+        <div class="icon pos-rightbottom" (click)="position('pos-rightbottom')"></div>
+    </div>
 </div>

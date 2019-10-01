@@ -33,6 +33,9 @@ import 'package:wclient/src/apps/designer/widget/properties/items/color/color.da
     ])
 class ScrollerPropertiesComponent {
   @Input()
+  Page page;
+
+  @Input()
   ScrollerItem item = ScrollerItem(
     id: '1',
     name: 'Image1',

@@ -1,9 +1,22 @@
-<div class="item">
-    <div class="icon width-icon"></div>
-    <input #width class="input" type="number" tjText [bind]="size.x" (bind)="changed(width.value, height.value)">
+<div class="header">
+    <div class="item">
+        <div class="icon width-icon"></div>
+        <input #width class="input" type="number" tjText [bind]="item.width" (bind)="changed(width.value, height.value)">
+    </div>
+
+    <div class="item">
+        <div class="icon height-icon"></div>
+        <input #height class="input" type="number" tjText [bind]="item.height" (bind)="changed(width.value, height.value)">
+    </div>
+
+    <div class="expander" [class.expanded]="showActions" (click)="showActions = !showActions"></div>
 </div>
 
-<div class="item">
-    <div class="icon height-icon"></div>
-    <input #height class="input" type="number" tjText [bind]="size.y" (bind)="changed(width.value, height.value)">
+<div *ngIf="showActions" class="actions">
+    <div class="row">
+        <div class="icon size-extend-width" (click)="sizer('size-extend-width')" title="Extend width to page boundary"></div>
+        <div class="icon size-extend-height" (click)="sizer('size-extend-height')" title="Extend height to page boundary"></div>
+        <div class="icon size-extend-width-ratio" (click)="sizer('size-extend-width-ratio')" title="Extend width to page boundary with aspect ratio"></div>
+        <div class="icon size-extend-height-ratio" (click)="sizer('size-extend-height-ratio')" title="Extend height to page boundary with aspect ratio"></div>
+    </div>
 </div>

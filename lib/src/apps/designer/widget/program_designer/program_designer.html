@@ -7,6 +7,6 @@
         <program-properties [program]="program"></program-properties>
     </template>
     <template [ngIf]="selected.length == 1">
-        <frame-properties [frame]="firstSelected"></frame-properties>
+        <frame-properties [design]="program.design" [frame]="firstSelected"></frame-properties>
     </template>
 </div>

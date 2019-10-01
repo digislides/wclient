@@ -95,6 +95,8 @@ class PageDesignerComponent {
       distributer(action);
     } else if(action.startsWith('size-')) {
       sizer(action);
+    } else if(action.startsWith('pos-')) {
+      positioner(action);
     }
   }
 
@@ -435,6 +437,83 @@ class PageDesignerComponent {
               item.top = bef.top + bef.height + gap;
             }
             bef = item;
+          }
+        }
+        break;
+    }
+  }
+
+  void positioner(String where) {
+    switch (where) {
+      case 'pos-lefttop':
+        if (selected.isNotEmpty) {
+          for (PageItem item in selected) {
+            item.left = 0;
+            item.top = 0;
+          }
+        }
+        break;
+      case 'pos-centertop':
+        if (selected.isNotEmpty) {
+          for (PageItem item in selected) {
+            item.left = ((page.width / 2) - (item.width ~/ 2)).toInt();
+            item.top = 0;
+          }
+        }
+        break;
+      case 'pos-righttop':
+        if (selected.isNotEmpty) {
+          for (PageItem item in selected) {
+            item.left = page.width - item.width;
+            item.top = 0;
+          }
+        }
+        break;
+      case 'pos-leftmid':
+        if (selected.isNotEmpty) {
+          for (PageItem item in selected) {
+            item.left = 0;
+            item.top = ((page.height / 2) - (item.height ~/ 2)).toInt();
+          }
+        }
+        break;
+      case 'pos-centermid':
+        if (selected.isNotEmpty) {
+          for (PageItem item in selected) {
+            item.left = ((page.width / 2) - (item.width ~/ 2)).toInt();
+            item.top = ((page.height / 2) - (item.height ~/ 2)).toInt();
+          }
+        }
+        break;
+      case 'pos-rightmid':
+        if (selected.isNotEmpty) {
+          for (PageItem item in selected) {
+            item.left = page.width - item.width;
+            item.top = ((page.height / 2) - (item.height ~/ 2)).toInt();
+          }
+        }
+        break;
+      case 'pos-leftbottom':
+        if (selected.isNotEmpty) {
+          for (PageItem item in selected) {
+            item.left = 0;
+            item.top = page.height - item.height;
+          }
+        }
+        break;
+      case 'pos-centerbottom':
+        if (selected.isNotEmpty) {
+          for (PageItem item in selected) {
+            item.left = ((page.width / 2) - (item.width ~/ 2)).toInt();
+            item.top = page.height - item.height;
+          }
+        }
+        break;
+      case 'pos-rightbottom':
+        if (selected.isNotEmpty) {
+          for (PageItem item in selected) {
+            item.left = page.width - item.width;
+            item.top = page.height - item.height;
           }
         }
         break;

@@ -28,6 +28,9 @@ import 'package:wclient/src/apps/designer/widget/properties/items/color/color.da
     ])
 class ImagePropertiesComponent {
   @Input()
+  Page page;
+
+  @Input()
   ImageItem image = ImageItem(
     id: '1',
     name: 'Image1',

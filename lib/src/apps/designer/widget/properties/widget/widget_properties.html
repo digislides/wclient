@@ -5,11 +5,11 @@
     </div>
     <div class="row">
         <div class="label">Position</div>
-        <pos-prop class="value" [pos]="item.pos" (onChange)="item.pos = $event"></pos-prop>
+        <pos-prop [container]="page" [item]="item"></pos-prop>
     </div>
     <div class="row">
         <div class="label">Size</div>
-        <size-prop class="value" [size]="item.size" (onChange)="item.size = $event"></size-prop>
+        <size-prop [container]="page" [item]="item"></size-prop>
     </div>
     <div>
         <div class="row">

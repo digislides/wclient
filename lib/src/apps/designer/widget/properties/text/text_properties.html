@@ -5,11 +5,11 @@
     </div>
     <div class="row">
         <div class="label">Position</div>
-        <pos-prop class="value" [pos]="text.pos" (onChange)="text.pos = $event"></pos-prop>
+        <pos-prop class="value" [container]="page" [item]="text"></pos-prop>
     </div>
     <div class="row">
         <div class="label">Size</div>
-        <size-prop class="value" [size]="text.size" (onChange)="text.size = $event"></size-prop>
+        <size-prop class="value" [container]="page" [item]="text"></size-prop>
     </div>
     <color-prop class="value" label="color" [color]="text.color" (onChange)="text.color = $event"></color-prop>
     <text-prop-item [repo]="text.dataRepository" [text]="text.text" (change)="text.text = $event"></text-prop-item>

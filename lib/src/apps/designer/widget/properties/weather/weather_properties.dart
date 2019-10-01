@@ -26,6 +26,9 @@ import 'package:common/models.dart';
     ])
 class WeatherPropertiesComponent {
   @Input()
+  Page page;
+
+  @Input()
   WeatherItem item;
 
   WeatherPropertiesComponent();

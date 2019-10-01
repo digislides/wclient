@@ -1,4 +1,9 @@
 :host {
+    width: 100%;
+    height: auto;
+}
+
+.header {
     display: flex;
     width: 100%;
     height: 26px;
@@ -25,12 +30,16 @@
     margin-right: 5px;
 }
 
-.icon {
+.item .icon {
     width: 25px;
     height: 25px;
     background-size: 66%;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.item .icon-click {
+    cursor: pointer;
 }
 
 .width-icon {
@@ -52,4 +61,67 @@
 .input:focus {
   outline: none;
   border: none;
+}
+
+.actions {
+  width: 100%;
+  padding: 5px 0px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.row .icon {
+    width: 40px;
+    height: 40px;
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    margin: 0px 5px;
+    border: 1px solid transparent;
+}
+
+.row .icon:hover {
+    border: 1px solid #aaa;
+}
+
+.row .icon:active {
+    box-shadow: inset 0px 0px 4px -1px rgba(0,0,0,0.6);
+}
+
+.size-extend-width {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/size_extend_width.svg);
+}
+
+.size-extend-height {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/size_extend_height.svg);
+}
+
+.size-extend-width-ratio {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/size_extend_width_ratio.svg);
+}
+
+.size-extend-height-ratio {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/size_extend_height_ratio.svg);
+}
+
+.expander {
+    width: 22px;
+    height: 22px;
+    border-radius: 3px;
+    background-size: 45%;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    background-image: url(/packages/wclient/src/utils/icons/dashboard/controls/down.svg);
+    border: 1px solid #aaa;
+    background-color: #dedede;
+}
+
+.expander.expanded {
+    background-color: #bbb;
+    background-image: url(/packages/wclient/src/utils/icons/dashboard/controls/up.svg);
 }

@@ -25,6 +25,9 @@ import 'package:common/models.dart';
     ])
 class ClockPropertiesComponent {
   @Input()
+  Page page;
+
+  @Input()
   ClockItem item = ClockItem(
     id: '1',
     name: 'Clock1',

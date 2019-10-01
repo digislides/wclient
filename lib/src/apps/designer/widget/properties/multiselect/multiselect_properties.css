@@ -70,14 +70,94 @@
     background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/dist_h.svg);
 }
 
-.size-width {
-    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/size_width.svg);
+.dist-htouch {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/dist_htouch.svg);
 }
 
-.size-height {
-    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/size_height.svg);
+.dist-vtouch {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/dist_vtouch.svg);
 }
 
-.size-both {
-    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/size_both.svg);
+.dist-hwide {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/dist_hwiden.svg);
+}
+
+.dist-vwide {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/dist_vwiden.svg);
+}
+
+.dist-hcontract {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/dist_hcontract.svg);
+}
+
+.dist-vcontract {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/dist_vcontract.svg);
+}
+
+.size-same-width {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/size_same_width.svg);
+}
+
+.size-same-height {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/size_same_height.svg);
+}
+
+.size-same-width-ratio {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/size_same_width_ratio.svg);
+}
+
+.size-same-height-ratio {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/size_same_height_ratio.svg);
+}
+
+.size-extend-width {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/size_extend_width.svg);
+}
+
+.size-extend-height {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/size_extend_height.svg);
+}
+
+.size-extend-width-ratio {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/size_extend_width_ratio.svg);
+}
+
+.size-extend-height-ratio {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/size_extend_height_ratio.svg);
+}
+
+.pos-lefttop {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/pos_lefttop.svg);
+}
+
+.pos-centertop {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/pos_centertop.svg);
+}
+
+.pos-righttop {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/pos_righttop.svg);
+}
+
+.pos-leftmid {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/pos_leftmid.svg);
+}
+
+.pos-centermid {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/pos_centermid.svg);
+}
+
+.pos-rightmid {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/pos_rightmid.svg);
+}
+
+.pos-leftbottom {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/pos_leftbottom.svg);
+}
+
+.pos-centerbottom {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/pos_centerbottom.svg);
+}
+
+.pos-rightbottom {
+    background-image: url(/packages/wclient/src/utils/icons/designer/properties/align_dist/pos_rightbottom.svg);
 }
