@@ -210,6 +210,10 @@ class PageStageComponent implements AfterViewInit, OnDestroy {
       selected.clear();
       _updateSelectedRect();
       return;
+    } else if(event.keyCode == KeyCode.ESC) {
+      selected.clear();
+      _updateSelectedRect();
+      return;
     }
 
     int factor = 5;
