@@ -283,7 +283,7 @@ class PageDesignerComponent {
         }
         break;
       case 'dist-hwide':
-        if (selected.length > 2) {
+        if (selected.length > 1) {
           final sorted = selected.toList()
             ..sort((a, b) => a.left - b.left);
 
@@ -312,7 +312,7 @@ class PageDesignerComponent {
         }
         break;
       case 'dist-hcontract':
-        if (selected.length > 2) {
+        if (selected.length > 1) {
           final sorted = selected.toList()
             ..sort((a, b) => a.left - b.left);
 
@@ -383,7 +383,7 @@ class PageDesignerComponent {
         }
         break;
       case 'dist-vwide':
-        if (selected.length > 2) {
+        if (selected.length > 1) {
           final sorted = selected.toList()
             ..sort((a, b) => a.top - b.top);
 
@@ -412,7 +412,7 @@ class PageDesignerComponent {
         }
         break;
       case 'dist-vcontract':
-        if (selected.length > 2) {
+        if (selected.length > 1) {
           final sorted = selected.toList()
             ..sort((a, b) => a.top - b.top);
 
