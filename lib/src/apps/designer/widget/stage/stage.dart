@@ -4,6 +4,7 @@ import 'dart:async';
 
 import 'package:angular/angular.dart';
 import 'package:common/models.dart';
+import 'package:wclient/src/apps/designer/widget/stage/add_item_window/add_item_window.dart';
 import 'package:wclient/src/apps/designer/widget/stage/items/scroller_item/scroller_item.dart';
 import 'package:wclient/src/apps/designer/widget/stage/items/widget_item/widget_item.dart';
 import 'package:wclient/src/utils/directives/input_binder.dart';
@@ -32,6 +33,7 @@ class SelectionModifier {}
     WeatherItemComponent,
     WidgetItemComponent,
     ScrollerItemComponent,
+    AddItemWindowComponent,
   ],
   exports: [
     PageItemType,
@@ -210,7 +212,7 @@ class PageStageComponent implements AfterViewInit, OnDestroy {
       selected.clear();
       _updateSelectedRect();
       return;
-    } else if(event.keyCode == KeyCode.ESC) {
+    } else if (event.keyCode == KeyCode.ESC) {
       selected.clear();
       _updateSelectedRect();
       return;
@@ -388,19 +390,38 @@ class PageStageComponent implements AfterViewInit, OnDestroy {
 
   int scale = 100;
 
-  void setScale(int newScale) {
+  void setScale(int newScale, [Point<int> pivotAt]) {
+    final oldScale = scale;
+    final oldScrollPos =
+        Point<int>(containerDiv.scrollLeft, containerDiv.scrollTop);
+    if (pivotAt == null) {
+      pivotAt = Point<int>(
+          (containerDiv.offsetWidth ~/ 2), (containerDiv.offsetHeight ~/ 2));
+    }
+    final oldPivot =
+        Point<int>(containerDiv.scrollLeft, containerDiv.scrollTop) + pivotAt;
+
     if (newScale <= 0) {
-      newScale = 100;
+      newScale = scale;
     }
     scale = newScale;
+
+    final newPivot = Point<int>(((oldPivot.x / oldScale) * scale).toInt(),
+        ((oldPivot.y / oldScale) * scale).toInt());
+
+    final newScrollPos =
+        Point<int>(newPivot.x - pivotAt.x, newPivot.y - pivotAt.y);
+
+    containerDiv.scrollLeft = newScrollPos.x;
+    containerDiv.scrollTop = newScrollPos.y;
   }
 
-  void zoomIn() {
-    setScale(scale * 2);
+  void zoomIn([Point<int> centerAt]) {
+    setScale(scale + 25, centerAt);
   }
 
-  void zoomOut() {
-    setScale(scale ~/ 2);
+  void zoomOut([Point<int> centerAt]) {
+    setScale(scale - 25, centerAt);
   }
 
   void fitToViewport() {
@@ -418,13 +439,25 @@ class PageStageComponent implements AfterViewInit, OnDestroy {
       width = height * ratio;
       scale = (containerDiv.clientHeight / page.height * 100).toInt();
     }
-    // TODO
     setScale(scale);
   }
 
   void restoreScale() => scale = 100;
 
   String get scaleCss => 'scale(${scale / 100})';
+
+  void onWheel(WheelEvent event) {
+    if (event.ctrlKey) {
+      var point = (event.client - containerDiv.getBoundingClientRect().topLeft);
+      point = Point<int>(point.x.toInt(), point.y.toInt());
+      if (event.deltaY > 0) {
+        zoomOut(point);
+      } else if (event.deltaY < 0) {
+        zoomIn(point);
+      }
+      event.preventDefault();
+    }
+  }
 
   void sizer(String where) {
     switch (where) {
@@ -454,6 +487,8 @@ class PageStageComponent implements AfterViewInit, OnDestroy {
         break;
     }
   }
+
+  bool showAdd = true;
 }
 
 class PageItemSelectionEvent {
@@ -469,4 +504,12 @@ int modn(int q, int d) {
   int gap = q ~/ d;
   gap += mod ~/ d;
   return gap;
+}
+
+Point<int> getOffsetFrom(Element descendant, Element from) {
+  var offset = Point<int>(0, 0);
+  for (Element parent = descendant; parent != from; parent = parent.parent) {
+    offset += Point<int>(parent.offsetLeft, parent.offsetTop);
+  }
+  return offset;
 }

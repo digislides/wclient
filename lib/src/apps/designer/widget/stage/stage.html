@@ -1,4 +1,25 @@
-<div #container class="container" tabindex="0" (keydown)="onKeyPress($event)"
+<div class="tool-bar">
+    <div class="tool-section left">
+        <div class="tool-btn tool-item"></div>
+    </div>
+    <div class="tool-section middle">
+        <div class="tool-btn tool-item fit-viewport" (click)="fitToViewport()" title="Fit (ctrl space)"></div>
+        <div class="tool-btn tool-item zoom-out" (click)="zoomOut()" title="Zoom out (ctrl +)"></div>
+        <div class="tool-item">
+            <input class="scale-display" tjNum [bind]="scale" (bind)="setScale" title="Scale"/>
+            <span style="margin-left: 2px">%</span>
+        </div>
+        <div class="tool-btn tool-item zoom-in" (click)="zoomIn()" title="Zoom in (ctrl -)"></div>
+        <div class="tool-btn tool-item restore-scale" (click)="restoreScale()" title="Original size"></div>
+    </div>
+    <div class="tool-section right">
+        <div class="tool-btn tool-item add-item" [class.active]="showAdd" (click)="showAdd = !showAdd" title="Toggle Add items menu" style="position: relative">
+        </div>
+        <add-item-window *ngIf="showAdd" (click)="$event.stopPropagation()"></add-item-window>
+    </div>
+</div>
+
+<div #container class="container" tabindex="0" (keydown)="onKeyPress($event)" (wheel)="onWheel"
      (click)="stageClick($event)" (mousemove)="onMouseMove" (mouseleave)="onMouseLeave"
         >
     <div #viewport class="viewport"
@@ -56,23 +77,5 @@
                 </template>
             <!--</div>-->
         </div>
-    </div>
-</div>
-
-<div class="tool-bar">
-    <div class="tool-section left">
-        <div class="tool-btn tool-item"></div>
-    </div>
-    <div class="tool-section middle">
-        <div class="tool-btn tool-item fit-viewport" (click)="fitToViewport()" title="Fit (ctrl space)"></div>
-        <div class="tool-btn tool-item zoom-out" (click)="zoomOut()" title="Zoom out (ctrl +)"></div>
-        <div class="tool-item">
-            <input class="scale-display" tjNum [bind]="scale" (bind)="setScale" title="Scale"/>
-            <span style="margin-left: 2px">%</span>
-        </div>
-        <div class="tool-btn tool-item zoom-in" (click)="zoomIn()" title="Zoom in (ctrl -)"></div>
-        <div class="tool-btn tool-item restore-scale" (click)="restoreScale()" title="Original size"></div>
-    </div>
-    <div class="tool-section right">
     </div>
 </div>

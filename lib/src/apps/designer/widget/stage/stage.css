@@ -12,7 +12,7 @@
 .container {
   display: block;
   width: 100%;
-  height: calc(100% - 34px);
+  height: calc(100% - 42px);
   overflow: auto;
   background-color: gainsboro;
 }
@@ -94,12 +94,13 @@
 
 .tool-bar {
     width: 100%;
-    height: 24px;
-    padding: 5px 0px;
-    background-color: rgba(0, 0, 0, 0.7);
+    height: 42px;
+    padding: 5px 15px;
+    background-color: rgba(0,0,0,0.7);
     display: flex;
     justify-content: space-between;
     color: white;
+    box-sizing: border-box;
 }
 
 .tool-bar .tool-section {
@@ -107,30 +108,39 @@
     width: auto;
     height: 100%;
     margin: 0px 5px;
+    align-items: center;
 }
 
 .tool-bar .tool-btn {
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
     cursor: pointer;
-    background-size: 80%;
+    background-size: 70%;
     background-repeat: no-repeat;
     background-position: center;
     transition: background-size 0.1s;
+    border-radius: 3px;
 }
 
 .tool-bar .tool-btn:hover {
-    background-size: 90%;
 }
 
 .tool-bar .tool-btn:active {
-    background-size: 70%;
+    background-color: #797979;
+}
+
+.tool-bar .tool-btn.active {
+    background-color: #797979;
 }
 
 .tool-bar .tool-item {
     margin: 0px 5px;
     display: flex;
     align-items: center;
+}
+
+.tool-bar > .right {
+    position: relative;
 }
 
 .scale-display {
@@ -178,4 +188,20 @@
 
 .restore-scale {
     background-image: url(/packages/wclient/src/utils/icons/designer/zoom/noscale.svg);
+}
+
+.add-item {
+    background-image: url(/packages/wclient/src/utils/icons/designer/item_add/add.svg);
+}
+
+add-item-window {
+    position: absolute;
+    right: 5px;
+    top: calc(100% + 8px);
+    border-radius: 5px;
+    border-top-right-radius: 0px;
+    box-shadow: 1px 1px 3px 1px #8c8c8c70;
+    cursor: default;
+    /*width: 200px;
+    height: calc(100vh - 100px);*/
 }
