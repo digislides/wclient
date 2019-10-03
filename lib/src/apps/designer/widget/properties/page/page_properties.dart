@@ -43,49 +43,4 @@ class PagePropertiesComponent {
   bool showSchedule = false;
 
   PagePropertiesComponent();
-
-  void add(String type) {
-    switch (type) {
-      case 'text':
-        final item = TextItem();
-        page.addNewItem(item);
-        _itemAddCntr.add(item);
-        break;
-      case 'image':
-        final item = ImageItem();
-        page.addNewItem(item);
-        _itemAddCntr.add(item);
-        break;
-      case 'video':
-        final item = VideoItem();
-        page.addNewItem(item);
-        _itemAddCntr.add(item);
-        break;
-      case 'clock':
-        final item = ClockItem();
-        page.addNewItem(item);
-        _itemAddCntr.add(item);
-        break;
-      case 'weather':
-        final item = WeatherItem();
-        page.addNewItem(item);
-        _itemAddCntr.add(item);
-        break;
-      case 'widget':
-        final item = WidgetItem();
-        page.addNewItem(item);
-        _itemAddCntr.add(item);
-        break;
-      case 'scroller':
-        final item = ScrollerItem();
-        page.addNewItem(item);
-        _itemAddCntr.add(item);
-        break;
-    }
-  }
-
-  final _itemAddCntr = StreamController<PageItem>();
-
-  @Output()
-  Stream get onItemAdd => _itemAddCntr.stream;
 }

@@ -489,6 +489,13 @@ class PageStageComponent implements AfterViewInit, OnDestroy {
   }
 
   bool showAdd = true;
+
+  void addItem(PageItem item) {
+    page.addNewItem(item);
+    selected.clear();
+    selected[item.id] = item;
+    _updateSelectedRect();
+  }
 }
 
 class PageItemSelectionEvent {

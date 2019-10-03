@@ -15,7 +15,7 @@
     <div class="tool-section right">
         <div class="tool-btn tool-item add-item" [class.active]="showAdd" (click)="showAdd = !showAdd" title="Toggle Add items menu" style="position: relative">
         </div>
-        <add-item-window *ngIf="showAdd" (click)="$event.stopPropagation()"></add-item-window>
+        <add-item-window *ngIf="showAdd" (click)="$event.stopPropagation()" (action)="addItem($event)"></add-item-window>
     </div>
 </div>
 

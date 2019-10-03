@@ -8,7 +8,7 @@
     <div class="tab">
         <div class="tab-item" [class.selected]="selectedTab == 0">
             <template [ngIf]="selected.length == 0">
-                <page-properties [page]="page" (onItemAdd)="onItemAdd($event)"></page-properties>
+                <page-properties [page]="page"></page-properties>
             </template>
             <template [ngIf]="selected.length == 1">
                 <template [ngIf]="firstSelected.type == PageItemType.text">

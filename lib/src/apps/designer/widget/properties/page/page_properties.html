@@ -35,19 +35,6 @@
         <div class="label">Schedule</div>
         <div class="big-button" (click)="showSchedule = true">Edit</div>
     </div>
-
-    <div class="separator"></div>
-    <div class="section-title">Add items</div>
-
-    <div class="items-list">
-        <div class="button icon text-icon" (click)="add('text')"></div>
-        <div class="button icon image-icon" (click)="add('image')"></div>
-        <div class="button icon video-icon" (click)="add('video')"></div>
-        <div class="button icon clock-icon" (click)="add('clock')"></div>
-        <div class="button icon weather-icon" (click)="add('weather')"></div>
-        <div class="button icon widget-icon" (click)="add('widget')"></div>
-        <div class="button icon scroller-icon" (click)="add('scroller')"></div>
-    </div>
 </div>
 
 <page-scheduler *ngIf="showSchedule == true" [page]="page" (onClose)="showSchedule = false"></page-scheduler>
