@@ -24,7 +24,8 @@
         >
     <div #viewport class="viewport"
          [style.width.px]="page.width + holderWidth"
-         [style.height.px]="page.height + holderHeight" [style.transform]="scaleCss">
+         [style.height.px]="page.height + holderHeight" [style.transform]="scaleCss"
+            (contextmenu)="rightClick">
         <div #canvas class="canvas"
              [style.left.px]="holderWidth/2"
              [style.top.px]="holderHeight/2"
@@ -79,3 +80,5 @@
         </div>
     </div>
 </div>
+
+<page-context-menu *ngIf="contextMenuPos != null" [position]="contextMenuPos" (action)="contextMenuAction($event)" [hasSelection]="selected.isNotEmpty"></page-context-menu>

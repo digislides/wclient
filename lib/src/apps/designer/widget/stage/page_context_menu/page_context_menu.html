@@ -1,0 +1,22 @@
+<!--<div class="label">Add item</div>-->
+<div class="add-items">
+    <img class="add-item" src="/packages/wclient/src/utils/icons/designer/item_add/text.png" width="24" height="24" title="Add text" (click)="send('add-text')">
+    <img class="add-item" src="/packages/wclient/src/utils/icons/designer/item_add/image.png" width="24" height="24" title="Add image" (click)="send('add-image')">
+    <img class="add-item" src="/packages/wclient/src/utils/icons/designer/item_add/video.png" width="24" height="24" title="Add video" (click)="send('add-video')">
+</div>
+<div class="separator"></div>
+<!--<div class="label">Clipboard</div>-->
+<div class="add-items">
+    <img class="add-item" [class.disabled]="!hasSelection" src="/packages/wclient/src/utils/icons/designer/context_menu/cut.png" width="24" height="24" title="Cut" (click)="send('cut')">
+    <img class="add-item" [class.disabled]="!hasSelection" src="/packages/wclient/src/utils/icons/designer/context_menu/copy.png" width="24" height="24" title="Copy" (click)="send('copy')">
+    <img class="add-item" src="/packages/wclient/src/utils/icons/designer/context_menu/paste.png" width="24" height="24" title="Paste" (click)="send('paste')">
+    <img class="add-item" [class.disabled]="!hasSelection" src="/packages/wclient/src/utils/icons/designer/context_menu/duplicate.png" width="24" height="24" title="Duplicate" (click)="send('duplicate')">
+</div><div class="separator"></div>
+<!--<div class="label">Undo</div>-->
+<div class="add-items">
+    <img class="add-item" src="/packages/wclient/src/utils/icons/designer/context_menu/undo.png" width="24" height="24" title="Undo" (click)="send('undo')">
+    <img class="add-item" src="/packages/wclient/src/utils/icons/designer/context_menu/redo.png" width="24" height="24" title="Redo" (click)="send('redo')">
+</div>
+<div class="separator"></div>
+<div class="menu-item" (click)="send('select-all')">Select all</div>
+<div class="menu-item" (click)="send('select-none')">Deselect</div>

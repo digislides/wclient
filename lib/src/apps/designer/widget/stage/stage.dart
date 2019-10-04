@@ -1,13 +1,17 @@
+import 'dart:convert';
 import 'dart:math';
 import 'dart:html';
 import 'dart:async';
 
 import 'package:angular/angular.dart';
 import 'package:common/models.dart';
+import 'package:common/serializer/serializer.dart';
 import 'package:wclient/src/apps/designer/widget/stage/add_item_window/add_item_window.dart';
 import 'package:wclient/src/apps/designer/widget/stage/items/scroller_item/scroller_item.dart';
 import 'package:wclient/src/apps/designer/widget/stage/items/widget_item/widget_item.dart';
+import 'package:wclient/src/apps/designer/widget/stage/page_context_menu/page_context_menu.dart';
 import 'package:wclient/src/utils/directives/input_binder.dart';
+import 'package:wclient/src/utils/html/offset.dart';
 
 import 'items/text_item/text_item.dart';
 import 'items/image_item/image_item.dart';
@@ -34,6 +38,7 @@ class SelectionModifier {}
     WidgetItemComponent,
     ScrollerItemComponent,
     AddItemWindowComponent,
+    PageContextMenuComponent,
   ],
   exports: [
     PageItemType,
@@ -134,6 +139,10 @@ class PageStageComponent implements AfterViewInit, OnDestroy {
   }
 
   void onItemClick(MouseEvent event, PageItem item) {
+    if (contextMenuPos != null) {
+      return;
+    }
+
     _select(PageItemSelectionEvent(item, event.shiftKey));
   }
 
@@ -180,6 +189,11 @@ class PageStageComponent implements AfterViewInit, OnDestroy {
   }
 
   void stageClick(MouseEvent event) {
+    if (contextMenuPos != null) {
+      contextMenuPos = null;
+      return;
+    }
+
     final tar = event.target as Element;
     if (tar.classes.contains('viewport') ||
         tar.classes.contains('canvas') ||
@@ -216,6 +230,22 @@ class PageStageComponent implements AfterViewInit, OnDestroy {
       selected.clear();
       _updateSelectedRect();
       return;
+    }
+
+    if (event.keyCode == KeyCode.A && event.ctrlKey) {
+      event.preventDefault();
+      selected.clear();
+      for (PageItem item in page.items) {
+        selected[item.id] = item;
+      }
+      _updateSelectedRect();
+      return;
+    }
+
+    if (event.keyCode == KeyCode.Y && event.ctrlKey) {
+      // TODO
+    } else if (event.keyCode == KeyCode.Z && event.ctrlKey) {
+      // TODO
     }
 
     int factor = 5;
@@ -277,6 +307,7 @@ class PageStageComponent implements AfterViewInit, OnDestroy {
   Map<String, Point<int>> _moveStarts;
 
   void onMoveStart(MouseEvent e) {
+    if (contextMenuPos != null) return;
     if (e.buttons != 1) return;
 
     if (selected.isNotEmpty) {
@@ -357,6 +388,7 @@ class PageStageComponent implements AfterViewInit, OnDestroy {
   Map<String, Rectangle<int>> _hResizeStarts;
 
   void onHResizeStart(MouseEvent e) {
+    if (contextMenuPos != null) return;
     if (e.buttons != 1) return;
 
     if (selected.isNotEmpty) {
@@ -375,6 +407,7 @@ class PageStageComponent implements AfterViewInit, OnDestroy {
   Map<String, Rectangle<int>> _vResizeStarts;
 
   void onVResizeStart(MouseEvent e) {
+    if (contextMenuPos != null) return;
     if (e.buttons != 1) return;
 
     if (selected.isNotEmpty) {
@@ -392,8 +425,7 @@ class PageStageComponent implements AfterViewInit, OnDestroy {
 
   void setScale(int newScale, [Point<int> pivotAt]) {
     final oldScale = scale;
-    final oldScrollPos =
-        Point<int>(containerDiv.scrollLeft, containerDiv.scrollTop);
+    // final oldScrollPos = Point<int>(containerDiv.scrollLeft, containerDiv.scrollTop);
     if (pivotAt == null) {
       pivotAt = Point<int>(
           (containerDiv.offsetWidth ~/ 2), (containerDiv.offsetHeight ~/ 2));
@@ -490,11 +522,68 @@ class PageStageComponent implements AfterViewInit, OnDestroy {
 
   bool showAdd = true;
 
+  void contextMenuAction(String type) async {
+    switch (type) {
+      case 'add-text':
+        final item = TextItem(
+            left: _contextMenuActualPos.x, top: _contextMenuActualPos.y);
+        addItem(item);
+        break;
+      case 'add-image':
+        final item = ImageItem(
+            left: _contextMenuActualPos.x, top: _contextMenuActualPos.y);
+        addItem(item);
+        break;
+      case 'add-video':
+        final item = VideoItem(
+            left: _contextMenuActualPos.x, top: _contextMenuActualPos.y);
+        addItem(item);
+        break;
+      case 'copy':
+        final data = jsonEncode(
+            PageItemSerializer.serializer.toList(selected.values.toList()));
+        window.navigator.clipboard.writeText(data);
+        break;
+      case 'cut':
+        final data = jsonEncode(
+            PageItemSerializer.serializer.toList(selected.values.toList()));
+        window.navigator.clipboard.writeText(data);
+        for (PageItem item in selected.values) {
+          page.removeItem(item.id);
+        }
+        selected.clear();
+        _updateSelectedRect();
+        break;
+      case 'paste':
+        //final tobj = await window.navigator.clipboard.read();
+        final text = await window.navigator.clipboard.readText();
+        print(text);
+        break;
+    }
+
+    contextMenuPos = null;
+  }
+
   void addItem(PageItem item) {
     page.addNewItem(item);
     selected.clear();
     selected[item.id] = item;
     _updateSelectedRect();
+  }
+
+  Point<int> contextMenuPos;
+  Point<int> _contextMenuActualPos;
+
+  void rightClick(MouseEvent event) {
+    event.preventDefault();
+
+    final menuPos = event.client;
+    contextMenuPos = Point<int>(menuPos.x, menuPos.y);
+    _contextMenuActualPos = getOffsetFrom(
+            Point<int>(event.offset.x.toInt(), event.offset.y.toInt()),
+            event.target,
+            viewportDiv) -
+        Point<int>(50, 50);
   }
 }
 
@@ -511,12 +600,4 @@ int modn(int q, int d) {
   int gap = q ~/ d;
   gap += mod ~/ d;
   return gap;
-}
-
-Point<int> getOffsetFrom(Element descendant, Element from) {
-  var offset = Point<int>(0, 0);
-  for (Element parent = descendant; parent != from; parent = parent.parent) {
-    offset += Point<int>(parent.offsetLeft, parent.offsetTop);
-  }
-  return offset;
 }
