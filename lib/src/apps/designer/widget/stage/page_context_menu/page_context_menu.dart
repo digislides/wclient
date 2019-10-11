@@ -3,7 +3,6 @@ import 'dart:async';
 
 import 'package:angular/angular.dart';
 
-import 'package:common/models.dart';
 
 @Component(
   selector: 'page-context-menu',

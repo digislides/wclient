@@ -1,6 +1,5 @@
 import 'dart:html';
 import 'dart:async';
-import 'package:path/path.dart' as path;
 
 import 'package:jaguar_resty/jaguar_resty.dart';
 import 'package:angular/angular.dart';

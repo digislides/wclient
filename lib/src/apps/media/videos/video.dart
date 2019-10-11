@@ -3,6 +3,7 @@ import 'dart:html';
 import 'package:angular/angular.dart';
 import 'package:common/models.dart';
 import 'package:common/api/api.dart';
+import 'package:wclient/src/utils/directives/input_binder.dart';
 
 import 'info/info.dart';
 
@@ -14,6 +15,7 @@ import 'info/info.dart';
     NgFor,
     NgIf,
     VideoInfoComponent,
+    TextBinder,
   ],
   exports: [],
 )

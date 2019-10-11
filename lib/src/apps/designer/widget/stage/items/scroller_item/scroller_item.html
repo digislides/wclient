@@ -1,4 +1,4 @@
-<div class="holder">
+<div class="holder" [style.animation-duration.s]="item.duration">
     <template ngFor let-line [ngForOf]="item.lines" let-i="index">
         <span class="line" [style.margin-right.px]="item.gap">{{line}}</span>
         <template [ngIf]="item.separator.isNotEmpty">

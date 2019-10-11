@@ -26,3 +26,5 @@ dependency_overrides:
     path: ../../dart/angular_color_picker
   lib_colors:
     path: ../../dart/lib_colors
+  open_weather_api:
+    path: ../../dart/open_weather_map

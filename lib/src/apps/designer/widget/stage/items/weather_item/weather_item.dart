@@ -1,6 +1,9 @@
+import 'dart:async';
+import 'dart:convert';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:common/data/data_repo.dart';
 
 import 'package:common/models.dart';
 
@@ -13,16 +16,26 @@ import 'package:common/models.dart';
     NgIf,
     NgClass,
   ],
+  exports: [
+    WeatherIconType,
+  ],
 )
-class WeatherItemComponent {
-  @Input()
-  WeatherItem item;
+class WeatherItemComponent implements OnDestroy {
+  WeatherItem _item;
 
-  @ViewChild('holder')
-  DivElement holder;
+  @Input()
+  set item(WeatherItem item) {
+    _item = item;
+    _update(null);
+  }
+
+  WeatherItem get item => _item;
+
+  Timer _weatherUpdateTimer;
 
   WeatherItemComponent(HtmlElement root) {
-    // TODO
+    _weatherUpdateTimer =
+        _weatherUpdateTimer = Timer.periodic(Duration(minutes: 10), _update);
   }
 
   @HostBinding('style.left.px')
@@ -37,8 +50,24 @@ class WeatherItemComponent {
   @HostBinding('style.height.px')
   int get height => item.height;
 
-  // TODO background color
+  @HostBinding('style.color')
+  String get color => item.color;
 
   @HostBinding('class')
   String get classes => "page-item-weather";
+
+  Weather weather = dummyWeather;
+
+  void _update(_) {
+    print(item);
+    final info =
+        item.dataRepository.substitute(DataLink(['weather', item.place], {}));
+    if (info.isEmpty) return;
+    weather = Weather.serializer.fromMap(jsonDecode(info));
+  }
+
+  @override
+  void ngOnDestroy() {
+    _weatherUpdateTimer.cancel();
+  }
 }

@@ -15,7 +15,6 @@ import 'package:wclient/src/utils/components/clock.dart';
     NgFor,
     NgIf,
   ],
-  changeDetection: ChangeDetectionStrategy.CheckAlways,
 )
 class ClockItemComponent implements OnDestroy {
   ClockItem _item = ClockItem(

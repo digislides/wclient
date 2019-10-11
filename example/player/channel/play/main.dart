@@ -1,5 +1,4 @@
 import 'dart:html';
-import 'dart:convert';
 
 import 'package:jaguar_resty/jaguar_resty.dart';
 import 'package:http/browser_client.dart';

@@ -10,7 +10,6 @@ import '../edit/monitor_edit.dart';
 
 import 'package:common/models.dart';
 
-import 'package:common/api/api.dart';
 
 @Component(
   selector: 'monitor-comm',

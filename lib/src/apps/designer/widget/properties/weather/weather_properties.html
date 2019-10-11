@@ -13,23 +13,19 @@
     </div>
     <div class="row">
         <div class="label">Size</div>
-        <input type="number" class="input" tjText [bind]="item.size" (bind)="item.size = $event">
+        <size-prop class="value" [container]="page" [item]="item"></size-prop>
     </div>
     <color-prop class="value" label="color" [color]="item.color" (onChange)="item.color = $event"></color-prop>
     <div class="row">
+        <div class="label">Place</div>
+        <input class="input" tjText [bind]="item.place" (bind)="item.place = $event">
+    </div>
+    <!--<div class="row">
         <div class="label">Theme</div>
         <select class="input" tjSelect [value]="item.theme.label" (bind)="item.theme = WeatherTheme.map[$event]">
             <template ngFor let-label [ngForOf]="WeatherTheme.labels">
                 <option>{{label}}</option>
             </template>
         </select>
-    </div>
-    <div class="row">
-        <div class="label">Dummy</div>
-        <select class="input" tjSelect [value]="item.dummy.id" (bind)="item.dummy = WeatherIconType.values[$event]">
-            <template ngFor let-item [ngForOf]="WeatherIconType.values.values">
-                <option [value]="item.id">{{item.name}}</option>
-            </template>
-        </select>
-    </div>
+    </div>-->
 </div>

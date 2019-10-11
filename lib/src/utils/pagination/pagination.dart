@@ -1,5 +1,3 @@
-import 'package:common/models.dart';
-
 class Paginated<M> {
   int page;
 

@@ -1,9 +1,30 @@
 :host {
     display: block;
     position: absolute;
+    overflow: hidden;
 }
 
-.icon {
-    width: 100%;
-    height: 100%;
+.main-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.weather-icon {
+    font-family: weathericons;
+}
+
+.temperature {
+    display: flex;
+}
+
+.extra-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.extra-info-item {
+    display: flex;
+    align-items: center;
 }

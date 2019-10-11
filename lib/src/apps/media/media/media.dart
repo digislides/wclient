@@ -1,8 +1,6 @@
-import 'dart:math';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
-import 'package:common/models.dart';
 
 import '../images/image.dart';
 import '../videos/video.dart';

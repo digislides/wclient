@@ -559,6 +559,17 @@ class PageStageComponent implements AfterViewInit, OnDestroy {
         final text = await window.navigator.clipboard.readText();
         print(text);
         break;
+      case 'select-all':
+        selected.clear();
+        for(PageItem item in page.items) {
+          selected[item.id] = item;
+        }
+        _updateSelectedRect();
+        break;
+      case 'select-none':
+        selected.clear();
+        _updateSelectedRect();
+        break;
     }
 
     contextMenuPos = null;
@@ -575,6 +586,8 @@ class PageStageComponent implements AfterViewInit, OnDestroy {
   Point<int> _contextMenuActualPos;
 
   void rightClick(MouseEvent event) {
+    if(event.ctrlKey) {return;}
+
     event.preventDefault();
 
     final menuPos = event.client;

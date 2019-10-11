@@ -1,3 +1,19 @@
-<div #holder class="icon" [ngClass]="[item.theme.css, item.dummy.css]" [style.background-color]="item.color">
+<div class="main-info" [style.font-size.px]="item.width * 0.3">
+    <div class="weather-icon" [style.margin-right.px]="item.width * 0.05">{{WeatherIconType.values[weather.condition.icon].char}}</div>
+    <div class="temperature">
+        <span>{{weather.temp}}</span>
+        <span class="unit" [style.font-size.px]="item.width * 0.1">°C</span>
+    </div>
 </div>
-<div></div>
+
+<div class="extra-info">
+    <div class="extra-info-item" [style.font-size.px]="item.width * 0.05"
+         [style.margin-right.px]="item.width * 0.1">
+        <div class="weather-icon" [style.margin-right.px]="item.width * 0.02">&#xf021;</div>
+        <div>{{weather.wind.speed}} MPH</div>
+    </div>
+    <div class="extra-info-item" [style.font-size.px]="item.width * 0.05">
+        <div class="weather-icon" [style.margin-right.px]="item.width * 0.02">&#xf07a;</div>
+        <div>{{weather.humidity}}%</div>
+    </div>
+</div>
